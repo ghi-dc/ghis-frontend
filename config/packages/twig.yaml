@@ -1,0 +1,11 @@
+twig:
+    # default
+    default_path: '%kernel.project_dir%/templates'
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    exception_controller: null
+    # local tweaks
+    globals:
+        site_name: '%app.site.name%'
+        locales: "%app.supported_locales%"
+    form_themes: ['bootstrap_4_horizontal_layout.html.twig']

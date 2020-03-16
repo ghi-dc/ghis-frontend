@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">About the Project</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace><idno>
+                    <idno type="DTAID">ghis:about</idno>
+                    <idno type="DTADirName">about</idno>
+                    <idno type="shelfmark">ghis/900:about</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+			<div n="2" id="overview">				
+				<p>
+					<hi rendition="#i">German History Intersections</hi> is a source-based digital project that examines three broad topics – migration, knowledge and education, and Germanness – from 1500 to the present. By charting these topics across centuries, the project offers an alternative to traditional histories that focus on discrete historical periods. Taking a long view allows the project to better illustrate the interconnectedness of the chosen topics – migration, knowledge and education, and Germanness, it is clear, do not follow parallel or independent paths over the course of modern German history, but rather intersect at frequent points and in multiple ways. Organized by the German Historical Institute, Washington, DC, with significant support from the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy), the project is completely bilingual (English/German) and is geared toward North American, German, and global audiences. 
+				</p>
+			</div>
+			
+			<div n="2" id="modules-and-sources">
+			    <head>Modules and Sources </head>
+				<p>
+					The project uses digital media to bring together diverse historical sources in thought-provoking new ways. In terms of basic framework, the project is divided into three modules (migration, knowledge and education, and Germanness), each of which begins with an essay-length introduction to the given topic. Furthermore, each module includes approximately 100 primary-source documents in their original language (typically German) and in English translation, approximately 100 high-resolution images, and a small selection of audiovisual materials. All individual sources are accompanied by brief introductory texts and are tagged with keywords that highlight connections between modules.   
+				</p>
+			</div>
+
+			<div n="2" id="platform">
+				<head>Digital Platform and Design</head>
+				<p>
+					<hi rendition="#i">German History Intersections</hi> features a responsive, user-friendly interface designed by edelweiss* büro für grafik und design (Hamburg). The backend is based on the integration of eXist-db, an open-source XML-database, with Collective Access, an open-source collection management system. A Solr search engine offers optimal search and navigational functionality. Standardized administrative, descriptive and technical metadata, including granular source and rights information, enhances discoverability and supports long-term digital stewardship. The use of standard format such as TEI P5 (for primary-source texts and translations) and DOI (persistent identifications) further supports access and digital preservation. 
+				</p>
+			</div>
+		</body>
+    </text>
+</TEI>

@@ -1,0 +1,33 @@
+{% extends 'Base/base.html.twig' %}
+
+{% import 'Shared/resource.html.twig' as resource_helper %}
+
+{% block head %}
+    <style>
+        main.introduction {
+            background-image: url({{ app.request.basepath }}/volumes/{{ volume.getId(true) }}.jpg);
+        }
+    </style>
+{% endblock %}
+
+{% block maincontainer %}
+<main role="main" class="container-fluid introduction {{ volume.getId(true) }}">
+{% block body %}
+<div class="row top">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ resource_helper.breadcrumb(resource, navigation) }}
+            </div>
+        </div>
+        <div class="row">
+            <article class="content introduction col-md-10">
+                <h1>{{ resource.title }}</h1>
+                {{ html|raw }}
+            </article>
+        </div><!-- .row -->
+    </div>
+</div>
+{% endblock %}
+</main>
+{% endblock %}

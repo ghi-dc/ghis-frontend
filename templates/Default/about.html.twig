@@ -1,0 +1,17 @@
+{% extends 'Base/base.html.twig' %}
+
+{% import 'Shared/about.html.twig' as about %}
+
+{% block body %}
+    <div class="row">      
+        {{ about.sub_nav() }}
+
+        <div class="col-lg-10">           
+            <ul class="breadcrumb">
+                <li>{{ 'The Project'|trans }}</li>
+            </ul>
+
+            {{ html|raw }}
+        </div>
+    </div><!-- .row -->
+{% endblock %}

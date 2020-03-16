@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Bu3NOqN" resname="About the Project">
+        <source>About the Project</source>
+        <target>Über das Projekt</target>
+      </trans-unit>
+      <trans-unit id="WKvb3FQ" resname="The Project">
+        <source>The Project</source>
+        <target>Das Projekt</target>
+      </trans-unit>
+      <trans-unit id="uAHy7.o" resname="German Historical Institute Washington">
+        <source>German Historical Institute Washington</source>
+        <target>Deutsches Historisches Institut Washington</target>
+      </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>Kontakt</target>
+      </trans-unit>
+      <trans-unit id="0ZjtMNC" resname="Imprint">
+        <source>Imprint</source>
+        <target>Impressum</target>
+      </trans-unit>
+      <trans-unit id="PnE2WIq" resname="Data Protection">
+        <source>Data Protection</source>
+        <target>Datenschutz</target>
+      </trans-unit>
+      <trans-unit id="MzIQsMD" resname="Read on">
+        <source>Read on</source>
+        <target>Mehr</target>
+      </trans-unit>
+      <trans-unit id="fmGEfWH" resname="Topic">
+        <source>Topic</source>
+        <target>Thema</target>
+      </trans-unit>
+      <trans-unit id="VefNASG" resname="The Topics">
+        <source>The Topics</source>
+        <target>Die Themen</target>
+      </trans-unit>
+      <trans-unit id="nTyrK17" resname="Focus">
+        <source>Focus</source>
+        <target>Fokus</target>
+      </trans-unit>
+      <trans-unit id="ujXUZqV" resname="Sponsored by the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy)">
+        <source>Sponsored by the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy)</source>
+        <target>Gefördert durch das Deutsche Programm für transatlantische Begegnung aus dem ERP-Sondervermögen (Bundesministerium für Wirtschaft und Energie)</target>
+      </trans-unit>
+      <trans-unit id="GQg9B2V" resname="Editorial Working Groups">
+        <source>Editorial Working Groups</source>
+        <target>Redaktionelle Arbeitsgruppen</target>
+      </trans-unit>
+      <trans-unit id="Q3rqYqW" resname="Contents">
+        <source>Contents</source>
+        <target>Inhalt</target>
+      </trans-unit>
+      <trans-unit id="pQ3yOnj" resname="GHI Project Team">
+        <source>GHI Project Team</source>
+        <target>DHI Projektteam</target>
+      </trans-unit>
+      <trans-unit id="NOb68Vq" resname="Terms and Conditions">
+        <source>Terms and Conditions</source>
+        <target>Allgemeine Geschäftsbedingungen</target>
+      </trans-unit>
+      <trans-unit id="YK9xl59" resname="Conditions of Use">
+        <source>Conditions of Use</source>
+        <target>Nutzungsbedingungen</target>
+      </trans-unit>
+      <trans-unit id="tgU1C8A" resname="Introduction">
+        <source>Introduction</source>
+        <target>Einführung</target>
+      </trans-unit>
+      <trans-unit id="ScJmuqq" resname="Search">
+        <source>Search</source>
+        <target>Suche</target>
+      </trans-unit>
+      <trans-unit id="NOEIwIl" resname="Display">
+        <source>Display</source>
+        <target>Anzeige</target>
+      </trans-unit>
+      <trans-unit id="KDkdO8Z" resname="of">
+        <source>of</source>
+        <target>von</target>
+      </trans-unit>
+      <trans-unit id="0vcJo_1" resname="result.number_of_items">
+        <source>result.number_of_items</source>
+        <target>{count, plural,=0 {Keine Treffer} one {# Treffer} other {# Treffern}}</target>
+      </trans-unit>
+      <trans-unit id="DlcMpvq" resname="Source">
+        <source>Source</source>
+        <target>Quelle</target>
+      </trans-unit>
+      <trans-unit id="ECmhp6g" resname="Print View">
+        <source>Print View</source>
+        <target>Druckansicht</target>
+      </trans-unit>
+      <trans-unit id="VIwx9zH" resname="Chapter">
+        <source>Chapter</source>
+        <target>Kapitel</target>
+      </trans-unit>
+      <trans-unit id="EqUZtZu" resname="Recommended Citation">
+        <source>Recommended Citation</source>
+        <target>Empfohlene Zitation</target>
+      </trans-unit>
+      <trans-unit id="Qv5qm8K" resname="published in:">
+        <source>published in:</source>
+        <target>veröffentlicht in:</target>
+      </trans-unit>
+      <trans-unit id="cuQaao1" resname="F d, Y">
+        <source>F d, Y</source>
+        <target>d.m.Y</target>
+      </trans-unit>
+      <trans-unit id="i.25PK_" resname="Keywords">
+        <source>Keywords</source>
+        <target>Schlagworte</target>
+      </trans-unit>
+      <trans-unit id="wh1EB5D" resname="Filter Results">
+        <source>Filter Results</source>
+        <target>Ergebnisse filtern</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

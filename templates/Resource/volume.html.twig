@@ -1,0 +1,51 @@
+{% extends 'Base/base.html.twig' %}
+
+{% import 'Shared/resource.html.twig' as resource_helper %}
+
+{% block head %}
+    {{ resource_helper.volume_background(volume, 'main.volume') }}
+{% endblock %}
+
+{% block maincontainer %}
+<main role="main" class="container-fluid volume {{ volume.getId(true) }}">
+{% block body %}
+<div class="row top">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="breadcrumb"><li>{{ 'Topic'|trans }}</li></ul>
+                <h1>{{ volume.title }}</h1>
+                <p>
+                    {% for editorTag in volume.tagsByType('editor') %}{% if not loop.first %}, {% endif %}{{ editorTag.name }}{% endfor %}
+                </p>
+            </div>
+        </div><!-- .row -->
+        {% if introduction is not empty %}
+        <div class="row">
+            <div class="col indent">
+                <h2>{{ introduction.title }}</h2>
+                {{ introduction.note }}
+                <p><a class="btn btn-primary stretched-link" href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ introduction.dtaDirname }) }}">{{ 'Read on'|trans }}</a></p>
+            </div>
+        </div><!-- .row -->
+        {% endif %}
+        {% if sections is not empty %}
+        <div class="row">
+            <div class="col"><h2>{{ 'Contents'|trans }}</h2></div>
+        </div><!-- .row -->
+        <div class="row margin-top">
+            {% for section in sections %}
+                <div class="col-6 section d-flex flex-row">
+                    <div class="square"></div>
+                    <div class="label">
+                        <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ section.dtaDirname }) }}">{{ section.title }}</a></h4>                            
+                    </div>
+                </div>
+            {% endfor %}
+        </div><!-- .row -->
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+</main>
+{% endblock %}

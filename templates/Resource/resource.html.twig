@@ -1,0 +1,64 @@
+{% extends 'Base/base.html.twig' %}
+
+{% import 'Shared/resource.html.twig' as resource_helper %}
+
+{% block maincontainer %}
+<div id="main-wrapper" class="resource">
+    <main role="main" class="container">
+    {% block body %}
+    <div class="row">
+        <div class="container">
+            <div class="row article-wrapper">
+                <article class="col-md-10 content {{ volume.getId(true) }}">
+                    {{ resource_helper.breadcrumb(resource, navigation) }}
+                    <h1>{{ resource.title }}</h1>
+                    {{ html|raw }}
+                    
+                    <div class="accordion" id="bottom-information">
+                        <div class="card">
+                            <div class="card-header" id="headingCitation">
+                                <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseCitation" aria-expanded="false" aria-controls="collapseCitation">
+                                    {{ 'Recommended Citation'|trans }}
+                                </h2>
+                            </div>
+                            <div id="collapseCitation" class="collapse show" aria-labelledby="headingCitation" data-parent="#bottom-information">
+                                <div class="card-body">
+                                {{ resource.title }}, {{ 'published in:'|trans }} {{ site_name|trans({}, 'additional') }}, &lt;{{- resource_helper.citation_link(resource, volume) -}}&gt; [{{ 'now'|date('F d, Y'|trans) }}].
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if navigation.previous is not null or navigation.next is not null %}
+                    <div class="d-flex justify-content-between resource-navigation">
+                        <div class="p-2" style="padding-left: 0 !important">
+                            {% if navigation.previous is not null %}
+                            <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}">&lt; {{ navigation.previous.title }}</a>
+                            {% endif %}
+                        </div>
+                        <div class="p-2" style="text-align: right">
+                            {% if navigation.next is not null %}
+                            <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">{{ navigation.next.title }} &gt;</a>
+                            {% endif %}
+                        </div>
+                    </div><!-- .row -->
+                    {% endif %}
+                </article>
+                <aside class="col-md-2">
+                    {% set terms = resource.tagsByType('term') %}
+                    {% if terms|length > 0 %}
+                    <h4>{{ 'Keywords'|trans }}</h4>
+                    <ul class="tag-list">
+                    {% for term in terms %}
+                        <li><a href="{{ path('search', { 'filter' : { 'term': term.path } }) }}">{{ term.name }}</a></li>
+                    {% endfor %}                        
+                    </ul>
+                    {% endif %}
+                </aside>
+            </div><!-- .row -->
+        </div>
+    </div>
+    {% endblock %}
+    </main>
+</div><!-- #main-wrapper -->
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'Base/base.html.twig' %}
+
+{% import 'Shared/search.html.twig' as search_helper %}
+
+{% block maincontainer %}
+<div id="main-wrapper" class="resource">
+    <main role="main" class="container">
+    {% block body %}
+    <div class="row">
+        <div class="container">
+            <div class="row article-wrapper">
+                <div class="col-md-10 content">
+                    <ul class="breadcrumb">
+                        <li>
+                            {{ 'Search'|trans }}
+                        </li>
+                    </ul>
+                    <h1>{% if pagination is not null %}{{ 'Search'| trans }}{% else %}{{ 'Search'| trans }}{% endif %}</h1>
+
+                    <form action="{{ path('search') }}" method="post">
+                        <div class="input-group" style="max-width: 40rem">
+                            <input id="search-box" name="q" value="{{ meta.query }}" class="form-control" />
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-outline">{{ octicon("search", '') }}</button>
+                            </span>
+                        </div><!-- .input-group -->
+                    </form>
+                        
+                    {% if pagination is not null and meta is not empty %}
+                    <div class="summary">
+                        {{ 'Display'|trans }}:
+                            {% if pagination.totalItemCount < 2 %}{{ 'result.number_of_items'|trans({ 'count': pagination.totalItemCount}) }}
+                            {% else %}
+                                {% set paginationData = pagination.paginationData %}
+                                
+                                {{ paginationData.firstItemNumber }}{% if paginationData.lastItemNumber != paginationData.firstItemNumber %}-{{ paginationData.lastItemNumber }}{% endif %} {{ 'of'|trans }} {{ 'result.number_of_items'|trans({ 'count': pagination.totalItemCount}) }}
+                            {% endif %}
+                    </div>
+                
+                        {% for result in results %}
+                            {% set resource = result.entity %}
+                            <div class="search-entry {{ resource.volumeIdFromShelfmark }}">
+                            <a href="{{ resource_path(resource) }}">
+                                <h3 class="{{ resource.genre }}">{{ resource.title }}</h3>
+                            </a>
+                            <div class="path">
+                                in: {{ resource_breadcrumb(resource) }}                                
+                            </div>
+
+                            {% if highlighting is defined %}
+                                {% set highlightedDoc = highlighting.result(result.id) %}
+                                {% if highlightedDoc is not empty %}
+                                    <blockquote>
+                                    {% for field, highlight in highlightedDoc %}
+                                        {{ highlight|join('...')|raw }}<br/>
+                                    {% endfor %}
+                                    </blockquote>
+                                {% endif %}
+                            {% endif %}
+                            </div>
+            
+                            {% if loop.last %}
+                            {# display navigation #}
+                            <div class="navigation">
+                                {{ knp_pagination_render(pagination) }}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <aside class="col-md-2">
+                {% if meta.facet is defined and meta.facet is not empty %}
+                    <h2>{{ 'Filter Results'|trans }}</h2>
+                    {{ search_helper.display_facet(meta.facet, facets, pagination) }}
+                {% endif %}
+                </aside>
+            </div><!-- .row -->
+        </div>
+    </div>
+    {% endblock %}
+    </main>
+</div><!-- #main-wrapper -->
+{% endblock %}

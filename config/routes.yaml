@@ -1,0 +1,16 @@
+site:
+    resource: '../src/Controller/'
+    type: annotation
+    prefix:
+        en: '/en'
+        de: '/de'
+
+# catch-all after annotations so volume-slug can be used as toplevel path
+dynamic:
+    path:
+        de: /de/{path}
+        en: /en/{path}
+    requirements:
+        path: ".+"
+    controller: App\Controller\BaseController::dynamicAction
+ 

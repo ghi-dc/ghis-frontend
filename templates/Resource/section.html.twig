@@ -1,0 +1,64 @@
+{% extends 'Base/base.html.twig' %}
+
+{% import 'Shared/resource.html.twig' as resource_helper %}
+
+{% block head %}
+    {{ resource_helper.volume_background(volume, 'main.section') }}
+{% endblock %}
+
+{% block maincontainer %}
+<main role="main" class="container-fluid section {{ volume.getId(true) }}">
+{% block body %}
+<div class="row top">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="breadcrumb">
+                    <li><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></li>
+                    <li>{{ 'Chapter'|trans }} ({{ navigation.currentCount + 1 }}/{{ navigation.totalCount }})</li>
+                </ul>
+                <h1>{{ section.title }}</h1>
+            </div>
+        </div><!-- .row -->
+        {% if section.note is not empty %}
+        <div class="row margin-top">
+            <div class="col indent">
+                <h2>{{ 'Introduction'|trans }}</h2>
+                {{ section.note }}
+            </div>
+        </div><!-- .row -->
+        {% endif %}
+        {% if resources is not empty %}
+        <div class="row">
+            <div class="col"><h2>{{ 'Contents'|trans }}</h2></div>
+        </div><!-- .row -->
+        <ol class="row list-unstyled">
+            {% for resource in resources %}
+            <li class="col-md-6 col-lg-4 resource d-flex flex-row">
+                <div class="label">
+                    <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ resource.dtaDirname }) }}">{{ resource.title }}</a>
+                    <i class="icn icn-{{ resource.genre }}"></i>
+                </div>
+            </li>
+            {% endfor %}
+        </ol><!-- .row -->
+        {% endif %}
+        {% if navigation.previous is not null or navigation.next is not null %}
+        <ol class="row list-unstyled section-navigation">
+            <li class="col-md-6">
+                {% if navigation.previous is not null %}
+                <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}">&lt; {{ navigation.previous.title }}</a>
+                {% endif %}
+            </li>
+            <li class="col-md-6" style="text-align: right">
+                {% if navigation.next is not null %}
+                <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">{{ navigation.next.title }} &gt;</a>
+                {% endif %}
+            </li>
+        </ol><!-- .row -->
+        {% endif %}
+    </div><!-- container -->
+</div>
+{% endblock %}
+</main>
+{% endblock %}

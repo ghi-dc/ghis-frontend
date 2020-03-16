@@ -1,0 +1,8 @@
+scssphp:
+    enabled: true
+    autoUpdate: true
+    # site specific
+    assets:
+        "css/base.css":
+            src: "public/assets/scss/base.scss"
+            sourceMap: false

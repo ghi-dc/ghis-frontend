@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="WKvb3FQ" resname="The Project">
+        <source>The Project</source>
+        <target>The Project</target>
+      </trans-unit>
+      <trans-unit id="uAHy7.o" resname="German Historical Institute Washington">
+        <source>German Historical Institute Washington</source>
+        <target>German Historical Institute Washington</target>
+      </trans-unit>
+      <trans-unit id="ujXUZqV" resname="Sponsored by the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy)">
+        <source>Sponsored by the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy)</source>
+        <target>Sponsored by the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy)</target>
+      </trans-unit>
+      <trans-unit id="YK9xl59" resname="Conditions of Use">
+        <source>Conditions of Use</source>
+        <target>Conditions of Use</target>
+      </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="0ZjtMNC" resname="Imprint">
+        <source>Imprint</source>
+        <target>Imprint</target>
+      </trans-unit>
+      <trans-unit id="PnE2WIq" resname="Data Protection">
+        <source>Data Protection</source>
+        <target>Data Protection</target>
+      </trans-unit>
+      <trans-unit id="MzIQsMD" resname="Read on">
+        <source>Read on</source>
+        <target>Read on</target>
+      </trans-unit>
+      <trans-unit id="VefNASG" resname="The Topics">
+        <source>The Topics</source>
+        <target>The Topics</target>
+      </trans-unit>
+      <trans-unit id="nTyrK17" resname="Focus">
+        <source>Focus</source>
+        <target>Focus</target>
+      </trans-unit>
+      <trans-unit id="tgU1C8A" resname="Introduction">
+        <source>Introduction</source>
+        <target>Introduction</target>
+      </trans-unit>
+      <trans-unit id="Q3rqYqW" resname="Contents">
+        <source>Contents</source>
+        <target>Contents</target>
+      </trans-unit>
+      <trans-unit id="fmGEfWH" resname="Topic">
+        <source>Topic</source>
+        <target>Topic</target>
+      </trans-unit>
+      <trans-unit id="ScJmuqq" resname="Search">
+        <source>Search</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="NOEIwIl" resname="Display">
+        <source>Display</source>
+        <target>Display</target>
+      </trans-unit>
+      <trans-unit id="0vcJo_1" resname="result.number_of_items">
+        <source>result.number_of_items</source>
+        <target>{count, plural,=0 {No Results} one {# Result} other {# Results}}</target>
+      </trans-unit>
+      <trans-unit id="KDkdO8Z" resname="of">
+        <source>of</source>
+        <target>of</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

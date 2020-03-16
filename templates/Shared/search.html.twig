@@ -1,0 +1,46 @@
+{% macro display_facet(metaFacet, facets, pagination) %}
+    {% for key,facet in metaFacet %}
+        {% if facet is not empty %}
+        {% set collapsed = false %}
+        <h4 style="margin-top: 2em">{{ facets[key]['label']|trans({}, 'additional') }}</h4>
+        <ul class="facet list-unstyled">
+            {% for val,descr in facet %}
+                {% set active = pagination.params.filter[key] is defined and pagination.params.filter[key] == val %}
+                {% set params = {} %}
+                {% set filters = {} %}
+                {% for pagination_key,pagination_val in pagination.params %}
+                    {% if 'page' != pagination_key %}
+                        {% if 'filter' == pagination_key %}
+                            {% set filters = pagination.params.filter %}
+                        {% else %}
+                            {% set params = params|merge({ (pagination_key) : pagination_val }) %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if not active %}
+                    {% set filters = filters|merge({ (key) : val }) %}
+                {% else %}
+                    {% set filters = filters|remove_by_key(key) %}
+                {% endif %}
+
+                {#{ dump(filters)}#}
+                {% set params = params|merge({ 'filter' : filters }) %}
+
+                {% if descr.label is not empty %}
+            <li class="{% if active %}active{% elseif loop.index0 > 12 %}collapsed{% set collapsed = true %}{% endif %}">
+                <a href="{{ path(app.request.get('_route'), params) }}">
+                    {% if 'genre' == key %}{{ descr.label|trans({}, 'additional') }}{% else %}{{ descr.label }}{% endif %}
+                </a> ({{  descr.count }})
+            </li>
+                {% endif %}
+            {% endfor %}
+            {% if collapsed %}
+            <li>
+                <a href="#" class="glyphicon glyphicon-plus-sign" onclick="toggleMore($(this).closest('ul')); return false" title="{{ 'show more' }}"> </a>
+            </li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

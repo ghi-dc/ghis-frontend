@@ -1,0 +1,89 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block maincontainer %}
+<main role="main" class="container-fluid">
+{% block body %}
+<div class="row section color-inverse">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h3>{{ 'The Project'|trans }}</h3></div>
+            <div class="col-sm-9">
+                <p>
+                    {% if 'de' == app.request.locale %}
+                    <i>German History Intersections</i> ist ein quellenbasiertes digitales Projekt, das drei große Themenbereiche über den Zeitraum von 1500 bis zur Gegenwart untersucht – Migration, Wissen und Bildung sowie Deutschsein. Indem diese Themen über Jahrhunderte hinweg verfolgt werden, bietet das Projekt eine Alternative zur traditionellen Geschichtsschreibung, die sich auf einzelne historische Perioden konzentriert.
+                    {% else %}
+                    <i>German History Intersections</i> is a source-based digital project that examines three broad topics – migration, knowledge and education, and Germanness – from 1500 to the present. By charting these topics across centuries, the project offers an alternative to traditional histories that focus on discrete historical periods.
+                    {% endif %}
+                </p>
+                <p><a class="btn btn-primary stretched-link" href="{{ path('about') }}">{{ 'Read on'|trans }}</a></p>
+            </div>
+        </div><!-- .row -->
+    </div>
+</div>
+{% if volumes|length > 0 %}
+<div class="row section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h3>{{ 'The Topics'|trans }}</h3></div>
+            <div class="col-sm-9"></div>
+        </div><!-- .row -->
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+        {% for volume in volumes %}
+            <div class="flex-grow-1 volume-teaser" style="background-image: url({{ app.request.basepath }}/volumes/{{ volume.getId(true) }}.jpg)">
+                <div class="overlay">
+                    <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }} {{ octicon("chevron-right", '', 2) }}</a></h4>             
+                </div>
+            </div>
+        {% endfor %}
+        </div><!-- .row -->
+    </div>
+    <div class="container">
+        <div class="row volumes">
+        {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
+        {% for volume in volumes %}
+            <div class="col-sm-{{ numCols}}">
+                <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
+                {{ volume.note }}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+<div class="row">
+    <div class="container">
+        <div class="row focus">
+            <div class="col-sm-3">
+                <h3>{{ 'Focus'|trans }}</h3>
+                <img class="img-responsive" style="position: absolute; z-index: 1; width: 100%; padding-right: 24px;" src="{{ app.request.basepath }}/mockup/focus.png" alt="Handbuch für die Erkennung von Gesichtsausdrücken, DDR (1970)" />
+            </div>
+            <div class="col-sm-9">
+                <blockquote class="blockquote">
+                    <p>
+                Das Handbuch für die Erkennung von Gesichtsausdrücken ist ein
+wahrer Glücksfund und ein wirklich interessantes historisches
+Dokument, das es schafft, gleichzeitig Beklemmung und ein wenig
+Erheiterung auszulösen – wobei erstere überwiegt.
+Dieses Handbuch sollte den rund 160.000 Stasi-Funktionären, die
+das MfS 1988 zählte, helfen, die Gesichtsausdrücke von Menschen
+vor und während der Befragung zu analysieren.
+Ich habe diese Quelle ausgewählt, weil sie vermutlich der effektivste Arm
+innerstaatlicher Überwachung und Repression in der deutschen Geschichte war. Sie
+wurde beauftragt, eine „sozialistische Mentalität“ unter der ostdeutschen
+Bevölkerung zu schaffen und zu erhalten. Im Mittelpunkt dieser Bemühungen
+standen Verhaftungen und Verhöre.
+                    </p>
+                    <footer class="blockquote-footer">Christopher Neumaier, Historiker, Leibniz-Zentrum für Zeithistorische
+Forschung Potsdam<br />
+Mit-Autor des Moduls <a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Wissen und Bildung</a></footer>
+                </blockquote>
+            </div>
+        </div><!-- .row -->
+    </div>
+</div>
+
+{% endblock %}
+</main>
+{% endblock %}

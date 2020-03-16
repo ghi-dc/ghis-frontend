@@ -1,0 +1,42 @@
+{% macro breadcrumb(resource, navigation) %}
+    {% set volume = navigation.root %}
+    <div class="d-flex justify-content-between">
+        <ul class="breadcrumb p-2">
+            <li>
+                <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a>
+            </li>
+            {% if navigation.parent is not null and navigation.parent.id != navigation.root.id %}
+            <li>
+                <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.parent.dtaDirname }) }}">{{ navigation.parent.title }}</a>
+            </li>
+            {% endif %}
+            <li>
+                {% if 'introduction' == resource.genre %}
+                {{ 'Introduction'|trans }}
+                {% else %}
+                {{ 'Source'|trans }} ({{ navigation.currentCount + 1 }}/{{ navigation.totalCount }})
+                {% endif %}
+            </li>
+        </ul>
+        <div class="p-2"><a class="print-view" href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ resource.dtaDirname }) }}.pdf">{{ 'Print View'|trans }}</a></div>
+    </div>
+{% endmacro %}
+
+{% macro citation_link(resource, volume) %}
+    {%- apply spaceless %}
+        {% if resource.doi is not empty and not ('10.5072' in resource.doi) -%}
+            {% set url = 'https://dx.doi.org/' ~ resource.doi %}
+        {% else %}
+            {% set url = url('dynamic', { 'path' : volume.dtaDirname ~ '/' ~ resource.id }) %}
+        {% endif %}
+        <a href="{{ url }}">{{ url }}</a>    
+    {% endapply -%}
+{% endmacro %}
+
+{% macro volume_background(volume, css_selector) %}
+    <style>
+        {{ css_selector }} {
+            background-image: url({{ app.request.basepath }}/volumes/{{ volume.getId(true) }}.jpg);
+        }
+    </style>
+{% endmacro %}

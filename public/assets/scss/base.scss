@@ -1,0 +1,1118 @@
+$color-color-spot: #0F256E;
+$color-color-link: #276CEA;
+$color-body-text: #212529; // currently same as default in reboot
+
+$color-gray-light: #F4F4F4;
+$color-gray-dark: #616161;
+
+$color-volume-1: #5D349E;
+$color-volume-2: #00935d;
+$color-volume-3: rgb(240, 96, 14);
+
+$logo-width:    200px;
+$logo-outdent: 14px; /* corresponds with navbar padding-left: 1rem */
+$logo-indent-text: 53px - $logo-outdent;
+
+/*
+ * Google Fonts uses Lato 1. For version 2 switch to Adobe Typekit
+ *  https://fonts.adobe.com/fonts/lato
+ * or download a local copy from
+ *  http://www.latofonts.com/lato-free-fonts/
+ *
+ * If you want to tweak the @font-face settings, you might use something like
+ *  @import 'font/Lato';
+ * instead.
+ *
+ */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i&display=swap&subset=latin-ext');
+
+$font-stack-sans: 'Lato', Arial, "Arial Unicode MS", sans-serif;
+$font-stack-sans-combining: Arial, "Arial Unicode MS", sans-serif;
+
+@font-face {
+    font-family: 'ghi_icons_16';
+    src:  url('../fonts/ghi_icons_16.eot?7vfwjk');
+    src:  url('../fonts/ghi_icons_16.eot?7vfwjk#iefix') format('embedded-opentype'),
+        url('../fonts/ghi_icons_16.ttf?7vfwjk') format('truetype'),
+        url('../fonts/ghi_icons_16.woff?7vfwjk') format('woff'),
+        url('../fonts/ghi_icons_16.svg?7vfwjk#ghi_icons_16') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.icn {
+    font-family: 'ghi_icons_16';
+    font-size: 16px;
+    font-style: normal;
+    
+    &.icn-document::after {
+        content: "\E901";
+    }
+    
+    &.icn-image::after {
+        content: "\E902";
+    }
+}
+
+@mixin header-line-above($color) {
+    display: block;
+    content: ' ';
+    width: calc(50% - 15px);
+    margin-top: 2rem;
+    border-bottom: 1px solid $color;
+    margin-bottom: 1rem;
+}
+
+@mixin indent-text() {
+    @media only screen and (min-width: $screen-lg-min) {                            
+        padding-left: 20.666666%;
+
+        h1, h2 {
+            margin-left: -26%;
+        }
+    }
+}
+
+@mixin dta-styles {
+        /* .head  { text-align:center; font-size:1.2em; margin-top:1em }
+        .dta-head  { text-align:center; font-size:1.2em; margin-bottom:.5em } */
+
+        .fw-top          { text-align:center; margin-bottom:2em; color:#666 }
+        .fw-pageNum      { display:none }
+        .fw-bottom-sig   { margin-top:1em; font-size:.8em; color:#666 }
+        .fw-bottom-catch { text-align:right; margin-top:1em; margin-right:1em; font-size:.8em; color:#666 }
+
+        /* quote mess */
+        blockquote:before, blockquote:after, q:before, q:after {
+          /* see http://www.paulchaplin.com/blog/css-reset-and-quirky-quotes */
+          content:""; content:none;
+        }
+
+        /* place holders */
+        .ph, .phbl { color:#666 }
+        .phbl      { display:block; text-align:center }
+
+        .titlepage   { text-align:center }
+        .byline      { font-size:.9em; margin:1em 0 }
+        .dta-anzeige { color:#aaa }
+        .dedication  { padding-left:2em }
+
+        .footnote       { color:#333; font-size:.8em; margin-top:.5em; margin-left:1em }
+        .endnote        { color:#333; font-size:.8em; margin-top:.5em; margin-bottom:.5em }
+        .endnote-indent { text-indent:1em }
+        .fn-intext { vertical-align:super; font-size:.8em }
+        .fn-sign { vertical-align:super; font-size:.8em }
+
+        .dta-marginal {
+            display: block;
+            color: #666;
+        }
+        /* mpdf doesn't like combined classes, so put into separate rule */
+        .dta-marginal-left {
+            margin-left: -10px;
+        }
+
+        .dta-argument { text-align:center; font-size:.9em }
+
+        .dta-cb { font-size:.8em; color:#666; text-align:center; display:block; margin:5px }
+
+        .poem       { padding-left:2em; margin-bottom:1em }
+        .dta-salute { margin-top:1em; display:inline }
+        .speaker    { font-weight:bold }
+        .stage      { font-style:italic; font-size:.9em }
+        .stage .c   { font-style:italic; font-size:.9em }
+        div.stage   { margin-bottom:.5em }
+
+        div.dta-figure { /* font-size:.9em; */ margin-top:1rem; margin-bottom:0.8rem }
+        div.dta-figure p { margin-left:1em; display: block; }
+        .dta-figure img { margin-bottom:0.2rem }
+
+        .titlepart           { font-size:1em }
+        .titlepart-main      { margin-bottom:1em; font-size:1.6em }
+        .titlepart-volume    { font-size:1em }
+        .titlepart-edition   { font-size:1em }
+        .titlepart-copyright { font-size:1em }
+        .titlepart-desc      { font-size:1em }
+        .titlepart-sub       { font-size:1.3em; margin-bottom:.5em }
+
+        .docauthor { font-size:1em; margin-bottom:.5em }
+
+        .gap       { color:#666 }
+
+        /* dbu - remove
+        .dta-foreign { color:#666 }
+        .dta-foreign:before { content:"[" }
+        .dta-foreign:after { content:"]" }
+        */
+
+        .dta-corr { border-bottom:dotted 2px #97002d }
+        .dta-reg  { border-bottom:dotted 2px #2d9700 }
+        .dta-abbr { border-bottom:dotted 2px #002D97 }
+        .dta-supplied { color:#2D9700 }
+
+        /* dramae */
+        .dta-sp    { margin-bottom:1em }
+        .dta-in-sp { display:inline }
+        .dta-actor { float:right }
+
+        /* lb @n */
+        .dta-lb-n { float:right }
+
+        /* renditions inline */
+        .aq, span.dta-aq       { font-family:sans-serif }
+        .b, span.dta-b { font-weight:bold }
+        .blue, span.dta-blue     { color:blue }
+        .fr, span.dta-fr       { border:1px dotted silver }
+        .g, span.dta-g        { letter-spacing:0.125em }
+        .g:before, span.dta-g:before { content:''; margin-left:0.125em }
+        .g:after, span.dta-g:after  { content:''; margin-right:0em }
+        .i, span.dta-i { font-style:italic }
+        /*.in       { font-size:150% } */
+        .k, span.dta-k        { font-variant:small-caps }
+        .larger, span.dta-larger   { font-size:larger }
+        .red, span.dta-red      { color:red }
+        .s, span.dta-s        { text-decoration: line-through }
+        .smaller, span.dta-smaller  { font-size:smaller }
+        .sub, span.dta-sub      { vertical-align:sub; font-size:.7rem }
+        .sup, span.dta-sup      { vertical-align:super; font-size:.7rem }
+        .u, span.dta-u        { text-decoration:underline }
+        .uu, span.dta-uu       { border-bottom:double 3px #000 }
+
+        /* renditions block */
+        /* Note: mpdf ignores display:block, so xsl must be adjusted to generate div instead of span */
+        .dta-c, .c     { display:block; text-align:center }
+        .et    { display:block; margin-left:2em; text-indent:0 }
+        .et2   { display:block; margin-left:4em; text-indent:0 }
+        .et3   { display:block; margin-left:6em; text-indent:0 }
+        .dta-in-sp .et { display:inline; text-indent:2em }
+        .right, .dta-right { display:block; text-align:right }
+        .cw    { text-align:right }
+
+        /* cast lists */
+        table.dta-castgroup { border-collapse:collapse; border-spacing:0; margin:0; width:100% }
+        td.castitem         { border-right:1px solid #333; padding-right:10px; padding-left:0; padding-bottom:5px }
+        .castitem           { margin-bottom:5px }
+        td.roledesc         { vertical-align:middle; padding-left:5px }
+
+        /* tables */
+        .dta-table      { margin-top:0; /* margin-left:auto; margin-right:auto; */ background:#fff; border-collapse:collapse }
+        .dta-table td   { vertical-align:top; border:1px solid #ccc; padding:3px }
+        caption h1,
+        caption h2,
+        caption h3,
+        caption h4,
+        caption h5,
+        caption h6 { font-size:1em; white-space:nowrap; padding-bottom:5px }
+
+        /* lists */
+        /* ul.dta    { list-style-type:none; padding-left:2em }
+        ul.dta li { margin-bottom:3px }
+        .dta-bibl { font-size:.9em } */
+
+        .dta-columntext { white-space:normal }
+        .dta-columntext td { padding-left:10px; padding-right:2em }
+
+        table.list          { border-collapse:collapse; border-spacing:0; margin:0 }
+        td.item-right       { border-left:1px solid #333; padding-right:10px; padding-left:0; padding-bottom:5px; padding-left:2em }
+        td.item-left        { border-right:1px solid #333; padding-right:10px; padding-left:0; padding-bottom:5px; padding-left:2em }
+        td.dta-list-trailer { vertical-align:middle; padding-left:5px; text-indent:0 !important }
+        td.dta-list-head    { vertical-align:middle; padding-right:2em }
+        .dta-list           { padding-left:2em; margin-bottom:1em }
+        .dta-list-item      { text-indent:-1em; margin-bottom:.5em }
+        .dta-list-item-noindent { text-indent:0em; margin-bottom:.5em !important }
+        .dta-list-item table { text-indent:0em }
+        .dta-lg             { margin-bottom:1em }
+
+        /* all things brace ... */
+        .braced-base       { display:inline-block; vertical-align:middle; padding:0 5px 0 5px }
+        p .braced-base     { text-indent:0 !important }
+        .braced-left-right { border-left:1px solid #333; border-right:1px solid #333; margin-left:1em }
+        .braced-left       { border-left:1px solid #333; margin-left:1em }
+        .braced-right      { border-right:1px solid #333 }
+        .braced-base .dta-list-item { text-indent:0; margin-bottom:0 }
+
+        .dta-pb { color:#666; font-size:.9em }
+
+        /* .dta-p { text-indent:1em; margin:0px 0 }
+        p {
+          -webkit-margin-before: 0em;
+          -webkit-margin-after: 0em;
+          -webkit-margin-start: 0px;
+          -webkit-margin-end: 0px;
+        }
+        */
+
+        .dta-figure {
+            p.dta-p {
+                font-size: 14px;
+            }
+            img.image-responsive {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+}
+
+/* sticky footer, see https://gist.github.com/seyDoggy/e919a429b2459aedf509 */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    font-size: 14px;  /* use bootstrap 3 sizes: 14px instead of 16px */
+    color: $color-body-text;
+}
+
+body {
+    display: table;
+}
+
+main {
+    height: auto;
+    margin-bottom: 4rem;
+}
+
+footer {
+    display: table-row;
+    height: 1px;
+}
+
+/* general styles */
+
+body {
+    font-family: $font-stack-sans;
+
+    .combining-e {
+        font-family: $font-stack-sans-combining;
+        font-size: 95%;
+    }
+
+    a, a:hover {
+        color: $color-color-link;
+    }
+}
+
+ul#menu-volumes li {
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    a {
+        color: $color-color-spot;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &.volume-1 a:hover {
+        color: $color-volume-1;
+    }
+    &.volume-2 a:hover {
+        color: $color-volume-2;
+    }
+    &.volume-3 a:hover {
+        color: $color-volume-3;
+    }
+}
+
+body.volume-1 {
+    ul#menu-volumes li.volume-1 a {
+        color: $color-volume-1;        
+    }
+}
+body.volume-2 {
+    ul#menu-volumes li.volume-2 a {
+        color: $color-volume-2;        
+    }
+}
+body.volume-3 {
+    ul#menu-volumes li.volume-3 a {
+        color: $color-volume-3;        
+    }
+}
+
+ul#navbar-about-locale li {
+    text-transform: uppercase;
+    a {
+        color: $color-gray-dark;
+        &:hover {
+            color: $color-color-link;
+        }
+    }
+
+    &.current {
+        a, a:hover {
+            color: $color-color-link;
+        }
+    }
+
+}
+
+footer {
+    background-color: $color-gray-light;
+    .row {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    a {
+        color: $color-gray-dark;
+        &:hover {
+            color: $color-color-link;
+        }
+    }
+}
+
+.color-inverse {
+    color: white;
+    background-color: $color-color-spot;
+}
+
+
+/* == $grid-breakpoints
+ * see https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+ */
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+$screen-lg-max:              ($screen-xl-min - 1) !default;
+
+#logo {
+    width: $logo-width;
+    height: auto;
+    
+    @media (min-width: $screen-sm-min) {
+        margin-left: -14px; /* remove left navbar padding so it is aligned with container */
+    }
+}
+
+#logo-ghi {
+    margin-top: 0.4rem;
+    margin-left: $logo-indent-text;
+}
+
+/* adjust $container-max-widths
+@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    .container {
+        max-width: 720px + $logo-offset; // 720px is too wide for shifted -78px
+    }
+}
+
+@media only screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+    .container {
+        max-width: 960px + $logo-offset; // 960px is too wide for shifted -78px
+    }
+}
+
+@media only screen and (min-width: $screen-xl-min) {
+    .container {
+        max-width: 1140px + $logo-offset; // 1140px is too wide for shifted -78px
+    }
+}
+ */
+
+@media print {
+    /* http://drupal.stackexchange.com/a/59908*/
+    a[href]:after {
+        content: none;
+    }
+}
+
+/* general styles */
+main {
+    h1 {
+        margin-bottom: 1rem;
+        font-size: 2.375rem;
+        font-weight: bold;
+        line-height: 1.2;
+        color: $color-color-spot;
+        letter-spacing: 0.01em;        
+    }
+    
+    h2 {
+        text-transform: uppercase;
+        font-size: 1.75rem;    
+        font-weight: bold;
+        color: $color-color-spot;
+    }    
+}
+
+/* override bootstrap style */
+.breadcrumb {
+    background-color: inherit;
+    padding: 0;
+    &.p-2 {
+        padding-left: 0 !important;
+    }
+    li {
+        text-transform: uppercase;
+        color: $color-gray-dark;
+        font-size: 1rem;
+
+        &:not(:last-child):after {
+            margin-left: 0.3rem;
+            content: '/';
+            margin-right: 0.3rem;
+        }
+    }
+}
+
+a.print-view {
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: $color-gray-dark !important;
+    font-size: 1rem;
+    &::after {
+        background: url("../img/pdf.png") no-repeat;
+        background-size: contain;
+        background-position: center top;
+        content: "";
+        display: inline-block;
+        width: 15px;
+        height: 16px;
+        margin-left: 4px;
+    }
+}
+
+/* colored links */
+.volume-1 {
+    article a
+    {
+        color: $color-volume-1;    
+    }
+}
+.volume-2 {
+    article a
+    {
+        color: $color-volume-2;    
+    }
+}
+.volume-3 {
+    article a
+    {
+        color: $color-volume-3;    
+    }
+}
+
+/* route-specific styles */
+body.route-home {
+    main > .row > .container {
+        padding-left: $logo-indent-text + 15px; /* increase left padding in order to align below text */
+    }
+    
+    .row.section {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+                
+        .btn.btn-primary {
+            background-color: inherit;
+            border-radius: 0;
+            border: 1px solid white;
+            text-transform: uppercase;
+            min-width: 20rem;
+        }
+    }
+    
+    .row > .volume-teaser {
+        position: relative;
+        height: 215px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .overlay {
+            position: absolute;
+            padding: 16px;
+            height: 40%;
+            width: 100%;
+            bottom: 0;
+            background-color: gray;
+            background: rgba(0, 0, 0, 0.3); 
+            h4 {
+                font-weight: bold;
+                a {
+                    color: white;
+                    opacity: 1;
+                    .octicon {
+                        fill: white;
+                    }
+                }
+            }
+        }
+    }
+    
+    .row.volumes {
+        padding-top: 1rem;
+        h5 {
+            font-weight: bold;
+            font-size: 1rem;
+            display: inline;
+            &::after {
+                content: " \2014 "
+            }
+            a {
+                color: $color-color-spot;
+            }
+        }
+    }
+
+    .row.focus {
+        .col-sm-9 {
+            blockquote {
+                position: relative;
+                background-color: $color-gray-light;
+                margin-top: 3.6rem;
+                margin-left: -4rem;
+                padding-left: 6.5rem;
+                padding-top: 2rem;
+                padding-right: 1rem;
+
+                &::before {
+                    content: "\201C";
+                    color: $color-color-spot;
+                    font-size: 6rem;
+                    position: absolute;
+                    left: 4rem;
+                    top: -1rem;
+                }
+            }
+        }
+    }
+
+    h3 {
+        border-top: 1px solid;
+        padding-top: 1rem;
+        margin-bottom: 1.4rem;
+    }
+    
+    .row.color-inverse h3 {
+        color: white;
+    }
+}
+
+/* volume, section and introduction with background image */
+main.volume, main.section, main.introduction {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+   
+    .row.margin-top {
+        margin-top: 2rem;        
+    }
+
+    .row.top > .container {
+        margin-top: 10rem;
+        background-color: white;
+        border-top: 8px solid $color-color-spot;
+        padding-top: $logo-indent-text;
+        padding-left: $logo-indent-text + 15px;
+        padding-right: $logo-indent-text + 15px;
+    }
+    
+    .row .indent {
+        @include indent-text();
+    }
+    
+    .btn.btn-primary {
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: inherit;
+        border-radius: 0;
+        border: 1px solid $color-color-spot;
+        color: $color-color-spot;
+        font-weight: bold;
+    }
+    
+    &.volume-1 .row.top > .container {
+        border-top: 8px solid $color-volume-1;
+        
+        .btn.btn-primary {
+            border: 1px solid $color-volume-1;
+            color: $color-volume-1;
+        }
+        
+        a {
+            color: $color-volume-1;            
+        }
+    }
+
+    &.volume-2 .row.top > .container {
+        border-top: 8px solid $color-volume-2;
+
+        .btn.btn-primary {
+            border: 1px solid $color-volume-2;
+            color: $color-volume-2;
+        }
+        
+        a {
+            color: $color-volume-2;            
+        }
+    }
+        
+    &.volume-3 .row.top > .container {
+        border-top: 8px solid $color-volume-3;
+        
+        .btn.btn-primary {
+            border: 1px solid $color-volume-3;
+            color: $color-volume-3;
+        }
+        
+        a {
+            color: $color-volume-3;            
+        }
+    }
+
+    h1 {    
+        text-transform: uppercase;
+    }
+
+    h2 {
+        color: $color-color-spot;
+        
+        &::before {
+            @include header-line-above($color-color-spot);
+        }
+    }
+
+    .section, .resource {
+        margin-bottom: 2rem;
+        .square {
+            width: 8rem;
+            min-height: 8rem;
+            background-color: gray;
+            flex-shrink: 0;
+        }
+        .label {
+            min-height: 8rem;
+            background-color: $color-gray-light;
+            flex-grow: 1;
+            padding: 2rem;
+        }
+    }
+}
+
+main.section {
+    ol {
+        li.resource {
+            counter-increment: item;
+            display: block;
+            font-size: 1rem;
+
+            .label {
+                position: relative;
+                padding: 1rem;
+                padding-left: 45px;
+                &:before {
+                    content: counter(item)".";
+                    display: block;
+                    float: left;
+                    width: 24px;
+                    font-weight: bold;
+                    margin-left: -35px;
+                    text-align: center;                    
+                }
+                
+                .icn {
+                    position: absolute;
+                    bottom: 10px;
+                    left: 15px;
+                    color: #b6b6b6;
+                }
+            }
+        }
+    }
+    
+    ol.section-navigation {
+        // line above, see https://stackoverflow.com/a/46535160
+        position: relative;
+        &::after {
+            content: "";
+            display: block;
+            border-top: 1px solid $color-color-spot;
+            position: absolute;
+            top: -5px;
+            left: 15px;
+            right: 15px;
+        }
+    }
+
+}
+
+.volume-1 .label:before {
+    color: $color-volume-1;
+}
+
+.volume-2 .label:before {
+    color: $color-volume-2;
+}
+
+.volume-2 .card-header h2:hover {
+    color: $color-volume-2 !important;
+}
+
+
+.volume-3 .label:before {
+    color: $color-volume-3;
+}
+
+#main-wrapper.resource, #main-wrapp.search {
+    &::before {
+        content: '';
+        display: block;
+        height: 160px;
+        background-color: #f4f4f4;
+    }
+
+    background: linear-gradient(90deg, #fff, #fff 50%, #f4f4f4 50%, #f4f4f4);
+
+    main {
+        background-color: white;
+        margin-top: -124px;
+        margin-bottom: 0;
+
+        .article-wrapper {
+            background-color: #f4f4f4;
+        }
+
+        article, div.content {
+            padding-left: $logo-indent-text + 15px;
+            padding-top: $logo-indent-text + 15px;
+            /* padding-right: $logo-indent-text + 15px; */
+
+            background-color: white;
+
+            &.volume-1 {
+                border-top: 8px solid $color-volume-1;
+            }
+            &.volume-2 {
+                border-top: 8px solid $color-volume-2;
+            }
+            &.volume-3 {
+                border-top: 8px solid $color-volume-3;
+            }
+            
+            h2.source-description-head, h2.source-head {
+                margin: 0 0 .5rem 0;
+                padding-top: 1.5em;
+                font-size: 1rem;
+                letter-spacing: 0.05em;
+                position: relative;
+                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: calc(55.999999% - 15px);
+                    display: block;
+                    border-bottom: 1px solid $color-color-spot;                    
+                }
+            }
+            
+            h2.source-head {
+                margin-bottom: 2rem;
+            }
+            
+            .source-description {
+                padding-left: 22.888888%;
+                color: $color-gray-dark;
+                margin-bottom: 1.5rem;
+            }
+            
+            .source-citation {
+                margin-top: 1rem;
+                color: $color-gray-dark;                
+            }            
+           
+            @include dta-styles();
+            
+            img {
+                max-width: 100%;
+            }
+            
+            #bottom-information {
+                margin-top: 1rem;    
+            }
+            
+            .card {
+                border-left: none;
+                border-right: none;
+                
+                .card-header {
+                    padding-left: 0;
+                    background-color: inherit;
+                    h2 {
+                        position: relative;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        color: $color-gray-dark;
+                        font-size: 1rem;
+                          
+                        &::after {
+                            content: '';                            
+                            display: block;
+                            width: 12px;
+                            height: 12px;
+                            border: 4px solid #707070;
+                            border-top-width: 4px;
+                            border-right-width: 4px;
+                            border-bottom-width: 4px;
+                            border-left-width: 4px;                        
+                            border-width: 4px 4px 0 0;
+                            float: right;
+                            position: relative;
+
+                            // arrow up
+                            top: 0px;
+                            transform: rotate(135deg);
+                        }
+                        
+                        &[aria-expanded="true"]::after {
+                            // arrow down                        
+                            top: 4px;                            
+                            transform: rotate(-45deg);
+                        }
+                    }
+                }
+                
+                .card-body {
+                    padding-left: 22.888888%;                    
+                }
+            }
+            
+            .resource-navigation {
+                margin-top: 2rem;    
+                border-top: 1px solid $color-color-spot;
+                .p-2 {
+                    max-width: 50%;
+                }
+            }
+        }
+        
+        aside {
+            @media only screen and (min-width: $screen-lg-min) {
+                margin-top: 5rem;
+            }
+            
+            h4 {
+                font-size: 1rem;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: $color-color-spot;
+            }
+            
+            ul.tag-list {
+                list-style: none;
+                padding: .5em 0 0 0;
+                
+                li {
+                    display: inline-block;
+                    padding: .5em .9em .6em .9em;
+                    margin: 0 .25em .5em 0;
+                    background-color: #fff;                    
+                }
+            }
+        }
+    }
+}
+
+article {
+    ul#authors {
+        list-style: none;
+        padding-left: 0;
+        > li {
+            display: inline;                  
+            &:not(:last-child):after {
+                content: ', ';
+            }
+        }
+    }
+    
+    &.introduction { 
+        h2 {
+            &.source-description-head, &.source-head {
+                display: none;    
+            }
+            
+            text-transform: none;
+            color: $color-body-text;
+
+            &::before {
+                @include header-line-above($color-body-text);
+            }
+        }
+     
+        .article {
+            @include indent-text();
+        }
+  
+        .source-description {
+            margin-top: 4rem;
+        }
+    }    
+}
+
+.route-search {
+    input, button {
+        border: none;
+        border-radius: 0;
+        background-color: $color-gray-light;
+        &:focus {
+            background-color: $color-gray-light;
+            box-shadow: none;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;            
+        }
+    }
+    
+    .summary {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+    
+    .search-entry {
+        border-top: 1px solid #e4e4e4;
+        margin: 0 0 .5rem 0;
+        padding: 0 0 20px 30px;
+        a {
+            color: $color-body-text;
+            h3 {
+                margin: 1rem 0 .5rem 0;
+                font-size: 1.125rem;
+                font-weight: bold;
+                line-height: 1.2;
+                &::before {
+                    content: '';
+                    font-size: 16px;
+                    font-family: 'ghi_icons_16';
+                    font-size: 16px;
+                    font-weight: normal;
+                    color: #b6b6b6;
+                    display: block;
+                    float: left;
+                    margin-left: -30px;                
+                }
+                &.document::before {
+                    content: '\e901';
+                }
+                &.image::before {
+                    content: '\e902';
+                }
+            }
+        }
+        
+        &.volume-1 .path a.volume {
+           color: $color-volume-1; 
+        }
+        &.volume-2 .path a.volume {
+           color: $color-volume-2; 
+        }
+        &.volume-3 .path a.volume {
+           color: $color-volume-3; 
+        }
+    }
+    
+    aside {
+        h2 {
+          font-size: 1.125rem; 
+        }
+        li.active a {
+            font-weight: bold;
+        }
+    }
+}
+
+.route-about,
+.route-about-working-groups,
+.route-about-team,
+.route-terms
+{
+    #main-wrapper {
+        &::before {
+            content: '';
+            display: block;
+            height: 160px;
+            background-color: $color-color-spot;
+        }
+
+        main {
+            margin-top: -124px;
+            
+            > .row {
+                background-color: white;
+                padding-left: $logo-indent-text;
+                padding-top: $logo-indent-text;
+                
+                article, .article {
+                    @include indent-text();
+                    
+                    @include dta-styles();
+                }
+            }
+                 
+            h2 {
+                &.source-head {
+                    display: none;
+                }
+
+                position: relative;
+                margin-top: 2rem;
+                padding-top: 0.5rem;
+                
+                // font-weight: bold;
+                line-height: 1.2;
+                color: $color-color-spot;
+                text-transform: uppercase;
+                letter-spacing: 0.01em;
+                
+                &::before {
+                    width: calc(50% - 15px);
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    border-top: 1px solid $color-color-spot;
+               }
+            }
+            
+            h3 {
+              margin-top: 1rem;
+            }
+        
+            ul.sub-nav {
+                padding-left: 0;
+                
+                font-weight: bold;
+                li {
+                    margin-bottom: 0.75rem;
+                    
+                    a {
+                        display: block;
+                        padding-left: 7px;
+                        border-left: 3px solid transparent;
+                        transition: padding .35s ease;
+                    }
+                    
+                    &.current a, a:hover {
+                        border-left: 3px solid $color-color-link;
+                    }
+                }
+                
+                @media only screen and (max-width: $screen-lg-min - 1px) {                
+                    li {
+                        display: inline-block;
+                        margin: 0 1.5rem 0 0;
+                    }
+                }
+            }
+        }
+    }
+}

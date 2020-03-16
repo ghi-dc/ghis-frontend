@@ -1,0 +1,15 @@
+fs_solr:
+    endpoints:
+        ghis_de:
+            host: localhost
+            port: 8983
+            path: ""
+            core: ghis_de
+            timeout: 15
+        ghis_en:
+            host: localhost
+            port: 8983
+            path: ""
+            core: ghis_en
+            timeout: 15
+

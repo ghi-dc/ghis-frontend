@@ -1,0 +1,13 @@
+# APP_ENVIRONMENT is assumed to be 'dev' if not set
+#SetEnv APP_ENVIRONMENT prod
+#SetEnv APP_DEBUG true
+
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+
+    RewriteEngine On
+    # RewriteBase /ghis/ # if you use a non-root path
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
