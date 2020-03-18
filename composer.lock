@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "414def60eef3bd3f8a3eeca0e5f29339",
+    "content-hash": "1f077e7e2b28011ade5811aaee1212d4",
     "packages": [
         {
             "name": "armin/scssphp-bundle",
@@ -574,16 +574,16 @@
         },
         {
             "name": "edwinhoksberg/octicons-php",
-            "version": "1.0.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/EdwinHoksberg/octicons-php.git",
-                "reference": "77f04aa2ce9a27dd53b3ddc83ee409df02f7cc04"
+                "url": "https://github.com/burki/octicons-php.git",
+                "reference": "92733ee8861c242a010e3737aa1fcdf9745e643d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EdwinHoksberg/octicons-php/zipball/77f04aa2ce9a27dd53b3ddc83ee409df02f7cc04",
-                "reference": "77f04aa2ce9a27dd53b3ddc83ee409df02f7cc04",
+                "url": "https://api.github.com/repos/burki/octicons-php/zipball/92733ee8861c242a010e3737aa1fcdf9745e643d",
+                "reference": "92733ee8861c242a010e3737aa1fcdf9745e643d",
                 "shasum": ""
             },
             "require": {
@@ -604,7 +604,6 @@
                     "Octicons\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -621,7 +620,10 @@
                 "octicons",
                 "svg"
             ],
-            "time": "2020-01-15T09:22:40+00:00"
+            "support": {
+                "source": "https://github.com/burki/octicons-php/tree/master"
+            },
+            "time": "2020-02-25T18:18:48+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -7805,6 +7807,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "edwinhoksberg/octicons-php": 20,
         "maxgr0/solr-bundle": 20
     },
     "prefer-stable": false,
