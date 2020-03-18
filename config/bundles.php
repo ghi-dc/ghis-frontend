@@ -12,6 +12,6 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Armin\ScssphpBundle\ScssphpBundle::class => ['all' => true],
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
-    FS\SolrBundle\FSSolrBundle::class => ['all' => true],
     Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
+    FS\SolrBundle\FSSolrBundle::class => ['all' => true],
 ];

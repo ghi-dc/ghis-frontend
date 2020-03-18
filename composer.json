@@ -4,7 +4,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/boppy/SolrBundle.git"
+            "url": "https://github.com/burki/SolrBundle.git"
         }
     ],
     "require": {
@@ -18,7 +18,7 @@
         "knplabs/knp-paginator-bundle": "^5.1",
         "laminas/laminas-diactoros": "^2.2",
         "masterminds/html5": "^2.7",
-        "maxgr0/solr-bundle": "*",
+        "maxgr0/solr-bundle": "dev-master",
         "mpdf/mpdf": "^8.0",
         "nyholm/psr7": "^1.2",
         "picturae/oai-pmh": "0.5.20",

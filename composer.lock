@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7456187f0a0cd59d1a0b629b16aadfd",
+    "content-hash": "414def60eef3bd3f8a3eeca0e5f29339",
     "packages": [
         {
             "name": "armin/scssphp-bundle",
@@ -1265,17 +1265,17 @@
         },
         {
             "name": "maxgr0/solr-bundle",
-            "version": "v2.0.2",
+            "version": "dev-master",
             "target-dir": "FS/SolrBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/boppy/SolrBundle.git",
-                "reference": "93ba4bdf6cb8fa000f76a3cd8b4cb60eec3d3d0f"
+                "url": "https://github.com/burki/SolrBundle.git",
+                "reference": "1253576ece8f3dd2b381765fe7e2c676376e0fd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boppy/SolrBundle/zipball/93ba4bdf6cb8fa000f76a3cd8b4cb60eec3d3d0f",
-                "reference": "93ba4bdf6cb8fa000f76a3cd8b4cb60eec3d3d0f",
+                "url": "https://api.github.com/repos/burki/SolrBundle/zipball/1253576ece8f3dd2b381765fe7e2c676376e0fd0",
+                "reference": "1253576ece8f3dd2b381765fe7e2c676376e0fd0",
                 "shasum": ""
             },
             "require": {
@@ -1315,9 +1315,9 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/boppy/SolrBundle/tree/v2.0.2"
+                "source": "https://github.com/burki/SolrBundle/tree/master"
             },
-            "time": "2019-12-18T16:07:19+00:00"
+            "time": "2020-03-16T16:56:11+00:00"
         },
         {
             "name": "minimalcode/search",
@@ -7804,7 +7804,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "maxgr0/solr-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
