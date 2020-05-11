@@ -11,7 +11,7 @@
         {{ site_name|trans({}, 'additional') }}
         </title>
 
-
+        {% block style %}
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="{{ app.request.basepath }}/vendor/bootstrap-4.3.1-dist/css/bootstrap.min.css">
 
@@ -38,17 +38,12 @@
             }
         }
         </style>
+        {% endblock %}
+
         {% block head %}{% endblock %}
     </head>
 
     <body role="document" class="route-{{ app.request.get('_route') | replace({'_' : '-'}) }}">
-        {#<header>
-            <h1>
-                <a href="{{ path('home') }}">{{ site_name|trans({}, 'additional') }}</a><br />
-                <a href="{{ path('home') }}" style="font-size: 14px; font-weight: normal">{{ siteByline|trans }}</a></smaller>
-            </h1>
-        </header>#}
-
         {% block body %}{% endblock %}
     </body>
 </html>

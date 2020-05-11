@@ -2,7 +2,9 @@
 
 {#% import 'Base/helper.html.twig' as helper %#}
 
-{% block head %}
+{% block style %}
+    {{ parent() }}
+
     {# TODO: move to some shared style-sheet #}
     <style>
     @page {
@@ -11,10 +13,12 @@
         */
         margin-header: 10mm;
         margin-top: 22mm;
-        /*
         margin-left: 24mm;
         margin-right: 24mm;
-        margin-bottom: 32mm; */
+
+        /* increased from default by 5mm to fit on letter size */
+        margin-bottom: 23mm;
+        margin-footer: 15mm;
         odd-header-name: html_header;
         even-header-name: html_header;
         odd-footer-name: html_footer;
@@ -25,18 +29,14 @@
         border-bottom: 1px solid black;
     }
 
-    #author-line {
-        /*
-        line-height: 20px;
-        background: url(var:logo_top);
-        background-image-resize: 2;
-        */
+    #logo {
+        width: 100%;
         text-align: right;
         margin-bottom: 8px;
     }
 
     #authors {
-        display: none;
+        /* display: none; */
     }
 
     /* reset to bootstrap initials */
@@ -44,6 +44,13 @@
         /* font-size: 14px;
         line-height: 1.42857; */
     }
+
+    {% if 'introduction' == resource.genre %}
+    /* omit Source/Quelle heading */
+    .source-head {
+        display: none;
+    }
+    {% endif %}
 
     /*
     h2 + br {
@@ -54,7 +61,7 @@
     */
 
     body {
-        font-family: pdffont; /* set this in parameters.yaml */
+        font-family: pdffont; /* set this in services.yaml */
     }
 
     body .combining-e {
@@ -138,11 +145,11 @@
         </div>
     </htmlpageheader>
     <htmlpageheader name="headerfirst" style="display:none">
-        <div id="author-line"><img src="var:logo_top" style="height: 2em" /></div>
+        <div id="logo"><img src="var:logo_top" style="height: 2em" /></div>
     </htmlpageheader>
 
     <htmlpagefooter name="footer" style="display:none">
-        <!-- currently no page-numbers, since these are manually place
+        <!-- currently no page-numbers, since these are manually placed
         <div style="text-align: right">{PAGENO}</div>
         -->
     </htmlpagefooter>
@@ -151,29 +158,33 @@
     <sethtmlpagefooter name="_blank" value="on" show-this-page="1" />
 
     <header>
-        <!--<h1 id="site-name">
+        <!--
+        <h1 id="site-name">
             {{ site_name|trans({}, 'additional') }}
-        </h1>-->
+        </h1>
+        -->
     </header>
 
-    {% if authors is defined and authors is not empty %}
-        <div class="author">
-            <!--<a href="#author">-->
-            {% for author in authors %}
-                {{ author.text }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-            <!--</a>-->
-        </div>
-    {% endif %}
-    <h1 id="title">{{ resource.title }}</h1>
+    <article>
+        <h1>{{ resource.title }}</h1>
+        {#% if authors is defined and authors is not empty %}
+            <div class="author">
+                <!--<a href="#author">-->
+                {% for author in authors %}
+                    {{ author.text }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                <!--</a>-->
+            </div>
+        {% endif %#}
 
-    {{ html|raw }}
+        {{ html|raw }}
+    </article>
 
     <div class="appendix">
-    {#{ helper.article_authors(authors) }}
+        {#{ helper.article_authors(authors) }}
 
-    {{ helper.article_citation(article, meta, authors, name) }}
+        {{ helper.article_citation(resource, meta, authors, name) }}
 
-    {{ helper.article_license(license) }#}
+        {{ helper.article_license(license) }#}
     </div>
 {% endblock %}

@@ -45,11 +45,11 @@ $font-stack-sans-combining: Arial, "Arial Unicode MS", sans-serif;
     font-family: 'ghi_icons_16';
     font-size: 16px;
     font-style: normal;
-    
+
     &.icn-document::after {
         content: "\E901";
     }
-    
+
     &.icn-image::after {
         content: "\E902";
     }
@@ -65,7 +65,7 @@ $font-stack-sans-combining: Arial, "Arial Unicode MS", sans-serif;
 }
 
 @mixin indent-text() {
-    @media only screen and (min-width: $screen-lg-min) {                            
+    @media only screen and (min-width: $screen-lg-min) {
         padding-left: 20.666666%;
 
         h1, h2 {
@@ -297,7 +297,7 @@ body {
 ul#menu-volumes li {
     font-weight: bold;
     text-transform: uppercase;
-    
+
     a {
         color: $color-color-spot;
         &:hover {
@@ -318,17 +318,17 @@ ul#menu-volumes li {
 
 body.volume-1 {
     ul#menu-volumes li.volume-1 a {
-        color: $color-volume-1;        
+        color: $color-volume-1;
     }
 }
 body.volume-2 {
     ul#menu-volumes li.volume-2 a {
-        color: $color-volume-2;        
+        color: $color-volume-2;
     }
 }
 body.volume-3 {
     ul#menu-volumes li.volume-3 a {
-        color: $color-volume-3;        
+        color: $color-volume-3;
     }
 }
 
@@ -386,7 +386,7 @@ $screen-lg-max:              ($screen-xl-min - 1) !default;
 #logo {
     width: $logo-width;
     height: auto;
-    
+
     @media (min-width: $screen-sm-min) {
         margin-left: -14px; /* remove left navbar padding so it is aligned with container */
     }
@@ -432,15 +432,15 @@ main {
         font-weight: bold;
         line-height: 1.2;
         color: $color-color-spot;
-        letter-spacing: 0.01em;        
+        letter-spacing: 0.01em;
     }
-    
+
     h2 {
         text-transform: uppercase;
-        font-size: 1.75rem;    
+        font-size: 1.75rem;
         font-weight: bold;
         color: $color-color-spot;
-    }    
+    }
 }
 
 /* override bootstrap style */
@@ -484,19 +484,19 @@ a.print-view {
 .volume-1 {
     article a
     {
-        color: $color-volume-1;    
+        color: $color-volume-1;
     }
 }
 .volume-2 {
     article a
     {
-        color: $color-volume-2;    
+        color: $color-volume-2;
     }
 }
 .volume-3 {
     article a
     {
-        color: $color-volume-3;    
+        color: $color-volume-3;
     }
 }
 
@@ -505,11 +505,11 @@ body.route-home {
     main > .row > .container {
         padding-left: $logo-indent-text + 15px; /* increase left padding in order to align below text */
     }
-    
+
     .row.section {
         padding-top: 3rem;
         padding-bottom: 2rem;
-                
+
         .btn.btn-primary {
             background-color: inherit;
             border-radius: 0;
@@ -518,7 +518,7 @@ body.route-home {
             min-width: 20rem;
         }
     }
-    
+
     .row > .volume-teaser {
         position: relative;
         height: 215px;
@@ -532,7 +532,7 @@ body.route-home {
             width: 100%;
             bottom: 0;
             background-color: gray;
-            background: rgba(0, 0, 0, 0.3); 
+            background: rgba(0, 0, 0, 0.3);
             h4 {
                 font-weight: bold;
                 a {
@@ -545,7 +545,7 @@ body.route-home {
             }
         }
     }
-    
+
     .row.volumes {
         padding-top: 1rem;
         h5 {
@@ -589,7 +589,7 @@ body.route-home {
         padding-top: 1rem;
         margin-bottom: 1.4rem;
     }
-    
+
     .row.color-inverse h3 {
         color: white;
     }
@@ -600,9 +600,9 @@ main.volume, main.section, main.introduction {
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center top;
-   
+
     .row.margin-top {
-        margin-top: 2rem;        
+        margin-top: 2rem;
     }
 
     .row.top > .container {
@@ -613,11 +613,11 @@ main.volume, main.section, main.introduction {
         padding-left: $logo-indent-text + 15px;
         padding-right: $logo-indent-text + 15px;
     }
-    
+
     .row .indent {
         @include indent-text();
     }
-    
+
     .btn.btn-primary {
         padding-top: 0;
         padding-bottom: 0;
@@ -627,17 +627,17 @@ main.volume, main.section, main.introduction {
         color: $color-color-spot;
         font-weight: bold;
     }
-    
+
     &.volume-1 .row.top > .container {
         border-top: 8px solid $color-volume-1;
-        
+
         .btn.btn-primary {
             border: 1px solid $color-volume-1;
             color: $color-volume-1;
         }
-        
+
         a {
-            color: $color-volume-1;            
+            color: $color-volume-1;
         }
     }
 
@@ -648,32 +648,32 @@ main.volume, main.section, main.introduction {
             border: 1px solid $color-volume-2;
             color: $color-volume-2;
         }
-        
+
         a {
-            color: $color-volume-2;            
+            color: $color-volume-2;
         }
     }
-        
+
     &.volume-3 .row.top > .container {
         border-top: 8px solid $color-volume-3;
-        
+
         .btn.btn-primary {
             border: 1px solid $color-volume-3;
             color: $color-volume-3;
         }
-        
+
         a {
-            color: $color-volume-3;            
+            color: $color-volume-3;
         }
     }
 
-    h1 {    
+    h1 {
         text-transform: uppercase;
     }
 
     h2 {
         color: $color-color-spot;
-        
+
         &::before {
             @include header-line-above($color-color-spot);
         }
@@ -714,9 +714,9 @@ main.section {
                     width: 24px;
                     font-weight: bold;
                     margin-left: -35px;
-                    text-align: center;                    
+                    text-align: center;
                 }
-                
+
                 .icn {
                     position: absolute;
                     bottom: 10px;
@@ -726,7 +726,7 @@ main.section {
             }
         }
     }
-    
+
     ol.section-navigation {
         // line above, see https://stackoverflow.com/a/46535160
         position: relative;
@@ -758,6 +758,10 @@ main.section {
 
 .volume-3 .label:before {
     color: $color-volume-3;
+}
+
+article, div.content {
+    @include dta-styles();
 }
 
 #main-wrapper.resource, #main-wrapp.search {
@@ -795,14 +799,14 @@ main.section {
             &.volume-3 {
                 border-top: 8px solid $color-volume-3;
             }
-            
+
             h2.source-description-head, h2.source-head {
                 margin: 0 0 .5rem 0;
                 padding-top: 1.5em;
                 font-size: 1rem;
                 letter-spacing: 0.05em;
                 position: relative;
-                
+
                 &::before {
                     content: '';
                     position: absolute;
@@ -810,39 +814,37 @@ main.section {
                     left: 0;
                     width: calc(55.999999% - 15px);
                     display: block;
-                    border-bottom: 1px solid $color-color-spot;                    
+                    border-bottom: 1px solid $color-color-spot;
                 }
             }
-            
+
             h2.source-head {
                 margin-bottom: 2rem;
             }
-            
+
             .source-description {
                 padding-left: 22.888888%;
                 color: $color-gray-dark;
                 margin-bottom: 1.5rem;
             }
-            
+
             .source-citation {
                 margin-top: 1rem;
-                color: $color-gray-dark;                
-            }            
-           
-            @include dta-styles();
-            
+                color: $color-gray-dark;
+            }
+
             img {
                 max-width: 100%;
             }
-            
+
             #bottom-information {
-                margin-top: 1rem;    
+                margin-top: 1rem;
             }
-            
+
             .card {
                 border-left: none;
                 border-right: none;
-                
+
                 .card-header {
                     padding-left: 0;
                     background-color: inherit;
@@ -852,9 +854,9 @@ main.section {
                         font-weight: bold;
                         color: $color-gray-dark;
                         font-size: 1rem;
-                          
+
                         &::after {
-                            content: '';                            
+                            content: '';
                             display: block;
                             width: 12px;
                             height: 12px;
@@ -862,7 +864,7 @@ main.section {
                             border-top-width: 4px;
                             border-right-width: 4px;
                             border-bottom-width: 4px;
-                            border-left-width: 4px;                        
+                            border-left-width: 4px;
                             border-width: 4px 4px 0 0;
                             float: right;
                             position: relative;
@@ -871,34 +873,34 @@ main.section {
                             top: 0px;
                             transform: rotate(135deg);
                         }
-                        
+
                         &[aria-expanded="true"]::after {
-                            // arrow down                        
-                            top: 4px;                            
+                            // arrow down
+                            top: 4px;
                             transform: rotate(-45deg);
                         }
                     }
                 }
-                
+
                 .card-body {
-                    padding-left: 22.888888%;                    
+                    padding-left: 22.888888%;
                 }
             }
-            
+
             .resource-navigation {
-                margin-top: 2rem;    
+                margin-top: 2rem;
                 border-top: 1px solid $color-color-spot;
                 .p-2 {
                     max-width: 50%;
                 }
             }
         }
-        
+
         aside {
             @media only screen and (min-width: $screen-lg-min) {
                 margin-top: 5rem;
             }
-            
+
             h4 {
                 font-size: 1rem;
                 letter-spacing: 0.05em;
@@ -906,16 +908,16 @@ main.section {
                 font-weight: bold;
                 color: $color-color-spot;
             }
-            
+
             ul.tag-list {
                 list-style: none;
                 padding: .5em 0 0 0;
-                
+
                 li {
                     display: inline-block;
                     padding: .5em .9em .6em .9em;
                     margin: 0 .25em .5em 0;
-                    background-color: #fff;                    
+                    background-color: #fff;
                 }
             }
         }
@@ -927,19 +929,19 @@ article {
         list-style: none;
         padding-left: 0;
         > li {
-            display: inline;                  
+            display: inline;
             &:not(:last-child):after {
                 content: ', ';
             }
         }
     }
-    
-    &.introduction { 
+
+    &.introduction {
         h2 {
             &.source-description-head, &.source-head {
-                display: none;    
+                display: none;
             }
-            
+
             text-transform: none;
             color: $color-body-text;
 
@@ -947,15 +949,15 @@ article {
                 @include header-line-above($color-body-text);
             }
         }
-     
+
         .article {
             @include indent-text();
         }
-  
+
         .source-description {
             margin-top: 4rem;
         }
-    }    
+    }
 }
 
 .route-search {
@@ -967,16 +969,16 @@ article {
             background-color: $color-gray-light;
             box-shadow: none;
             -moz-box-shadow: none;
-            -webkit-box-shadow: none;            
+            -webkit-box-shadow: none;
         }
     }
-    
+
     .summary {
         margin-top: 2rem;
         margin-bottom: 1rem;
         font-style: italic;
     }
-    
+
     .search-entry {
         border-top: 1px solid #e4e4e4;
         margin: 0 0 .5rem 0;
@@ -997,7 +999,7 @@ article {
                     color: #b6b6b6;
                     display: block;
                     float: left;
-                    margin-left: -30px;                
+                    margin-left: -30px;
                 }
                 &.document::before {
                     content: '\e901';
@@ -1007,21 +1009,21 @@ article {
                 }
             }
         }
-        
+
         &.volume-1 .path a.volume {
-           color: $color-volume-1; 
+           color: $color-volume-1;
         }
         &.volume-2 .path a.volume {
-           color: $color-volume-2; 
+           color: $color-volume-2;
         }
         &.volume-3 .path a.volume {
-           color: $color-volume-3; 
+           color: $color-volume-3;
         }
     }
-    
+
     aside {
         h2 {
-          font-size: 1.125rem; 
+          font-size: 1.125rem;
         }
         li.active a {
             font-weight: bold;
@@ -1044,19 +1046,19 @@ article {
 
         main {
             margin-top: -124px;
-            
+
             > .row {
                 background-color: white;
                 padding-left: $logo-indent-text;
                 padding-top: $logo-indent-text;
-                
+
                 article, .article {
                     @include indent-text();
-                    
+
                     @include dta-styles();
                 }
             }
-                 
+
             h2 {
                 &.source-head {
                     display: none;
@@ -1065,13 +1067,13 @@ article {
                 position: relative;
                 margin-top: 2rem;
                 padding-top: 0.5rem;
-                
+
                 // font-weight: bold;
                 line-height: 1.2;
                 color: $color-color-spot;
                 text-transform: uppercase;
                 letter-spacing: 0.01em;
-                
+
                 &::before {
                     width: calc(50% - 15px);
                     content: '';
@@ -1082,31 +1084,31 @@ article {
                     border-top: 1px solid $color-color-spot;
                }
             }
-            
+
             h3 {
               margin-top: 1rem;
             }
-        
+
             ul.sub-nav {
                 padding-left: 0;
-                
+
                 font-weight: bold;
                 li {
                     margin-bottom: 0.75rem;
-                    
+
                     a {
                         display: block;
                         padding-left: 7px;
                         border-left: 3px solid transparent;
                         transition: padding .35s ease;
                     }
-                    
+
                     &.current a, a:hover {
                         border-left: 3px solid $color-color-link;
                     }
                 }
-                
-                @media only screen and (max-width: $screen-lg-min - 1px) {                
+
+                @media only screen and (max-width: $screen-lg-min - 1px) {
                     li {
                         display: inline-block;
                         margin: 0 1.5rem 0 0;

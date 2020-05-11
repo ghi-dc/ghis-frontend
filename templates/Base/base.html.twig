@@ -67,7 +67,7 @@
                             {% endif %}
                             {% set route_params = route_params|merge(app.request.query.all) %}
                         {% endif %}
-                        <a href="{{ path(route, route_params|merge({"_locale": locale})) }}">{{ locale }}</a>
+                        <a href="{{ path(route, route_params|merge({'_locale': locale})) }}">{{ locale }}</a>
                     {% endif %}
                 </li>
                 {% endfor %}
