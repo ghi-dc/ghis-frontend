@@ -60,7 +60,7 @@ class MenuBuilder
         $menu->setChildrenAttributes([
             'class' => 'sub-nav list-unstyled',
         ]);
-        
+
         foreach ([
                 'about' => 'About the Project',
                 'about-working-groups' => 'Editorial Working Groups',
@@ -70,10 +70,10 @@ class MenuBuilder
         {
             $item = $menu->addChild($this->translator->trans($label), [
                 'route' => $route,
-                
+
             ]);
         }
-        
+
         return $menu;
     }
 }

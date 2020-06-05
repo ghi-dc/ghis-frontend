@@ -33,6 +33,7 @@ implements \JsonSerializable
     protected $title;
 
     protected $authors = [];
+    protected $editors = [];
     protected $translator;
     protected $responsible = [];
     protected $licence;
@@ -118,14 +119,29 @@ implements \JsonSerializable
         $entity->setId($article->uid);
         $entity->setTitle($article->name);
         $entity->setLanguage($article->language);
+
+        foreach ([ 'author', 'editor' ] as $key) {
+            if (!empty($article->$key)) {
+                $method = 'add' . ucfirst($key);
+
+                foreach ($article->$key as $related) {
+                    $entity->$method($related);
+                }
+            }
+        }
+
         $entity->setTranslator($article->translator);
+
         if (property_exists($article, 'slug')) {
             $entity->setDtaDirName($article->slug);
         }
+
         $entity->setShelfmark($article->shelfmark);
+
         if (property_exists($article, 'abstract')) {
             $entity->setNote($article->abstract);
         }
+
         $entity->setGenre($article->genre);
         $entity->setTerms($article->terms);
 
@@ -211,6 +227,24 @@ implements \JsonSerializable
     public function getAuthors()
     {
         return $this->authors;
+    }
+
+    /**
+     * Adds editor
+     */
+    public function addEditor($editor)
+    {
+        $this->editors[] = $editor;
+
+        return $this;
+    }
+
+    /**
+     * Gets editors
+     */
+    public function getEditors()
+    {
+        return $this->editors;
     }
 
     /**
@@ -559,7 +593,7 @@ implements \JsonSerializable
     public function setDtaDirName($DTADirName)
     {
         $this->slug = $DTADirName;
-        
+
         return $this->setIdno($DTADirName, 'DTADirName');
     }
 
@@ -569,10 +603,10 @@ implements \JsonSerializable
         if (empty($ret)) {
             $ret = $this->getId();
         }
-        
+
         return $ret;
     }
-    
+
     /**
      * Sets doi.
      *
@@ -587,13 +621,13 @@ implements \JsonSerializable
 
     /**
      * Gets doi.
-     * 
+     *
      * @return string
      */
     public function getDoi()
     {
         return $this->getIdno('DOI');
-    }    
+    }
 
     /**
      * Sets setting.

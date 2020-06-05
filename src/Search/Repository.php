@@ -9,7 +9,7 @@ use FS\SolrBundle\SolrInterface;
 class Repository extends \FS\SolrBundle\Repository\Repository
 {
     const MAX_ROWS = 100000;
-    
+
     /**
      * Custom constructor to adjust HydrationMode
      *
@@ -139,9 +139,9 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         $mappedFields = $query->getMappedFields();
         $mappedFields['*,score,[child parentFilter=id:' . $prefix . '*]'] = '_childDocuments_';
         $query->setMappedFields($mappedFields);
-        $query->addField('_childDocuments_');        
+        $query->addField('_childDocuments_');
     }
-    
+
     public function findOneByVolumeSlug($volume, $slug, $includeChildren = false)
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
@@ -162,7 +162,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
 
         return !empty($results) ? $results[0] : null;
     }
-    
+
     public function findOneByUid($uid, $includeChildren = false)
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
@@ -185,7 +185,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
 
         return !empty($results) ? $results[0] : null;
     }
-    
+
     public function hydrateDocument($document)
     {
         $mapper = $this->solr->getMapper();

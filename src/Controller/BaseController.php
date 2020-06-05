@@ -40,7 +40,7 @@ class BaseController extends AbstractController
         foreach ($volumes as $volume) {
             $slug = $volume->getDtaDirname();
             $shelfmarkParts = explode('/', $volume->getShelfmark());
-            
+
             if ($parts[0] == $slug) {
                 $method = 'App\Controller\ResourceController::volumeAction';
                 // don't use $volume directly in order to inject terms
@@ -48,21 +48,21 @@ class BaseController extends AbstractController
 
                 if (count($parts) > 1) {
                     $format = 'html';
-                    
+
                     $identifier = new ByteString($parts[1]);
                     if ($identifier->endsWith('.pdf')) {
                         $format = 'pdf';
                         $identifier = $identifier->replace('.pdf', '');
                     }
-                    
+
                     if ($identifier->startsWith($shelfmarkParts[0] . ':')) {
                         // uid instead of slug
                         $resource = $this->contentService->getResourceByUid((string)$identifier, true);
                     }
                     else {
-                        $resource = $this->contentService->getResourceBySlug($volume, (string)$identifier, true);                    
+                        $resource = $this->contentService->getResourceBySlug($volume, (string)$identifier, true);
                     }
-                    
+
                     if (!is_null($resource)) {
                         if (preg_match('/\-collection$/', $resource->getGenre())) {
                             $args['section'] = $resource;

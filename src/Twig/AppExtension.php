@@ -21,13 +21,13 @@ class AppExtension extends AbstractExtension
     {
         $this->contentService = $contentService;
         $this->urlGenerator = $urlGenerator;
-         
+
         $volumes = $this->contentService->getVolumes();
         foreach ($volumes as $volume) {
             $this->volumeById[$volume->getId(true)] = $volume;
         }
     }
-    
+
     public function getFilters()
     {
         return [
@@ -35,7 +35,7 @@ class AppExtension extends AbstractExtension
             new TwigFilter('remove_by_key', [ $this, 'removeElementByKey' ]),
         ];
     }
-    
+
     public function getFunctions()
     {
         return [
@@ -52,35 +52,35 @@ class AppExtension extends AbstractExtension
 
         return $array;
     }
-    
+
     public function buildResourcePath($resource)
     {
         $path = [];
-        
+
         $volumeId = $resource->getVolumeIdFromShelfmark();
-        
+
         if (array_key_exists($volumeId, $this->volumeById)) {
             $path[] = $this->volumeById[$volumeId]->getDtaDirname();
         }
-        
+
         $path[] = $resource->getDtaDirName();
-                
+
         return join('/', $path);
     }
 
     public function buildResourceBreadcrumb($resource)
     {
         $parts = [];
-        
+
         $volumeId = $resource->getVolumeIdFromShelfmark();
-        
+
         if (array_key_exists($volumeId, $this->volumeById)) {
             $volume = $this->volumeById[$volumeId];
             $parts[] = sprintf('<a href="%s" class="volume">%s</a>',
                                htmlspecialchars($this->urlGenerator->generate('dynamic', [ 'path' => $volume->getDtaDirName() ])),
                                $volume->getTitle());
         }
-        
+
         // TODO: section
 
         return join('/', $parts);

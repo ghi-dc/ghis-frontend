@@ -13,7 +13,7 @@ use App\Service\ContentService;
 class SearchController extends BaseController
 {
     const PAGE_SIZE = 25;
-    
+
     protected $facets = [
         'genre' => [
             'field' => 'genre_s',
@@ -24,19 +24,19 @@ class SearchController extends BaseController
             'label' => 'Keyword',
         ],
     ];
-    
+
     private $paginator;
-    
+
     public function __construct(ContentService $contentService,
                                 KernelInterface $kernel,
                                 \Knp\Component\Pager\PaginatorInterface $paginator,
                                 $dataDir)
     {
         parent::__construct($contentService, $kernel, $dataDir);
-        
+
         $this->paginator = $paginator;
     }
-    
+
     static function removeAccents($string) {
         if (!preg_match('/[\x80-\xff]/', $string)) {
             return $string;
@@ -153,7 +153,7 @@ class SearchController extends BaseController
         return strcoll(str_replace('.', 'Ω', mb_strtolower(self::removeAccents($a))),
                        str_replace('.', 'Ω', mb_strtolower(self::removeAccents($b))));
     }
-    
+
     protected function getQuery(Request $request, $facetNames = [])
     {
         $q = null; $filter = [];
@@ -166,7 +166,7 @@ class SearchController extends BaseController
             if (empty($q)) {
                 $q = null;
             }
-            
+
             $filter = $request->query->get('filter');
             if (!empty($filter)) {
                 // filter down to allowed facetNames as keys
@@ -181,7 +181,7 @@ class SearchController extends BaseController
 
         return [ $q, $filter ];
     }
-    
+
     public function createFacets($solrQuery, $filter = [])
     {
         // get the facetset component
@@ -193,7 +193,7 @@ class SearchController extends BaseController
                 // we handle term directly
                 continue;
             }
-            
+
             $field = array_key_exists('field', $descr)
                 ? $descr['field'] : $facetName . '_s'; // default is string fields
 
@@ -218,7 +218,7 @@ class SearchController extends BaseController
                 ;
         }
     }
-    
+
     protected function buildFacet($name, $facetResult)
     {
         switch ($name) {
@@ -274,7 +274,7 @@ class SearchController extends BaseController
 
         return $ret;
     }
-    
+
     protected function buildFilterQuery($field, $filter, $facetName)
     {
         switch ($facetName) {
@@ -282,14 +282,14 @@ class SearchController extends BaseController
                 return $field . ':' . $filter[$facetName];
         }
     }
-        
+
     protected function doQuery(Request $request, $q, $filter, $resultsPerPage)
     {
         // native query
         $meta = [
             'query' => $q,
         ];
-        
+
         if (is_null($q) && empty($filter)) {
             return [ null, $meta ];
         }
@@ -299,7 +299,7 @@ class SearchController extends BaseController
 
         $solrQuery = $solrClient->createSelect();
         $helper = $solrQuery->getHelper();
-        
+
         $solrQuery->addFilterQuery([
             'key' => 'entity_s',
             // 'query' => 'id:teifull_*',
@@ -377,22 +377,22 @@ class SearchController extends BaseController
 
         $results = [];
         $resultset = null;
-        
-        if (!is_null($pagination)) {            
+
+        if (!is_null($pagination)) {
             // prepare documents using the resultset iterator
             foreach ($pagination->getItems() as $document) {
                 // the documents are also iterable, to get all fields
                 foreach ($document as $field => $value) {
                     $result[$field] = $value;
                 }
-                
+
                 $result['entity'] = $this->contentService->hydrateDocument($document);
                 $results[$result['id']] = $result;
             }
 
             $resultset = $pagination->getCustomParameter('result');
         }
-              
+
         return $this->render('Search/index.html.twig', [
             'meta' => $meta,
             'facets' => $this->facets,

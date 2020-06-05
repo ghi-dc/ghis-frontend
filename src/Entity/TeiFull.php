@@ -71,16 +71,16 @@ extends TeiHeader
         return array_filter($this->tags,
                             function ($tag) use ($type) { return $type == $tag->getType(); });
     }
-    
+
     public function getVolumeIdFromShelfmark()
     {
         if (empty($this->shelfmark)) {
             return null;
         }
-        
+
         $shelfmarkParts = explode('/', $this->shelfmark);
         $volumeParts = explode(':', $shelfmarkParts[1]);
-        
+
         return $volumeParts[1];
     }
 

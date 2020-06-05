@@ -52,13 +52,13 @@ class ContentService
             $this->setSolrEndpoint($this->currentLocale = $locale);
         }
     }
-    
+
     public function getSolrClient($locale = null)
     {
         if (!is_null($locale)) {
-            $this->setLocale($locale);            
+            $this->setLocale($locale);
         }
-        
+
         return $this->solr->getClient();
     }
 
@@ -130,7 +130,7 @@ class ContentService
             ->findOneByVolumeSlug($volume, $slug, $includeChildren)
             ;
     }
-    
+
     /**
      * Build resource to resource navigation
      */
@@ -138,11 +138,11 @@ class ContentService
     {
         $previous = $next = $current = $parent = $root = null;
         $currentCount = $totalCount = -1;
-                
+
         switch ($resource->getGenre()) {
             case 'volume':
                 $volumes = $this->getVolumes();
-                
+
                 for ($i = 0; $i < ($totalCount = count($volumes)); $i++) {
                     if ($volumes[$i]->getId() == $resource->getId()) {
                         $currentCount = $i;
@@ -150,17 +150,17 @@ class ContentService
                         if ($i > 0) {
                             $previous = $volumes[$i - 1];
                         }
-                        
+
                         if ($i < $totalCount - 1) {
                             $next = $volumes[$i + 1];
                         }
-                        
+
                         break;
                     }
                 }
-                
+
                 break;
-            
+
             case 'document-collection':
             default:
                 $shelfmarkParts = explode('/', $resource->getShelfmark());
@@ -168,7 +168,7 @@ class ContentService
                 $sectionParts = count($shelfmarkParts) > 2
                     ? explode(':', $shelfmarkParts[2], 2)
                     : [];
-                
+
                 $volumes = $this->getVolumes();
                 foreach ($volumes as $volume) {
                     if ($volume->getId(true) == $volumeParts[1]) {
@@ -187,18 +187,18 @@ class ContentService
                                         $parent = $volume;
                                         $totalCount = count($sections);
                                         $currentCount = $i;
-                
+
                                         if ($i > 0) {
                                             $previous = $sections[$i - 1];
                                         }
-                                        
+
                                         if ($i < $totalCount - 1) {
                                             $next = $sections[$i + 1];
                                         }
-                                        
+
                                         break 2;
                                     }
-                                    
+
                                     $resources = $this->getResources($section = $sections[$i]);
                                     for ($j = 0; $j < count($resources); $j++) {
                                         if ($resources[$j]->getId(true) == $resource->getId(true)) {
@@ -206,11 +206,11 @@ class ContentService
                                             $parent = $section;
                                             $totalCount = count($resources);
                                             $currentCount = $j;
-                    
+
                                             if ($j > 0) {
                                                 $previous = $resources[$j - 1];
                                             }
-                                            
+
                                             if ($j < $totalCount - 1) {
                                                 $next = $resources[$j + 1];
                                             }
@@ -219,7 +219,7 @@ class ContentService
                                         }
                                     }
                                 }
-                            }                            
+                            }
                         }
                     }
                 }
@@ -231,7 +231,7 @@ class ContentService
             'parent' => $parent,
             'root' => $root,
             'totalCount' => $totalCount,
-            'currentCount' => $currentCount, 
+            'currentCount' => $currentCount,
         ];
     }
 
@@ -258,11 +258,11 @@ class ContentService
 
         return $ret;
     }
-    
+
     public function hydrateDocument($document)
     {
         return $this->getRepository(\App\Entity\TeiFull::class)
             ->hydrateDocument($document)
             ;
-    }    
+    }
 }

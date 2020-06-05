@@ -21,26 +21,26 @@ abstract class DocumentConverter
         $this->options = $options;
         $this->errors = [];
     }
-    
+
     public function setOption($name, $value)
     {
         $this->options[$name] = $value;
-        
+
         return $this;
     }
-    
+
     public function getOption($name)
     {
         return array_key_exists($name, $this->options)
             ? $this->options[$name]
             : null;
     }
-    
+
     public function getErrors()
     {
         return $this->errors;
     }
-    
+
     protected function saveToTmp($doc)
     {
         $tempFname = tempnam(sys_get_temp_dir(), 'TMP_');

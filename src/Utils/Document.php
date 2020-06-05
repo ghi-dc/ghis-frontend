@@ -22,33 +22,33 @@ abstract class Document
         $this->options = $options;
         $this->errors = [];
     }
-    
+
     public function setOption($name, $value)
     {
         $this->options[$name] = $value;
-        
+
         return $this;
     }
-    
+
     public function getOption($name)
     {
         return array_key_exists($name, $this->options)
             ? $this->options[$name]
             : null;
     }
-        
+
     public function getErrors()
     {
         return $this->errors;
     }
-    
+
     public function getMimeType()
     {
         return $this->mimeType;
     }
 
     abstract public function loadString($content);
-    
+
     /**
      * Naive implementation, override in implementation for better performance
      */
@@ -56,9 +56,9 @@ abstract class Document
     {
         $this->loadString(file_get_contents($fname));
     }
-    
+
     abstract public function saveString();
-    
+
     /**
      * Naive implementation, override in implementation for better performance
      */
@@ -66,7 +66,7 @@ abstract class Document
     {
         file_put_contents($fname, $this->saveString());
     }
-    
+
     /**
      * Magic wrapper for save()
      *
