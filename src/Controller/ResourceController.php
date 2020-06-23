@@ -1,6 +1,6 @@
 <?php
 
-// src/Controller/DefaultController.php
+// src/Controller/ResourceController.php
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
