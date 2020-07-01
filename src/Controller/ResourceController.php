@@ -99,7 +99,9 @@ class ResourceController extends BaseController
 
         $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
 
-        $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXsl, [
+        $fnameXslFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'styles', $fnameXsl ]);
+
+        $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXslFull, [
             'params' => [
                 'lang' => $resource->getLanguage(),
             ],
