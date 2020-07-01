@@ -7,7 +7,7 @@ parameters:
     # array/collection parameters
     app.supported_locales: ['en', 'de']
     app.site.name: German History Intersections
-    app.xsl_converter_adapter.class: App\Service\Xsl\XsltCommandlineAdapter
+    app.xsl_converter.saxonc_enable: "%env(bool:SAXONC_ENABLE)%"
     app.xsl_converter_adapter.arguments: "%env(string:JAVA_BIN)% -jar %kernel.project_dir%/data/styles/bin/saxon9he.jar -s:%%source%% -xsl:%%xsl%% %%additional%%"
 
     app.mpdf-converter.arguments:
@@ -75,13 +75,16 @@ services:
     # So we can inject @solarium.client_registry
     Nelmio\SolariumBundle\ClientRegistry: '@solarium.client_registry'
     
-    app.xsl_converter_adapter:
-        class: '%app.xsl_converter_adapter.class%'
+    app.xsl_converter.commandline_adapter:
+        class: App\Service\Xsl\XsltCommandlineAdapter
         arguments: [ '%app.xsl_converter_adapter.arguments%', { xslpath: '%kernel.project_dir%/data/styles' } ]
+
+    app.xsl_converter.saxonc_adapter:
+        class: App\Service\Xsl\XsltSaxonProcessorAdapter
     
     App\Service\Xsl\XsltProcessor:
         calls:
-            - [ setAdapter, [ '@app.xsl_converter_adapter' ]]
+            - [ setAdapter, [ "@= parameter('app.xsl_converter.saxonc_enable') ? service('app.xsl_converter.saxonc_adapter') : service('app.xsl_converter.commandline_adapter') " ]]
             
     App\Utils\MpdfConverter:
         arguments: [ "%app.mpdf-converter.arguments%" ]
@@ -89,6 +92,3 @@ services:
     Octicons\Twig\OcticonTwigExtension:
             tags: ['twig.runtime']
             
-    
-    
-    
