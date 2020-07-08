@@ -33,7 +33,7 @@
         {% for volume in volumes %}
             <div class="flex-grow-1 volume-teaser" style="background-image: url({{ app.request.basepath }}/volumes/{{ volume.getId(true) }}.jpg)">
                 <div class="overlay">
-                    <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }} {{ octicon("chevron-right", '', 2) }}</a></h4>             
+                    <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }} {{ octicon("chevron-right", '', 2) }}</a></h4>
                 </div>
             </div>
         {% endfor %}
@@ -43,7 +43,7 @@
         <div class="row volumes">
         {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
         {% for volume in volumes %}
-            <div class="col-sm-{{ numCols}}">
+            <div class="col-sm-{{ numCols}} hyphens-auto">
                 <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
                 {{ volume.note }}
             </div>

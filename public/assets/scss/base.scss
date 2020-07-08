@@ -280,7 +280,6 @@ footer {
 }
 
 /* general styles */
-
 body {
     font-family: $font-stack-sans;
 
@@ -292,6 +291,14 @@ body {
     a, a:hover {
         color: $color-color-link;
     }
+}
+
+/* see https://github.com/mnater/Hyphenopoly */
+.hyphens-auto {
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
 }
 
 ul#menu-volumes li {
