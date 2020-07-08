@@ -5,7 +5,7 @@ namespace App\Service\Xsl;
 /**
  * Requires http://www.saxonica.com/saxon-c/index.xml
  *
- * Note: Saxon/C EXT 1.1.0 showed memory leaks that
+ * Note: Saxon/C EXT 1.1.x showed memory leaks that
  * required Web-Server adjustments for php-fpm setting
  *  pm.max_requests =
  * to a low enough value.

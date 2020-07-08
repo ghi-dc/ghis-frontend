@@ -51,7 +51,9 @@ class XsltCommandlineAdapter
     protected function expandXslFilename($xslFilename)
     {
         if (array_key_exists('xslpath', $this->config)) {
-            return join(DIRECTORY_SEPARATOR, [ $this->config['xslpath'], $xslFilename ]);
+            if (!file_exists($xslFilename)) {
+                return join(DIRECTORY_SEPARATOR, [ $this->config['xslpath'], $xslFilename ]);
+            }
         }
 
         return $xslFilename;

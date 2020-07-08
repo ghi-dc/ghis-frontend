@@ -84,10 +84,10 @@ services:
     
     App\Service\Xsl\XsltProcessor:
         calls:
-            - [ setAdapter, [ "@= parameter('app.xsl_converter.saxonc_enable') ? service('app.xsl_converter.saxonc_adapter') : service('app.xsl_converter.commandline_adapter') " ]]
+            - [ setAdapter, [ "@= parameter('app.xsl_converter.saxonc_enable') ? service('app.xsl_converter.saxonc_adapter') : service('app.xsl_converter.commandline_adapter')" ]]
             
     App\Utils\MpdfConverter:
-        arguments: [ "%app.mpdf-converter.arguments%" ]
+        arguments: [ '%app.mpdf-converter.arguments%' ]
         
     Octicons\Twig\OcticonTwigExtension:
             tags: ['twig.runtime']
