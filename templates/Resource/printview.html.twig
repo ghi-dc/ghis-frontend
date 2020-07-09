@@ -166,18 +166,7 @@
     </header>
 
     <article>
-        <h1>{{ resource.title }}</h1>
-        {#% if authors is defined and authors is not empty %}
-            <div class="author">
-                <!--<a href="#author">-->
-                {% for author in authors %}
-                    {{ author.text }}{% if not loop.last %}, {% endif %}
-                {% endfor %}
-                <!--</a>-->
-            </div>
-        {% endif %#}
-
-        {{ html|raw }}
+        {{ parts.body|raw }}
     </article>
 
     <div class="appendix">

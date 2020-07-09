@@ -103,11 +103,14 @@ class ResourceController extends BaseController
 
         $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXslFull, [
             'params' => [
+                'titleplacement' => 1,
                 'lang' => $resource->getLanguage(),
             ],
         ]);
 
-        return $this->markCombiningE($html);
+        return [
+            'body' => $this->markCombiningE($html),
+        ];
     }
 
     public function volumeAction(Request $request, $volume)
@@ -138,7 +141,7 @@ class ResourceController extends BaseController
     public function resourceAction(Request $request,
                                    $volume, $resource)
     {
-        $html = $this->resourceToHtml($volume, $resource);
+        $parts = $this->resourceToHtml($volume, $resource);
 
         switch ($resource->getGenre()) {
             case 'introduction':
@@ -152,7 +155,7 @@ class ResourceController extends BaseController
         return $this->render($template, [
             'volume' => $volume,
             'resource' => $resource,
-            'html' => $html,
+            'parts' => $parts,
             'navigation' => $this->contentService->buildNavigation($resource),
         ] + $this->buildLocaleSwitch($volume, $resource));
     }
@@ -161,12 +164,12 @@ class ResourceController extends BaseController
                                         $volume, $resource,
                                         \App\Utils\MpdfConverter $pdfConverter)
     {
-        $html = $this->resourceToHtml($volume, $resource);
+        $parts = $this->resourceToHtml($volume, $resource);
 
         // mpdf doesn't support display: inline for li
         // https://mpdf.github.io/about-mpdf/limitations.html
         $crawler = new \Symfony\Component\DomCrawler\Crawler();
-        $crawler->addHtmlContent($html);
+        $crawler->addHtmlContent($parts['body']);
         $crawler->filter('#authors li')->each(function ($nodes, $i) {
             foreach ($nodes as $node) {
                 $newnode = $node->ownerDocument->createElement('span');
@@ -187,11 +190,13 @@ class ResourceController extends BaseController
 
                 return $newnode;            }
         });
+        $parts['body'] = $crawler->html();
+
 
         $htmlPrint = $this->renderView('Resource/printview.html.twig', [
             'volume' => $volume,
             'resource' => $resource,
-            'html' => $crawler->html(),
+            'parts' => $parts,
         ]);
 
         return $this->renderPdf($pdfConverter, $htmlPrint, $resource->getDtadirname(), $request->getLocale());

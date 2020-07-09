@@ -11,9 +11,9 @@
             <div class="row article-wrapper">
                 <article class="col-md-10 content {{ volume.getId(true) }}">
                     {{ resource_helper.breadcrumb(resource, navigation) }}
-                    <h1>{{ resource.title }}</h1>
-                    {{ html|raw }}
-                    
+
+                    {{ parts.body|raw }}
+
                     <div class="accordion" id="bottom-information">
                         <div class="card">
                             <div class="card-header" id="headingCitation">
@@ -51,7 +51,7 @@
                     <ul class="tag-list">
                     {% for term in terms %}
                         <li><a href="{{ path('search', { 'filter' : { 'term': term.path } }) }}">{{ term.name }}</a></li>
-                    {% endfor %}                        
+                    {% endfor %}
                     </ul>
                     {% endif %}
                 </aside>
