@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 use App\Service\ContentService;
 use App\Service\Xsl\XsltProcessor;
@@ -93,7 +94,49 @@ class ResourceController extends BaseController
         return preg_replace('/([aou]\x{0364})/u', '<span class="combining-e">\1</span>', $html);
     }
 
-    protected function resourceToHtml($volume, $resource, $fnameXsl = 'dta2html.xsl')
+    protected function innerHTML($node) {
+        return implode(array_map([ $node->ownerDocument, 'saveHTML' ],
+                                 iterator_to_array($node->childNodes)));
+    }
+
+    protected function buildPartsFromHtml(TranslatorInterface $translator, $html)
+    {
+        $parts = [
+            'additional' => [],
+        ];
+
+        $crawler = new \Symfony\Component\DomCrawler\Crawler();
+        $crawler->addHtmlContent($html);
+
+        $node = $crawler->filter('div > h2.dta-head')
+            ->last();
+        if ($node->count() && $translator->trans('Further Reading') == $node->text()) {
+            $element = $node->getNode(0);
+            $parentDiv = $element->parentNode;
+
+            // move into additional
+            $card = [
+                'header' => $node->html(),
+            ];
+
+            // remove h2
+            $parentDiv->removeChild($element);
+
+            $card['body'] = $this->innerHTML($parentDiv);
+            $parts['additional'][] = $card;
+
+            // remove parent div
+            $parentDiv->parentNode->removeChild($parentDiv);
+
+            $html = $crawler->html();
+        }
+
+        $parts['body'] = $this->markCombiningE($html);
+
+        return $parts;
+    }
+
+    protected function resourceToHtml(TranslatorInterface $translator, $volume, $resource, $fnameXsl = 'dta2html.xsl')
     {
         $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
 
@@ -108,9 +151,7 @@ class ResourceController extends BaseController
             ],
         ]);
 
-        return [
-            'body' => $this->markCombiningE($html),
-        ];
+        return $this->buildPartsFromHtml($translator, $html);
     }
 
     public function volumeAction(Request $request, $volume)
@@ -139,9 +180,10 @@ class ResourceController extends BaseController
     }
 
     public function resourceAction(Request $request,
+                                   TranslatorInterface $translator,
                                    $volume, $resource)
     {
-        $parts = $this->resourceToHtml($volume, $resource);
+        $parts = $this->resourceToHtml($translator, $volume, $resource);
 
         switch ($resource->getGenre()) {
             case 'introduction':
@@ -161,10 +203,11 @@ class ResourceController extends BaseController
     }
 
     public function resourceAsPdfAction(Request $request,
+                                        TranslatorInterface $translator,
                                         $volume, $resource,
                                         \App\Utils\MpdfConverter $pdfConverter)
     {
-        $parts = $this->resourceToHtml($volume, $resource);
+        $parts = $this->resourceToHtml($translator, $volume, $resource);
 
         // mpdf doesn't support display: inline for li
         // https://mpdf.github.io/about-mpdf/limitations.html

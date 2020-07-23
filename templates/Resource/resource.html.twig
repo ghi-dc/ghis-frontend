@@ -15,9 +15,23 @@
                     {{ parts.body|raw }}
 
                     <div class="accordion" id="bottom-information">
+                        {% for card in parts.additional %}
+                        <div class="card">
+                            <div class="card-header" id="headingAdditional{{ loop.index }}">
+                                <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseAdditional{{ loop.index }}" aria-expanded="false" aria-controls="collapseCitation">
+                                    {{ card.header|raw }}
+                                </h2>
+                            </div>
+                            <div id="collapseAdditional{{ loop.index }}" class="collapse" aria-labelledby="headingAdditional{{ loop.index }}" data-parent="#bottom-information">
+                                <div class="card-body">
+                                    {{ card.body|raw }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                         <div class="card">
                             <div class="card-header" id="headingCitation">
-                                <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseCitation" aria-expanded="false" aria-controls="collapseCitation">
+                                <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseCitation" aria-expanded="true" aria-controls="collapseCitation">
                                     {{ 'Recommended Citation'|trans }}
                                 </h2>
                             </div>

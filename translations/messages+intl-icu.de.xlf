@@ -121,6 +121,10 @@
         <source>Filter Results</source>
         <target>Ergebnisse filtern</target>
       </trans-unit>
+      <trans-unit id="vS5C8je" resname="Further Reading">
+        <source>Further Reading</source>
+        <target>Weiterführende Inhalte</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
