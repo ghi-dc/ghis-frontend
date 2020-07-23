@@ -16,7 +16,7 @@
         "gmo/iso-639": "^1.0",
         "knplabs/knp-menu-bundle": "^3.0",
         "knplabs/knp-paginator-bundle": "^5.2",
-        "laminas/laminas-diactoros": "^2.2",
+        "laminas/laminas-diactoros": "^2.3",
         "masterminds/html5": "^2.7",
         "maxgr0/solr-bundle": "dev-master",
         "mpdf/mpdf": "^8.0",
