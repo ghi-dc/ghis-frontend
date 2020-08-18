@@ -94,20 +94,74 @@ class ResourceController extends BaseController
         return preg_replace('/([aou]\x{0364})/u', '<span class="combining-e">\1</span>', $html);
     }
 
-    protected function innerHTML($node) {
+    protected function innerHTML($node)
+    {
         return implode(array_map([ $node->ownerDocument, 'saveHTML' ],
                                  iterator_to_array($node->childNodes)));
     }
 
-    protected function buildPartsFromHtml(TranslatorInterface $translator, $html)
+    protected function buildCarousel($html)
+    {
+        // we need xml-declaration at begin because the DomCrawler will attempt to automatically fix your HTML
+        // to match the official specification.
+        // For example, if you nest a <p> tag inside another <p> tag, it will be moved to be a sibling of the parent tag.
+        $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
+        $adjusted = false;
+
+        $crawler->filter('.dta-p-gallery')->each(function ($gallery, $i) use (&$adjusted) {
+            $adjusted = true;
+
+            $id = 'gallery-' . $i;
+
+            $element = $gallery->getNode(0);
+            $parent = $element->parentNode;
+
+            $slides = [];
+
+            $gallery->filter('.dta-figure > img')->each(function ($node, $i) use (&$slides) {
+                $slide = [
+                    'image' => [ 'src' => $node->attr('src') ],
+                    'text' => '',
+                ];
+
+                // TODO: get text, by going to $node->parentNode and removing img
+
+                $slides[] = $slide;
+            });
+
+            $carouselContent = $this->renderView('Resource/carousel.html.twig', [
+                'id' => $id,
+                'slides' => $slides,
+            ]);
+
+            $fragment = $element->ownerDocument->createDocumentFragment();
+            $fragment->appendXML($carouselContent);
+
+            $parent->insertBefore($fragment, $element);
+
+            $parent->removeChild($element);
+        });
+
+        if ($adjusted) {
+            $html = $crawler->html();
+        }
+
+        return $html;
+    }
+
+    protected function buildPartsFromHtml(TranslatorInterface $translator, $html, $printView)
     {
         $parts = [
             'additional' => [],
         ];
 
-        $crawler = new \Symfony\Component\DomCrawler\Crawler();
-        $crawler->addHtmlContent($html);
+        if (!$printView) {
+            $html = $this->buildCarousel($html);
+        }
 
+        $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
+
+        // move Further Reading to Accordeon
         $node = $crawler->filter('div > h2.dta-head')
             ->last();
         if ($node->count() && $translator->trans('Further Reading') == $node->text()) {
@@ -128,7 +182,7 @@ class ResourceController extends BaseController
             // remove parent div
             $parentDiv->parentNode->removeChild($parentDiv);
 
-            $html = $crawler->html();
+            $html = $crawler->filter('body')->first()->html();
         }
 
         $parts['body'] = $this->markCombiningE($html);
@@ -136,12 +190,13 @@ class ResourceController extends BaseController
         return $parts;
     }
 
-    protected function resourceToHtml(TranslatorInterface $translator, $volume, $resource, $fnameXsl = 'dta2html.xsl')
+    protected function resourceToHtml(TranslatorInterface $translator, $volume, $resource, $printView = false)
     {
         $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
 
         $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
 
+        $fnameXsl = 'dta2html.xsl';
         $fnameXslFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'styles', $fnameXsl ]);
 
         $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXslFull, [
@@ -151,7 +206,7 @@ class ResourceController extends BaseController
             ],
         ]);
 
-        return $this->buildPartsFromHtml($translator, $html);
+        return $this->buildPartsFromHtml($translator, $html, $printView);
     }
 
     public function volumeAction(Request $request, $volume)
@@ -207,7 +262,7 @@ class ResourceController extends BaseController
                                         $volume, $resource,
                                         \App\Utils\MpdfConverter $pdfConverter)
     {
-        $parts = $this->resourceToHtml($translator, $volume, $resource);
+        $parts = $this->resourceToHtml($translator, $volume, $resource, true);
 
         // mpdf doesn't support display: inline for li
         // https://mpdf.github.io/about-mpdf/limitations.html

@@ -11,10 +11,11 @@
   <xsl:param name="noteplacement" select="'end'" />
   <xsl:param name="titleplacement" select="0" />
 
-  <xsl:output method="html" doctype-system=""/>
+  <xsl:output method="xml" doctype-system=""/>
 
   <!-- main match including source description -->
   <xsl:template match="/">
+    <body>
     <xsl:if test="$titleplacement and /tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title">
       <h1><xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/node()" /></h1>
     </xsl:if>
@@ -97,6 +98,7 @@
         </xsl:if>
       </xsl:otherwise>
     </xsl:choose>
+    </body>
   </xsl:template>
 
   <!-- put expansions in brackets for print -->
