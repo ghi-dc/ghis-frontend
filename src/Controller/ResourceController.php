@@ -94,6 +94,12 @@ class ResourceController extends BaseController
         return preg_replace('/([aou]\x{0364})/u', '<span class="combining-e">\1</span>', $html);
     }
 
+    protected function innerXML($node)
+    {
+        return implode(array_map([ $node->ownerDocument, 'saveXML' ],
+                                 iterator_to_array($node->childNodes)));
+    }
+
     protected function innerHTML($node)
     {
         return implode(array_map([ $node->ownerDocument, 'saveHTML' ],
@@ -124,7 +130,17 @@ class ResourceController extends BaseController
                     'text' => '',
                 ];
 
-                // TODO: get text, by going to $node->parentNode and removing img
+                // get text (translation/transcription)
+                // by going to $element->parentNode and removing img
+                $element = $node->getNode(0);
+                $figure = $element->parentNode;
+
+                // we retrieve the img and remove it from the figure
+                $img = $figure->getElementsByTagName('img')->item(0);
+                $figure->removeChild($img);
+
+                // we set the rest as text
+                $slide['text'] = $this->innerXML($figure);
 
                 $slides[] = $slide;
             });
