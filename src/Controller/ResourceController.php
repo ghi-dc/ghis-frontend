@@ -165,7 +165,53 @@ class ResourceController extends BaseController
         return $html;
     }
 
-    protected function buildPartsFromHtml(TranslatorInterface $translator, $html, $printView)
+    protected function buildFullUrl($src, $baseUrl = null)
+    {
+        if (empty($baseUrl) || preg_match('/^https?:/', $src)) {
+            return $src;
+        }
+
+        return $baseUrl . $src;
+    }
+
+    protected function adjustMedia($crawler, $baseUrl, $imgClass = null)
+    {
+        $crawler->filter('audio > source')->each(function ($node, $i) use ($baseUrl) {
+            $src = $node->attr('src');
+            $node->getNode(0)->setAttribute('src', $this->buildFullUrl($src, $baseUrl));
+        });
+
+        // for https://github.com/iainhouston/bootstrap3_player
+        $crawler->filter('audio')->each(function ($node, $i) use ($baseUrl) {
+            $poster = $node->attr('data-info-album-art');
+            if (!is_null($poster)) {
+                $node->getNode(0)->setAttribute('data-info-album-art',
+                                                $this->buildFullUrl($poster, $baseUrl));
+            }
+        });
+
+        $crawler->filter('video > source')->each(function ($node, $i) use ($baseUrl) {
+            $src = $node->attr('src');
+            $node->getNode(0)->setAttribute('src', $this->buildFullUrl($src, $baseUrl));
+        });
+
+        $crawler->filter('video')->each(function ($node, $i) use ($baseUrl) {
+            $poster = $node->attr('poster');
+            if (!is_null($poster)) {
+                $node->getNode(0)->setAttribute('poster', $this->buildFullUrl($poster, $baseUrl));
+            }
+        });
+
+        $crawler->filter('img')->each(function ($node, $i) use ($baseUrl, $imgClass) {
+            $src = $node->attr('src');
+            $node->getNode(0)->setAttribute('src', $this->buildFullUrl($src, $baseUrl));
+            if (!empty($imgClass)) {
+                $node->getNode(0)->setAttribute('class', $imgClass);
+            }
+        });
+    }
+
+    protected function buildPartsFromHtml(TranslatorInterface $translator, $html, $mediaBaseUrl, $printView)
     {
         $parts = [
             'additional' => [],
@@ -176,6 +222,8 @@ class ResourceController extends BaseController
         }
 
         $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
+
+        $this->adjustMedia($crawler, $mediaBaseUrl);
 
         // move Further Reading to Accordeon
         $node = $crawler->filter('div > h2.dta-head')
@@ -206,7 +254,7 @@ class ResourceController extends BaseController
         return $parts;
     }
 
-    protected function resourceToHtml(TranslatorInterface $translator, $volume, $resource, $printView = false)
+    protected function resourceToHtml(Request $request, TranslatorInterface $translator, $volume, $resource, $printView = false)
     {
         $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
 
@@ -222,7 +270,14 @@ class ResourceController extends BaseController
             ],
         ]);
 
-        return $this->buildPartsFromHtml($translator, $html, $printView);
+        $mediaBaseUrl = join('/', [
+                $request->getSchemeAndHttpHost() . $request->getBaseUrl(),
+                'media',
+                $volume->getId(true), $resource->getId(true)
+            ])
+            . '/';
+
+        return $this->buildPartsFromHtml($translator, $html, $mediaBaseUrl, $printView);
     }
 
     public function volumeAction(Request $request, $volume)
@@ -254,7 +309,7 @@ class ResourceController extends BaseController
                                    TranslatorInterface $translator,
                                    $volume, $resource)
     {
-        $parts = $this->resourceToHtml($translator, $volume, $resource);
+        $parts = $this->resourceToHtml($request, $translator, $volume, $resource);
 
         switch ($resource->getGenre()) {
             case 'introduction':
@@ -278,7 +333,7 @@ class ResourceController extends BaseController
                                         $volume, $resource,
                                         \App\Utils\MpdfConverter $pdfConverter)
     {
-        $parts = $this->resourceToHtml($translator, $volume, $resource, true);
+        $parts = $this->resourceToHtml($request, $translator, $volume, $resource, true);
 
         // mpdf doesn't support display: inline for li
         // https://mpdf.github.io/about-mpdf/limitations.html
