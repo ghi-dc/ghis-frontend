@@ -33,14 +33,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2">				
+			<div n="2">
 				<p>
-					Each of the three modules – migration, knowledge and education, and Germanness – was compiled by a four-member editorial working group. Over the course of two years, each group met four times. Meetings were held on both sides of the Atlantic. German- and American-based researchers, and junior and senior scholars were represented equally in each group. The composition of the groups guaranteed a bicultural approach in keeping with the GHI’s longstanding emphasis on transatlantic perspectives. The inclusion of both established and early-career academics ensured a diversity of viewpoints, while underscoring the GHI’s commitment to <hi rendition="#i">Nachwuchsförderung</hi> (support for young scholars).  
+					Each of the three modules – migration, knowledge and education, and Germanness – was compiled by a four-member editorial working group. Over the course of two years, each group met four times. Meetings were held on both sides of the Atlantic. German- and American-based researchers, and junior and senior scholars were represented equally in each group. The composition of the groups guaranteed a bicultural approach in keeping with the GHI’s longstanding emphasis on transatlantic perspectives. The inclusion of both established and early-career academics ensured a diversity of viewpoints, while underscoring the GHI’s commitment to <hi rendition="#i">Nachwuchsförderung</hi> (support for young scholars).
 				</p>
 			</div>
 
 			<div n="3">
-				<head>Migration</head>
+				<head><ref target="migration">Migration</ref></head>
 				<list>
 					<item>Deniz Göktürk (University of California at Berkeley)</item>
 					<item>Dirk Hoerder (Arizona State University &amp; University of Bremen)</item>
@@ -60,7 +60,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 			</div>
 
 			<div n="3">
-				<head>Germanness</head>
+				<head><ref target="germanness">Germanness</ref></head>
 				<list>
 					<item>Winson Chu (University of Wisconsin at Milwaukee)</item>
 					<item>Hannah Margaret Elmer (Columbia University)</item>

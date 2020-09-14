@@ -1046,6 +1046,8 @@ article {
 
 .route-about,
 .route-about-working-groups,
+.route-about-migration,
+.route-about-germanness,
 .route-about-team,
 .route-terms
 {
@@ -1128,6 +1130,27 @@ article {
                     }
                 }
             }
+        }
+    }
+}
+
+/* profile pictures */
+.route-about-migration,
+.route-about-germanness
+{
+    #main-wrapper {
+        h2 {
+            clear: both;
+        }
+
+        img {
+            float: left;
+            max-width: 20%;
+            @media only screen and (min-width: $screen-lg-min) {
+                margin-left: -26%;
+            }
+            padding-right: 1em;
+            padding-bottom: 1em;
         }
     }
 }

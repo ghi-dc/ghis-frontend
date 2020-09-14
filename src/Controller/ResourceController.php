@@ -371,18 +371,24 @@ class ResourceController extends BaseController
         return $this->renderPdf($pdfConverter, $htmlPrint, $resource->getDtadirname(), $request->getLocale());
     }
 
-    protected function aboutToHtml($route, $locale, $fnameXsl = 'dta2html.xsl')
+    protected function aboutToHtml($route, $locale, $mediaBaseUrl, $fnameXsl = 'dta2html.xsl')
     {
         $fname = join('.', [ $route, \App\Utils\Iso639::code1To3($locale), 'xml' ]);
 
         $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'about', $fname ]);
 
-        return $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXsl, [
+        $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXsl, [
             'params' => [
                 // styleshett parameters
                 'titleplacement' => 1,
             ]
         ]);
+
+        $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
+
+        $this->adjustMedia($crawler, $mediaBaseUrl);
+
+        return $crawler->html();
     }
 
     /**
@@ -397,6 +403,16 @@ class ResourceController extends BaseController
      *  }, name="about-working-groups")
      *
      * @Route({
+     *  "en": "/about/migration",
+     *  "de": "/ueber/migration"
+     *  }, name="about-migration")
+
+     * @Route({
+     *  "en": "/about/germanness",
+     *  "de": "/ueber/deutschsein"
+     *  }, name="about-germanness")
+     *
+     * @Route({
      *  "en": "/about/team",
      *  "de": "/ueber/team"
      *  }, name="about-team")
@@ -408,8 +424,15 @@ class ResourceController extends BaseController
      */
     public function aboutAction(Request $request)
     {
+        $mediaBaseUrl = join('/', [
+                $request->getSchemeAndHttpHost() . $request->getBaseUrl(),
+                'media',
+                'about'
+            ])
+            . '/';
+
         return $this->render('Default/about.html.twig', [
-            'html' => $this->aboutToHtml($request->get('_route'), $request->getLocale()),
+            'html' => $this->aboutToHtml($request->get('_route'), $request->getLocale(), $mediaBaseUrl),
         ]);
     }
 }

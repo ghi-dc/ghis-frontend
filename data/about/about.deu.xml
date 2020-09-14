@@ -27,29 +27,29 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <language ident="deu">Deutsch</language>
             </langUsage>
             <textClass>
-                <classCode scheme="http://germanhistorydocs.org/docs/#genre">ueber</classCode>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
             </textClass>
         </profileDesc>
     </teiHeader>
     <text>
         <body>
-			<div n="2" id="overview">				
+			<div n="2" id="overview">
 				<p>
-					<hi rendition="#i">German History Intersections</hi> ist ein quellenbasiertes digitales Projekt, das drei große Themenbereiche über den Zeitraum von 1500 bis zur Gegenwart untersucht – Migration, Wissen und Bildung sowie Deutschsein. Indem diese Themen über Jahrhunderte hinweg verfolgt werden, bietet das Projekt eine Alternative zur traditionellen Geschichtsschreibung, die sich auf einzelne historische Perioden konzentriert. Durch die langfristige Betrachtung kann das Projekt die Berührungspunkte der Themen – Migration, Wissen und Bildung, Deutschsein – besser veranschaulichen, denn es ist offensichtlich, dass sie im Verlauf der neueren deutschen Geschichte keine parallelen oder unabhängigen Wege gehen, sondern sich an vielen Stellen und auf vielfältige Weise überschneiden. Das vom Deutschen Historischen Institut, Washington, DC, mit maßgeblicher Unterstützung durch das Transatlantische Programm des Europäischen Wiederaufbauprogramms (Bundesministerium für Wirtschaft und Energie) organisierte Projekt ist vollständig zweisprachig (Englisch/Deutsch) und richtet sich an ein nordamerikanisches, deutsches und globales Publikum. 
+					<hi rendition="#i">German History Intersections</hi> ist ein quellenbasiertes digitales Projekt, das drei große Themenbereiche über den Zeitraum von 1500 bis zur Gegenwart untersucht – Migration, Wissen und Bildung sowie Deutschsein. Indem diese Themen über Jahrhunderte hinweg verfolgt werden, bietet das Projekt eine Alternative zur traditionellen Geschichtsschreibung, die sich auf einzelne historische Perioden konzentriert. Durch die langfristige Betrachtung kann das Projekt die Berührungspunkte der Themen – Migration, Wissen und Bildung, Deutschsein – besser veranschaulichen, denn es ist offensichtlich, dass sie im Verlauf der neueren deutschen Geschichte keine parallelen oder unabhängigen Wege gehen, sondern sich an vielen Stellen und auf vielfältige Weise überschneiden. Das vom Deutschen Historischen Institut, Washington, DC, mit maßgeblicher Unterstützung durch das Transatlantische Programm des Europäischen Wiederaufbauprogramms (Bundesministerium für Wirtschaft und Energie) organisierte Projekt ist vollständig zweisprachig (Englisch/Deutsch) und richtet sich an ein nordamerikanisches, deutsches und globales Publikum.
 				</p>
 			</div>
-			
+
 			<div n="2" id="modules-and-sources">
 			    <head>Module und Quellen</head>
 				<p>
-					Das Projekt nutzt digitale Medien, um verschiedene historische Quellen auf neue, zum Nachdenken anregende Weise zusammenzuführen. Das Projekt gliedert sich in drei Module (Migration, Wissen und Bildung sowie Deutschtum), die jeweils mit einer essayistischen Einführung in ihr Thema beginnen. Darüber hinaus enthält jedes Modul etwa 100 Primärquellen-Dokumente in ihrer Originalsprache (in der Regel Deutsch) und in englischer Übersetzung, etwa 100 hochauflösende Bilder und eine kleine Auswahl an audiovisuellen Materialien. Alle einzelnen Quellen werden von kurzen Einführungstexten begleitet und sind mit Schlagworten versehen, die Zusammenhänge zwischen den Modulen hervorheben.   
+					Das Projekt nutzt digitale Medien, um verschiedene historische Quellen auf neue, zum Nachdenken anregende Weise zusammenzuführen. Das Projekt gliedert sich in drei Module (Migration, Wissen und Bildung sowie Deutschtum), die jeweils mit einer essayistischen Einführung in ihr Thema beginnen. Darüber hinaus enthält jedes Modul etwa 100 Primärquellen-Dokumente in ihrer Originalsprache (in der Regel Deutsch) und in englischer Übersetzung, etwa 100 hochauflösende Bilder und eine kleine Auswahl an audiovisuellen Materialien. Alle einzelnen Quellen werden von kurzen Einführungstexten begleitet und sind mit Schlagworten versehen, die Zusammenhänge zwischen den Modulen hervorheben.
 				</p>
 			</div>
 
 			<div n="2" id="platform">
 				<head>Digitale Plattform und Gestaltung</head>
 				<p>
-					<hi rendition="#i">German History Intersections</hi> bietet eine ansprechende, benutzerfreundliche Oberfläche, die vom edelweiss* büro für grafik und design (Hamburg) gestaltet wurde. Das Backend basiert auf der Integration von eXist-db, einer Open-Source-XML-Datenbank, mit Collective Access, einem Open-Source-Sammlungsverwaltungssystem. Eine Solr-Suchmaschine bietet optimale Such- und Navigationsfunktionalität. Standardisierte administrative, beschreibende und technische Metadaten, einschließlich granularer Quellen- und Rechteinformationen, verbessern die Auffindbarkeit und unterstützen die langfristige digitale Verwaltung. Die Verwendung von Standardformaten wie TEI P5 (für Primärquellentexte und Übersetzungen) und DOI (persistente Identifikationen) unterstützt den Zugang und die digitale Langzeitarchivierung. 
+					<hi rendition="#i">German History Intersections</hi> bietet eine ansprechende, benutzerfreundliche Oberfläche, die vom edelweiss* büro für grafik und design (Hamburg) gestaltet wurde. Das Backend basiert auf der Integration von eXist-db, einer Open-Source-XML-Datenbank, mit Collective Access, einem Open-Source-Sammlungsverwaltungssystem. Eine Solr-Suchmaschine bietet optimale Such- und Navigationsfunktionalität. Standardisierte administrative, beschreibende und technische Metadaten, einschließlich granularer Quellen- und Rechteinformationen, verbessern die Auffindbarkeit und unterstützen die langfristige digitale Verwaltung. Die Verwendung von Standardformaten wie TEI P5 (für Primärquellentexte und Übersetzungen) und DOI (persistente Identifikationen) unterstützt den Zugang und die digitale Langzeitarchivierung.
 				</p>
 			</div>
 		</body>

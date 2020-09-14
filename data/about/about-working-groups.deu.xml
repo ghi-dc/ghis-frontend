@@ -33,17 +33,17 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2">				
+			<div n="2">
 				<p>
-					Jedes der drei Module – Migration, Wissen und Bildung sowie Deutschsein – wurde von einer vierköpfigen redaktionellen Arbeitsgruppe zusammengestellt. Jede Gruppe traf sich über einen Zeitraum von zwei Jahren viermal. Die Treffen fanden auf beiden Seiten des Atlantiks statt. Nachwuchs- und etablierte Wissenschaftler/innen aus Deutschland und den USA waren in jeder Gruppe zu gleichen Teilen vertreten. Die Zusammensetzung der Gruppen garantierte einen bikulturellen Ansatz, der der langjährigen Betonung transatlantischer Perspektiven durch das GHI entspricht. Die Einbeziehung sowohl etablierter als auch junger Wissenschaftler/innen gewährleistete eine Vielfalt an Sichtweisen und unterstrich gleichzeitig das feste Engagement des DHI in der Nachwuchsförderung.  
+					Jedes der drei Module – Migration, Wissen und Bildung sowie Deutschsein – wurde von einer vierköpfigen redaktionellen Arbeitsgruppe zusammengestellt. Jede Gruppe traf sich über einen Zeitraum von zwei Jahren viermal. Die Treffen fanden auf beiden Seiten des Atlantiks statt. Nachwuchs- und etablierte Wissenschaftler/innen aus Deutschland und den USA waren in jeder Gruppe zu gleichen Teilen vertreten. Die Zusammensetzung der Gruppen garantierte einen bikulturellen Ansatz, der der langjährigen Betonung transatlantischer Perspektiven durch das GHI entspricht. Die Einbeziehung sowohl etablierter als auch junger Wissenschaftler/innen gewährleistete eine Vielfalt an Sichtweisen und unterstrich gleichzeitig das feste Engagement des DHI in der Nachwuchsförderung.
 				</p>
 			</div>
 
 			<div n="3">
-				<head>Migration</head>
+				<head><ref target="migration">Migration</ref></head>
 				<list>
 					<item>Deniz Göktürk (University of California at Berkeley)</item>
-					<item>Dirk Hoerder (Arizona State University &amp; University of Bremen)</item>
+					<item>Dirk Hoerder (Arizona State University &amp; Universität Bremen)</item>
 					<item>Annika Orich (Georgia Institute of Technology)</item>
 					<item>Sakine Yildiz (Universität Osnabrück)</item>
 				</list>
@@ -60,7 +60,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 			</div>
 
 			<div n="3">
-				<head>Deutschsein</head>
+				<head><ref target="deutschsein">Deutschsein</ref></head>
 				<list>
 					<item>Winson Chu (University of Wisconsin at Milwaukee)</item>
 					<item>Hannah Margaret Elmer (Columbia University)</item>
