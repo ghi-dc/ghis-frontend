@@ -245,9 +245,8 @@ class ResourceController extends BaseController
 
             // remove parent div
             $parentDiv->parentNode->removeChild($parentDiv);
-
-            $html = $crawler->filter('body')->first()->html();
         }
+        $html = $crawler->filter('body')->first()->html();
 
         $parts['body'] = $this->markCombiningE($html);
 
