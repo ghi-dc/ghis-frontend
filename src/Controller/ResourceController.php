@@ -406,7 +406,12 @@ class ResourceController extends BaseController
      *  "en": "/about/migration",
      *  "de": "/ueber/migration"
      *  }, name="about-migration")
-
+     *
+     * @Route({
+     *  "en": "/about/knowledge-and-education",
+     *  "de": "/ueber/wissen-und-bildung"
+     *  }, name="about-knowledge-and-education")
+     *
      * @Route({
      *  "en": "/about/germanness",
      *  "de": "/ueber/deutschsein"

@@ -50,7 +50,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 			</div>
 
 			<div n="3">
-				<head>Knowledge and Education</head>
+				<head><ref target="knowledge-and-education">Knowledge and Education</ref></head>
 				<list>
 					<item>Anne Mariss (University of Regensburg)</item>
 					<item>Christopher Neumaier (Leibniz Centre for Contemporary History Potsdam &amp; Helmut Schmidt University)</item>

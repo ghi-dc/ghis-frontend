@@ -50,7 +50,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 			</div>
 
 			<div n="3">
-				<head>Wissen und Bildung </head>
+				<head><ref target="wissen-und-bildung">Wissen und Bildung</ref></head>
 				<list>
 					<item>Anne Mariss (Universität Regensburg)</item>
 					<item>Christopher Neumaier (Leibniz-Zentrum für Zeithistorische Forschung Potsdam, and Helmut Schmidt Universität)</item>
