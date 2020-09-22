@@ -344,6 +344,7 @@
         <xsl:if test="not(@facs)">
           <xsl:if test="tei:figDesc"><xsl:text> </xsl:text><xsl:apply-templates select="tei:figDesc" mode="figdesc"/></xsl:if>
         </xsl:if>
+        <xsl:apply-templates/>
       </xsl:when>
       <xsl:when test="tei:media/@mimeType='video/mp4'">
         <!-- custom code for audio/video -->
@@ -359,6 +360,7 @@
         </video>
         </div>
         <xsl:if test="tei:figDesc"><xsl:text> </xsl:text><xsl:apply-templates select="tei:figDesc" mode="figdesc"/></xsl:if>
+        <xsl:apply-templates/>
       </xsl:when>
       <xsl:when test="tei:media/@mimeType='text/html'">
         <!-- custom code for iframe -->
