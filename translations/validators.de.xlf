@@ -385,6 +385,10 @@
         <source>Each element of this collection should satisfy its own set of constraints.</source>
         <target>Jedes Element dieser Sammlung sollte seine eigene Menge an Bedingungen erfüllen.</target>
       </trans-unit>
+      <trans-unit id="lrbaa8g" resname="This value is not a valid International Securities Identification Number (ISIN).">
+        <source>This value is not a valid International Securities Identification Number (ISIN).</source>
+        <target>Dieser Wert ist keine gültige Internationale Wertpapierkennnummer (ISIN).</target>
+      </trans-unit>
       <trans-unit id=".SEaaBa" resname="This form should not contain extra fields.">
         <source>This form should not contain extra fields.</source>
         <target>Dieses Formular sollte keine zusätzlichen Felder enthalten.</target>
@@ -396,6 +400,10 @@
       <trans-unit id="fvxWW3V" resname="The CSRF token is invalid. Please try to resubmit the form.">
         <source>The CSRF token is invalid. Please try to resubmit the form.</source>
         <target>Der CSRF-Token ist ungültig. Versuchen Sie bitte das Formular erneut zu senden.</target>
+      </trans-unit>
+      <trans-unit id="eo1zeih" resname="This value is not a valid HTML5 color.">
+        <source>This value is not a valid HTML5 color.</source>
+        <target>Dieser Wert ist keine gültige HTML5 Farbe.</target>
       </trans-unit>
     </body>
   </file>

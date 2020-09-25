@@ -20,6 +20,22 @@
         </div><!-- .row -->
     </div>
 </div>
+<div class="row section" style="padding-bottom: 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h3>{{ 'Welcome'|trans }}</h3></div>
+            <div class="col-sm-9">
+                <p>
+                    {% if 'de' == app.request.locale %}
+                    Das DHI Washington freut sich, Ihnen diese Vorabversion unseres neuesten digitalen Projekts, <i>German History Intersections</i>, präsentieren zu können. Nach Fertigstellung wird die Website mehr als 600 Quellen enthalten, die zu gleichen Teilen auf die drei Themenmodule verteilt sind. Schauen Sie bitte im Laufe des Herbsts erneut vorbei, um zu sehen, wie sich das Angebot weiterentwickelt.
+                    {% else %}
+                    The GHI Washington is pleased to offer this limited preview of our newest digital project, <i>German History Intersections</i>. When complete, the site will include more than 600 sources, equally divided between the three modules. To see how our work develops, please check in over the course of the fall.
+                    {% endif %}
+                </p>
+            </div>
+        </div><!-- .row -->
+    </div>
+</div>
 {% if volumes|length > 0 %}
 <div class="row section">
     <div class="container">
@@ -57,27 +73,29 @@
         <div class="row focus">
             <div class="col-sm-3">
                 <h3>{{ 'Focus'|trans }}</h3>
-                <img class="img-responsive" style="position: absolute; z-index: 1; width: 100%; padding-right: 24px;" src="{{ app.request.basepath }}/mockup/focus.png" alt="Handbuch für die Erkennung von Gesichtsausdrücken, DDR (1970)" />
+                {% if 'de' == app.request.locale %}
+                    {% set volume = 'wissen-und-bildung' %}
+                {% else %}
+                    {% set volume = 'knowledge-and-education' %}
+                {% endif %}
+                <a href="{{ path('dynamic', { 'path': volume ~ '/ghis:image-13'}) }}">
+                    <img class="img-responsive" style="position: absolute; z-index: 1; width: 100%; padding-right: 24px;" src="{{ app.request.basepath }}/media/focus/grzimek.jpg" alt="{% if 'de' == app.request.locale %}Michael Grzimek mit Betäubungsgewehr (1959){% else %}Michael Grzimek with a Tranquilizer Gun (1959){% endif %}" />
+                    <div style="position: absolute; z-index: 2; bottom: -1em">{% if 'de' == app.request.locale %}Bildnachweis: © Prof. Bernhard Grzimek/OKAPIA{% else %}Image credit: © Prof. Bernhard Grzimek/OKAPIA{% endif %}</div>
+                </a>
             </div>
             <div class="col-sm-9">
                 <blockquote class="blockquote">
+                    {% if 'de' == app.request.locale %}
                     <p>
-                Das Handbuch für die Erkennung von Gesichtsausdrücken ist ein
-wahrer Glücksfund und ein wirklich interessantes historisches
-Dokument, das es schafft, gleichzeitig Beklemmung und ein wenig
-Erheiterung auszulösen – wobei erstere überwiegt.
-Dieses Handbuch sollte den rund 160.000 Stasi-Funktionären, die
-das MfS 1988 zählte, helfen, die Gesichtsausdrücke von Menschen
-vor und während der Befragung zu analysieren.
-Ich habe diese Quelle ausgewählt, weil sie vermutlich der effektivste Arm
-innerstaatlicher Überwachung und Repression in der deutschen Geschichte war. Sie
-wurde beauftragt, eine „sozialistische Mentalität“ unter der ostdeutschen
-Bevölkerung zu schaffen und zu erhalten. Im Mittelpunkt dieser Bemühungen
-standen Verhaftungen und Verhöre.
+                        Das von Michael Grzimek während der Dreharbeiten zum Dokumentarfilm <i>Serengeti darf nicht sterben</i> eingesetzte Betäubungsgewehr versinnbildlicht den Einfluss von Nutzer*innen auf Technik: Sie können neue oder auch zur ursprünglichen Intention der Erfinder quer liegende Nutzungsweisen in Artefakte einschreiben, wie das die Technikgeschichte in den letzten Jahren immer wieder betont hat. Ich habe die Abbildung ausgewählt, da hier eine umfassende Umdeutung erfolgte: Ein Gerät zum Jagen und Töten wurde durch Grzimeks Modifikationen zu einem Instrument des Artenschutzes – Betäubung von Wildtieren und anschließendem Markieren bzw. tierärztlichen Versorgen – umgedeutet.
                     </p>
-                    <footer class="blockquote-footer">Christopher Neumaier, Historiker, Leibniz-Zentrum für Zeithistorische
-Forschung Potsdam<br />
-Mit-Autor des Moduls <a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Wissen und Bildung</a></footer>
+                    <footer class="blockquote-footer">Christopher Neumaier, Leibniz-Zentrum für Zeithistorische Forschung Potsdam und Helmut Schmidt Universität, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Wissen und Bildung</a>“</footer>
+                    {% else %}
+                    <p>
+                        The tranquilizer gun that Michael Grzimek used while filming the documentary <i>Serengeti Shall Not Die</i> shows how users change technology by introducing new practices that expand, or even subvert, the original intentions of inventors – driving home a point that historians of technology have made time and again in recent years. I chose to include this photograph in the project because it shows a complete reinterpretation of the tranquilizer gun. Grzimek’s modifications turned a device originally intended for hunting and killing into an instrument for protection and conservation – he stunned wild animals not to kill them, but to mark them and give them veterinary care.
+                    </p>
+                    <footer class="blockquote-footer">Christopher Neumaier, Leibniz Center for Contemporary History, Potsdam, and Helmut Schmidt University, member of the  “<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Knowledge and Education</a>”</footer>
+                    {% endif %}
                 </blockquote>
             </div>
         </div><!-- .row -->
