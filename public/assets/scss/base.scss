@@ -53,6 +53,14 @@ $font-stack-sans-combining: Arial, "Arial Unicode MS", sans-serif;
     &.icn-image::after {
         content: "\E902";
     }
+
+    &.icn-audio::after {
+        content: "\E903";
+    }
+
+    &.icn-video::after {
+        content: "\E904";
+    }
 }
 
 @mixin header-line-above($color) {
@@ -569,6 +577,13 @@ body.route-home {
     }
 
     .row.focus {
+        a {
+            color: $color-gray-dark;
+            &:hover {
+                color: $color-color-link;
+            }
+        }
+
         .col-sm-9 {
             blockquote {
                 position: relative;
@@ -1019,6 +1034,12 @@ article {
                 }
                 &.image::before {
                     content: '\e902';
+                }
+                &.audio::before {
+                    content: '\e903';
+                }
+                &.video::before {
+                    content: '\e904';
                 }
             }
         }
