@@ -808,7 +808,7 @@ article, div.content {
         article, div.content {
             padding-left: $logo-indent-text + 15px;
             padding-top: $logo-indent-text + 15px;
-            /* padding-right: $logo-indent-text + 15px; */
+            padding-right: 30px;
 
             background-color: white;
 
@@ -848,6 +848,12 @@ article, div.content {
                 padding-left: 22.888888%;
                 color: $color-gray-dark;
                 margin-bottom: 1.5rem;
+            }
+
+            h3.dta-head {
+                line-height: 1.5rem;
+                font-size: 1.125rem;
+                font-weight: bold;
             }
 
             h3#notes {
