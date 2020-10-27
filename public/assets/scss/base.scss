@@ -230,6 +230,13 @@ $font-stack-sans-combining: Arial, "Arial Unicode MS", sans-serif;
         .dta-list-item      { text-indent:-1em; margin-bottom:.5em }
         .dta-list-item-noindent { text-indent:0em; margin-bottom:.5em !important }
         .dta-list-item table { text-indent:0em }
+        .dta-list-item {
+            & p {
+                display: inline;
+            }
+            &:before { content: "-"; padding-right:7px; }
+        }
+
         .dta-lg             { margin-bottom:1em }
 
         /* all things brace ... */
