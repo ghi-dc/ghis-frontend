@@ -137,6 +137,10 @@
         <source>Next</source>
         <target>Weiter</target>
       </trans-unit>
+      <trans-unit id="B.C5l.k" resname="additional.number_of_children">
+        <source>additional.number_of_children</source>
+        <target>{count, plural,one {Weitere Quelle} other {Weitere Quellen}}</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

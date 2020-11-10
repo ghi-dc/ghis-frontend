@@ -253,13 +253,13 @@ class ResourceController extends BaseController
         return $parts;
     }
 
-    protected function resourceToHtml(Request $request, TranslatorInterface $translator, $volume, $resource, $printView = false)
+    protected function resourceToHtml(Request $request, TranslatorInterface $translator, $volume, $resource, $printView = false, $embedView = false)
     {
         $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
 
         $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
 
-        $fnameXsl = 'dta2html.xsl';
+        $fnameXsl = $embedView ? 'dta2html-embed.xsl' : 'dta2html.xsl';
         $fnameXslFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'styles', $fnameXsl ]);
 
         $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXslFull, [
@@ -276,7 +276,17 @@ class ResourceController extends BaseController
             ])
             . '/';
 
-        return $this->buildPartsFromHtml($translator, $html, $mediaBaseUrl, $printView);
+        $parts = $this->buildPartsFromHtml($translator, $html, $mediaBaseUrl, $printView);
+
+        $children = $resource->getParts();
+        if (!empty($children)) {
+            $parts['hasPart'] = [];
+            foreach ($children as $child) {
+                $parts['hasPart'][] = $this->resourceToHtml($request, $translator, $volume, $child, $printView, true);
+            }
+        }
+
+        return $parts;
     }
 
     public function volumeAction(Request $request, $volume)

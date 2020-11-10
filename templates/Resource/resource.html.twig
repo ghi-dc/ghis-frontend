@@ -51,11 +51,31 @@
 
                     {{ parts.body|raw }}
 
+
                     <div class="accordion" id="bottom-information">
+                        {% if parts.hasPart is defined %}
+                        <div class="card">
+                            <div class="card-header" id="headingChildren">
+                                <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseChildren" aria-expanded="true" aria-controls="collapseCitation">
+                                    {{ 'additional.number_of_children'|trans({ 'count': parts.hasPart|length }) }}
+                                </h2>
+                            </div>
+                            <div id="collapseChildren" aria-labelledby="headingChildrend" data-parent="#bottom-information">
+                                <div class="card-body">
+                                    <div class="embed">
+                                        {% for child in parts.hasPart %}
+                                            {{ child.body|raw }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
                         {% for card in parts.additional %}
                         <div class="card">
                             <div class="card-header" id="headingAdditional{{ loop.index }}">
-                                <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseAdditional{{ loop.index }}" aria-expanded="false" aria-controls="collapseCitation">
+                                <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseAdditional{{ loop.index }}" aria-expanded="false" aria-controls="collapseAdditional{{ loop.index }}">
                                     {{ card.header|raw }}
                                 </h2>
                             </div>

@@ -82,7 +82,7 @@ class ContentService
 
     public function getIntroduction($volume)
     {
-         $introductions = $this->getRepository(\App\Entity\TeiFull::class)
+        $introductions = $this->getRepository(\App\Entity\TeiFull::class)
             ->findIntroductionByVolume($volume)
             ;
 
@@ -92,43 +92,101 @@ class ContentService
 
     public function getSections($volume)
     {
-         $sections = $this->getRepository(\App\Entity\TeiFull::class)
+        $sections = $this->getRepository(\App\Entity\TeiFull::class)
             ->findSectionsByVolume($volume)
             ;
 
         return $sections;
     }
 
+    protected function buildPathFromShelfmark($shelfmark)
+    {
+        $parts = explode('/', $shelfmark);
+        array_shift($parts); // pop site prefix
+
+        // split of order within
+        $parts = array_map(function ($orderId) {
+            list($order, $id) = explode(':', $orderId, 2);
+
+            return $id;
+        }, $parts);
+
+        return $parts;
+    }
+
     public function getResources($section)
     {
-         $resources = $this->getRepository(\App\Entity\TeiFull::class)
-            ->findResourcesBySection($section)
-            ;
+        $resources = [];
+
+        $resourcesById = [];
+
+        foreach ($this->getRepository(\App\Entity\TeiFull::class)
+                 ->findResourcesBySection($section) as $resource)
+        {
+            $resourcesById[$resource->getId(true)] = $resource;
+
+            $parts = $this->buildPathFromShelfmark($resource->getShelfmark());
+            $parentId = $parts[count($parts) - 2];
+            if (array_key_exists($parentId, $resourcesById)) {
+                $parentResource = $resourcesById[$parentId];
+                $parentResource->addPart($resource);
+
+                continue;
+            }
+
+            $resources[] = $resource;
+        }
 
         return $resources;
     }
 
     public function getResourcesByGenres($genres, array $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null)
     {
-         $resources = $this->getRepository(\App\Entity\TeiFull::class)
+        $resources = $this->getRepository(\App\Entity\TeiFull::class)
             ->findResourcesByGenres($genres, $orderBy, $limit, $offset)
             ;
 
         return $resources;
     }
 
+    private function lookupHasPart($resource)
+    {
+        if (is_null($resource)) {
+            return $resource;
+        }
+
+        $genre = $resource->getGenre();
+        if ('volume' == $genre || false !== strpos($genre, '-collection')) {
+            return $resource;
+        }
+
+
+        foreach ($this->getRepository(\App\Entity\TeiFull::class)
+                 ->findResourcesBySection($resource)
+                 as $part)
+        {
+            $resource->addPart($part);
+        }
+
+        return $resource;
+    }
+
     public function getResourceByUid($uid, $includeChildren = false)
     {
-         return $this->getRepository(\App\Entity\TeiFull::class)
+        $resource = $this->getRepository(\App\Entity\TeiFull::class)
             ->findOneByUid($uid, $includeChildren)
             ;
+
+        return $this->lookupHasPart($resource);
     }
 
     public function getResourceBySlug($volume, $slug, $includeChildren = false)
     {
-         return $this->getRepository(\App\Entity\TeiFull::class)
+        $resource = $this->getRepository(\App\Entity\TeiFull::class)
             ->findOneByVolumeSlug($volume, $slug, $includeChildren)
             ;
+
+        return $this->lookupHasPart($resource);
     }
 
     /**
@@ -173,6 +231,7 @@ class ContentService
                 foreach ($volumes as $volume) {
                     if ($volume->getId(true) == $volumeParts[1]) {
                         $root = $volume;
+
                         if ('introduction' == $resource->getGenre()) {
                             // currently only single file
                             $parent = $root;

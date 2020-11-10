@@ -73,6 +73,58 @@
         <source>of</source>
         <target>of</target>
       </trans-unit>
+      <trans-unit id="vS5C8je" resname="Further Reading">
+        <source>Further Reading</source>
+        <target>Further Reading</target>
+      </trans-unit>
+      <trans-unit id="DiImtSN" resname="Welcome">
+        <source>Welcome</source>
+        <target>Welcome</target>
+      </trans-unit>
+      <trans-unit id="pXsIpIC" resname="Previous">
+        <source>Previous</source>
+        <target>Previous</target>
+      </trans-unit>
+      <trans-unit id="H.V6Kdf" resname="Next">
+        <source>Next</source>
+        <target>Next</target>
+      </trans-unit>
+      <trans-unit id="B.C5l.k" resname="additional.number_of_children">
+        <source>additional.number_of_children</source>
+        <target>{count, plural,one {Additional Source} other {Additional Sources}}</target>
+      </trans-unit>
+      <trans-unit id="EqUZtZu" resname="Recommended Citation">
+        <source>Recommended Citation</source>
+        <target>Recommended Citation</target>
+      </trans-unit>
+      <trans-unit id="Qv5qm8K" resname="published in:">
+        <source>published in:</source>
+        <target>published in:</target>
+      </trans-unit>
+      <trans-unit id="cuQaao1" resname="F d, Y">
+        <source>F d, Y</source>
+        <target>F d, Y</target>
+      </trans-unit>
+      <trans-unit id="i.25PK_" resname="Keywords">
+        <source>Keywords</source>
+        <target>Keywords</target>
+      </trans-unit>
+      <trans-unit id="VIwx9zH" resname="Chapter">
+        <source>Chapter</source>
+        <target>Chapter</target>
+      </trans-unit>
+      <trans-unit id="wh1EB5D" resname="Filter Results">
+        <source>Filter Results</source>
+        <target>Filter Results</target>
+      </trans-unit>
+      <trans-unit id="DlcMpvq" resname="Source">
+        <source>Source</source>
+        <target>Source</target>
+      </trans-unit>
+      <trans-unit id="ECmhp6g" resname="Print View">
+        <source>Print View</source>
+        <target>Print View</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Xh0r30L" resname="Source Type">
+        <source>Source Type</source>
+        <target>Quellenart</target>
+      </trans-unit>
+      <trans-unit id="YQXWzHa" resname="image">
+        <source>image</source>
+        <target>Bild</target>
+      </trans-unit>
+      <trans-unit id="Q8wj_lK" resname="document">
+        <source>document</source>
+        <target>Dokument</target>
+      </trans-unit>
+      <trans-unit id="btiRnOI" resname="audio">
+        <source>audio</source>
+        <target>Audio</target>
+      </trans-unit>
+      <trans-unit id="DKsclhd" resname="video">
+        <source>video</source>
+        <target>Video</target>
+      </trans-unit>
+      <trans-unit id="09tTOKr" resname="introduction">
+        <source>introduction</source>
+        <target>Einführung</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

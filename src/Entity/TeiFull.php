@@ -33,6 +33,11 @@ extends TeiHeader
     protected $tags = [];
 
     /**
+     * @var array Attached entries.
+     */
+    protected $hasPart = [];
+
+    /**
      * Sets body.
      *
      * @param string $body
@@ -91,6 +96,17 @@ extends TeiHeader
     {
         return $this->setDtaDirName($slug);
     }
+
+    public function addPart(TeiFull $part)
+    {
+        $this->hasPart[] = $part;
+    }
+
+    public function getParts()
+    {
+        return $this->hasPart;
+    }
+
 
     public function jsonSerialize()
     {
