@@ -1,6 +1,6 @@
 scssphp:
-    enabled: true
-    autoUpdate: true
+    enabled: '%kernel.debug%'
+    autoUpdate: '%kernel.debug%'
     # site specific
     assets:
         "css/base.css":

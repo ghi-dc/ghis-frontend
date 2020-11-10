@@ -17,22 +17,21 @@ Development Notes
 -----------------
 Project Setup
 
-- composer create-project symfony/website-skeleton:^4.4 ghis-frontend
+- composer create-project symfony/website-skeleton:^5.1 ghis-frontend
 - Remove ``"symfony/orm-pack": "*"``
 - composer require symfony/polyfill-intl-messageformatter
-- composer require nelmio/solarium-bundle
-- composer require armin/scssphp-bundle
 - composer require knplabs/knp-menu-bundle
 - composer require gmo/iso-639
-
+- composer require armin/scssphp-bundle
 - add to config/packages/scssphp.yml
 
   scssphp:
+    enabled: '%kernel.debug%'
+    autoUpdate: '%kernel.debug%'
     assets:
         "css/base.css":
             src: "public/assets/scss/base.scss"
             sourceMap: true
-
 
 Local Web Server
 - cd public
