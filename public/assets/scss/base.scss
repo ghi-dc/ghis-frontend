@@ -791,6 +791,11 @@ main.section {
 
 article, div.content {
     @include dta-styles();
+
+    /* adjust sup in h1 */
+    h1 span.dta-sup {
+        font-size: 1.67rem;
+    }
 }
 
 #main-wrapper.resource, #main-wrapp.search {

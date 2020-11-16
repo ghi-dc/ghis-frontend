@@ -144,6 +144,7 @@ implements \JsonSerializable
 
         $entity->setGenre($article->genre);
         $entity->setTerms($article->terms);
+        $entity->setMeta($article->meta);
 
         if (method_exists($entity, 'setBody')) {
             $entity->setBody($article->articleBody);
@@ -564,6 +565,48 @@ implements \JsonSerializable
     }
 
     /**
+     * Add meta.
+     *
+     * @param string $meta
+     *
+     * @return $this
+     */
+    public function addMeta($meta)
+    {
+        $this->addClassCode('#meta', $meta);
+
+        return $this;
+    }
+
+    /**
+     * Sets meta.
+     *
+     * @param array $metaTags
+     *
+     * @return $this
+     */
+    public function setMeta($metaTags)
+    {
+        $this->clearClassCodes('#meta');
+
+        foreach ($metaTags as $meta) {
+            $this->addMeta($meta);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Gets meta.
+     *
+     * @return array
+     */
+    public function getMeta()
+    {
+        return $this->getClassCodes('#meta');
+    }
+
+    /**
      * Sets idno.
      *
      * @param string $idno
@@ -678,6 +721,8 @@ implements \JsonSerializable
             'shelfmark' => $this->getShelfmark(),
             'licence' => $this->getLicence(),
             'licenceTarget' => $this->getLicenceTarget(),
+            'terms' => $this->getTerms(),
+            'meta' => $this->getMeta(),
             'lcsh' => $this->getClassCodes('#lcsh'),
         ];
     }

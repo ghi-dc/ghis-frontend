@@ -3,6 +3,9 @@
 {% import 'Shared/resource.html.twig' as resource_helper %}
 
 {% block head %}
+    {% if parts.meta is defined %}
+    {{ resource_helper.meta_tags(parts.meta) }}
+    {% endif %}
     <style>
         .carousel-item {
             width: 100%;
@@ -50,7 +53,6 @@
                     {{ resource_helper.breadcrumb(resource, navigation) }}
 
                     {{ parts.body|raw }}
-
 
                     <div class="accordion" id="bottom-information">
                         {% if parts.hasPart is defined %}

@@ -22,6 +22,13 @@
     </div>
 {% endmacro %}
 
+{% macro meta_tags(metaNameValues) %}
+    {% for meta in metaNameValues %}
+        {% set parts = meta|split(':', 2) %}
+        <meta name="{{ parts[0] }}"{% if parts|length > 1 %} value="{{ parts[1] }}"{% endif %} />
+    {% endfor %}
+{% endmacro %}
+
 {% macro citation_link(resource, volume) %}
     {%- apply spaceless %}
         {% if resource.doi is not empty and not ('10.5072' in resource.doi) -%}
@@ -29,7 +36,7 @@
         {% else %}
             {% set url = url('dynamic', { 'path' : volume.dtaDirname ~ '/' ~ resource.id }) %}
         {% endif %}
-        <a href="{{ url }}">{{ url }}</a>    
+        <a href="{{ url }}">{{ url }}</a>
     {% endapply -%}
 {% endmacro %}
 

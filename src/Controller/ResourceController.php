@@ -286,6 +286,11 @@ class ResourceController extends BaseController
             }
         }
 
+        $entity = \App\Entity\TeiFull::fromXml($fnameFull, false);
+        if (!is_null($entity)) {
+            $parts['meta'] = $entity->getMeta();
+        }
+
         return $parts;
     }
 
