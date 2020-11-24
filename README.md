@@ -57,3 +57,13 @@ TODO: maybe add highlight for certain fields
 Translate templates
 
     ./bin/console translation:update --force de
+
+Terminology
+-----------
+in translation/messages+intl+icu.de.xlf and data/styles/translation.xml
+
+* Title / Titel
+* Abstract / Kurzbeschreibung
+* Additional Source(s) / Weitere Quelle(n)
+* Further Reading / Weiterführende Inhalte
+* Keywords / Schlagworte
