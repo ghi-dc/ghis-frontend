@@ -369,7 +369,7 @@ class SearchController extends BaseController
      *  "de": "/suche"
      *  }, name="search")
      */
-    public function searchAction(Request $request)
+    public function searchAction(Request $request, TranslatorInterface $translator)
     {
         list($q, $filter) = $this->getQuery($request, array_keys($this->facets));
 
@@ -394,6 +394,7 @@ class SearchController extends BaseController
         }
 
         return $this->render('Search/index.html.twig', [
+            'pageMeta' => [ 'title' => $translator->trans('Search') ],
             'meta' => $meta,
             'facets' => $this->facets,
             'highlighting' => isset($resultset) ? $resultset->getHighlighting() : null,

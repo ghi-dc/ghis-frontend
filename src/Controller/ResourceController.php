@@ -297,24 +297,32 @@ class ResourceController extends BaseController
     public function volumeAction(Request $request, $volume)
     {
         $this->contentService->setLocale($request->getLocale());
-        $sections = $this->contentService->getSections($volume);
+
+        $pageMeta = [
+            'title' => $volume->getTitle(),
+        ];
 
         return $this->render('Resource/volume.html.twig', [
+            'pageMeta' => $pageMeta,
             'volume' => $volume,
             'introduction' => $this->contentService->getIntroduction($volume),
-            'sections' => $sections,
+            'sections' => $this->contentService->getSections($volume),
         ] + $this->buildLocaleSwitch($volume));
     }
 
     public function sectionAction(Request $request, $volume, $section)
     {
         $this->contentService->setLocale($request->getLocale());
-        $resources = $this->contentService->getResources($section);
+
+        $pageMeta = [
+            'title' => $section->getTitle(),
+        ];
 
         return $this->render('Resource/section.html.twig', [
+            'pageMeta' => $pageMeta,
             'volume' => $volume,
             'section' => $section,
-            'resources' => $resources,
+            'resources' => $this->contentService->getResources($section),
             'navigation' => $this->contentService->buildNavigation($section),
         ] + $this->buildLocaleSwitch($volume, $section));
     }
@@ -323,6 +331,10 @@ class ResourceController extends BaseController
                                    TranslatorInterface $translator,
                                    $volume, $resource)
     {
+        $pageMeta = [
+            'title' => $resource->getTitle(),
+        ];
+
         $parts = $this->resourceToHtml($request, $translator, $volume, $resource);
 
         switch ($resource->getGenre()) {
@@ -335,6 +347,7 @@ class ResourceController extends BaseController
         }
 
         return $this->render($template, [
+            'pageMeta' => $pageMeta,
             'volume' => $volume,
             'resource' => $resource,
             'parts' => $parts,
@@ -373,8 +386,8 @@ class ResourceController extends BaseController
 
                 return $newnode;            }
         });
-        $parts['body'] = $crawler->html();
 
+        $parts['body'] = $crawler->html();
 
         $htmlPrint = $this->renderView('Resource/printview.html.twig', [
             'volume' => $volume,
@@ -393,7 +406,7 @@ class ResourceController extends BaseController
 
         $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXsl, [
             'params' => [
-                // styleshett parameters
+                // stylesheet parameters
                 'titleplacement' => 1,
             ]
         ]);
@@ -402,7 +415,16 @@ class ResourceController extends BaseController
 
         $this->adjustMedia($crawler, $mediaBaseUrl);
 
-        return $crawler->html();
+        $parts = [ 'body' => $crawler->html() ];
+
+        // extract title
+        $node = $crawler->filter('h1')
+            ->first();
+        if ($node->count()) {
+            $parts['title'] = $node->text();
+        }
+
+        return $parts;
     }
 
     /**
@@ -450,8 +472,15 @@ class ResourceController extends BaseController
             ])
             . '/';
 
+        $parts = $this->aboutToHtml($request->get('_route'), $request->getLocale(), $mediaBaseUrl);
+        $pageMeta = [];
+        if (array_key_exists('title', $parts)) {
+            $pageMeta['title'] = $parts['title'];
+        }
+
         return $this->render('Default/about.html.twig', [
-            'html' => $this->aboutToHtml($request->get('_route'), $request->getLocale(), $mediaBaseUrl),
+            'pageMeta' => $pageMeta,
+            'parts' => $parts,
         ]);
     }
 }

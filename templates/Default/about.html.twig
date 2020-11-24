@@ -3,15 +3,15 @@
 {% import 'Shared/about.html.twig' as about %}
 
 {% block body %}
-    <div class="row">      
+    <div class="row">
         {{ about.sub_nav() }}
 
-        <div class="col-lg-10">           
+        <div class="col-lg-10">
             <ul class="breadcrumb">
                 <li>{{ 'The Project'|trans }}</li>
             </ul>
 
-            {{ html|raw }}
+            {{ parts.body|raw }}
         </div>
     </div><!-- .row -->
 {% endblock %}
