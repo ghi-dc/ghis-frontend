@@ -17,7 +17,7 @@ Development Notes
 -----------------
 Project Setup
 
-- composer create-project symfony/website-skeleton:^5.1 ghis-frontend
+- composer create-project symfony/website-skeleton:^5.2 ghis-frontend
 - Remove ``"symfony/orm-pack": "*"``
 - composer require symfony/polyfill-intl-messageformatter
 - composer require knplabs/knp-menu-bundle
