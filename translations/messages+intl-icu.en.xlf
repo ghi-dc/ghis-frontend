@@ -125,6 +125,14 @@
         <source>Print View</source>
         <target>Print View</target>
       </trans-unit>
+      <trans-unit id="pGmrTKT" resname="Page not found">
+        <source>Page not found</source>
+        <target>Page not found</target>
+      </trans-unit>
+      <trans-unit id="43vk4Rf" resname="error.404.description">
+        <source>error.404.description</source>
+        <target>The requested page couldn't be located. Checkout for any URL misspelling or &lt;a href="{url}">return to the homepage&lt;/a>.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
