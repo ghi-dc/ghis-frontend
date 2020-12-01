@@ -43,7 +43,7 @@
         {% block head %}{% endblock %}
     </head>
 
-    <body role="document" class="route-{{ app.request.get('_route') | replace({'_' : '-'}) }}{% if volume is defined %} {{ volume.getId(true) }}{% endif %}">
+    <body role="document" class="route-{{ app.request.get('_route') | replace({'_' : '-'}) }}{% if volume is defined %} {{ volume.getId(true) }}{% endif %}{% if document_class is defined %} {{ document_class }}{% endif %}">
         {% block navtop %}
         <nav class="navbar container">
             <a class="navbar-brand" href="{{ path('home') }}">
