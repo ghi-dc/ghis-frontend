@@ -334,9 +334,7 @@ class TeiHelper
                     break;
 
                 case $this->schemePrefix . 'translated-from':
-                    if (!empty($label)) {
-                        $article->translatedFrom = $text;
-                    }
+                    $article->translatedFrom = $text;
                     break;
 
                 case $this->schemePrefix . 'term':
@@ -352,6 +350,7 @@ class TeiHelper
         $article->terms = $terms;
         $article->meta = $meta;
 
+        /*
         // isPartOf
         if (isset($article->genre) && 'source' == $article->genre) {
             $result = $header->xpath('./tei:fileDesc/tei:seriesStmt/tei:idno[@type="DTAID"]');
@@ -365,20 +364,8 @@ class TeiHelper
                     }
                 }
             }
-
-            // legacy
-            $result = $header('./tei:fileDesc/tei:seriesStmt/tei:title[@type="main"]');
-            foreach ($result as $element) {
-                if (!empty($element['corresp'])) {
-                    $corresp = (string)$element['corresp'];
-                    if (preg_match('/^\#?(jgo\:(article|source)-\d+)$/', $corresp, $matches)) {
-                        $isPartOf = new \App\Entity\Article();
-                        $isPartOf->setUid($matches[1]);
-                        $article->isPartOf = $isPartOf;
-                    }
-                }
-            }
         }
+        */
 
         // language
         $langIdents = [];
@@ -1043,44 +1030,7 @@ class TeiHelper
         return $additional;
     }
 
-    public function extractBibitems($fname, $slugify = null)
-    {
-        $input = file_get_contents($fname);
-        $reader = new CollectingReader();
-
-        $reader->elementMap = [
-            '{http://www.tei-c.org/ns/1.0}bibl' => '\\App\\Utils\\CollectingReader::collectElement',
-        ];
-
-        $items = [];
-        try {
-            $reader->xml($input);
-            $output = $reader->parse();
-            foreach ($output as $item) {
-                if (empty($item['attributes']['corresp'])) {
-                  continue;
-                }
-                $key = trim($item['attributes']['corresp']);
-                if (!is_null($slugify)) {
-                    $key = \App\Entity\Bibitem::slugifyCorresp($slugify, $key);
-                }
-
-                if (!empty($key)) {
-                    if (!isset($items[$key])) {
-                        $items[$key] = 0;
-                    }
-                    ++$items[$key];
-                }
-            }
-        }
-        catch (\Exception $e) {
-            var_dump($e);
-            return false;
-        }
-
-        return $items;
-    }
-
+    /*
     public function validateXml($fname, $fnameSchema, $schemaType = 'relaxng')
     {
         switch ($schemaType) {
@@ -1103,27 +1053,20 @@ class TeiHelper
                 throw new \InvalidArgumentException('Invalid schemaType: ' . $schemaType);
         }
     }
+    */
 }
 
 class CollectingReader
 extends \Sabre\Xml\Reader
 {
-    function xml($source, $encoding = null, $options = 0)
-    {
-        // hack for <?xml-model href="http://www.deutschestextarchiv.de/basisformat_ohne_header.rng"
-        // type="application/xml"
-        // schematypens="http://relaxng.org/ns/structure/1.0"?\>
-        $source = preg_replace('/<\?xml\-model [\s\S\n]*?\?>/', '', $source);
-
-        parent::xml($source, $encoding, $options);
-    }
+    protected $collected;
 
     function collect($output)
     {
         $this->collected[] = $output;
     }
 
-    function parse()
+    function parse() : array
     {
         $this->collected = [];
         parent::parse();
@@ -1131,7 +1074,7 @@ extends \Sabre\Xml\Reader
         return $this->collected;
     }
 
-    static function collectElement(\Sabre\Xml\Reader $reader)
+    static function collectElement(CollectingReader $reader)
     {
         $name = $reader->getClark();
         // var_dump($name);

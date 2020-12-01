@@ -48,7 +48,8 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "5.2.*",
         "symfony/web-link": "5.2.*",
-        "symfony/yaml": "5.2.*"
+        "symfony/yaml": "5.2.*",
+        "voku/html-min": "*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

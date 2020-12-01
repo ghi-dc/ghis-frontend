@@ -659,7 +659,7 @@ implements \JsonSerializable
      */
     public function setDoi($doi)
     {
-        return $this->setIdno('DOI', $urn);
+        return $this->setIdno('DOI', $doi);
     }
 
     /**

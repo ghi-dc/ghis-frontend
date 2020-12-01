@@ -6,6 +6,7 @@ use FS\SolrBundle\SolrInterface;
 
 class ContentService
 {
+    private $solr;
     private $supportedLocales;
     private $currentLocale = null;
 

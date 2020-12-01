@@ -31,7 +31,7 @@ abstract class SchemaOrg
     }
 
     /**
-     * @var int
+     * @var string
      *
      * @Serializer\XmlAttribute()
      * @Serializer\Type("string")
@@ -53,7 +53,7 @@ abstract class SchemaOrg
     protected $name = [ '_' => null ];
 
     /**
-     * @var string
+     * @var array
      *
      * @Serializer\Type("array<string,string>")
      * @Serializer\XmlMap(inline = true, keyAttribute = "lang", entry = "disambiguatingDescription")
@@ -61,7 +61,7 @@ abstract class SchemaOrg
     protected $disambiguatingDescription;
 
     /**
-     * @var string
+     * @var array
      *
      * @Serializer\Type("array<string,string>")
      * @Serializer\XmlMap(inline = true, keyAttribute = "propertyID", entry = "identifier")
@@ -105,7 +105,7 @@ abstract class SchemaOrg
     /**
      * Gets id.
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -175,7 +175,7 @@ abstract class SchemaOrg
     /**
      * Gets gnd.
      *
-     * @return string
+     * @return string|null
      */
     public function getGnd()
     {
@@ -199,7 +199,7 @@ abstract class SchemaOrg
     /**
      * Gets lcauth.
      *
-     * @return string
+     * @return string|null
      */
     public function getLcauth()
     {
@@ -223,7 +223,7 @@ abstract class SchemaOrg
     /**
      * Gets viaf.
      *
-     * @return string
+     * @return string|null
      */
     public function getViaf()
     {
@@ -243,9 +243,9 @@ abstract class SchemaOrg
     }
 
     /**
-     * Gets gnd.
+     * Gets wikidata.
      *
-     * @return string
+     * @return string|null
      */
     public function getWikidata()
     {
@@ -274,7 +274,7 @@ abstract class SchemaOrg
     /**
      * Gets identifier.
      *
-     * @return string
+     * @return string|null
      */
     public function getIdentifier($name)
     {
@@ -313,7 +313,7 @@ abstract class SchemaOrg
      *
      * @param string $lang
      *
-     * @return string
+     * @return string|null
      */
     public function getLocalizedName($lang, $fallback = null)
     {
@@ -339,7 +339,7 @@ abstract class SchemaOrg
     /**
      * Gets name.
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -361,7 +361,7 @@ abstract class SchemaOrg
     /**
      * Gets German name.
      *
-     * @return string
+     * @return string|null
      */
     public function getNameDe()
     {
@@ -383,7 +383,7 @@ abstract class SchemaOrg
     /**
      * Gets English name.
      *
-     * @return string
+     * @return string|null
      */
     public function getNameEn()
     {
@@ -410,7 +410,7 @@ abstract class SchemaOrg
      *
      *
      * @param string $lang
-     * @return string
+     * @return string|null
      */
     public function getDisambiguatingDescription($lang)
     {
@@ -436,7 +436,7 @@ abstract class SchemaOrg
      * Gets disambiguating description in German.
      *
      *
-     * @return string
+     * @return string|null
      */
     public function getDisambiguatingDescriptionDe()
     {
@@ -458,7 +458,7 @@ abstract class SchemaOrg
     /**
      * Gets disambiguating description in English.
      *
-     * @return string
+     * @return string|null
      */
     public function getDisambiguatingDescriptionEn()
     {
