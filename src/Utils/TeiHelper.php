@@ -823,28 +823,30 @@ class TeiHelper
             ], true);
         }
 
-        if (array_key_exists('terms', $data)) {
-            $xpath = 'tei:profileDesc/tei:textClass/tei:classCode[contains(@scheme, "term")]';
-            // since there can be multiple, first clear and then add
-            \FluentDom($header)->find($xpath)->remove();
+        foreach ([ 'terms', 'meta' ] as $key) {
+            if (array_key_exists($key, $data)) {
+                $xpath = 'tei:profileDesc/tei:textClass/tei:classCode[contains(@scheme, "' . $key .'")]';
+                // since there can be multiple, first clear and then add
+                \FluentDom($header)->find($xpath)->remove();
 
-            if (!is_null($data['terms'])) {
-                foreach ($data['terms'] as $code) {
-                    $this->addDescendants($header, $xpath, [
-                        'tei:classCode[contains(@scheme, "term")]' => function ($parentOrSelf, $name, $updateExisting) use ($code) {
-                            if (!$updateExisting) {
-                                $self = $parentOrSelf->appendChild($parentOrSelf->ownerDocument->createElement('classCode', $code));
-                            }
-                            else {
-                                $self = $parentOrSelf;
-                                $self->nodeValue = $code;
-                            }
+                if (!is_null($data[$key])) {
+                    foreach ($data[$key] as $code) {
+                        $this->addDescendants($header, $xpath, [
+                            'tei:classCode[contains(@scheme, "' . $key . '")]' => function ($parentOrSelf, $name, $updateExisting) use ($code, $key) {
+                                if (!$updateExisting) {
+                                    $self = $parentOrSelf->appendChild($parentOrSelf->ownerDocument->createElement('classCode', $code));
+                                }
+                                else {
+                                    $self = $parentOrSelf;
+                                    $self->nodeValue = $code;
+                                }
 
-                            $self->setAttribute('scheme', $this->schemePrefix . 'term');
+                                $self->setAttribute('scheme', $this->schemePrefix . $key);
 
-                            return $self;
-                        },
-                    ], false);
+                                return $self;
+                            },
+                        ], false);
+                    }
                 }
             }
         }
