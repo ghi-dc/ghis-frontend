@@ -70,39 +70,31 @@
     </div>
 </div>
 {% endif %}
+{% if focus is not empty %}
 <div class="row">
     <div class="container">
         <div class="row focus">
             <div class="col-sm-3">
                 <h3>{{ 'Focus'|trans }}</h3>
-                {% if 'de' == app.request.locale %}
-                    {% set volume = 'wissen-und-bildung' %}
-                {% else %}
-                    {% set volume = 'knowledge-and-education' %}
-                {% endif %}
-                <a href="{{ path('dynamic', { 'path': volume ~ '/ghis:image-13'}) }}">
-                    <img class="img-responsive" style="position: absolute; z-index: 1; width: 100%; padding-right: 24px;" src="{{ app.request.basepath }}/media/focus/grzimek.jpg" alt="{% if 'de' == app.request.locale %}Michael Grzimek mit Betäubungsgewehr (1959){% else %}Michael Grzimek with a Tranquilizer Gun (1959){% endif %}" />
-                    <div style="position: absolute; z-index: 2; bottom: -1em">{% if 'de' == app.request.locale %}Bildnachweis: © Prof. Bernhard Grzimek/OKAPIA{% else %}Image credit: © Prof. Bernhard Grzimek/OKAPIA{% endif %}</div>
+                <a href="{{ path('dynamic', { 'path': focus.volume.getDtaDirname() ~ '/'~ focus.uid }) }}">
+                    <img class="img-responsive" style="position: absolute; z-index: 1; width: 100%; padding-right: 24px;" src="{{ app.request.basepath }}/media/focus/{{ focus.image }}" alt="{{ focus.title[app.request.locale] }}" />
+                    {% if focus.credits is defined and focus.credits[app.request.locale] is defined %}
+                    <div style="position: absolute; z-index: 2; bottom: -1em">{{ focus.credits[app.request.locale] }}</div>
+                    {% endif %}
                 </a>
             </div>
             <div class="col-sm-9">
                 <blockquote class="blockquote">
-                    {% if 'de' == app.request.locale %}
                     <p>
-                        Das von Michael Grzimek während der Dreharbeiten zum Dokumentarfilm <i>Serengeti darf nicht sterben</i> eingesetzte Betäubungsgewehr versinnbildlicht den Einfluss von Nutzer*innen auf Technik: Sie können neue oder auch zur ursprünglichen Intention der Erfinder quer liegende Nutzungsweisen in Artefakte einschreiben, wie das die Technikgeschichte in den letzten Jahren immer wieder betont hat. Ich habe die Abbildung ausgewählt, da hier eine umfassende Umdeutung erfolgte: Ein Gerät zum Jagen und Töten wurde durch Grzimeks Modifikationen zu einem Instrument des Artenschutzes – Betäubung von Wildtieren und anschließendem Markieren bzw. tierärztlichen Versorgen – umgedeutet.
+                        {{ focus.blurb[app.request.locale]|raw }}
                     </p>
-                    <footer class="blockquote-footer">Christopher Neumaier, Leibniz-Zentrum für Zeithistorische Forschung Potsdam und Helmut Schmidt Universität, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Wissen und Bildung</a>“</footer>
-                    {% else %}
-                    <p>
-                        The tranquilizer gun that Michael Grzimek used while filming the documentary <i>Serengeti Shall Not Die</i> shows how users change technology by introducing new practices that expand, or even subvert, the original intentions of inventors – driving home a point that historians of technology have made time and again in recent years. I chose to include this photograph in the project because it shows a complete reinterpretation of the tranquilizer gun. Grzimek’s modifications turned a device originally intended for hunting and killing into an instrument for protection and conservation – he stunned wild animals not to kill them, but to mark them and give them veterinary care.
-                    </p>
-                    <footer class="blockquote-footer">Christopher Neumaier, Leibniz Center for Contemporary History, Potsdam, and Helmut Schmidt University, member of the “<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Knowledge and Education</a>” working group</footer>
-                    {% endif %}
+                    <footer class="blockquote-footer">{{ focus.editor }}, {{ focus.institution[app.request.locale] }}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Wissen und Bildung</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Knowledge and Education</a>” working group{% endif %}</footer>
                 </blockquote>
             </div>
         </div><!-- .row -->
     </div>
-</div>
+</div><!-- .row -->
+{% endif %}
 
 {% endblock %}
 </main>
