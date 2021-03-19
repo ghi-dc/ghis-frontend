@@ -18,9 +18,10 @@ class ResourceController extends BaseController
 
     public function __construct(ContentService $contentService,
                                 KernelInterface $kernel,
-                                XsltProcessor $xsltProcessor, $dataDir)
+                                XsltProcessor $xsltProcessor,
+                                $dataDir, $siteKey)
     {
-        parent::__construct($contentService, $kernel, $dataDir);
+        parent::__construct($contentService, $kernel, $dataDir, $siteKey);
 
         $this->xsltProcessor = $xsltProcessor;
     }
@@ -165,6 +166,16 @@ class ResourceController extends BaseController
         return $html;
     }
 
+    protected function adjustInternalLink($crawler)
+    {
+        $crawler->filter('a')->each(function ($node, $i) {
+            $href = (string)$node->attr('href');
+            if (preg_match('/^(document|image|map)\-\d+$/', $href)) {
+                $node->getNode(0)->setAttribute('href', './' . $this->siteKey . ':' . $href);
+            }
+        });
+    }
+
     protected function buildFullUrl($src, $baseUrl = null)
     {
         if (empty($baseUrl) || preg_match('/^https?:/', $src)) {
@@ -224,6 +235,7 @@ class ResourceController extends BaseController
         $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
 
         $this->adjustMedia($crawler, $mediaBaseUrl);
+        $this->adjustInternalLink($crawler);
 
         // move Further Reading to Accordeon
         $node = $crawler->filter('div > h2.dta-head')
@@ -246,6 +258,7 @@ class ResourceController extends BaseController
             // remove parent div
             $parentDiv->parentNode->removeChild($parentDiv);
         }
+
         $html = $crawler->filter('body')->first()->html();
 
         $parts['body'] = $this->markCombiningE($html);

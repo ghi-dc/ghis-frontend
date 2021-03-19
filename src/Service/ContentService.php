@@ -23,7 +23,7 @@ class ContentService
 
     private function buildSolrEndpoint($locale)
     {
-        return 'ghis_' . $locale;
+        return 'core_' . $locale;
     }
 
     protected function setSolrEndpoint($locale)

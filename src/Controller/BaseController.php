@@ -15,14 +15,17 @@ class BaseController extends AbstractController
     protected $contentService;
     protected $projectDir;
     protected $dataDir;
+    protected $siteKey;
 
     public function __construct(ContentService $contentService,
                                 KernelInterface $kernel,
-                                $dataDir)
+                                $dataDir,
+                                $siteKey)
     {
         $this->contentService = $contentService;
         $this->projectDir = $kernel->getProjectDir();
         $this->dataDir = realpath($dataDir);
+        $this->siteKey = $siteKey;
     }
 
     /**

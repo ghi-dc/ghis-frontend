@@ -121,17 +121,17 @@ extends TeiHeader
 
     /**
      * Solr-core depends on article-language
-     * TODO: don't hardwire ghis_ prefix
      *
      * @return string
      */
     public function indexHandler()
     {
-        if (!empty($this->language) && 'eng' == $this->language) {
-            return 'ghis_en';
+        if (!empty($this->language)) {
+            return 'core_' . \App\Utils\Iso639::code3To1($this->language);
         }
 
-        return 'ghis_de';
+        // fallback
+        return 'core_de';
     }
 
     /**

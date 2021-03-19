@@ -6,7 +6,8 @@
 parameters:
     # array/collection parameters
     app.supported_locales: ['en', 'de']
-    app.site.name: German History Intersections
+    app.site.key: "%env(string:SITE_KEY)%"
+    app.site.name: "%env(string:SITE_NAME)%"
     app.xsl_converter.saxonc_enable: "%env(bool:SAXONC_ENABLE)%"
     app.xsl_converter_adapter.arguments: "%env(string:JAVA_BIN)% -jar %kernel.project_dir%/data/styles/bin/saxon9he.jar -s:%%source%% -xsl:%%xsl%% %%additional%%"
 
@@ -29,8 +30,9 @@ services:
         bind:
             # we inject this into App\Service\ContentService
             $supportedLocales: '%app.supported_locales%'
-            # we inject this into App\Controller\BaseController
+            # we inject these into App\Controller\BaseController
             $dataDir: '%kernel.project_dir%/data'
+            $siteKey: '%app.site.key%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -91,4 +93,3 @@ services:
         
     Octicons\Twig\OcticonTwigExtension:
             tags: ['twig.runtime']
-            
