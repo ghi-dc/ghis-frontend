@@ -30,9 +30,9 @@ class SearchController extends BaseController
     public function __construct(ContentService $contentService,
                                 KernelInterface $kernel,
                                 \Knp\Component\Pager\PaginatorInterface $paginator,
-                                $dataDir)
+                                $dataDir, $siteKey)
     {
-        parent::__construct($contentService, $kernel, $dataDir);
+        parent::__construct($contentService, $kernel, $dataDir, $siteKey);
 
         $this->paginator = $paginator;
     }
