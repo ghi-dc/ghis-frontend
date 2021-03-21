@@ -107,7 +107,6 @@ extends TeiHeader
         return $this->hasPart;
     }
 
-
     public function jsonSerialize()
     {
         $ret = parent::jsonSerialize();
