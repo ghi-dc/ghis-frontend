@@ -392,9 +392,9 @@
         </xsl:element>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:element name="div">
+        <xsl:element name="span">
           <xsl:attribute name="class">ph dta-figure</xsl:attribute>
-          <xsl:attribute name="type"><xsl:value-of select="count(preceding::tei:figure)+1"/></xsl:attribute>
+          <xsl:attribute name="data-type"><xsl:value-of select="count(preceding::tei:figure)+1"/></xsl:attribute>
           <xsl:if test="@facs">
             <xsl:element name="img">
               <!--<xsl:attribute name="class">img-responsive</xsl:attribute>-->

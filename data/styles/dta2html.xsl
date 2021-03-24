@@ -32,7 +32,8 @@
     </ul>
     </xsl:if>
 
-    <div class="article">
+    <xsl:element name="div">
+      <xsl:attribute name="class">article <xsl:value-of select="/tei:TEI/tei:teiHeader/tei:profileDesc/tei:textClass/tei:classCode[@scheme='http://germanhistorydocs.org/docs/#genre']" /></xsl:attribute>
       <xsl:if test="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt/tei:note/*">
         <h2 class="source-description-head">
           <xsl:call-template name="translate">
@@ -79,7 +80,7 @@
           </xsl:call-template>: <xsl:apply-templates select="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:editor[@role='translator']/node()"/>
         </div>
       </xsl:if>
-    </div>
+    </xsl:element>
 
     <xsl:choose>
       <xsl:when test="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:licence">

@@ -874,9 +874,19 @@ article, div.content {
                 font-weight: bold;
             }
 
+            .carousel {
+                /* since this is unwrapped from p, add the same margin as for p */
+                margin-bottom: 1rem;
+            }
+
             .source-citation {
                 margin-top: 4rem;
                 /* color: $color-gray-dark; */
+            }
+
+            /* no top-margin for .source-citation below image */
+            .article.image .source-citation {
+                margin-top: 0rem;
             }
 
             img {
