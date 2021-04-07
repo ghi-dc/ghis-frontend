@@ -78,9 +78,6 @@
                 <h3>{{ 'Focus'|trans }}</h3>
                 <a href="{{ path('dynamic', { 'path': focus.volume.getDtaDirname() ~ '/'~ focus.uid }) }}">
                     <img class="img-responsive" style="position: absolute; z-index: 1; width: 100%; padding-right: 24px;" src="{{ app.request.basepath }}/media/focus/{{ focus.image }}" alt="{{ focus.title[app.request.locale] }}" />
-                    {% if focus.credits is defined and focus.credits[app.request.locale] is defined %}
-                    <div style="position: absolute; z-index: 2; bottom: -1em">{{ focus.credits[app.request.locale] }}</div>
-                    {% endif %}
                 </a>
             </div>
             <div class="col-sm-9">
@@ -88,7 +85,10 @@
                     <p>
                         {{ focus.blurb[app.request.locale]|raw }}
                     </p>
-                    <footer class="blockquote-footer">{{ focus.editor }}, {{ focus.institution[app.request.locale] }}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Wissen und Bildung</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Knowledge and Education</a>” working group{% endif %}</footer>
+                    <p style="font-size: 80%; margin-left: 1.1rem;"><b>{{ focus.editor }}</b>, {{ focus.institution[app.request.locale] }}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Wissen und Bildung</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': 'knowledge-and-education'}) }}">Knowledge and Education</a>” working group{% endif %}</p>
+                    {% if focus.credits is defined and focus.credits[app.request.locale] is defined %}
+                    <footer class="blockquote-footer">{{ focus.credits[app.request.locale] }}</footer>
+                    {% endif %}
                 </blockquote>
             </div>
         </div><!-- .row -->
