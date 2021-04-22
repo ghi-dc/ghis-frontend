@@ -392,15 +392,17 @@ class ResourceController extends BaseController
                     $child = $node->ownerDocument->importNode($child, true);
                     $newnode->appendChild($child);
                 }
+
                 foreach ($node->attributes as $attrName => $attrNode) {
                     $newnode->setAttribute($attrName, $attrNode);
                 }
+
                 $node->parentNode->replaceChild($newnode, $node);
 
                 return $newnode;            }
         });
 
-        $parts['body'] = $crawler->html();
+        $parts['body'] =  $crawler->filter('body')->first()->html();
 
         $htmlPrint = $this->renderView('Resource/printview.html.twig', [
             'volume' => $volume,

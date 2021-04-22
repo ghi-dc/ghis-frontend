@@ -1010,7 +1010,7 @@ article {
             @include indent-text();
         }
 
-        .source-description {
+        .source-description, .source-citation {
             margin-top: 4rem;
         }
     }

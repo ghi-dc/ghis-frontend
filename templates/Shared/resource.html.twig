@@ -40,6 +40,14 @@
     {% endapply -%}
 {% endmacro %}
 
+{% macro citation(resource, volume) %}
+    {% import _self as resource_helper %}
+    {{ resource.title }},
+    {{ 'published in:'|trans }} {{ site_name|trans({}, 'additional') }},
+    &lt;{{- resource_helper.citation_link(resource, volume) -}}&gt;
+    [{{ 'now'|date('F d, Y'|trans) }}].
+{% endmacro %}
+
 {% macro volume_background(volume, css_selector) %}
     <style>
         {{ css_selector }} {

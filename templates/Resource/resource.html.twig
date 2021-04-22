@@ -96,7 +96,7 @@
                             </div>
                             <div id="collapseCitation" class="collapse show" aria-labelledby="headingCitation" data-parent="#bottom-information">
                                 <div class="card-body">
-                                {{ resource.title }}, {{ 'published in:'|trans }} {{ site_name|trans({}, 'additional') }}, &lt;{{- resource_helper.citation_link(resource, volume) -}}&gt; [{{ 'now'|date('F d, Y'|trans) }}].
+                                    {{ resource_helper.citation(resource, volume) }}
                                 </div>
                             </div>
                         </div>
