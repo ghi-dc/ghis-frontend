@@ -15,12 +15,16 @@ class AppExtension extends AbstractExtension
 {
     private $contentService;
     private $urlGenerator;
+    private $publicDir;
     private $volumeById = [];
 
-    public function __construct(ContentService $contentService, UrlGeneratorInterface $urlGenerator)
+    public function __construct(ContentService $contentService,
+                                UrlGeneratorInterface $urlGenerator,
+                                $publicDir)
     {
         $this->contentService = $contentService;
         $this->urlGenerator = $urlGenerator;
+        $this->publicDir = realpath($publicDir);
 
         $volumes = $this->contentService->getVolumes();
         foreach ($volumes as $volume) {
@@ -39,8 +43,9 @@ class AppExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('resource_path', [$this, 'buildResourcePath']),
-            new TwigFunction('resource_breadcrumb', [$this, 'buildResourceBreadcrumb'], ['is_safe' => ['html']]),
+            new TwigFunction('resource_path', [ $this, 'buildResourcePath' ]),
+            new TwigFunction('resource_breadcrumb', [ $this, 'buildResourceBreadcrumb'], [ 'is_safe' => [ 'html' ] ]),
+            new TwigFunction('section_thumbnail', [ $this, 'buildSectionThumbnail' ]),
         ];
     }
 
@@ -84,5 +89,27 @@ class AppExtension extends AbstractExtension
         // TODO: section
 
         return join('/', $parts);
+    }
+
+    public function buildSectionThumbnail($resource)
+    {
+        $volumeId = $resource->getVolumeIdFromShelfmark();
+
+        if (!array_key_exists($volumeId, $this->volumeById)) {
+            return;
+        }
+
+        $path[] = 'volumes'; // maybe switch to img
+        $path[] = $this->volumeById[$volumeId]->getId(true);
+        $path[] = join('.', [ $resource->getId(true), $resource->getLanguage() , 'jpg' ]);
+
+        $relPath = join('/', $path);
+
+        $absPath = $this->publicDir . '/' . $relPath;
+        if (!file_exists($absPath)) {
+            return;
+        }
+
+        return $relPath;
     }
 }
