@@ -106,10 +106,21 @@ class AppExtension extends AbstractExtension
         $relPath = join('/', $path);
 
         $absPath = $this->publicDir . '/' . $relPath;
-        if (!file_exists($absPath)) {
-            return;
+        if (file_exists($absPath)) {
+            return $relPath;
         }
 
-        return $relPath;
+        // try language independent version
+        array_pop($path);
+        $path[] = join('.', [ $resource->getId(true), 'jpg' ]);
+
+        $relPath = join('/', $path);
+
+        $absPath = $this->publicDir . '/' . $relPath;
+        if (file_exists($absPath)) {
+            return $relPath;
+        }
+
+        return null;
     }
 }
