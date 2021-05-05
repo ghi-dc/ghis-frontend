@@ -307,9 +307,16 @@ class ResourceController extends BaseController
         return $parts;
     }
 
+    /**
+     * Render volume ToC
+     */
     public function volumeAction(Request $request, $volume)
     {
         $this->contentService->setLocale($request->getLocale());
+
+        $fname = join('.', [ $volume->getId(true), $volume->getLanguage(), 'xml' ]);
+        $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
+        $entity = \App\Entity\TeiFull::fromXml($fnameFull, false);
 
         $pageMeta = [
             'title' => $volume->getTitle(),
@@ -317,12 +324,15 @@ class ResourceController extends BaseController
 
         return $this->render('Resource/volume.html.twig', [
             'pageMeta' => $pageMeta,
-            'volume' => $volume,
+            'volume' => $entity,
             'introduction' => $this->contentService->getIntroduction($volume),
             'sections' => $this->contentService->getSections($volume),
         ] + $this->buildLocaleSwitch($volume));
     }
 
+    /**
+     * Render section ToC
+     */
     public function sectionAction(Request $request, $volume, $section)
     {
         $this->contentService->setLocale($request->getLocale());

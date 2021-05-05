@@ -132,6 +132,12 @@ implements \JsonSerializable
 
         $entity->setTranslator($article->translator);
 
+        if (property_exists($article, 'responsible')) {
+            foreach ($article->responsible as $responsible) {
+                $entity->addResponsible($responsible['name'], $responsible['role'], $responsible['nameType']);
+            }
+        }
+
         if (property_exists($article, 'slug')) {
             $entity->setDtaDirName($article->slug);
         }

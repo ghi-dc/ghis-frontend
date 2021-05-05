@@ -19,6 +19,13 @@ class TeiHelper
 
     protected $schemePrefix = 'http://germanhistorydocs.org/docs/#';
 
+    protected $errors = [];
+
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
     private function buildPerson($element, $givenNameFirst = false)
     {
         $person = new \App\Entity\Person();
@@ -194,6 +201,39 @@ class TeiHelper
             $article->translator = null;
         }
 
+        // responsible
+        $result = $header('./tei:fileDesc/tei:titleStmt/tei:respStmt');
+        foreach ($result as $element) {
+            $responsible = [
+                'role' => '',
+            ];
+
+            foreach ($element->childNodes as $childNode) {
+                switch ($childNode->nodeName) {
+                    case 'resp':
+                        $responsible['role'] = $this->extractTextContent($childNode);
+                        break;
+
+                    case '#text';
+                        $responsible['role'] .= $this->extractTextContent($childNode);
+                        break;
+
+                    case 'name':
+                    case 'persName':
+                        $responsible['nameType'] = $childNode->nodeName;
+                        $responsible['name'] = $this->extractTextContent($childNode);
+                }
+            }
+
+            if (!empty($responsible['name'])) {
+                if (empty($article->responsible)) {
+                    $article->responsible = [];
+                }
+
+                $article->responsible[] = $responsible;
+            }
+        }
+
         // datePublication
         $result = $header('./tei:fileDesc/tei:publicationStmt/tei:date');
         foreach ($result as $element) {
@@ -258,8 +298,9 @@ class TeiHelper
         }
 
         // url
+        $article->url = null;
         $result = $header('(./tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msIdentifier/tei:idno/tei:idno[@type="URLImages"])[1]');
-        if (!empty($result)) {
+        if ($result->length > 0) {
             $article->url = (string)$result[0];
         }
 
@@ -492,17 +533,21 @@ class TeiHelper
             return $dom;
         }
 
+        $header = $dom('/tei:TEI/tei:teiHeader')[0];
+
         /*
+        $xpath = new \DOMXpath($dom);
+
         // remove all oxygen comments
         $result = $xpath->evaluate(
             '//processing-instruction()[name() = "oxy_comment_start" or name() = "oxy_comment_end"]'
         );
+
         foreach ($result as $node) {
             $node->parentNode->removeChild($node);
         }
         */
 
-        $header = $dom('/tei:TEI/tei:teiHeader')[0];
 
         // if we have only <title> and not <title type="main">, add this attribute
         $hasTitleAttrMain = $header('count(./tei:fileDesc/tei:titleStmt/tei:title[@type="main"]) > 0');
@@ -977,7 +1022,6 @@ class TeiHelper
 
     public function extractEntities($fname)
     {
-        $input = file_get_contents($fname);
         $reader = new CollectingReader();
 
         $reader->elementMap = [
@@ -987,6 +1031,8 @@ class TeiHelper
             '{http://www.tei-c.org/ns/1.0}date' => '\\App\\Utils\\CollectingReader::collectElement',
         ];
 
+        $input = file_get_contents($fname);
+
         $additional = [];
         try {
             $reader->xml($input);
@@ -994,6 +1040,7 @@ class TeiHelper
             foreach ($output as $entity) {
                 $attribute = '{http://www.tei-c.org/ns/1.0}date' == $entity['name']
                     ? 'corresp' : 'ref';
+
                 if (empty($entity['attributes'][$attribute])) {
                   continue;
                 }
@@ -1007,6 +1054,10 @@ class TeiHelper
                                        . preg_quote('http://vocab.getty.edu/tgn/', '/')
                                        . '\d+$/', $uri))
                         {
+                            ;
+                        }
+                        else if (preg_match('/geo\:(-?\d+\.\d*),\s*(-?\d+\.\d*)/', $uri, $matches)) {
+                            $uri = sprintf('geo:%s,%s', $matches[1], $matches[2]);
                         }
                         else {
                             // die($uri);
@@ -1016,8 +1067,8 @@ class TeiHelper
 
                       case '{http://www.tei-c.org/ns/1.0}persName':
                         $type = 'person';
-                        if (preg_match('/^'
-                                       . preg_quote('http://d-nb.info/gnd/', '/')
+                        if (preg_match('/^https?'
+                                       . preg_quote('://d-nb.info/gnd/', '/')
                                        . '\d+[xX]?$/', $uri)
 
                             || preg_match('/^'
@@ -1039,10 +1090,11 @@ class TeiHelper
 
                       case '{http://www.tei-c.org/ns/1.0}orgName':
                         $type = 'organization';
-                        if (preg_match('/^'
-                                       . preg_quote('http://d-nb.info/gnd/', '/')
+                        if (preg_match('/^https?'
+                                       . preg_quote('://d-nb.info/gnd/', '/')
                                        . '\d+\-?[\dxX]?$/', $uri))
                         {
+                            ;
                         }
                         else {
                             // die($uri);
@@ -1052,10 +1104,11 @@ class TeiHelper
 
                       case '{http://www.tei-c.org/ns/1.0}date':
                         $type = 'event';
-                        if (preg_match('/^'
-                                       . preg_quote('http://d-nb.info/gnd/', '/')
+                        if (preg_match('/^https?'
+                                       . preg_quote('://d-nb.info/gnd/', '/')
                                        . '\d+\-?[\dxX]?$/', $uri))
                         {
+                            ;
                         }
                         else {
                             // die($uri);
@@ -1071,16 +1124,18 @@ class TeiHelper
                     if (!isset($additional[$type])) {
                         $additional[$type] = [];
                     }
+
                     if (!isset($additional[$type][$uri])) {
                         $additional[$type][$uri] = 0;
                     }
+
                     ++$additional[$type][$uri];
                 }
-
             }
         }
         catch (\Exception $e) {
             var_dump($e);
+
             return false;
         }
 
@@ -1104,6 +1159,7 @@ class TeiHelper
                 if (empty($item['attributes']['corresp'])) {
                   continue;
                 }
+
                 $key = trim($item['attributes']['corresp']);
                 if (!is_null($slugify)) {
                     $key = \App\Entity\CreativeWork::slugifyCorresp($slugify, $key);
@@ -1113,12 +1169,14 @@ class TeiHelper
                     if (!isset($items[$key])) {
                         $items[$key] = 0;
                     }
+
                     ++$items[$key];
                 }
             }
         }
         catch (\Exception $e) {
             var_dump($e);
+
             return false;
         }
 
