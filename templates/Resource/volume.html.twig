@@ -16,8 +16,8 @@
                 <ul class="breadcrumb"><li>{{ 'Topic'|trans }}</li></ul>
                 <h1>{{ volume.title }}</h1>
                 <p>
-                    {% for editor in volume.editors %}{% if not loop.first %}, {% endif %}{{ editor.name }}{% endfor %}{%
-                     if volume.responsible is not empty %}{% for responsible in volume.responsible %}, {{ responsible.role }} {% if responsible.persName is defined %}{{ responsible.persName }}{% else %}{{ responsible.name }}{% endif %}{% endfor %}{% endif %}
+                    {% for editor in volume.editors %}{% if not loop.first %}, {% endif %}{{ editor.name }}{% endfor %}
+                    {% if volume.responsible is not empty %}<br />{% for responsible in volume.responsible %}{% if not loop.first %}, {% endif %}{{ responsible.role }} {% if responsible.persName is defined %}{{ responsible.persName }}{% else %}{{ responsible.name }}{% endif %}{% endfor %}{% endif %}
                 </p>
             </div>
         </div><!-- .row -->
