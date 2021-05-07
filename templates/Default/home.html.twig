@@ -71,6 +71,12 @@
 </div>
 {% endif %}
 {% if focus is not empty %}
+    {% set workinggroup = {} %}
+    {% for volume in volumes %}
+        {% if volume.id == focus.volume.id %}
+            {% set workinggroup = workinggroup|merge({'label': volume.title, 'path': volume.getDtaDirname() }) %}
+        {% endif %}
+    {% endfor %}
 <div class="row">
     <div class="container">
         <div class="row focus">
@@ -85,7 +91,7 @@
                     <p>
                         {{ focus.blurb[app.request.locale]|raw }}
                     </p>
-                    <p style="font-size: 80%; margin-left: 1.1rem;"><b>{{ focus.editor }}</b>, {{ focus.institution[app.request.locale] }}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': 'wissen-und-bildung'}) }}">Wissen und Bildung</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': 'knowledge-and-education'}) }}">Knowledge and Education</a>” working group{% endif %}</p>
+                    <p style="font-size: 80%; margin-left: 1.1rem;"><b>{{ focus.editor }}</b>, {{ focus.institution[app.request.locale] }}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>” working group{% endif %}</p>
                     {% if focus.credits is defined and focus.credits[app.request.locale] is defined %}
                     <footer class="blockquote-footer">{{ focus.credits[app.request.locale] }}</footer>
                     {% endif %}
