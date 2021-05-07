@@ -91,7 +91,7 @@
                     <p>
                         {{ focus.blurb[app.request.locale]|raw }}
                     </p>
-                    <p style="font-size: 80%; margin-left: 1.1rem;"><b>{{ focus.editor }}</b>, {{ focus.institution[app.request.locale] }}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>” working group{% endif %}</p>
+                    <p style="font-size: 80%; margin-left: 1.1rem;"><b>{{ focus.editor }}</b>{% if focus.institution[app.request.locale] is not empty %}, {{ focus.institution[app.request.locale] }}{% endif %}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>” working group{% endif %}</p>
                     {% if focus.credits is defined and focus.credits[app.request.locale] is defined %}
                     <footer class="blockquote-footer">{{ focus.credits[app.request.locale] }}</footer>
                     {% endif %}
