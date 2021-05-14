@@ -259,6 +259,7 @@ class TeiHelper
         }
 
         // licence
+        $article->rights = null;
         $result = $header('./tei:fileDesc/tei:publicationStmt/tei:availability/tei:licence');
         if ($result->length > 0) {
             $article->licence = (string)$result[0]['target'];
@@ -270,7 +271,7 @@ class TeiHelper
         else {
             $article->licence = null;
             $result = $header('./tei:fileDesc/tei:publicationStmt/tei:availability/tei:p');
-            if (!empty($result)) {
+            if ($result->length > 0) {
                 $article->rights = (string)$result[0];
             }
         }
@@ -284,10 +285,9 @@ class TeiHelper
             ] as $type => $target)
         {
             $result = $header('(./tei:fileDesc/tei:publicationStmt/tei:idno/tei:idno[@type="' . $type . '"])[1]');
-            if (!empty($result)) {
+            if ($result->length > 0) {
                 $article->$target = (string)$result[0];
             }
-
         }
 
         $result = $header('(./tei:fileDesc/tei:notesStmt/tei:note[@type="remarkDocument"])[1]');
