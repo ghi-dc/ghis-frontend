@@ -36,8 +36,8 @@ class MenuBuilder
 
         $menu->setChildrenAttributes([ 'id' => 'menu-volumes', 'class' => 'list-inline' ]);
 
-        // alternative would be to get locale from $requestStack
-        $this->contentService->setLocale($this->translator->getLocale());
+        $this->contentService->setLocale($requestStack->getCurrentRequest()
+                                         ->getLocale());
 
         $volumes = $this->contentService->getVolumes();
 
