@@ -343,7 +343,7 @@ class SearchController extends BaseController
         // build pagination - this one excecutes the query
         $pagination = $this->paginator->paginate(
             [ $solrClient, $solrQuery ],
-            $page = $request->query->get('page', 1),
+            $page = $request->query->get('page', '1'),
             $resultsPerPage
         );
         $pagination->setParam('q', $q);
