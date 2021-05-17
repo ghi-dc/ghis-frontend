@@ -11,6 +11,7 @@
         "php": "^7.3.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-intl": "*",
         "armin/scssphp-bundle": "^1.1",
         "edwinhoksberg/octicons-php": "^1.1",
         "fluentdom/fluentdom": "^8.0",
