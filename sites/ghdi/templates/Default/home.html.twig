@@ -1,0 +1,30 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block maincontainer %}
+<main role="main" class="container-fluid">
+{% block body %}
+{% if volumes|length > 0 %}
+<div class="row section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h3>{{ 'Volumes'|trans }}</h3></div>
+            <div class="col-sm-9"></div>
+        </div><!-- .row -->
+    </div>
+    <div class="container">
+        <div class="row volumes">
+        {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
+        {% for volume in volumes %}
+            <div class="col-sm-{{ numCols}} hyphens-auto">
+                <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
+                {#{ volume.note }#}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+</main>
+{% endblock %}

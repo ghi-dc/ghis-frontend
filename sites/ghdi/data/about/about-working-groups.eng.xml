@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Editorial Working Groups</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace><idno>
+                    <idno type="DTAID">ghis:about-working-groups</idno>
+                    <idno type="DTADirName">working-groups</idno>
+                    <idno type="shelfmark">ghis/901:about-working-groups</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+			<div n="2">
+				<p>
+					Each of the three modules – migration, knowledge and education, and Germanness – was compiled by a four-member editorial working group. Over the course of two years, each group met four times. Meetings were held on both sides of the Atlantic. German- and American-based researchers, and junior and senior scholars were represented equally in each group. The composition of the groups guaranteed a bicultural approach in keeping with the GHI’s longstanding emphasis on transatlantic perspectives. The inclusion of both established and early-career academics ensured a diversity of viewpoints, while underscoring the GHI’s commitment to <hi rendition="#i">Nachwuchsförderung</hi> (support for young scholars).
+				</p>
+			</div>
+
+			<div n="3">
+				<head><ref target="migration">Migration</ref></head>
+				<list>
+					<item>Deniz Göktürk (University of California at Berkeley)</item>
+					<item>Dirk Hoerder (Arizona State University &amp; University of Bremen)</item>
+					<item>Annika Orich (Georgia Institute of Technology)</item>
+					<item>Sakine Yildiz (University of Osnabrück)</item>
+				</list>
+			</div>
+
+			<div n="3">
+				<head><ref target="knowledge-and-education">Knowledge and Education</ref></head>
+				<list>
+					<item>Anne Mariss (University of Regensburg)</item>
+					<item>Christopher Neumaier (Leibniz Centre for Contemporary History Potsdam &amp; Helmut Schmidt University)</item>
+					<item>Michael Printy (Yale University)</item>
+					<item>Jeffrey Zalar (University of Cincinnati)</item>
+				</list>
+			</div>
+
+			<div n="3">
+				<head><ref target="germanness">Germanness</ref></head>
+				<list>
+					<item>Winson Chu (University of Wisconsin at Milwaukee)</item>
+					<item>Hannah Margaret Elmer (Columbia University)</item>
+					<item>Martina Kessel (University of Bielefeld)</item>
+					<item>Eva Marie Lehner (University of Duisburg-Essen)</item>
+				</list>
+			</div>
+		</body>
+    </text>
+</TEI>

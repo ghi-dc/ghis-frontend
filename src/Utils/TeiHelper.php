@@ -17,6 +17,18 @@ class TeiHelper
         return is_null($str) || '' === trim($str);
     }
 
+    protected static function slugifyCorresp($slugify, $corresp)
+    {
+        if (preg_match('/(.*)\_(\d+[^_*])/', $corresp, $matches)) {
+            // keep underscores before date
+            return $slugify->slugify($matches[1])
+                 . '_'
+                 . $slugify->slugify($matches[2]);
+        }
+
+        return $slugify->slugify($corresp, '-');
+    }
+
     protected $schemePrefix = 'http://germanhistorydocs.org/docs/#';
 
     protected $errors = [];
@@ -97,7 +109,7 @@ class TeiHelper
      * Load string into \FluentDOM\DOM\Document
      *
      * @param string $content
-     * @return \FluentDOM\DOM\Document
+     * @return \FluentDOM\DOM\Document|false
      */
     protected function loadXmlString($content): FluentDOMDocument
     {
@@ -1070,14 +1082,6 @@ class TeiHelper
                         if (preg_match('/^https?'
                                        . preg_quote('://d-nb.info/gnd/', '/')
                                        . '\d+[xX]?$/', $uri)
-
-                            || preg_match('/^'
-                                       . preg_quote('http://www.dasjuedischehamburg.de/inhalt/', '/')
-                                       . '.+$/', $uri)
-
-                            || preg_match('/^'
-                                            . preg_quote('http://www.stolpersteine-hamburg.de/', '/')
-                                            . '.*?BIO_ID=(\d+)/', $uri)
                         )
                         {
                             ;
@@ -1162,7 +1166,7 @@ class TeiHelper
 
                 $key = trim($item['attributes']['corresp']);
                 if (!is_null($slugify)) {
-                    $key = \App\Entity\CreativeWork::slugifyCorresp($slugify, $key);
+                    $key = self::slugifyCorresp($slugify, $key);
                 }
 
                 if (!empty($key)) {

@@ -1,6 +1,6 @@
 framework:
-    default_locale: en
+    # JMS\TranslationBundle\JMSTranslationBundle needs validation
+    validation: ~
     translator:
-        default_path: '%kernel.project_dir%/translations'
-        fallbacks:
-            - en
+        fallbacks: [en]
+        logging: true

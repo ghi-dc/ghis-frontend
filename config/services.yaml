@@ -33,6 +33,8 @@ services:
             # we inject these into App\Controller\BaseController
             $dataDir: '%kernel.project_dir%/data'
             $siteKey: '%app.site.key%'
+            # we inject this into App\EventListener\ThemeRequestListener
+            $siteTheme: 'ghi-dc/%app.site.key%'
             # we inject this into Twig\AppExtension
             $publicDir: '%kernel.project_dir%/public'
 
@@ -67,7 +69,13 @@ services:
         arguments: ["@request_stack"]
         tags:
             - { name: knp_menu.menu, alias: about } # The alias is what is used to retrieve the menu
-            
+
+    # theme selection
+    App\EventListener\ThemeRequestListener:
+        # arguments: ['@sylius.repository.theme', '@sylius.theme.context.settable']
+        tags:
+        - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
     # So we can inject @solr.client, see https://github.com/floriansemm/SolrBundle/issues/191#issuecomment-466101623
     FS\SolrBundle\SolrInterface: '@solr.client'
     

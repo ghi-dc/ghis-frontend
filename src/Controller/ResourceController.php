@@ -9,21 +9,26 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
+
 use App\Service\ContentService;
 use App\Service\Xsl\XsltProcessor;
 
 class ResourceController extends BaseController
 {
     protected $xsltProcessor;
+    protected $themeContext;
 
     public function __construct(ContentService $contentService,
                                 KernelInterface $kernel,
                                 XsltProcessor $xsltProcessor,
+                                SettableThemeContext $themeContext,
                                 $dataDir, $siteKey)
     {
         parent::__construct($contentService, $kernel, $dataDir, $siteKey);
 
         $this->xsltProcessor = $xsltProcessor;
+        $this->themeContext = $themeContext;
     }
 
     protected function buildLocaleSwitch($volume, $resource = null)
@@ -425,9 +430,15 @@ class ResourceController extends BaseController
 
     protected function aboutToHtml($route, $locale, $mediaBaseUrl, $fnameXsl = 'dta2html.xsl')
     {
+        $dataDir = $this->dataDir;
+        $theme = $this->themeContext->getTheme();
+        if (!is_null($theme)) {
+           $dataDir = join(DIRECTORY_SEPARATOR, [ $theme->getPath(), 'data' ]);
+        }
+
         $fname = join('.', [ $route, \App\Utils\Iso639::code1To3($locale), 'xml' ]);
 
-        $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'about', $fname ]);
+        $fnameFull = join(DIRECTORY_SEPARATOR, [ $dataDir, 'about', $fname ]);
 
         $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXsl, [
             'params' => [

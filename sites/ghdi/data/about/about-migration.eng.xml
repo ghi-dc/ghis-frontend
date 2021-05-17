@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Migration</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace><idno>
+                    <idno type="DTAID">ghis:about-migration</idno>
+                    <idno type="DTADirName">migration</idno>
+                    <idno type="shelfmark">ghis/901:about-migration</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+			<div n="2">
+				<head>Deniz Göktürk</head>
+				<figure facs="gokturk-deniz.jpg" />
+				<p>
+					Deniz Göktürk is Professor of German at the University of California, Berkeley. She works primarily in cultural and media studies, with a focus on moving images, multilingual literature, and theories of migration. She is the author of <hi rendition="#i">Künstler, Cowboys, Ingenieure: Kultur- und mediengeschichtliche Studien zu deutschen Amerika-Texten 1912-1920</hi> (1998). A second monograph, <hi rendition="#i">Framing Migration: Seven Takes on Movement and Borders</hi>, is forthcoming (2021). She is co-editor (with Tim Bergfelder, Erica Carter, and Claudia Sandberg) of <hi rendition="#i">The German Cinema Book</hi> (2002), expanded new edition (2020). She is also co-editor (with David Gramling and Anton Kaes) of <hi rendition="#i">Germany in Transit: Nation and Migration 1955-2005</hi> (2007), expanded German edition: <hi rendition="#i">Transit Deutschland: Debatten zu Nation und Migration</hi> (2011).
+				</p>
+				<p><ref target="https://german.berkeley.edu/people/deniz-gokturk/">german.berkeley.edu/people/deniz-gokturk/</ref></p>
+			</div>
+
+			<div n="2">
+				<head>Dirk Hoerder</head>
+				<figure facs="hoerder-dirk.jpg" />
+				<p>
+					Dirk Hoerder is Professor Emeritus of History at both Arizona State University and the University of Bremen. An expert on global migration and immigrant acculturation patterns, he is the author, co-author, or editor of numerous academic works on the history of migration. His co-authored volumes include (with Christiane Harzig and Donna Gabaccia), <hi rendition="#i">What is Migration History?</hi> (2009). His monographs include <hi rendition="#i">Cultures in Contact: World Migrations in the Second Millennium</hi> (2002), <hi rendition="#i">Geschichte der deutschen Migration vom Mittelalter bis heute</hi> (2010), and <hi rendition="#i">Migrations and Belongings</hi> (2014).
+				</p>
+				<p><ref target="http://www.fb10.uni-bremen.de/lehrpersonal/hoerder.aspx">www.fb10.uni-bremen.de/lehrpersonal/hoerder.aspx</ref></p>
+			</div>
+
+			<div n="2">
+				<head>Annika Orich</head>
+				<figure facs="orich-annika.jpg" />
+				<p>
+					Annika Orich is Assistant Professor of German at Georgia Tech. She specializes in 20th- and 21st-century German literature, film, and culture, with an emphasis on multiculturalism and migration, memory and identity, and humor. Her publications include “‘Wir wollen nicht ins Comedy-KZ’: Serdar Somuncu, Oliver Polak, Ethno-Komik und deutsche Zugehörigkeits- und Erinnerungskultur” (2019) and “Archival Resistance: Reading the New Right,” a forthcoming article in <hi rendition="#i">German Politics &amp; Society</hi> on reading in archives as a sociopolitical act of resistance against far-right movements. She is currently working on a book project on reproductive imaginations, which shows how reproductive processes in biology and the arts evoke similar anxieties in the German cultural realm.
+				</p>
+				<p><ref target="https://modlangs.gatech.edu/people/person/annika-orich">modlangs.gatech.edu/people/person/annika-orich</ref></p>
+			</div>
+
+			<div n="2">
+				<head>Sakine Yildiz</head>
+				<figure facs="yildiz-sakine.jpg" />
+				<p>
+					Sakine Yildiz is an educator and consultant for a project management tool. She lives and works in Berlin and Stuttgart. She authors teaching materials in the fields of German and history and has many years of experience researching German policies to promote the return of migrants. She holds a Ph.D. from the University of Osnabrück.
+				</p>
+			</div>
+
+			<div n="2">
+				<head>Associated Researchers</head>
+				<div n="3">
+					<head>Christof Muigg</head>
+					<p>
+
+Christof Muigg works primarily in the fields of gender history, the history of violence, and military history in global perspective. Christof is University Assistant (prae doc) in the Department of History at the University of Vienna and Adjunct Faculty Member at the Center for Liberal Arts at Webster Vienna Private University. Until 2019, he worked as a museum educator at the Museum of Military History in Vienna. Christof is writing a dissertation on the role of military men in Habsburg diplomacy.
+					</p>
+				</div>
+
+				<div n="3">
+					<head>Fabian Fechner</head>
+					<p>
+
+Fabian Fechner is a research assistant in the department “History of Europe in the World” at the Open University of Hagen. His research interests include cultural transfer and cultural translation processes, the comparative prophetic history of the Early Modern Age, the history of administrative practices, negative memoria and processes of forgetting in a global perspective, and 18th- and 19th-century cartography. He is the author of <hi rendition="#i">Entscheidungsprozesse vor Ort. Die Provinzkongregationen der Jesuiten in Paraguay</hi> (1608-1762) and has also written numerous book chapters and journal articles.
+					</p>
+				</div>
+			</div>
+		</body>
+    </text>
+</TEI>

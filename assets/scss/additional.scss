@@ -1,0 +1,285 @@
+/* additional styles
+ *
+ * site specific styles, currently here for ghis
+ */
+
+footer {
+    background-color: $color-gray-light;
+    .row {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    a {
+        color: $color-gray-dark;
+        &:hover {
+            color: $color-color-link;
+        }
+    }
+}
+
+ul#menu-volumes li {
+    font-weight: bold;
+    text-transform: uppercase;
+
+    a {
+        color: $color-color-spot;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &.volume-1 a:hover {
+        color: $color-volume-1;
+    }
+    &.volume-2 a:hover {
+        color: $color-volume-2;
+    }
+    &.volume-3 a:hover {
+        color: $color-volume-3;
+    }
+}
+
+body.volume-1 {
+    ul#menu-volumes li.volume-1 a {
+        color: $color-volume-1;
+    }
+}
+body.volume-2 {
+    ul#menu-volumes li.volume-2 a {
+        color: $color-volume-2;
+    }
+}
+body.volume-3 {
+    ul#menu-volumes li.volume-3 a {
+        color: $color-volume-3;
+    }
+}
+
+/* colored links */
+.volume-1 {
+    article a
+    {
+        color: $color-volume-1;
+    }
+}
+.volume-2 {
+    article a
+    {
+        color: $color-volume-2;
+    }
+}
+.volume-3 {
+    article a
+    {
+        color: $color-volume-3;
+    }
+}
+
+/* route-specific styles */
+body.route-home {
+    main > .row > .container {
+        padding-left: $logo-indent-text + 15px; /* increase left padding in order to align below text */
+    }
+
+    .row.section {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+
+        .btn.btn-primary {
+            background-color: inherit;
+            border-radius: 0;
+            border: 1px solid white;
+            text-transform: uppercase;
+            min-width: 20rem;
+        }
+    }
+
+    .row > .volume-teaser {
+        position: relative;
+        height: 215px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .overlay {
+            position: absolute;
+            padding: 16px;
+            height: 40%;
+            width: 100%;
+            bottom: 0;
+            background-color: gray;
+            background: rgba(0, 0, 0, 0.3);
+            h4 {
+                font-weight: bold;
+                a {
+                    color: white;
+                    opacity: 1;
+                    .octicon {
+                        fill: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .row.volumes {
+        padding-top: 1rem;
+        h5 {
+            font-weight: bold;
+            font-size: 1rem;
+            display: inline;
+            &::after {
+                content: " \2014 "
+            }
+            a {
+                color: $color-color-spot;
+            }
+        }
+    }
+
+    .row.focus {
+        a {
+            color: $color-gray-dark;
+            &:hover {
+                color: $color-color-link;
+            }
+        }
+
+        .col-sm-9 {
+            blockquote {
+                position: relative;
+                background-color: $color-gray-light;
+                margin-top: 3.6rem;
+                margin-left: -4rem;
+                padding-left: 6.5rem;
+                padding-top: 2rem;
+                padding-right: 1rem;
+
+                &::before {
+                    content: "\201C";
+                    color: $color-color-spot;
+                    font-size: 6rem;
+                    position: absolute;
+                    left: 4rem;
+                    top: -1rem;
+                }
+            }
+        }
+    }
+
+    h3 {
+        border-top: 1px solid;
+        padding-top: 1rem;
+        margin-bottom: 1.4rem;
+    }
+
+    .row.color-inverse h3 {
+        color: white;
+    }
+}
+
+/* volume, section and introduction with background image */
+main.volume, main.section, main.introduction {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    .row.margin-top {
+        margin-top: 2rem;
+    }
+
+    .row.top > .container {
+        margin-top: 10rem;
+        background-color: white;
+        border-top: 8px solid $color-color-spot;
+        padding-top: $logo-indent-text;
+        padding-left: $logo-indent-text + 15px;
+        padding-right: $logo-indent-text + 15px;
+    }
+
+    .row .indent {
+        @include indent-text();
+    }
+
+    .btn.btn-primary {
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: inherit;
+        border-radius: 0;
+        border: 1px solid $color-color-spot;
+        color: $color-color-spot;
+        font-weight: bold;
+    }
+
+    &.volume-1 .row.top > .container {
+        border-top: 8px solid $color-volume-1;
+
+        .btn.btn-primary {
+            border: 1px solid $color-volume-1;
+            color: $color-volume-1;
+        }
+
+        a {
+            color: $color-volume-1;
+        }
+    }
+
+    &.volume-2 .row.top > .container {
+        border-top: 8px solid $color-volume-2;
+
+        .btn.btn-primary {
+            border: 1px solid $color-volume-2;
+            color: $color-volume-2;
+        }
+
+        a {
+            color: $color-volume-2;
+        }
+    }
+
+    &.volume-3 .row.top > .container {
+        border-top: 8px solid $color-volume-3;
+
+        .btn.btn-primary {
+            border: 1px solid $color-volume-3;
+            color: $color-volume-3;
+        }
+
+        a {
+            color: $color-volume-3;
+        }
+    }
+
+    h1 {
+        text-transform: uppercase;
+    }
+
+    h2 {
+        color: $color-color-spot;
+
+        &::before {
+            @include header-line-above($color-color-spot);
+        }
+    }
+
+    .section, .resource {
+        margin-bottom: 2rem;
+        .square {
+            width: 8rem;
+            min-height: 8rem;
+            background-color: gray;
+            flex-shrink: 0;
+        }
+        .label {
+            min-height: 8rem;
+            background-color: $color-gray-light;
+            flex-grow: 1;
+            padding: 2rem;
+        }
+    }
+
+    .section > .square {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}

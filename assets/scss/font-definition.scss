@@ -1,0 +1,49 @@
+/*
+ * Google Fonts uses Lato 1. For version 2 switch to Adobe Typekit
+ *  https://fonts.adobe.com/fonts/lato
+ * or download a local copy from
+ *  http://www.latofonts.com/lato-free-fonts/
+ *
+ * If you want to tweak the @font-face settings, you might use something like
+ *  @import 'font/Lato';
+ * instead.
+ *
+ */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i&display=swap&subset=latin-ext');
+
+$font-stack-sans: 'Lato', Arial, "Arial Unicode MS", sans-serif;
+$font-stack-sans-combining: Arial, "Arial Unicode MS", sans-serif;
+
+@font-face {
+    font-family: 'ghi_icons_16';
+    src:  url('../fonts/ghi_icons_16.eot?7vfwjk');
+    src:  url('../fonts/ghi_icons_16.eot?7vfwjk#iefix') format('embedded-opentype'),
+        url('../fonts/ghi_icons_16.ttf?7vfwjk') format('truetype'),
+        url('../fonts/ghi_icons_16.woff?7vfwjk') format('woff'),
+        url('../fonts/ghi_icons_16.svg?7vfwjk#ghi_icons_16') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.icn {
+    font-family: 'ghi_icons_16';
+    font-size: 16px;
+    font-style: normal;
+
+    &.icn-document::after {
+        content: "\E901";
+    }
+
+    &.icn-image::after {
+        content: "\E902";
+    }
+
+    &.icn-audio::after {
+        content: "\E903";
+    }
+
+    &.icn-video::after {
+        content: "\E904";
+    }
+}
