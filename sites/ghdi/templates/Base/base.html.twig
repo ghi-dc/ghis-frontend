@@ -49,7 +49,7 @@
             <a class="navbar-brand" href="{{ path('home') }}">
                 <img src="{{ app.request.basepath }}/img/ghdi_logo.png" alt="{{ site_name|trans({}, 'additional') }}" id="logo" />
             </a>
-            {{ knp_menu_render('volumes') }}
+            {#{ knp_menu_render('volumes') }#}
             <ul id="navbar-about-locale" class="list-inline">
                 <li class="list-inline-item{% if 'about' == app.request.attributes.get('_route') %} current{% endif %} dropdown">
                     <a href="{{ path('about') }}" {#class="dropdown-toggle" id="dropdownAboutMenuButton" data-toggle="dropdown"#}>

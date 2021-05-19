@@ -211,45 +211,6 @@ main.volume, main.section, main.introduction {
         font-weight: bold;
     }
 
-    &.volume-1 .row.top > .container {
-        border-top: 8px solid $color-volume-1;
-
-        .btn.btn-primary {
-            border: 1px solid $color-volume-1;
-            color: $color-volume-1;
-        }
-
-        a {
-            color: $color-volume-1;
-        }
-    }
-
-    &.volume-2 .row.top > .container {
-        border-top: 8px solid $color-volume-2;
-
-        .btn.btn-primary {
-            border: 1px solid $color-volume-2;
-            color: $color-volume-2;
-        }
-
-        a {
-            color: $color-volume-2;
-        }
-    }
-
-    &.volume-3 .row.top > .container {
-        border-top: 8px solid $color-volume-3;
-
-        .btn.btn-primary {
-            border: 1px solid $color-volume-3;
-            color: $color-volume-3;
-        }
-
-        a {
-            color: $color-volume-3;
-        }
-    }
-
     h1 {
         text-transform: uppercase;
     }
