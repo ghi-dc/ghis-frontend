@@ -1,6 +1,6 @@
 /* additional styles
  *
- * site specific styles, currently here for ghis
+ * ghdi specific styles
  */
 ul#menu-volumes li {
     font-weight: bold;
@@ -10,6 +10,41 @@ ul#menu-volumes li {
         color: $color-color-spot;
         &:hover {
             text-decoration: none;
+        }
+    }
+}
+
+#volumes {
+    border-top: 2em solid $color-gray-light;
+    .nav-item {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: left top;
+        height: 16rem;
+        position: relative;
+        z-index: 10;
+        a {
+            color: white;
+            div.title {
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                bottom: 0;
+                h5 {
+                    display: none;
+                }
+            }
+        }
+
+        &:hover {
+            width: 15%;
+            min-width: 180px;
+            div.title {
+                background-color: #D0182C;
+                h5 {
+                    display: block;
+                }
+            }
         }
     }
 }

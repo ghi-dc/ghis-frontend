@@ -92,7 +92,82 @@
                 </li>
             </ul>
         </nav>
-        {% endblock %}
+        <nav class="navbar navbar-expand-lg container-fluid p-0" style="overflow: hidden">
+                <ul class="navbar-nav nav-fill w-100" id="volumes">
+        {% set volumes = get_volumes(app.request.locale) %}
+        {%
+
+            set volumeDescr = {
+                'volume-1': {
+                    'period': '1500-1648',
+                    'de': 'Von der Reformation bis zum Dreißigjährigen Krieg',
+                    'en': 'From the Reformation to the Thirty Years War',
+                },
+                'volume-2': {
+                    'period': '1648-1815',
+                    'de': 'Vom Absolutismus bis zu Napoleon',
+                    'en': 'From Absolutism to Napoleon',
+                },
+                'volume-3': {
+                    'period': '1815-1866',
+                    'de': 'Vom Vormärz bis zur Preußischen Vorherrschaft',
+                    'en': 'From Vormärz to Prussian Dominance',
+                },
+                'volume-4': {
+                    'period': '1866-1890',
+                    'de': 'Reichsgründung: Bismarcks Deutschland',
+                    'en': 'Forging an Empire: Bismarckian Germany',
+                },
+                'volume-5': {
+                    'period': '1890-1918',
+                    'de': 'Das Wilhelminische Kaiserreich und der Erste Weltkrieg',
+                    'en': 'Wilhelmine Germany and the First World War',
+                },
+                'volume-6': {
+                    'period': '1918/19-1933',
+                    'de': 'Die Weimarer Republik',
+                    'en': 'Weimar Germany',
+                },
+                'volume-7': {
+                    'period': '1933-1945',
+                    'de': 'Deutschland unter der Herrschaft des Nationalsozialismus',
+                    'en': 'Nazi Germany',
+                },
+                'volume-8': {
+                    'period': '1945-1961',
+                    'de': 'Die Besatzungszeit und die Entstehung zweier Staaten',
+                    'en': 'Occupation and the Emergence of Two States',
+                },
+                'volume-9': {
+                    'period': '1961-1989',
+                    'de': 'Zwei deutsche Staaten',
+                    'en': 'Two Germanies',
+                },
+                'volume-10': {
+                    'period': '1989-2009',
+                    'de': 'Ein Deutschland in Europa',
+                    'en': 'One Germany in Europe',
+                }
+            }
+
+        %}
+            {% for key,info in volumeDescr %}
+                {% set path = '#' %}
+                {% for volume in volumes %}
+                    {% if volume.getId(true) == key %}
+                        {% set path = path('dynamic', { 'path': volume.dtaDirname }) %}
+                    {% endif %}
+                {% endfor %}
+                    <li class="nav-item" style="background-image: url('{{ app.request.basepath }}/img/ghis/menu/{{ key }}.jpg');">
+                        <a href="{{ path }}"><div class="title">
+                            {{ info.period }}
+                            <h5>{{ info[app.request.locale] }}</h5>
+                        </div></a>
+                    </li>
+            {% endfor %}
+                </ul>
+        </nav>
+    {% endblock %}
 
         {% block maincontainer %}
         <div id="main-wrapper">

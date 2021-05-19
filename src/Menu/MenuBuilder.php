@@ -48,6 +48,7 @@ class MenuBuilder
                     'path' => $volume->getDtaDirname(),
                 ],
             ]);
+
             $item->setAttribute('class', 'list-inline-item ' . $volume->getId(true));
         }
 

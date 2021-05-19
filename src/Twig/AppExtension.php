@@ -46,6 +46,7 @@ class AppExtension extends AbstractExtension
             new TwigFunction('resource_path', [ $this, 'buildResourcePath' ]),
             new TwigFunction('resource_breadcrumb', [ $this, 'buildResourceBreadcrumb'], [ 'is_safe' => [ 'html' ] ]),
             new TwigFunction('section_thumbnail', [ $this, 'buildSectionThumbnail' ]),
+            new TwigFunction('get_volumes', [ $this, 'getVolumes' ]),
         ];
     }
 
@@ -122,5 +123,12 @@ class AppExtension extends AbstractExtension
         }
 
         return null;
+    }
+
+    public function getVolumes($locale)
+    {
+        $this->contentService->setLocale($locale);
+
+        return $this->contentService->getVolumes();
     }
 }
