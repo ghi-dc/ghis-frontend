@@ -338,7 +338,8 @@ class ResourceController extends BaseController
     /**
      * Render section ToC
      */
-    public function sectionAction(Request $request, $volume, $section)
+    public function sectionAction(Request $request, TranslatorInterface $translator,
+                                  $volume, $section)
     {
         $this->contentService->setLocale($request->getLocale());
 
@@ -346,10 +347,19 @@ class ResourceController extends BaseController
             'title' => $section->getTitle(),
         ];
 
+        $parts = $this->resourceToHtml($request, $translator, $volume, $section);
+
+        // TODO: build proper source-description extraction
+        $note = null;
+        if (!empty($parts['body']) && preg_match('#<div class="source-description">(.*?)</div>#s', $parts['body'], $matches)) {
+            $note = $matches[1];
+        }
+
         return $this->render('Resource/section.html.twig', [
             'pageMeta' => $pageMeta,
             'volume' => $volume,
             'section' => $section,
+            'note' => $note,
             'resources' => $this->contentService->getResources($section),
             'navigation' => $this->contentService->buildNavigation($section),
         ] + $this->buildLocaleSwitch($volume, $section));
