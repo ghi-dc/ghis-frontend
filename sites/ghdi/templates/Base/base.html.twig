@@ -92,11 +92,9 @@
                 </li>
             </ul>
         </nav>
-        <nav class="navbar navbar-expand-lg container-fluid p-0" style="overflow: hidden">
-                <ul class="navbar-nav nav-fill w-100" id="volumes">
+        {% endblock %}
         {% set volumes = get_volumes(app.request.locale) %}
         {%
-
             set volumeDescr = {
                 'volume-1': {
                     'period': '1500-1648',
@@ -151,23 +149,25 @@
             }
 
         %}
+        {% block navvolumes %}
+        <nav class="navbar navbar-expand-lg container-fluid p-0" style="overflow: hidden">
+            <ul class="navbar-nav nav-fill w-100" id="volumes">
             {% for key,info in volumeDescr %}
                 {% set path = '#' %}
-                {% for volume in volumes %}
-                    {% if volume.getId(true) == key %}
-                        {% set path = path('dynamic', { 'path': volume.dtaDirname }) %}
+                {% for aVolume in volumes %}
+                    {% if aVolume.getId(true) == key %}
+                        {% set path = path('dynamic', { 'path': aVolume.dtaDirname }) %}
                     {% endif %}
                 {% endfor %}
-                    <li class="nav-item" style="background-image: url('{{ app.request.basepath }}/img/ghis/menu/{{ key }}.jpg');">
-                        <a href="{{ path }}"><div class="title">
-                            {{ info.period }}
-                            <h5>{{ info[app.request.locale] }}</h5>
-                        </div></a>
-                    </li>
+                <li class="nav-item{% if volume is defined and volume.getId(true) == key %} active{% endif %}">
+                    <a href="{{ path }}">
+                        {{ info.period }}
+                    </a>
+                </li>
             {% endfor %}
-                </ul>
+            </ul>
         </nav>
-    {% endblock %}
+        {% endblock %}
 
         {% block maincontainer %}
         <div id="main-wrapper">
@@ -180,58 +180,59 @@
         {% block footer %}
         <footer>
             <div class="container logos">
-            <div class="row">
-                <div class="col-sm-12" style="text-align: right">
-                    <a href="https://www.ghi-dc.org/" target="_blank">
-                        <img src="{{ app.request.basepath }}/img/ghi_logo.png" alt="German Historical Institute Washington"  style="height: 17px; margin-bottom: 8px; width: auto" />
-                    </a>
-                    <a href="https://www.dfg.de/" target="_blank">
-                        <img src="{{ app.request.basepath }}/img/dfg.png" alt="Deutsche Forschungsgemeinsschaft"  style="height: 30px; width: auto; margin-left: 3em;" />
-                    </a>
-                    <a href="https://www.zeit-stiftung.de/" target="_blank">
-                        <img src="{{ app.request.basepath }}/img/zeit-stiftung.png" alt="ZEIT-Stiftung" style="height: 40px; width: auto; margin-left: 3em;" />
-                    </a>
-                </div>
-            </div>
-          </div>
-          <div class="container-fluid info">
-            <div class="row align-items-end">
-                <div class="col-sm-8 left">
-                    <a href="{{ path('home') }}">
-                        <img class="img-fluid w-25 logo-footer" src="{{ app.request.basepath }}/img/ghis/footer-ghdi.png" alt="German History in Documents and Images" />
-                    </a><br />
-                    {% if 'de' == app.request.locale %}
-                        GHDI ist ein Projekt des <a href="https://www.ghi-dc.org/" target="_blank">Deutschen Historischen Instituts, Washington DC</a>. Es wird ermöglicht durch die großzügige Unterstützung der <a href="https://maxkadefoundation.org/" target="_blank">Max Kade Foundation</a> und der <a href="https://www.zeit-stiftung.de/en/" target="_blank">ZEIT-Stiftung Ebelin und Gerd Bucerius</a>, und durchgeführt in Zusammenarbeit mit den <a href="https://www.ghi-dc.org/about-us/friends-of-the-ghi" target="_blank">Friends of the German Historical Institute</a>, dem <a href="https://www.bpk-bildagentur.de/" target="_blank">Bildarchiv Preußischer Kulturbesitz</a> und the <a href="https://www.ieg-maps.uni-mainz.de/" target="_blank"> IEG-MAPS, Institut für Europäische Geschichte, Mainz</a>.
-                    {% else %}
-                        GHDI is an initiative of the <a href="https://www.ghi-dc.org/" target="_blank">German Historical Institute, Washington DC</a>. Made possible by the generous support of the <a href="https://maxkadefoundation.org/" target="_blank">Max Kade Foundation</a> and the <a href="https://www.zeit-stiftung.de/en/" target="_blank">ZEIT-Stiftung Ebelin und Gerd Bucerius</a>, the project has been undertaken in cooperation with the <a href="https://www.ghi-dc.org/about-us/friends-of-the-ghi" target="_blank">Friends of the German Historical Institute</a>, the <a href="https://www.bpk-bildagentur.de/" target="_blank">Bildarchiv Preußischer Kulturbesitz</a> and the <a href="https://www.ieg-maps.uni-mainz.de/" target="_blank">IEG-MAPS, Institute of European History, Mainz</a>.
-                    {% endif %}
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: right">
+                        <a href="https://www.ghi-dc.org/" target="_blank">
+                            <img src="{{ app.request.basepath }}/img/ghi_logo.png" alt="German Historical Institute Washington"  style="height: 17px; margin-bottom: 8px; width: auto" />
+                        </a>
+                        <a href="https://www.dfg.de/" target="_blank">
+                            <img src="{{ app.request.basepath }}/img/dfg.png" alt="Deutsche Forschungsgemeinsschaft"  style="height: 30px; width: auto; margin-left: 3em;" />
+                        </a>
+                        <a href="https://www.zeit-stiftung.de/" target="_blank">
+                            <img src="{{ app.request.basepath }}/img/zeit-stiftung.png" alt="ZEIT-Stiftung" style="height: 40px; width: auto; margin-left: 3em;" />
+                        </a>
+                    </div>
+                </div><!-- .row -->
+            </div><!-- .container.logos -->
+            <div class="container-fluid info">
+                <div class="row align-items-end">
+                    <div class="col-sm-8 left">
+                        <a href="{{ path('home') }}">
+                            <img class="img-fluid w-25 logo-footer" src="{{ app.request.basepath }}/img/ghdi/footer-ghdi.png" alt="German History in Documents and Images" />
+                        </a><br />
+                        {% if 'de' == app.request.locale %}
+                            GHDI ist ein Projekt des <a href="https://www.ghi-dc.org/" target="_blank">Deutschen Historischen Instituts, Washington DC</a>. Es wird ermöglicht durch die großzügige Unterstützung der <a href="https://maxkadefoundation.org/" target="_blank">Max Kade Foundation</a> und der <a href="https://www.zeit-stiftung.de/en/" target="_blank">ZEIT-Stiftung Ebelin und Gerd Bucerius</a>, und durchgeführt in Zusammenarbeit mit den <a href="https://www.ghi-dc.org/about-us/friends-of-the-ghi" target="_blank">Friends of the German Historical Institute</a>, dem <a href="https://www.bpk-bildagentur.de/" target="_blank">Bildarchiv Preußischer Kulturbesitz</a> und the <a href="https://www.ieg-maps.uni-mainz.de/" target="_blank"> IEG-MAPS, Institut für Europäische Geschichte, Mainz</a>.
+                        {% else %}
+                            GHDI is an initiative of the <a href="https://www.ghi-dc.org/" target="_blank">German Historical Institute, Washington DC</a>. Made possible by the generous support of the <a href="https://maxkadefoundation.org/" target="_blank">Max Kade Foundation</a> and the <a href="https://www.zeit-stiftung.de/en/" target="_blank">ZEIT-Stiftung Ebelin und Gerd Bucerius</a>, the project has been undertaken in cooperation with the <a href="https://www.ghi-dc.org/about-us/friends-of-the-ghi" target="_blank">Friends of the German Historical Institute</a>, the <a href="https://www.bpk-bildagentur.de/" target="_blank">Bildarchiv Preußischer Kulturbesitz</a> and the <a href="https://www.ieg-maps.uni-mainz.de/" target="_blank">IEG-MAPS, Institute of European History, Mainz</a>.
+                        {% endif %}
 
-                    <div style="margin-top: 1em">
-                        {{ 'Partner project'|trans }}<br />
-                        <a href="https://germanhistory-intersections.org/">
-                            <img class="img-fluid w-25 logo-footer" src="{{ app.request.basepath }}/img/ghis/footer-ghis.png" alt="German History Intersections" />
+                        <div style="margin-top: 1em">
+                            {{ 'Partner project'|trans }}<br />
+                            <a href="https://germanhistory-intersections.org/">
+                                <img class="img-fluid w-25 logo-footer" src="{{ app.request.basepath }}/img/ghdi/footer-ghis.png" alt="German History Intersections" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 offset-sm-2">
+                        {{ 'Follow us'|trans }}<br />
+                        <a href="https://twitter.com/german_docs" target="_blank">
+                            <img class="img-fluid w-25" src="{{ app.request.basepath }}/img/ghdi/footer-twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.facebook.com/GHIWashington" target="_blank"><img class="img-fluid w-25" src="{{ app.request.basepath }}/img/ghdi/footer-facebook.png" alt="Facebook" />
                         </a>
                     </div>
                 </div>
-                <div class="col-sm-2 offset-sm-2">
-                    {{ 'Follow us'|trans }}<br />
-                    <a href="https://twitter.com/german_docs" target="_blank">
-                        <img class="img-fluid w-25" src="{{ app.request.basepath }}/img/ghis/footer-twitter.png" alt="Twitter" /></a>
-                    <a href="https://www.facebook.com/GHIWashington" target="_blank"><img class="img-fluid w-25" src="{{ app.request.basepath }}/img/ghis/footer-facebook.png" alt="Facebook" />
-                    </a>
-                </div>
-            </div>
-            <div class="row" style="border-top: 1px solid white">
-                <div class="col-sm-6 left">
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="{{ path('terms') }}">{{ 'Conditions of Use'|trans }}</a></li>
-                        <li class="list-inline-item"><a href="{{ path('terms') }}#contact">{{ 'Contact'|trans }}</a></li>
-                        <li class="list-inline-item"><a href="{{ path('terms') }}#imprint">{{ 'Imprint'|trans }}</a></li>
-                        <li class="list-inline-item"><a href="{{ path('terms') }}#data-protection">{{ 'Data Protection'|trans }}</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-5" style="text-align: right">
-                    &copy; {{ 'German Historical Institute Washington'|trans }}, 2003-2021
+                <div class="row" style="border-top: 1px solid white">
+                    <div class="col-sm-6 left">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="{{ path('terms') }}">{{ 'Conditions of Use'|trans }}</a></li>
+                            <li class="list-inline-item"><a href="{{ path('terms') }}#contact">{{ 'Contact'|trans }}</a></li>
+                            <li class="list-inline-item"><a href="{{ path('terms') }}#imprint">{{ 'Imprint'|trans }}</a></li>
+                            <li class="list-inline-item"><a href="{{ path('terms') }}#data-protection">{{ 'Data Protection'|trans }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-5" style="text-align: right">
+                        &copy; {{ 'German Historical Institute Washington'|trans }}, 2003-2021
+                    </div>
                 </div>
             </div>
         </footer>

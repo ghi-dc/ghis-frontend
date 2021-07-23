@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <ul class="breadcrumb"><li>{{ 'Topic'|trans }}</li></ul>
+                <ul class="breadcrumb"><li>{{ 'Volume'|trans }}</li></ul>
                 <h1>{{ volume.title }}</h1>
                 <p>
                     {% for editor in volume.editors %}{% if not loop.first %}, {% endif %}{{ editor.name }}{% endfor %}
