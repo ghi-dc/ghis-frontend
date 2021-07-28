@@ -462,10 +462,10 @@ article, div.content {
         content: '';
         display: block;
         height: 160px;
-        background-color: #f4f4f4;
+        background-color: $color-gray-light;
     }
 
-    background: linear-gradient(90deg, #fff, #fff 50%, #f4f4f4 50%, #f4f4f4);
+    background: linear-gradient(90deg, #fff, #fff 50%, $color-gray-light 50%, $color-gray-light);
 
     main {
         background-color: white;
@@ -473,7 +473,7 @@ article, div.content {
         margin-bottom: 0;
 
         .article-wrapper {
-            background-color: #f4f4f4;
+            background-color: $color-gray-light;
         }
 
         article, div.content {
