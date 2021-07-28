@@ -104,27 +104,27 @@
 
         {% block footer %}
         <footer>
-          <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <a href="https://www.ghi-dc.org/" target="_blank">
-                        <img class="img-fluid w-100" id="logo-ghi" src="{{ app.request.basepath }}/img/ghi_logo.png" alt="German Historical Institute Washington" />
-                    </a>
-                </div>
-                <div class="col-sm-4 offset-sm-2">
-                    <a href="https://www.ghi-dc.org/" target="blank">{{ 'German Historical Institute Washington'|trans }}</a><br />
-                    {{ 'Sponsored by the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy)'|trans }}
-                </div>
-                <div class="col-sm-2 offset-sm-2">
-                    <ul class="list-unstyled">
-                        <li><a href="{{ path('terms') }}">{{ 'Conditions of Use'|trans }}</a></li>
-                        <li><a href="{{ path('terms') }}#contact">{{ 'Contact'|trans }}</a></li>
-                        <li><a href="{{ path('terms') }}#imprint">{{ 'Imprint'|trans }}</a></li>
-                        <li><a href="{{ path('terms') }}#data-protection">{{ 'Data Protection'|trans }}</a></li>
-                    </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <a href="https://www.ghi-dc.org/" target="_blank">
+                            <img class="img-fluid w-100" id="logo-ghi" src="{{ app.request.basepath }}/img/ghi_logo.png" alt="German Historical Institute Washington" />
+                        </a>
+                    </div>
+                    <div class="col-sm-4 offset-sm-2">
+                        <a href="https://www.ghi-dc.org/" target="blank">{{ 'German Historical Institute Washington'|trans }}</a><br />
+                        {{ 'Sponsored by the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy)'|trans }}
+                    </div>
+                    <div class="col-sm-2 offset-sm-2">
+                        <ul class="list-unstyled">
+                            <li><a href="{{ path('terms') }}">{{ 'Conditions of Use'|trans }}</a></li>
+                            <li><a href="{{ path('terms') }}#contact">{{ 'Contact'|trans }}</a></li>
+                            <li><a href="{{ path('terms') }}#imprint">{{ 'Imprint'|trans }}</a></li>
+                            <li><a href="{{ path('terms') }}#data-protection">{{ 'Data Protection'|trans }}</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-          </div>
         </footer>
         {% endblock %}
 
