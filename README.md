@@ -12,7 +12,7 @@ Directory Permissions for cache and logs
 - sudo setfacl -R -m u:www-data:rwX ./var
 - sudo setfacl -dR -m u:www-data:rwX ./var
 
-Generate `public/css/base.css`
+Generate `public/css/base.css` and `public/css/print.css`
 
 - ./bin/console scss:compile
 

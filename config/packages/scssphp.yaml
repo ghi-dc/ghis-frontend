@@ -10,3 +10,10 @@ scssphp:
             importPaths:
                 - "sites/%app.site.key%/assets/scss"   # theme-specific settings come first
                 - "assets/scss"                        # generic fall-back
+        "css/print.css":
+            src: "public/assets/scss/print.scss"
+            sourceMap: false
+            # Array of import paths, relative to Symfony's project directory.
+            importPaths:
+                - "sites/%app.site.key%/assets/scss"   # theme-specific settings come first
+                - "assets/scss"                        # generic fall-back

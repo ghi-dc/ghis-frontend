@@ -20,8 +20,13 @@ parameters:
                     B: 'Brill-Bold.ttf'
                     I: 'Brill-Italic.ttf'
                     BI: 'Brill-Bold-Italic.ttf'
+                sourcesanspro:
+                    R: 'SourceSansPro-Regular.ttf'
+                    B: 'SourceSansPro-Bold.ttf'
+                    I: 'SourceSansPro-Italic.ttf'
+                    BI: 'SourceSansPro-BoldItalic.ttf'
             default_font: pdffont
-    
+
 services:
     # default configuration for services in *this* file
     _defaults:

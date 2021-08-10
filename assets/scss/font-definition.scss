@@ -13,6 +13,7 @@
 
 $font-stack-sans: 'Lato', Arial, "Arial Unicode MS", sans-serif;
 $font-stack-sans-combining: Arial, "Arial Unicode MS", sans-serif;
+$font-stack-pdf: 'pdffont'; /* set this in services.yaml */
 
 @font-face {
     font-family: 'ghi_icons_16';
