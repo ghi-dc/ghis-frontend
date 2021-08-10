@@ -1,50 +1,74 @@
 {% extends 'Base/base.html.twig' %}
 
 {% block navvolumes %}
-    <nav class="navbar navbar-expand-lg container-fluid p-0" style="overflow: hidden">
-        <ul class="navbar-nav nav-fill w-100" id="volumes-visual">
-        {% for key,info in volumeDescr %}
-            {% set path = '#' %}
-            {% for volume in volumes %}
-                {% if volume.getId(true) == key %}
-                    {% set path = path('dynamic', { 'path': volume.dtaDirname }) %}
-                {% endif %}
-            {% endfor %}
-            <li class="nav-item" style="background-image: url('{{ app.request.basepath }}/media/menu/{{ key }}.jpg');">
-                <a href="{{ path }}"><div class="title">
-                    {{ info.period }}
-                    <h5>{{ info[app.request.locale] }}</h5>
-                </div></a>
-            </li>
+    <div id="volumes-visual" class="d-flex flex-row flex-nowrap w-100">
+    {% for key,info in volumeDescr %}
+        {% set path = '#' %}
+        {% for volume in volumes %}
+            {% if volume.getId(true) == key %}
+                {% set path = path('dynamic', { 'path': volume.dtaDirname }) %}
+            {% endif %}
         {% endfor %}
-        </ul>
-    </nav>
+        <div class="volume" style="background-image: url('{{ app.request.basepath }}/media/menu/{{ key }}.jpg');">
+            <a href="{{ path }}"><div class="title">
+                {{ info.period }}
+                <h5>{{ info[app.request.locale] }}</h5>
+            </div></a>
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}
 
 {% block maincontainer %}
-<main role="main" class="container-fluid">
+<main role="main">
 {% block body %}
+
 {% if volumes|length > 0 %}
-<div class="row section">
+<section>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3"><h3>{{ 'Volumes'|trans }}</h3></div>
-            <div class="col-sm-9"></div>
-        </div><!-- .row -->
-    </div>
-    <div class="container">
-        <div class="row volumes">
-        {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
-        {% for volume in volumes %}
-            <div class="col-sm-{{ numCols}} hyphens-auto">
-                <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
-                {#{ volume.note }#}
+        <div class="row section">
+            <div class="row">
+                <div class="col-sm-3"><h3>{{ 'Volumes'|trans }}</h3></div>
+                <div class="col-sm-9"></div>
+            </div><!-- .row -->
+            <div class="row volumes">
+                {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
+                {% for volume in volumes %}
+                    <div class="col-sm-{{ numCols}} hyphens-auto">
+                        <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
+                        {#{ volume.note }#}
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
         </div>
     </div>
-</div>
+</section>
 {% endif %}
+
+<section class="stripe">
+    <div class="container">
+        <div class="row section">
+            <div class="row">
+                <div class="col-sm-3"><h3>{{ 'Sources'|trans }}</h3></div>
+                <div class="col-sm-9"></div>
+            </div><!-- .row -->
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5># {{ 'Documents'|trans }}</h5>
+                </div>
+                <div class="col-sm-3">
+                    <h5># {{ 'Images'|trans }}</h5>
+                </div>
+                <div class="col-sm-3">
+                    <h5># {{ 'Audio and Video'|trans }}</h5>
+                </div>
+                <div class="col-sm-3">
+                    <h5># {{ 'Maps'|trans }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
 </main>

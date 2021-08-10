@@ -1,17 +1,9 @@
 /*
- * Google Fonts uses Lato 1. For version 2 switch to Adobe Typekit
- *  https://fonts.adobe.com/fonts/lato
- * or download a local copy from
- *  http://www.latofonts.com/lato-free-fonts/
- *
- * If you want to tweak the @font-face settings, you might use something like
- *  @import 'font/Lato';
- * instead.
- *
+ * Source Sans Pro
  */
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i&display=swap&subset=latin-ext');
 
-$font-stack-sans: 'Lato', Arial, "Arial Unicode MS", sans-serif;
+$font-stack-sans: 'Source Sans Pro', Arial, "Arial Unicode MS", sans-serif;
 $font-stack-sans-combining: Arial, "Arial Unicode MS", sans-serif;
 
 @font-face {

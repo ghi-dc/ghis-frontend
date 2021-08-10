@@ -220,32 +220,13 @@ $logo-indent-text: 53px - $logo-outdent;
         }
 }
 
-/* sticky footer, see https://gist.github.com/seyDoggy/e919a429b2459aedf509 */
-html, body {
-    height: 100%;
-    width: 100%;
-}
 
+/* general styles */
 html {
     font-size: 14px;  /* use bootstrap 3 sizes: 14px instead of 16px */
     color: $color-body-text;
 }
 
-body {
-    display: table;
-}
-
-main {
-    height: auto;
-    margin-bottom: 4rem;
-}
-
-footer {
-    display: table-row;
-    height: 1px;
-}
-
-/* general styles */
 body {
     font-family: $font-stack-sans;
 
@@ -306,14 +287,6 @@ $screen-sm-max:              ($screen-md-min - 1) !default;
 $screen-md-max:              ($screen-lg-min - 1) !default;
 $screen-lg-max:              ($screen-xl-min - 1) !default;
 
-#logo {
-    width: $logo-width;
-    height: auto;
-
-    @media (min-width: $screen-sm-min) {
-        margin-left: -14px; /* remove left navbar padding so it is aligned with container */
-    }
-}
 
 #logo-ghi {
     margin-top: 0.4rem;

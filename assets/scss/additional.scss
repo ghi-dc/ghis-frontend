@@ -2,6 +2,36 @@
  * additional site specific styles, currently here for ghis
  */
 
+/* sticky footer, see https://gist.github.com/seyDoggy/e919a429b2459aedf509 */
+/* TODO: switch to flex as in GHDI */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: table;
+}
+
+main {
+    height: auto;
+    margin-bottom: 4rem;
+}
+
+footer {
+    display: table-row;
+    height: 1px;
+}
+
+#logo {
+    width: $logo-width;
+    height: auto;
+
+    @media (min-width: $screen-sm-min) {
+        margin-left: -14px; /* remove left navbar padding so it is aligned with container */
+    }
+}
+
 footer {
     background-color: $color-gray-light;
     .row {
