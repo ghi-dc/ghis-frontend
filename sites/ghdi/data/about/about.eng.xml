@@ -13,7 +13,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
                 </publisher>
                 <pubPlace>Washington, D.C.</pubPlace><idno>
-                    <idno type="DTAID">ghis:about</idno>
+                    <idno type="DTAID">ghdi:about</idno>
                     <idno type="DTADirName">about</idno>
                     <idno type="shelfmark">ghis/900:about</idno>
                 </idno>
@@ -35,21 +35,41 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         <body>
 			<div n="2" id="overview">				
 				<p>
-					<hi rendition="#i">German History Intersections</hi> is a source-based digital project that examines three broad topics – migration, knowledge and education, and Germanness – from 1500 to the present. By charting these topics across centuries, the project offers an alternative to traditional histories that focus on discrete historical periods. Taking a long view allows the project to better illustrate the interconnectedness of the chosen topics – migration, knowledge and education, and Germanness, it is clear, do not follow parallel or independent paths over the course of modern German history, but rather intersect at frequent points and in multiple ways. Organized by the German Historical Institute, Washington, DC, with significant support from the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy), the project is completely bilingual (English/German) and is geared toward North American, German, and global audiences. 
+				    <hi rendition="#i">German History in Documents and Images (GHDI)</hi> is a comprehensive collection of original historical materials documenting German history from the beginning of the early modern period to the present. GHDI is an initiative of the German Historical Institute, Washington DC. Made possible by the generous support of the Max Kade Foundation and the ZEIT-Stiftung Ebelin und Gerd Bucerius, the project has been undertaken in cooperation with the Friends of the German Historical Institute, the Bildarchiv Preußischer Kulturbesitz and the IEG-MAPS, Institute of European History, Mainz. In August 2017, the Deutsche Forschungsgemeinschaft (DFG) awarded the GHI a generous grant in support of the relaunch of the portal.
 				</p>
 			</div>
 			
 			<div n="2" id="modules-and-sources">
-			    <head>Modules and Sources </head>
+			    <head>Volumes and Sources </head>
 				<p>
-					The project uses digital media to bring together diverse historical sources in thought-provoking new ways. In terms of basic framework, the project is divided into three modules (migration, knowledge and education, and Germanness), each of which begins with an essay-length introduction to the given topic. Furthermore, each module includes approximately 100 primary-source documents in their original language (typically German) and in English translation, approximately 100 high-resolution images, and a small selection of audiovisual materials. All individual sources are accompanied by brief introductory texts and are tagged with keywords that highlight connections between modules.   
+				    The project comprises ten volumes, each of which addresses a discrete period in Germany's history. Each volume has been compiled by leading scholars and includes:
 				</p>
+			    <list>
+			        <item>an introduction to key developments in Germany's social, political, and cultural history during the period;</item>
+			        <item>
+			            a selection of primary source documents (in German and English) as well as image originating from the period;			            
+			        </item>
+			        <item>
+			            a selection of relevant maps.			            
+			        </item>
+			    </list>
+				    
+				<p>	    
+				    Each volume addresses the following subjects: Government and Administration; Parties and Organizations; Military and War; Economy and Labor; Nature and Environment; Gender, Family, and Generations; Region, City, and Countryside; Religion; Literature, Art, and Music; Elite and Popular
+				    Cultures; and Science and Education.
+				</p>
+			    <p>				    
+				    All of the materials can be accessed through keyword, subject, and author searches. Advanced options also allow searches to be limited and refined. 
+				</p>
+			    <p>
+			        Many of the documents included in this project are difficult to locate in print publications, especially outside of Germany. All of the German-language documents included in GHDI are accompanied by contemporary English translations, almost all of which were commissioned for the project. GHDI also offers new access to a range of historically significant visual images, many of which will be unfamiliar to viewers. 
+			    </p>
 			</div>
 
 			<div n="2" id="platform">
 				<head>Digital Platform and Design</head>
 				<p>
-					<hi rendition="#i">German History Intersections</hi> features a responsive, user-friendly interface designed by edelweiss* büro für grafik und design (Hamburg). The backend is based on the integration of eXist-db, an open-source XML-database, with Collective Access, an open-source collection management system. A Solr search engine offers optimal search and navigational functionality. Standardized administrative, descriptive and technical metadata, including granular source and rights information, enhances discoverability and supports long-term digital stewardship. The use of standard format such as TEI P5 (for primary-source texts and translations) and DOI (persistent identifications) further supports access and digital preservation. 
+					<hi rendition="#i">GHDI</hi> features a responsive, user-friendly interface designed by edelweiss* büro für grafik und design (Hamburg). The backend is based on the integration of eXist-db, an open-source XML-database, with Collective Access, an open-source collection management system. A Solr search engine offers optimal search and navigational functionality. Standardized administrative, descriptive and technical metadata, including granular source and rights information, enhances discoverability and supports long-term digital stewardship. The use of standard format such as TEI P5 (for primary-source texts and translations) and DOI (persistent identifications) further supports access and digital preservation. 
 				</p>
 			</div>
 		</body>

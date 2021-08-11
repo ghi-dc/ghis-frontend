@@ -500,6 +500,11 @@ class ResourceController extends BaseController
      *  }, name="about-germanness")
      *
      * @Route({
+     *  "en": "/about/editors",
+     *  "de": "/ueber/herausgeber"
+     *  }, name="about-editors")
+     *
+     * @Route({
      *  "en": "/about/team",
      *  "de": "/ueber/team"
      *  }, name="about-team")

@@ -27,19 +27,30 @@
 <section>
     <div class="container">
         <div class="row section">
-            <div class="row">
-                <div class="col-sm-3"><h3>{{ 'Volumes'|trans }}</h3></div>
-                <div class="col-sm-9"></div>
-            </div><!-- .row -->
-            <div class="row volumes">
-                {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
-                {% for volume in volumes %}
-                    <div class="col-sm-{{ numCols}} hyphens-auto">
-                        <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
-                        {#{ volume.note }#}
-                    </div>
-                {% endfor %}
+            <div class="col-sm-12 col-md-6 offset-md-1">
+                <h1>{{ site_name|trans({}, 'additional') }}</h1>
+                <p>
+                    {% if 'de' == app.request.locale %}
+                        <i>German History in Documents and Images</i> ist eine umfassende Sammlung von digitalisierten Quellen zur deutschen Geschichte von der Frühen Neuzeit bis zur Gegenwart.
+                    {% else %}
+                        German History in Documents and Images is a comprehensive collection of original historical materials documenting German history from the beginning of the early modern period to the present. The project comprises ten volumes, each of which addresses a discrete period in Germany's history.
+                    {% endif %}
+                    <a class="btn btn-primary stretched-link" href="{{ path('about') }}">{{ 'Read on'|trans }}</a>
+                </p>
             </div>
+        </div><!-- .row -->
+        <div class="row section">
+            <div class="col-sm-3"><h3>{{ 'Volumes'|trans }}</h3></div>
+            <div class="col-sm-9"></div>
+        </div><!-- .row -->
+        <div class="row volumes">
+        {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
+        {% for volume in volumes %}
+            <div class="col-sm-{{ numCols}} hyphens-auto">
+                <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
+                {#{ volume.note }#}
+            </div>
+        {% endfor %}
         </div>
     </div>
 </section>

@@ -13,9 +13,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
                 </publisher>
                 <pubPlace>Washington, D.C.</pubPlace><idno>
-                    <idno type="DTAID">ghis:about-terms</idno>
+                    <idno type="DTAID">ghdi:about-terms</idno>
                     <idno type="DTADirName">impressum</idno>
-                    <idno type="shelfmark">ghis/903:about-terms</idno>
+                    <idno type="shelfmark">ghdi/903:about-terms</idno>
                 </idno>
             </publicationStmt>
             <sourceDesc>
@@ -36,26 +36,26 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 			<div n="2">
 				<head>Nutzungsbedingungen</head>
 				<p>					
-					Die in <hi rendition="#i">German History Intersections</hi> wiedergegebenen Primärquellen sind für den individuellen, akademischen, pädagogischen und nicht-kommerziellen Gebrauch bestimmt. Neben vollständigen Quellenangaben sind sie mit einem DOI und der empfohlenen Zitierweise zur Verwendung in Fußnoten in akademischen Büchern und Artikeln, Hausarbeiten und Studienarbeiten in gedruckter oder digitaler Form versehen. 
+					Die in <hi rendition="#i">German History in Documents and Images (GHDI)</hi> wiedergegebenen Primärquellen sind für den individuellen, akademischen, pädagogischen und nicht-kommerziellen Gebrauch bestimmt. Neben vollständigen Quellenangaben sind sie mit einem DOI und der empfohlenen Zitierweise zur Verwendung in Fußnoten in akademischen Büchern und Artikeln, Hausarbeiten und Studienarbeiten in gedruckter oder digitaler Form versehen. 
 				</p>
 			</div>
 			<div n="2">
 				<head>Informationen zum Copyright</head>
 				<p>
-					<hi rendition="#i">German History Intersections</hi> umfasst Hunderte von Primärquellen (d.h. Originaltexte, Übersetzungen, Bilder, audiovisuelle Dateien) mit unterschiedlichem Eigentums- und Urheberrechtsstatus. Viele Quellen sind gemeinfrei, andere stehen unter Urheberrechtsschutz. In einigen Fällen ist der Status unklar, in anderen Fällen konnten die Urheberrechtsinhaber/innen nicht identifiziert oder erreicht werden. In jedem Fall taten die Mitarbeiter/innen des Intersections-Projekts ihr Bestes, um den Urheberrechtsstatus der Quelle zu ermitteln und mit den relevanten Parteien Kontakt aufzunehmen. Fragen oder Bedenken bezüglich der in <hi rendition="#i">Intersections</hi> veröffentlichten Materialien können an  <ref target="mailto:intersections@ghi-dc.org">intersections@ghi-dc.org</ref> German History Intersections umfasst Hunderte von Primärquellen (d.h. Originaltexte, Übersetzungen, Bilder, audiovisuelle Dateien) mit unterschiedlichem Eigentums- und Urheberrechtsstatus. Viele Quellen sind gemeinfrei, andere stehen unter Urheberrechtsschutz. In einigen Fällen ist der Status unklar, in anderen Fällen konnten die Urheberrechtsinhaber/innen nicht identifiziert oder erreicht werden. In jedem Fall taten die Mitarbeiter/innen des Intersections-Projekts ihr Bestes, um den Urheberrechtsstatus der Quelle zu ermitteln und mit den relevanten Parteien Kontakt aufzunehmen. Fragen oder Bedenken bezüglich der in Intersections veröffentlichten Materialien können an intersections@ghi-dc.org  gerichtet werden.
+					<hi rendition="#i">GHDI</hi> umfasst Hunderte von Primärquellen (d.h. Originaltexte, Übersetzungen, Bilder, audiovisuelle Dateien) mit unterschiedlichem Eigentums- und Urheberrechtsstatus. Viele Quellen sind gemeinfrei, andere stehen unter Urheberrechtsschutz. In einigen Fällen ist der Status unklar, in anderen Fällen konnten die Urheberrechtsinhaber/innen nicht identifiziert oder erreicht werden. In jedem Fall taten die Mitarbeiter/innen des GHDI-Projekts ihr Bestes, um den Urheberrechtsstatus der Quelle zu ermitteln und mit den relevanten Parteien Kontakt aufzunehmen. Fragen oder Bedenken bezüglich der in <hi rendition="#i">GHDI</hi> veröffentlichten Materialien können an  <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref> gerichtet werden.
 				</p>
 				<p>
-					Das <hi rendition="#i">Intersections</hi>-Projektteam hat versucht, für jede in das Projekt einbezogene Primärquelle eine vollständige Quellenangabe vorzunehmen. Zusammen mit den Informationen, die von den Urheber/innen und den bewahrenden Institutionen zur Verfügung gestellt wurden, haben sich unsere Mitarbeiter/innen bemüht, die Urheberrechtsinformationen für alle Materialien, einschließlich der gemeinfreien, aufzunehmen. Wenn Sie daran interessiert sind, urheberrechtlich geschütztes Quellenmaterial in einem Buch, Artikel, einer Website oder in einem anderen Format zu veröffentlichen, wenden Sie sich bitte direkt an den jeweiligen Rechteinhaber/in (z.B. Autor/in, Verlag, Museum usw.). Das Deutsche Historische Institut, Washington DC, kann keine Nachdruckgenehmigung erteilen, wenn das Copyright bei anderen liegt.  
+					Das <hi rendition="#i">GHDI</hi>-Projektteam hat versucht, für jede in das Projekt einbezogene Primärquelle eine vollständige Quellenangabe vorzunehmen. Zusammen mit den Informationen, die von den Urheber/innen und den bewahrenden Institutionen zur Verfügung gestellt wurden, haben sich unsere Mitarbeiter/innen bemüht, die Urheberrechtsinformationen für alle Materialien, einschließlich der gemeinfreien, aufzunehmen. Wenn Sie daran interessiert sind, urheberrechtlich geschütztes Quellenmaterial in einem Buch, Artikel, einer Website oder in einem anderen Format zu veröffentlichen, wenden Sie sich bitte direkt an den jeweiligen Rechteinhaber/in (z.B. Autor/in, Verlag, Museum usw.). Das Deutsche Historische Institut, Washington DC, kann keine Nachdruckgenehmigung erteilen, wenn das Copyright bei anderen liegt.  
 				</p>
 				<p>
-					Alle Moduleinführungen, Quellenkommentare und redaktionellen Texte in  <hi rendition="#i">Intersections</hi> wurden ausdrücklich für das Projekt verfasst und stehen unter einer <ref target="https://creativecommons.org/licenses/by-nc-nd/4.0/">internationalen Creative Commons Attribution-NonCommercial-NoDerivatives 4.0-Lizenz (CC BY-NC-ND 4.0)</ref>. Diese Lizenz erlaubt die Wiederveröffentlichung dieser Texte (in unveränderter Form und mit korrekter Quellenangabe) für akademische und/oder nicht-kommerzielle Zwecke. Vom DHI in Auftrag gegebene Übersetzungen deutschsprachiger gemeinfreier Dokumente sind ebenfalls unter CC BY-NC-ND 4.0 lizenziert. Bitte verwenden Sie die empfohlene Zitierweise als Leitfaden bei der Wiederveröffentlichung dieser Übersetzungen.
+					Alle Einführungen, Quellenkommentare und redaktionellen Texte in  <hi rendition="#i">GHDI</hi> wurden ausdrücklich für das Projekt verfasst und stehen unter einer <ref target="https://creativecommons.org/licenses/by-nc-nd/4.0/">internationalen Creative Commons Attribution-NonCommercial-NoDerivatives 4.0-Lizenz (CC BY-NC-ND 4.0)</ref>. Diese Lizenz erlaubt die Wiederveröffentlichung dieser Texte (in unveränderter Form und mit korrekter Quellenangabe) für akademische und/oder nicht-kommerzielle Zwecke. Vom DHI in Auftrag gegebene Übersetzungen deutschsprachiger gemeinfreier Dokumente sind ebenfalls unter CC BY-NC-ND 4.0 lizenziert. Bitte verwenden Sie die empfohlene Zitierweise als Leitfaden bei der Wiederveröffentlichung dieser Übersetzungen.
 				</p>				
 			</div>
 
 			<div n="2" id="contact">
 				<head>Kontakt</head>
 				<p>
-					Bei Fragen oder Anregungen zu  <hi rendition="#i">German History Intersections</hi> kontaktieren Sie uns bitte unter <ref target="mailto:intersections@ghi-dc.org">intersections@ghi-dc.org</ref>.
+					Bei Fragen oder Anregungen zu  <hi rendition="#i">GHDI</hi> kontaktieren Sie uns bitte unter <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>.
 				</p>
 			</div>
 
@@ -88,7 +88,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 				</p>
 			</div>
 
-			<div n="2" id="data-protection">
+			<div n="2" id="liability">
 				<head>Haftungsausschluss für Links</head>
 				<p>
 					Unsere Website enthält Links zu externen Websites, auf die wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.

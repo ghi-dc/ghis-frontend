@@ -119,16 +119,19 @@ body.route-home {
         padding-left: $logo-indent-text + 15px; /* increase left padding in order to align below text */
     }
 
+    h1 {
+    }
+
     .row.section {
         padding-top: 3rem;
         padding-bottom: 2rem;
 
         .btn.btn-primary {
+            margin-left: 1rem;
             background-color: inherit;
+            border: 1px solid $color-color-spot;
             border-radius: 0;
-            border: 1px solid white;
-            text-transform: uppercase;
-            min-width: 20rem;
+            color: $color-color-spot;
         }
     }
 
@@ -160,7 +163,7 @@ body.route-home {
     }
 
     .row.volumes {
-        padding-top: 1rem;
+        padding-bottom: 1rem;
         h5 {
             font-weight: bold;
             font-size: 1rem;

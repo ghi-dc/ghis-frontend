@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Editors</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace><idno>
+                    <idno type="DTAID">ghis:about-editors</idno>
+                    <idno type="DTADirName">editors</idno>
+                    <idno type="shelfmark">ghdi/901:about-editors</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+        	<list>
+        		<item>Prof. Volker Berghahn, Seth Low Professor of History, Columbia University (Occupation and the Emergence of Two States, 1945-1961)</item>
+        	
+        		<item>Prof. Thomas A. Brady, Jr., Peder Sather Professor Emeritus of History, University of California at Berkeley (From the Reformation to the Thirty Years' War, 1500-1648)</item>
+        	
+        		<item>Prof. Richard Breitman, Professor of History, American University (Nazi Germany, 1933-1945)</item>
+        	
+        		<item>Prof. Roger Chickering, Professor Emeritus of History, BMW Center for German and European Studies, Georgetown University (Wilhelmine Germany and the First World War, 1890-1918)</item>
+        	
+        		<item>Dr. Steven Chase Gummer, Department of History, Georgetown University (Wilhelmine Germany and the First World War, 1890-1918)</item>
+        	
+        		<item>Prof. William Hagen, Professor of History, University of California at Davis (From Absolutism to Napoleon, 1648-1815)</item>
+        	
+        		<item>Prof. Konrad Jarausch, Lurcy Professor of European Civilization, University of North Carolina at Chapel Hill (Two Germanies 1961-1989; One Germany in Europe, 1989-2009)</item>
+        	
+        		<item>Prof. Uta Poiger, Professor of History, Northeastern University (Occupation and the Emergence of Two States, 1945-1961)</item>
+        	
+        		<item>Prof. James Retallack, Professor of History and German Studies, Munk Centre for International Studies at Trinity College, University of Toronto (Forging an Empire: Bismarckian Germany, 1866-1890)</item>
+        	
+        		<item>Eric S. Roubinek, Ph.D. Candidate, Department of History, University of Minnesota (Weimar Germany 1918/19-1933)</item>
+        	
+        		<item>Prof. Jonathan Sperber, Professor of History, University of Missouri at Columbia (From Vormärz to Prussian Dominance, 1815-1866)</item>
+        	
+        		<item>Prof. Eric D. Weitz, Distinguished McKnight University Professor of History, University of Minnesota (Weimar Germany 1918/19-1933)</item>
+        	
+        		<item>Prof. Helga A. Welsh, Professor of Political Science, Wake Forest University (Two Germanies 1961-1989; One Germany in Europe, 1989-2009)</item>
+        	
+        		<item>Dr. Ellen Yutzy Glebe, Freelance Historian (From the Reformation to the Thirty Years' War, 1500-1648)</item>
+        	</list>
+        </body>
+    </text>
+</TEI>

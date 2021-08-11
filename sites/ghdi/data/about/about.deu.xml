@@ -13,9 +13,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
                 </publisher>
                 <pubPlace>Washington, D.C.</pubPlace><idno>
-                    <idno type="DTAID">ghis:about</idno>
+                    <idno type="DTAID">ghdi:about</idno>
                     <idno type="DTADirName">about</idno>
-                    <idno type="shelfmark">ghis/900:about</idno>
+                    <idno type="shelfmark">ghdi/900:about</idno>
                 </idno>
             </publicationStmt>
             <sourceDesc>
@@ -35,21 +35,36 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         <body>
 			<div n="2" id="overview">
 				<p>
-					<hi rendition="#i">German History in Documents and Images</hi> ist ein quellenbasiertes digitales Projekt, das drei große Themenbereiche über den Zeitraum von 1500 bis zur Gegenwart untersucht – Migration, Wissen und Bildung sowie Deutschsein. Indem diese Themen über Jahrhunderte hinweg verfolgt werden, bietet das Projekt eine Alternative zur traditionellen Geschichtsschreibung, die sich auf einzelne historische Perioden konzentriert. Durch die langfristige Betrachtung kann das Projekt die Berührungspunkte der Themen – Migration, Wissen und Bildung, Deutschsein – besser veranschaulichen, denn es ist offensichtlich, dass sie im Verlauf der neueren deutschen Geschichte keine parallelen oder unabhängigen Wege gehen, sondern sich an vielen Stellen und auf vielfältige Weise überschneiden. Das vom Deutschen Historischen Institut, Washington, DC, mit maßgeblicher Unterstützung durch das Transatlantische Programm des Europäischen Wiederaufbauprogramms (Bundesministerium für Wirtschaft und Energie) organisierte Projekt ist vollständig zweisprachig (Englisch/Deutsch) und richtet sich an ein nordamerikanisches, deutsches und globales Publikum.
-				</p>
+				    <hi rendition="#i">German History in Documents and Images (GHDI)</hi> ist eine umfassende Sammlung von digitalisierten Quellen zur deutschen Geschichte von der Frühen Neuzeit bis zur Gegenwart. GHDI ist ein Projekt des Deutschen Historischen Instituts, Washington DC. Es wird ermöglicht durch die großzügige Unterstützung der Max Kade Foundation und der ZEIT-Stiftung Ebelin und Gerd Bucerius, und durchgeführt in Zusammenarbeit mit den Friends of the German Historical Institute, dem Bildarchiv Preußischer Kulturbesitz und the IEG-MAPS, Institut für Europäische Geschichte, Mainz. Im August 2017 erhielt das DHI von der Deutschen Forschungsgemeinschaft (DFG) eine großzügige Förderung für den umfassenden technischen und inhaltlichen Relaunch des Quellenportals.</p>
 			</div>
 
 			<div n="2" id="modules-and-sources">
-			    <head>Module und Quellen</head>
-				<p>
-					Das Projekt nutzt digitale Medien, um verschiedene historische Quellen auf neue, zum Nachdenken anregende Weise zusammenzuführen. Das Projekt gliedert sich in drei Module (Migration, Wissen und Bildung sowie Deutschtum), die jeweils mit einer essayistischen Einführung in ihr Thema beginnen. Darüber hinaus enthält jedes Modul etwa 100 Primärquellen-Dokumente in ihrer Originalsprache (in der Regel Deutsch) und in englischer Übersetzung, etwa 100 hochauflösende Bilder und eine kleine Auswahl an audiovisuellen Materialien. Alle einzelnen Quellen werden von kurzen Einführungstexten begleitet und sind mit Schlagworten versehen, die Zusammenhänge zwischen den Modulen hervorheben.
-				</p>
+			    <head>Bände und Quellen</head>
+			    <p>
+			        Das Gesamtwerk besteht aus zehn Bänden, die jeweils eine Periode der deutschen Geschichte behandeln. Jeder Band ist von führenden Fachwissenschaftlerinnen und Fachwissenschaftlern bearbeitet worden und enthält jeweils die folgenden Teile:
+			    </p>
+			    <list>
+			        <item>eine Einführung in zentrale Entwicklungen der deutschen Sozial-, Politik- und Kulturgeschichte des betreffenden Zeitabschnitts,</item>
+			        <item>ausgewählte Text- (in Deutsch und Englisch) und Bildquellen, die aus der jeweiligen Periode stammen oder sich auf sie beziehen und </item>
+			        <item>ausgewähltes Kartenmaterial.</item>
+			    </list>
+			    
+			    <p>
+			        Bei der Auswahl der Dokumente und Bildquellen wurden die folgenden Kategorien zugrunde gelegt: Regierung und Verwaltung; Parteien und Organisationen; Militär und Krieg; Wirtschaft und Arbeit; Natur und Umwelt; Geschlecht, Familie und Generationen; Region, Stadt und Land; Religion;
+			        Literatur, Kunst und Musik; Eliten- und Populärkultur; Wissenschaft und Bildung.
+			    </p>
+			    <p>			        
+			        Alle Materialien sind durch die Stichwort-, Schlagwort- und Autorensuche zugänglich. Mit Hilfe der erweiterten Suchfunktion kann die Suche spezifiziert oder eingeschränkt werden.
+			    </p>
+			    <p>
+			        Viele der hier aufgenommenen Dokumente sind in herkömmlichen Publikationen nur schwer greifbar, insbesondere außerhalb Deutschlands. Sämtliche deutschsprachigen Dokumente der Quellensammlung werden durch eine englische Übersetzung ergänzt, die eigens für dieses Projekt angefertigt wurde. GHDI bietet darüber hinaus Zugang zu einer breiten Palette historisch bedeutsamer und zum großen Teil kaum bekannter Bildquellen.
+			    </p>
 			</div>
 
 			<div n="2" id="platform">
 				<head>Digitale Plattform und Gestaltung</head>
 				<p>
-					<hi rendition="#i">German History Intersections</hi> bietet eine ansprechende, benutzerfreundliche Oberfläche, die vom edelweiss* büro für grafik und design (Hamburg) gestaltet wurde. Das Backend basiert auf der Integration von eXist-db, einer Open-Source-XML-Datenbank, mit Collective Access, einem Open-Source-Sammlungsverwaltungssystem. Eine Solr-Suchmaschine bietet optimale Such- und Navigationsfunktionalität. Standardisierte administrative, beschreibende und technische Metadaten, einschließlich granularer Quellen- und Rechteinformationen, verbessern die Auffindbarkeit und unterstützen die langfristige digitale Verwaltung. Die Verwendung von Standardformaten wie TEI P5 (für Primärquellentexte und Übersetzungen) und DOI (persistente Identifikationen) unterstützt den Zugang und die digitale Langzeitarchivierung.
+					<hi rendition="#i">GHDI</hi> bietet eine ansprechende, benutzerfreundliche Oberfläche, die vom edelweiss* büro für grafik und design (Hamburg) gestaltet wurde. Das Backend basiert auf der Integration von eXist-db, einer Open-Source-XML-Datenbank, mit Collective Access, einem Open-Source-Sammlungsverwaltungssystem. Eine Solr-Suchmaschine bietet optimale Such- und Navigationsfunktionalität. Standardisierte administrative, beschreibende und technische Metadaten, einschließlich granularer Quellen- und Rechteinformationen, verbessern die Auffindbarkeit und unterstützen die langfristige digitale Verwaltung. Die Verwendung von Standardformaten wie TEI P5 (für Primärquellentexte und Übersetzungen) und DOI (persistente Identifikationen) unterstützt den Zugang und die digitale Langzeitarchivierung.
 				</p>
 			</div>
 		</body>

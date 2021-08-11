@@ -76,14 +76,14 @@
                                 <a href="{{ path('about') }}" {#class="dropdown-toggle" id="dropdownAboutMenuButton" data-toggle="dropdown"#}>
                                     {{ 'The Project'|trans }}
                                 </a>
-                                {#
+                                <!--
                                 <div class="dropdown-menu" aria-labelledby="dropdownAboutMenuButton">
                                     <a class="dropdown-item" href="{{ path('about') }}">{{ 'About the Project'|trans }}</a>
-                                    <a class="dropdown-item" href="{{ path('about-working-groups') }}">{{ 'Editorial Working Groups'|trans }}</a>
+                                    <a class="dropdown-item" href="{{ path('about-editors') }}">{{ 'Editors'|trans }}</a>
                                     <a class="dropdown-item" href="{{ path('about-team') }}">{{ 'GHI Project Team'|trans }}</a>
                                     <a class="dropdown-item" href="{{ path('terms') }}">{{ 'Terms and Conditions'|trans }}</a>
                                 </div>
-                                #}
+                                -->
                             </li>
                             {% for locale in locales %}
                             <li class="list-inline-item{% if locale == app.request.locale %} current{% endif %}">
