@@ -248,30 +248,10 @@ body {
     -webkit-hyphens: auto;
 }
 
-ul#navbar-about-locale li {
-    text-transform: uppercase;
-    a {
-        color: $color-gray-dark;
-        &:hover {
-            color: $color-color-link;
-        }
-    }
-
-    &.current {
-        font-weight: bold;
-        a, a:hover {
-            color: $color-color-link;
-        }
-    }
-
-}
-
-
 .color-inverse {
     color: white;
     background-color: $color-color-spot;
 }
-
 
 /* == $grid-breakpoints
  * see https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss

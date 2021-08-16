@@ -19,6 +19,45 @@
     }
 }
 
+ul#navbar-about-locale {
+    li {
+        font-weight: bold;
+
+        a {
+            color: $color-color-spot;
+            text-decoration: none;
+
+            &:hover {
+                color: $color-color-link;
+            }
+        }
+
+        &.current {
+            a, a:hover {
+                color: $color-color-link;
+            }
+        }
+    }
+
+    li.locales {
+        font-size: 0.9rem;
+        font-weight: normal;
+
+        &.first {
+            padding-left: 2rem;
+        }
+
+        &.current {
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-color: $color-color-spot;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 8px;
+        }
+    }
+}
+
+
 ul#menu-volumes li {
     font-weight: bold;
     text-transform: uppercase;
@@ -48,6 +87,7 @@ ul#menu-volumes li {
 #volumes-visual {
     border-top: 2em solid $color-background-spot;
     overflow-x: auto;
+
     .volume {
         flex-grow: 1;
         background-size: cover;
@@ -85,6 +125,8 @@ ul#menu-volumes li {
 }
 
 footer {
+    padding-top: 8rem;
+
     a {
         color: white;
         &:hover {
@@ -120,6 +162,23 @@ body.route-home {
     }
 
     h1 {
+        color: $color-gray-dark;
+        line-height: 100%;
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: $color-gray-dark;
+
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-thickness: 5px;
+        text-underline-offset: 8px;
+    }
+
+    .row.color-inverse h3 {
+        color: white;
     }
 
     .row.section {
@@ -162,15 +221,30 @@ body.route-home {
         }
     }
 
-    .row.volumes {
+    .row.volumes,
+    .row.featured
+    {
         padding-bottom: 1rem;
-        h5 {
+
+        h4, h5 {
             font-weight: bold;
-            font-size: 1rem;
-            display: inline;
+            font-size: 24px;
+            color: $color-color-spot;
+
             a {
                 color: $color-color-spot;
+                text-decoration: none;
             }
+        }
+
+        h5 {
+            display: inline;
+        }
+
+        a {
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
         }
     }
 
@@ -202,16 +276,6 @@ body.route-home {
                 }
             }
         }
-    }
-
-    h3 {
-        border-top: 1px solid;
-        padding-top: 1rem;
-        margin-bottom: 1.4rem;
-    }
-
-    .row.color-inverse h3 {
-        color: white;
     }
 }
 

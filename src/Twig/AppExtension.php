@@ -4,6 +4,7 @@
 namespace App\Twig;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Intl\Locales;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -35,6 +36,9 @@ class AppExtension extends AbstractExtension
     public function getFilters()
     {
         return [
+            // site specific
+            new TwigFilter('localeNameNative', [ $this, 'getLocaleNameNative' ]),
+
             // general
             new TwigFilter('remove_by_key', [ $this, 'removeElementByKey' ]),
         ];
@@ -43,11 +47,17 @@ class AppExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
+            // site specific
             new TwigFunction('resource_path', [ $this, 'buildResourcePath' ]),
             new TwigFunction('resource_breadcrumb', [ $this, 'buildResourceBreadcrumb'], [ 'is_safe' => [ 'html' ] ]),
             new TwigFunction('section_thumbnail', [ $this, 'buildSectionThumbnail' ]),
             new TwigFunction('get_volumes', [ $this, 'getVolumes' ]),
         ];
+    }
+
+    public function getLocaleNameNative($locale)
+    {
+        return Locales::getName($locale, $locale);
     }
 
     public function removeElementByKey($array, $key)

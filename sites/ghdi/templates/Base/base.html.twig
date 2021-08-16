@@ -85,10 +85,13 @@
                                 </div>
                                 -->
                             </li>
+                            <li class="list-inline-item">
+                                <a href="{{ path('search') }}"><img src="{{ app.request.basepath }}/img/search.svg" alt="{{ 'Search'|trans }}" title="{{ 'Search'|trans }}" height="12" /></a>
+                            </li>
                             {% for locale in locales %}
-                            <li class="list-inline-item{% if locale == app.request.locale %} current{% endif %}">
+                            <li class="list-inline-item locales{% if loop.first %} first{% endif %}{% if locale == app.request.locale %} current{% endif %}">
                                 {% if locale == app.request.locale %}
-                                    {{ locale }}
+                                    {{ locale|localeNameNative }}
                                 {% else %}
                                     {% set route = 'home' %}
                                     {% if app.request.attributes.get('_route') is not empty %}
@@ -104,13 +107,12 @@
                                         {% endif %}
                                         {% set route_params = route_params|merge(app.request.query.all) %}
                                     {% endif %}
-                                    <a href="{{ path(route, route_params|merge({'_locale': locale})) }}">{{ locale }}</a>
+                                    <a href="{{ path(route, route_params|merge({'_locale': locale})) }}">
+                                        {{ locale|localeNameNative }}
+                                    </a>
                                 {% endif %}
                             </li>
                             {% endfor %}
-                            <li class="list-inline-item">
-                                <a href="{{ path('search') }}"><img src="{{ app.request.basepath }}/img/search.svg" alt="{{ 'Search'|trans }}" height="12" /></a>
-                            </li>
                         </ul>
                     </div>
                 </nav>

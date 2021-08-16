@@ -23,7 +23,6 @@
 <main role="main">
 {% block body %}
 
-{% if volumes|length > 0 %}
 <section>
     <div class="container">
         <div class="row section">
@@ -35,10 +34,17 @@
                     {% else %}
                         German History in Documents and Images is a comprehensive collection of original historical materials documenting German history from the beginning of the early modern period to the present. The project comprises ten volumes, each of which addresses a discrete period in Germany's history.
                     {% endif %}
-                    <a class="btn btn-primary stretched-link" href="{{ path('about') }}">{{ 'Read on'|trans }}</a>
+                    <a class="btn btn-primary" href="{{ path('about') }}">{{ 'Read on'|trans }}</a>
                 </p>
             </div>
         </div><!-- .row -->
+    </div>
+</section>
+
+<section class="stripe">
+    <div class="container">
+
+    {% if volumes|length > 0 %}
         <div class="row section">
             <div class="col-sm-3"><h3>{{ 'Volumes'|trans }}</h3></div>
             <div class="col-sm-9"></div>
@@ -47,37 +53,55 @@
         {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
         {% for volume in volumes %}
             <div class="col-sm-{{ numCols}} hyphens-auto">
-                <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
+                <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a>
                 {#{ volume.note }#}
             </div>
         {% endfor %}
         </div>
-    </div>
-</section>
-{% endif %}
+    {% endif %}
 
-<section class="stripe">
-    <div class="container">
         <div class="row section">
-            <div class="row">
-                <div class="col-sm-3"><h3>{{ 'Sources'|trans }}</h3></div>
-                <div class="col-sm-9"></div>
-            </div><!-- .row -->
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5># {{ 'Documents'|trans }}</h5>
-                </div>
-                <div class="col-sm-3">
-                    <h5># {{ 'Images'|trans }}</h5>
-                </div>
-                <div class="col-sm-3">
-                    <h5># {{ 'Audio and Video'|trans }}</h5>
-                </div>
-                <div class="col-sm-3">
-                    <h5># {{ 'Maps'|trans }}</h5>
-                </div>
+            <div class="col-sm-3"><h3>{{ 'Sources'|trans }}</h3></div>
+            <div class="col-sm-9"></div>
+        </div><!-- .row -->
+        <div class="row featured">
+            <div class="col-sm-3">
+                <h4>105 {{ 'Documents'|trans }}</h4>
+                {% if featured['document'] is defined %}
+                    {% set resource = featured['document'] %}
+                    {% set volumeDtaDirname = null %}
+                    {% for volume in volumes %}
+                        {% if volume.getId(true) == resource.volumeIdFromShelfmark%}
+                            {% set volumeDtaDirname = volume.dtaDirname %}
+                        {% endif %}
+                    {% endfor %}
+                    <a href="{{ path('dynamic', { 'path': volumeDtaDirname ~ '/' ~ resource.dtaDirname }) }}">{{ resource.title }}</a>
+                {% endif %}
             </div>
-        </div>
+            <div class="col-sm-3">
+                <h4>213 {{ 'Images'|trans }}</h4>
+                {% if featured['image'] is defined %}
+                    {% set resource = featured['image'] %}
+                    {% set volumeDtaDirname = null %}
+                    {% for volume in volumes %}
+                        {% if volume.getId(true) == resource.volumeIdFromShelfmark%}
+                            {% set volumeDtaDirname = volume.dtaDirname %}
+                        {% endif %}
+                    {% endfor %}
+                    <a href="{{ path('dynamic', { 'path': volumeDtaDirname ~ '/' ~ resource.dtaDirname }) }}"><b>{{ resource.title }}</b></a>
+                {% endif %}
+            </div>
+            <div class="col-sm-3">
+                <h4>0 {{ 'Audio and Video'|trans }}</h4>
+            </div>
+            <div class="col-sm-3">
+                <h4>4 {{ 'Maps'|trans }}</h4>
+                {% if featured['map'] is defined %}
+                    {% set resource = featured['map'] %}
+                    <a href="#"><b>{{ resource.title }}</b></a>
+                {% endif %}
+            </div>
+        </div><!-- .row -->
     </div>
 </section>
 

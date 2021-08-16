@@ -32,9 +32,27 @@ class DefaultController extends BaseController
             }
         }
 
+        // get random
+        $featured = [];
+        foreach ([
+                'document' => [ 'document' ],
+                'image' => [ 'image' ],
+                'map' => [ 'map' ],
+                'audiovisual' => [ 'audio', 'video' ],
+            ] as $key => $genres)
+        {
+            $resources = $this->contentService->getResourcesByGenres($genres,
+                [ 'random_' . mt_rand() => 'ASC' ], 1);
+
+            if (count($resources) > 0) {
+                $featured[$key] = $resources[0];
+            }
+        }
+
         return $this->render('Default/home.html.twig', [
             'volumes' => $volumes,
             'focus' => $focus,
+            'featured' => $featured,
         ]);
     }
 }
