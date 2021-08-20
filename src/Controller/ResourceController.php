@@ -332,6 +332,7 @@ class ResourceController extends BaseController
             'volume' => $entity,
             'introduction' => $this->contentService->getIntroduction($volume),
             'sections' => $this->contentService->getSections($volume),
+            'navigation' => $this->contentService->buildNavigation($volume),
         ] + $this->buildLocaleSwitch($volume));
     }
 
@@ -377,6 +378,11 @@ class ResourceController extends BaseController
 
         switch ($resource->getGenre()) {
             case 'introduction':
+                /* for full editor information */
+                $fname = join('.', [ $volume->getId(true), $volume->getLanguage(), 'xml' ]);
+                $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
+                $volume = \App\Entity\TeiFull::fromXml($fnameFull, false);
+
                 $template = 'Resource/introduction.html.twig';
                 break;
 
