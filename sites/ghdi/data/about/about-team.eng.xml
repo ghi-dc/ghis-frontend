@@ -35,50 +35,50 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         <body>
 			<div n="2">				
 				<p>
-					<hi rendition="#i">German History Intersections</hi> 
-					is the product of close cooperation between the <ref target="working-groups">three working groups</ref> and the GHI-based project team, whose members are introduced below.
+					<hi rendition="#i">German History in Documents and Images (GHDI)</hi>
+					is the product of close cooperation between the <ref target="editors">editors</ref> and the GHI-based project team, whose members are introduced below.
 				</p>
 			</div>
 
 			<div n="3">
 				<head>Daniel Burckhardt</head>
 				<p>
-					Technical developer Daniel Burckhardt designed the <hi rendition="#i">Intersections</hi> backend, integrated the search engine, implemented the presentation layer, and developed the TEI schema. At the GHI, Daniel works on <hi rendition="#i">German History in Documents and Images</hi> and <hi rendition="#i">German History in Letters</hi>, as well as all other digital initiatives, including the annual digital history conference.				
+					Technical developer Daniel Burckhardt designed the <hi rendition="#i">GHDI</hi> backend, integrated the search engine, implemented the presentation layer, and developed the TEI schema. At the GHI, Daniel works on <hi rendition="#i">German History Intersections</hi> and <hi rendition="#i">German History in Letters</hi>, as well as all other digital initiatives, including the annual digital history conference.
 				</p>
 			</div>
 
 			<div n="3">
 				<head>Katharina Hering</head>
 				<p>
-					Digital project librarian Katharina (Katja) Hering is responsible for collection management (Collective Access), bilingual thesaurus development, and rights and reproduction research and administration. She also supports the Intersections editorial program through source research and other tasks. Katja also works on <hi rendition="#i">German History in Documents and Images</hi> and <hi rendition="#i">German History in Letters</hi> and co-edits the <ref target="https://href.hypotheses.org/">digital history blog href</ref>.		
+					Digital project librarian Katharina (Katja) Hering is responsible for collection management (Collective Access), bilingual thesaurus development, and rights and reproduction research and administration. She also supports the GHDI editorial program through source research and other tasks. Katja also works on <hi rendition="#i">German History Intersections</hi> and <hi rendition="#i">German History in Letters</hi> and co-edits the <ref target="https://href.hypotheses.org/">digital history blog href</ref>.
 				</p>
 			</div>
 
 			<div n="3">
 				<head>Simone Lässig</head>
 				<p>
-					GHI director Simone Lässig doubles as founder and director of the <hi rendition="#i">German History Intersections</hi> project. She is a cultural and social historian of the nineteenth and twentieth centuries. Her research focusses on topics central to the <hi rendition="#i">Intersections</hi> project, namely the history of knowledge, migration, memory cultures and memory politics, digital history, and educational media.
+					Simone Lässig is the director of the GHI. She is a cultural and social historian of the nineteenth and twentieth centuries. Her research focusses the history of knowledge, migration, memory cultures and memory politics, digital history, and educational media.
 				</p>
 			</div>
 
 			<div n="3">
 				<head>Insa Kummer</head>
 				<p>
-					<hi rendition="#i">Intersections</hi> co-manager Insa Kummer is responsible for editorial work on the Migration module and for official grant reporting. Within the project, she contributes to the overall editorial program by researching, translating, editing, and proofreading sources. At the GHI, Insa works on <hi rendition="#i">German History in Documents and Images</hi> and co-edits the <ref target="https://www.ghi-dc.org/publications/ghi-bulletin.html?L=0">Bulletin</ref>.
+					Insa Kummer contributes to the overall editorial program of <hi rendition="#i">GHDI</hi> by researching, translating, editing, and proofreading sources. At the GHI, Insa is co-manager of <hi rendition="#i">German History Intersections</hi> and co-edits the <ref target="https://www.ghi-dc.org/publications/ghi-bulletin.html?L=0">Bulletin</ref>.
 				</p>
 			</div>
 
 			<div n="3">
 				<head>Elisabeth Mait</head>
 				<p>
-					Research Associate Elisabeth Mait supports the <hi rendition="#i">Intersections</hi> project in many ways: by completing diverse research tasks, conducting metadata research, transcribing German script and Fraktur, and digitizing sources and preparing them for TEI markup. Elisabeth also works on <hi rendition="#i">German History in Documents and Images</hi>.
+					Research Associate Elisabeth Mait supports the <hi rendition="#i">GHDI</hi> project in many ways: by completing diverse research tasks, conducting metadata research, transcribing German script and Fraktur, and digitizing sources and preparing them for TEI markup. Elisabeth also works on <hi rendition="#i">German History Intersections</hi>.
 				</p>
 			</div>
 
 			<div n="3">
 				<head>Kelly McCullough</head>
 				<p>
-					<hi rendition="#i">Intersections</hi> co-manager Kelly McCullough coordinates editorial work on the Germanness and Knowledge and Education modules. She supports the project as a whole by overseeing contracts and outreach, and by translating, editing, and proofreading sources. Kelly also manages <hi rendition="#i">German History in Documents and Images</hi> and is a co-editor of <ref target="https://href.hypotheses.org/">href</ref>.
+					Kelly McCullough is the project leader of GHDI. She supports the project as a whole by overseeing contracts and outreach, and by translating, editing, and proofreading sources. Kelly also co-manages <hi rendition="#i">German History Intersection</hi> and is a co-editor of <ref target="https://href.hypotheses.org/">href</ref>.
 				</p>
 			</div>
 
