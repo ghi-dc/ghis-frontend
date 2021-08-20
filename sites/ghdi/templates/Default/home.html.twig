@@ -28,14 +28,16 @@
         <div class="row section">
             <div class="col-sm-12 col-md-6 offset-md-1">
                 <h1>{{ site_name|trans({}, 'additional') }}</h1>
-                <p>
+                <p style="margin-bottom: 0">
                     {% if 'de' == app.request.locale %}
                         <i>German History in Documents and Images</i> ist eine umfassende Sammlung von digitalisierten Quellen zur deutschen Geschichte von der Frühen Neuzeit bis zur Gegenwart.
                     {% else %}
                         German History in Documents and Images is a comprehensive collection of original historical materials documenting German history from the beginning of the early modern period to the present. The project comprises ten volumes, each of which addresses a discrete period in Germany's history.
                     {% endif %}
-                    <a class="btn btn-primary" href="{{ path('about') }}">{{ 'Read on'|trans }}</a>
                 </p>
+                <div style="text-align: right">
+                    <a class="btn btn-primary" href="{{ path('about') }}">{{ 'Read on'|trans }}</a>
+                </div>
             </div>
         </div><!-- .row -->
     </div>

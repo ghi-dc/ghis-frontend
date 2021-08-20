@@ -57,7 +57,6 @@ ul#navbar-about-locale {
     }
 }
 
-
 ul#menu-volumes li {
     font-weight: bold;
     text-transform: uppercase;
@@ -124,6 +123,28 @@ ul#menu-volumes li {
     }
 }
 
+/* override bootstrap style */
+.breadcrumb {
+    margin-bottom: 4rem;
+
+    background-color: inherit;
+    padding: 0;
+    &.p-2 {
+        padding-left: 0 !important;
+    }
+    li {
+        /* text-transform: uppercase; */
+        color: $color-gray-dark;
+        font-size: 1rem;
+
+        &:not(:last-child):after {
+            margin-left: 0.3rem;
+            content: '/';
+            margin-right: 0.3rem;
+        }
+    }
+}
+
 footer {
     padding-top: 8rem;
 
@@ -186,11 +207,11 @@ body.route-home {
         padding-bottom: 2rem;
 
         .btn.btn-primary {
-            margin-left: 1rem;
+            font-weight: bold;
             background-color: inherit;
-            border: 1px solid $color-color-spot;
+            border: none; /* 1px solid $color-color-spot; */
             border-radius: 0;
-            color: $color-color-spot;
+            color: $color-color-link;
         }
     }
 
@@ -291,17 +312,37 @@ main.volume, main.section, main.introduction {
     background-repeat: no-repeat;
     background-position: center top;
 
+    h1 {
+        text-transform: none;
+        color: white;
+    }
+
+    h2 {
+        text-transform: none;
+        color: $color-title-spot;
+        font-size: 20px;
+
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-thickness: 4px;
+        text-underline-offset: 8px;
+    }
+
     .row.margin-top {
         margin-top: 2rem;
     }
 
+    .banner {
+        padding-top: 12rem;
+        background-color: gray;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        margin-bottom: 1rem;
+    }
+
     .row.top > .container {
         margin-top: 0rem;
-
-        background-color: white;
-        padding-top: $logo-indent-text;
-        padding-left: $logo-indent-text + 15px;
-        padding-right: $logo-indent-text + 15px;
     }
 
     .row .indent {
@@ -313,21 +354,9 @@ main.volume, main.section, main.introduction {
         padding-bottom: 0;
         background-color: inherit;
         border-radius: 0;
-        border: 1px solid $color-color-spot;
-        color: $color-color-spot;
+        border: none; /* 1px solid $color-color-spot; */
+        color: $color-color-link;
         font-weight: bold;
-    }
-
-    h1 {
-        text-transform: uppercase;
-    }
-
-    h2 {
-        color: $color-color-spot;
-
-        &::before {
-            @include header-line-above($color-color-spot);
-        }
     }
 
     .section, .resource {
@@ -350,5 +379,26 @@ main.volume, main.section, main.introduction {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+    }
+}
+
+a.print-view {
+    text-transform: none;
+}
+
+article {
+    &.introduction {
+        h2 {
+            &.source-description-head, &.source-head {
+                display: none;
+            }
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+            color: $color-color-spot;
+        }
+
+        .source-description, .source-citation {
+            margin-top: 4rem;
+        }
     }
 }

@@ -2,14 +2,21 @@
 
 {% import 'Shared/resource.html.twig' as resource_helper %}
 
+{% block head %}
+    <style>
+        section.banner {
+            background-image: url({{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg);
+        }
+    </style>
+{% endblock %}
+
 {% block maincontainer %}
-<main role="main" class="container-fluid volume {{ volume.getId(true) }}">
+<main role="main" class="volume {{ volume.getId(true) }}">
 {% block body %}
-<div class="row top">
+<section class="top banner">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <ul class="breadcrumb"><li>{{ 'Volume'|trans }}</li></ul>
                 <h1>{{ volume.title }}</h1>
                 <p>
                     {% for editor in volume.editors %}{% if not loop.first %}, {% endif %}{{ editor.name }}{% endfor %}
@@ -17,12 +24,25 @@
                 </p>
             </div>
         </div><!-- .row -->
+    </div><!-- .container -->
+</section><!-- .section -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-8">
+                <ul class="breadcrumb">
+                    <li><a href="{{ path('home') }}">{{ 'Home'|trans }}</a></li>
+                    <li>{{ 'Volume'|trans }} ({{ navigation.currentCount + 1 }}/{{ navigation.totalCount }})</li>
+                </ul>
+            </div>
+        </div><!-- .row -->
+
         {% if introduction is not empty %}
         <div class="row">
-            <div class="col indent">
-                <h2>{{ introduction.title }}</h2>
+            <div class="col col-md-8">
+                <h2 style="margin-bottom: 2rem">{{ introduction.title }}</h2>
                 {{ introduction.note }}
-                <p><a class="btn btn-primary stretched-link" href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ introduction.dtaDirname }) }}">{{ 'Read on'|trans }}</a></p>
+                <p style="text-align: right"><a class="btn btn-primary" href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ introduction.dtaDirname }) }}">{{ 'Read on'|trans }}</a></p>
             </div>
         </div><!-- .row -->
         {% endif %}
@@ -43,7 +63,7 @@
         </div><!-- .row -->
         {% endif %}
     </div>
-</div>
+</section><!-- .section -->
 {% endblock %}
 </main>
 {% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'Base/base.html.twig' %}
+
+{% import 'Shared/resource.html.twig' as resource_helper %}
+
+{% block head %}
+    <style>
+        section.banner {
+            background-image: url({{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg);
+        }
+    </style>
+{% endblock %}
+
+{% block maincontainer %}
+<main role="main" class="introduction {{ volume.getId(true) }}">
+{% block body %}
+<section class="top banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ volume.title }}</h1>
+                <p>
+                    {% for editor in volume.editors %}{% if not loop.first %}, {% endif %}{{ editor.name }}{% endfor %}
+                    {% if volume.responsible is not empty %}<br />{% for responsible in volume.responsible %}{% if not loop.first %}, {% endif %}{{ responsible.role }} {% if responsible.persName is defined %}{{ responsible.persName }}{% else %}{{ responsible.name }}{% endif %}{% endfor %}{% endif %}
+                </p>
+            </div>
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section><!-- .section -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ resource_helper.breadcrumb(resource, navigation) }}
+            </div>
+        </div>
+        <div class="row">
+            <h2>{{ resource.title }}</h2>
+            <article class="content introduction col-md-8">
+                {{ parts.body|raw }}
+            </article>
+        </div><!-- .row -->
+    </div>
+</section>
+#}
+{% endblock %}
+</main>
+{% endblock %}

@@ -86,6 +86,26 @@ ul#menu-volumes li {
     }
 }
 
+/* override bootstrap style */
+.breadcrumb {
+    background-color: inherit;
+    padding: 0;
+    &.p-2 {
+        padding-left: 0 !important;
+    }
+    li {
+        text-transform: uppercase;
+        color: $color-gray-dark;
+        font-size: 1rem;
+
+        &:not(:last-child):after {
+            margin-left: 0.3rem;
+            content: '/';
+            margin-right: 0.3rem;
+        }
+    }
+}
+
 body.volume-1 {
     ul#menu-volumes li.volume-1 a {
         color: $color-volume-1;
@@ -328,5 +348,30 @@ main.volume, main.section, main.introduction {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+    }
+}
+
+article {
+    &.introduction {
+        h2 {
+            &.source-description-head, &.source-head {
+                display: none;
+            }
+
+            text-transform: none;
+            color: $color-body-text;
+
+            &::before {
+                @include header-line-above($color-body-text);
+            }
+        }
+
+        .article {
+            @include indent-text();
+        }
+
+        .source-description, .source-citation {
+            margin-top: 4rem;
+        }
     }
 }
