@@ -34,8 +34,17 @@
             </div>
         </div>
         <div class="row">
-            <h2>{{ resource.title }}</h2>
-            <article class="content introduction col-md-8">
+            {% if parts.toc is defined and parts.toc is not empty %}
+            <div class="sidebar order-md-2 col-md-3 offset-lg-1">
+                <h4>{{ 'Table of Contents'|trans }}</h4>
+                <ul class="list-unstyled">
+                {% for section in parts.toc %}
+                    <li><a href="#{{ section.id }}">{{ section.text }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <article class="content introduction col-md-9 col-lg-8">
                 {{ parts.body|raw }}
             </article>
         </div><!-- .row -->

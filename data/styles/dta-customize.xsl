@@ -167,6 +167,9 @@
               <!-- if the embedding div-block's n-attribute is lesser than 7: create h(@n)-block -->
               <xsl:otherwise>
                 <xsl:element name="h{parent::tei:div/@n}">
+                  <xsl:if test="4 > parent::tei:div/@n">
+                    <xsl:attribute name="id">section-<xsl:value-of select="count(parent/preceding::tei:div) + 1"/>-<xsl:value-of select="count(../preceding::tei:div) + 1"/></xsl:attribute>
+                  </xsl:if>
                   <xsl:call-template name="applyRendition">
                     <xsl:with-param name="class" select="'dta-head'"/>
                   </xsl:call-template>

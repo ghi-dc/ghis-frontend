@@ -256,9 +256,24 @@ class ResourceController extends BaseController
     }
 
     /**
+     * Custom method since $node->text() returns node-content as well
+     */
+    private function extractText($node)
+    {
+        $html = $node->html();
+        if (!preg_match('/</', $html)) {
+            return $node->text();
+        }
+
+        return $this->removeByCssSelector('<body>' . $html . '</body>',
+                                          [ 'span.editorial', 'a.editorial-marker' ],
+                                          true);
+    }
+
+    /**
      * Use DomCrawler to extract specific parts from the HTML-representation
      */
-    protected function buildPartsFromHtml(TranslatorInterface $translator, $html, $mediaBaseUrl, $printView)
+    protected function buildPartsFromHtml(TranslatorInterface $translator, $html, $mediaBaseUrl, $genre, $printView)
     {
         $parts = [
             'additional' => [],
@@ -273,27 +288,37 @@ class ResourceController extends BaseController
         $this->adjustMedia($crawler, $mediaBaseUrl);
         $this->adjustInternalLink($crawler);
 
-        // move Further Reading to Accordeon
-        $node = $crawler->filter('div > h2.dta-head')
-            ->last();
-        if ($node->count() && $translator->trans('Further Reading') == $node->text()) {
-            $element = $node->getNode(0);
-            $parentDiv = $element->parentNode;
-
-            // move into additional
-            $card = [
-                'header' => $node->html(),
-            ];
-
-            // remove h2
-            $parentDiv->removeChild($element);
-
-            $card['body'] = $this->innerHTML($parentDiv);
-            $parts['additional'][] = $card;
-
-            // remove parent div
-            $parentDiv->parentNode->removeChild($parentDiv);
+        // headers for TOC
+        if ('introduction' == $genre) {
+            $sectionHeaders = $crawler->filterXPath('//h2')->each(function ($node, $i) {
+                return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
+            });
+            $parts['toc'] = $sectionHeaders;
         }
+        else {
+            // move Further Reading to Accordeon
+            $node = $crawler->filter('div > h2.dta-head')
+                ->last();
+            if ($node->count() && $translator->trans('Further Reading') == $node->text()) {
+                $element = $node->getNode(0);
+                $parentDiv = $element->parentNode;
+
+                // move into additional
+                $card = [
+                    'header' => $node->html(),
+                ];
+
+                // remove h2
+                $parentDiv->removeChild($element);
+
+                $card['body'] = $this->innerHTML($parentDiv);
+                $parts['additional'][] = $card;
+
+                // remove parent div
+                $parentDiv->parentNode->removeChild($parentDiv);
+            }
+        }
+
 
         $html = $crawler->filter('body')->first()->html();
 
@@ -328,7 +353,7 @@ class ResourceController extends BaseController
             ])
             . '/';
 
-        $parts = $this->buildPartsFromHtml($translator, $html, $mediaBaseUrl, $printView);
+        $parts = $this->buildPartsFromHtml($translator, $html, $mediaBaseUrl, $resource->getGenre(), $printView);
 
         $children = $resource->getParts();
         if (!empty($children)) {

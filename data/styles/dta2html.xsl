@@ -34,7 +34,7 @@
 
     <xsl:element name="div">
       <xsl:attribute name="class">article <xsl:value-of select="/tei:TEI/tei:teiHeader/tei:profileDesc/tei:textClass/tei:classCode[@scheme='http://germanhistorydocs.org/docs/#genre']" /></xsl:attribute>
-      <xsl:if test="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt/tei:note/*">
+      <xsl:if test="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:notesStmt/tei:note/* and 'introduction' != /tei:TEI/tei:teiHeader/tei:profileDesc/tei:textClass/tei:classCode[@scheme='http://germanhistorydocs.org/docs/#genre']">
         <h2 class="source-description-head">
           <xsl:call-template name="translate">
             <xsl:with-param name="label" select="'Kurzbeschreibung'" />
@@ -45,11 +45,13 @@
         </div>
       </xsl:if>
 
+      <xsl:if test="'introduction' != /tei:TEI/tei:teiHeader/tei:profileDesc/tei:textClass/tei:classCode[@scheme='http://germanhistorydocs.org/docs/#genre']">
       <h2 class="source-head">
         <xsl:call-template name="translate">
           <xsl:with-param name="label" select="'Quelle'" />
         </xsl:call-template>
       </h2>
+      </xsl:if>
 
       <xsl:apply-templates/>
 
