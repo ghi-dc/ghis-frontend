@@ -31,6 +31,10 @@ class ResourceController extends BaseController
         $this->themeContext = $themeContext;
     }
 
+    /**
+     * Lookup corresponding route parameters for volume / resource
+     * in different locales
+     */
     protected function buildLocaleSwitch($volume, $resource = null)
     {
         $routeParameters = [];
@@ -59,6 +63,9 @@ class ResourceController extends BaseController
         return [ 'route_params_locale_switch' => $routeParameters ];
     }
 
+    /**
+     * Calls $pdfConverter to generate PDF representation
+     */
     protected function renderPdf($pdfConverter, $html, $filename = '', $locale = 'en')
     {
         // return new Response($html); // debug
@@ -93,6 +100,9 @@ class ResourceController extends BaseController
         ]);
     }
 
+    /**
+     * Special treatment for Combining Latin Small Letter E
+     */
     protected function markCombiningE($html)
     {
         // since it doesn't seem to possible to style this with unicode-range
@@ -100,18 +110,27 @@ class ResourceController extends BaseController
         return preg_replace('/([aou]\x{0364})/u', '<span class="combining-e">\1</span>', $html);
     }
 
+    /**
+     * Extract innerXML of a $node
+     */
     protected function innerXML($node)
     {
         return implode(array_map([ $node->ownerDocument, 'saveXML' ],
                                  iterator_to_array($node->childNodes)));
     }
 
+    /**
+     * Extract innerXML of a $node
+     */
     protected function innerHTML($node)
     {
         return implode(array_map([ $node->ownerDocument, 'saveHTML' ],
                                  iterator_to_array($node->childNodes)));
     }
 
+    /**
+     * Transform .dta-p-gallery into a Bootstrap Carousel
+     */
     protected function buildCarousel($html)
     {
         // we need xml-declaration at begin because the DomCrawler will attempt to automatically fix your HTML
@@ -171,6 +190,9 @@ class ResourceController extends BaseController
         return $html;
     }
 
+    /**
+     * Build proper internal links
+     */
     protected function adjustInternalLink($crawler)
     {
         $crawler->filter('a')->each(function ($node, $i) {
@@ -181,6 +203,9 @@ class ResourceController extends BaseController
         });
     }
 
+    /**
+     * Prepend $baseUrl to relative src
+     */
     protected function buildFullUrl($src, $baseUrl = null)
     {
         if (empty($baseUrl) || preg_match('/^https?:/', $src)) {
@@ -190,6 +215,9 @@ class ResourceController extends BaseController
         return $baseUrl . $src;
     }
 
+    /**
+     * Adjust media-tags to point to the proper destination
+     */
     protected function adjustMedia($crawler, $baseUrl, $imgClass = null)
     {
         $crawler->filter('audio > source')->each(function ($node, $i) use ($baseUrl) {
@@ -227,6 +255,9 @@ class ResourceController extends BaseController
         });
     }
 
+    /**
+     * Use DomCrawler to extract specific parts from the HTML-representation
+     */
     protected function buildPartsFromHtml(TranslatorInterface $translator, $html, $mediaBaseUrl, $printView)
     {
         $parts = [
@@ -271,6 +302,9 @@ class ResourceController extends BaseController
         return $parts;
     }
 
+    /**
+     * Call XsltProcessor to transform TEI to HTML
+     */
     protected function resourceToHtml(Request $request, TranslatorInterface $translator, $volume, $resource, $printView = false, $embedView = false)
     {
         $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
@@ -366,6 +400,9 @@ class ResourceController extends BaseController
         ] + $this->buildLocaleSwitch($volume, $section));
     }
 
+    /**
+     * Render resource
+     */
     public function resourceAction(Request $request,
                                    TranslatorInterface $translator,
                                    $volume, $resource)
@@ -399,6 +436,9 @@ class ResourceController extends BaseController
         ] + $this->buildLocaleSwitch($volume, $resource));
     }
 
+    /**
+     * Render resource as PDF
+     */
     public function resourceAsPdfAction(Request $request,
                                         TranslatorInterface $translator,
                                         $volume, $resource,
@@ -444,6 +484,9 @@ class ResourceController extends BaseController
         return $this->renderPdf($pdfConverter, $htmlPrint, $resource->getDtadirname(), $request->getLocale());
     }
 
+    /**
+     * Render about file in TEI format
+     */
     protected function aboutToHtml($route, $locale, $mediaBaseUrl, $fnameXsl = 'dta2html.xsl')
     {
         $dataDir = $this->dataDir;
