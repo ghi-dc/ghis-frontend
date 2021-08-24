@@ -1,7 +1,10 @@
-{% macro breadcrumb(resource, navigation) %}
+{% macro breadcrumb(resource, navigation, prepend_home = false) %}
     {% set volume = navigation.root %}
     <div class="d-flex justify-content-between">
         <ul class="breadcrumb p-2">
+            {% if prepend_home %}
+            <li><a href="{{ path('home') }}">{{ 'Home'|trans }}</a></li>
+            {% endif %}
             <li>
                 <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a>
             </li>

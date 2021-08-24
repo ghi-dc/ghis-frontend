@@ -375,3 +375,132 @@ article {
         }
     }
 }
+
+aside {
+    @media only screen and (min-width: $screen-lg-min) {
+        margin-top: 5rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $color-color-spot;
+    }
+
+    ul.tag-list {
+        list-style: none;
+        padding: .5em 0 0 0;
+
+        li {
+            display: inline-block;
+            padding: .5em .9em .6em .9em;
+            margin: 0 .25em .5em 0;
+            background-color: #fff;
+        }
+    }
+}
+
+#main-wrapper.resource, #main-wrapper.search {
+    &::before {
+        content: '';
+        display: block;
+        height: 160px;
+        background-color: $color-gray-light;
+    }
+
+    background: linear-gradient(90deg, #fff, #fff 50%, $color-gray-light 50%, $color-gray-light);
+
+    main {
+        background-color: white;
+        margin-top: -124px;
+        margin-bottom: 0;
+
+        .article-wrapper {
+            background-color: $color-gray-light;
+        }
+
+        article, div.content {
+            padding-left: $logo-indent-text + 15px;
+            padding-top: $logo-indent-text + 15px;
+            padding-right: 30px;
+
+            background-color: white;
+
+            &.volume-1 {
+                border-top: 8px solid $color-volume-1;
+            }
+            &.volume-2 {
+                border-top: 8px solid $color-volume-2;
+            }
+            &.volume-3 {
+                border-top: 8px solid $color-volume-3;
+            }
+
+            h2.source-description-head, h2.source-head {
+                margin: 0 0 .5rem 0;
+                padding-top: 1.5em;
+                font-size: 1rem;
+                letter-spacing: 0.05em;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: calc(55.999999% - 15px);
+                    display: block;
+                    border-bottom: 1px solid $color-color-spot;
+                }
+            }
+
+            h2.source-head {
+                margin-bottom: 2rem;
+            }
+
+            .source-description {
+                padding-left: 22.888888%;
+                /* color: $color-gray-dark; */
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}
+
+.route-search {
+    .search-entry {
+        &.volume-1 .path a.volume {
+           color: $color-volume-1;
+        }
+        &.volume-2 .path a.volume {
+           color: $color-volume-2;
+        }
+        &.volume-3 .path a.volume {
+           color: $color-volume-3;
+        }
+    }
+}
+
+/* profile pictures */
+.route-about-migration,
+.route-about-knowledge-and-education,
+.route-about-germanness
+{
+    #main-wrapper {
+        h2 {
+            clear: both;
+        }
+
+        img {
+            float: left;
+            max-width: 20%;
+            @media only screen and (min-width: $screen-lg-min) {
+                margin-left: -26%;
+            }
+            padding-right: 1em;
+            padding-bottom: 1em;
+        }
+    }
+}

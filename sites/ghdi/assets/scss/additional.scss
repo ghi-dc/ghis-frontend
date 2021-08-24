@@ -312,6 +312,25 @@ body.route-home {
     }
 }
 
+main.volume, main.section, main.introduction {
+    .banner {
+        padding-top: 12rem;
+        margin-bottom: 1rem;
+        background-color: gray;
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+}
+
+main.resource {
+    .banner {
+        padding-top: 8rem;
+        margin-bottom: 1rem;
+        background-color: $color-gray-light;
+    }
+}
+
 /* volume, section and introduction with background image */
 main.volume, main.section, main.introduction {
     background-size: 100% auto;
@@ -339,15 +358,6 @@ main.volume, main.section, main.introduction {
 
     .row.margin-top {
         margin-top: 2rem;
-    }
-
-    .banner {
-        padding-top: 12rem;
-        background-color: gray;
-        background-size: cover;
-        background-position: center;
-        color: white;
-        margin-bottom: 1rem;
     }
 
     .row.top > .container {
@@ -431,6 +441,60 @@ article {
 
         .source-description, .source-citation {
             margin-top: 4rem;
+        }
+    }
+
+    &.content {
+        h1, ul#authors {
+            /* don't show, since we
+             * - place h1 in banner
+             * - #authors currently search only
+             */
+            display: none;
+        }
+
+        .source-description {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            text-transform: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-thickness: 4px;
+            text-underline-offset: 8px;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+aside {
+    /*
+    @media only screen and (min-width: $screen-lg-min) {
+        padding-top: 5rem;
+    }
+    */
+
+    h4 {
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        /* text-transform: uppercase; */
+        font-weight: bold;
+        color: $color-color-spot;
+    }
+
+    ul.tag-list {
+        list-style: none;
+        padding: .5em 0 0 0;
+
+        li {
+            display: inline-block;
+            padding: .5em .9em .6em .9em;
+            margin: 0 .25em .5em 0;
+            background-color: $color-gray-light;
         }
     }
 }

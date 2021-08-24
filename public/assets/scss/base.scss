@@ -390,187 +390,6 @@ article, div.content {
     }
 }
 
-#main-wrapper.resource, #main-wrapp.search {
-    &::before {
-        content: '';
-        display: block;
-        height: 160px;
-        background-color: $color-gray-light;
-    }
-
-    background: linear-gradient(90deg, #fff, #fff 50%, $color-gray-light 50%, $color-gray-light);
-
-    main {
-        background-color: white;
-        margin-top: -124px;
-        margin-bottom: 0;
-
-        .article-wrapper {
-            background-color: $color-gray-light;
-        }
-
-        article, div.content {
-            padding-left: $logo-indent-text + 15px;
-            padding-top: $logo-indent-text + 15px;
-            padding-right: 30px;
-
-            background-color: white;
-
-            &.volume-1 {
-                border-top: 8px solid $color-volume-1;
-            }
-            &.volume-2 {
-                border-top: 8px solid $color-volume-2;
-            }
-            &.volume-3 {
-                border-top: 8px solid $color-volume-3;
-            }
-
-            h2.source-description-head, h2.source-head {
-                margin: 0 0 .5rem 0;
-                padding-top: 1.5em;
-                font-size: 1rem;
-                letter-spacing: 0.05em;
-                position: relative;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: calc(55.999999% - 15px);
-                    display: block;
-                    border-bottom: 1px solid $color-color-spot;
-                }
-            }
-
-            h2.source-head {
-                margin-bottom: 2rem;
-            }
-
-            .source-description {
-                padding-left: 22.888888%;
-                /* color: $color-gray-dark; */
-                margin-bottom: 1.5rem;
-            }
-
-            h3.dta-head {
-                line-height: 1.5rem;
-                font-size: 1.125rem;
-                font-weight: bold;
-            }
-
-            h3#notes {
-                font-size: 1rem;
-                text-transform: uppercase;
-                font-weight: bold;
-            }
-
-            .carousel {
-                /* since this is unwrapped from p, add the same margin as for p */
-                margin-bottom: 1rem;
-            }
-
-            .source-citation {
-                margin-top: 4rem;
-                /* color: $color-gray-dark; */
-            }
-
-            /* no top-margin for .source-citation below image */
-            .article.image .source-citation {
-                margin-top: 0rem;
-            }
-
-            img {
-                max-width: 100%;
-            }
-
-            #bottom-information {
-                margin-top: 1rem;
-            }
-
-            .card {
-                border-left: none;
-                border-right: none;
-
-                .card-header {
-                    padding-left: 0;
-                    background-color: inherit;
-                    h2 {
-                        position: relative;
-                        text-transform: uppercase;
-                        font-weight: bold;
-                        color: $color-gray-dark;
-                        font-size: 1rem;
-
-                        &::after {
-                            content: '';
-                            display: block;
-                            width: 12px;
-                            height: 12px;
-                            border: 4px solid #707070;
-                            border-top-width: 4px;
-                            border-right-width: 4px;
-                            border-bottom-width: 4px;
-                            border-left-width: 4px;
-                            border-width: 4px 4px 0 0;
-                            float: right;
-                            position: relative;
-
-                            // arrow up
-                            top: 0px;
-                            transform: rotate(135deg);
-                        }
-
-                        &[aria-expanded="true"]::after {
-                            // arrow down
-                            top: 4px;
-                            transform: rotate(-45deg);
-                        }
-                    }
-                }
-
-                .card-body {
-                    padding-left: 22.888888%;
-                }
-            }
-
-            .resource-navigation {
-                margin-top: 2rem;
-                border-top: 1px solid $color-color-spot;
-                .p-2 {
-                    max-width: 50%;
-                }
-            }
-        }
-
-        aside {
-            @media only screen and (min-width: $screen-lg-min) {
-                margin-top: 5rem;
-            }
-
-            h4 {
-                font-size: 1rem;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                font-weight: bold;
-                color: $color-color-spot;
-            }
-
-            ul.tag-list {
-                list-style: none;
-                padding: .5em 0 0 0;
-
-                li {
-                    display: inline-block;
-                    padding: .5em .9em .6em .9em;
-                    margin: 0 .25em .5em 0;
-                    background-color: #fff;
-                }
-            }
-        }
-    }
-}
 
 article {
     ul#authors {
@@ -581,6 +400,95 @@ article {
             &:not(:last-child):after {
                 content: ', ';
             }
+        }
+    }
+
+    h3.dta-head {
+        line-height: 1.5rem;
+        font-size: 1.125rem;
+        font-weight: bold;
+    }
+
+    h3#notes {
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .carousel {
+        /* since this is unwrapped from p, add the same margin as for p */
+        margin-bottom: 1rem;
+    }
+
+    .source-citation {
+        margin-top: 4rem;
+        /* color: $color-gray-dark; */
+    }
+
+    /* no top-margin for .source-citation below image */
+    .article.image .source-citation {
+        margin-top: 0rem;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    #bottom-information {
+        margin-top: 1rem;
+    }
+
+    .card {
+        border-left: none;
+        border-right: none;
+
+        .card-header {
+            padding-left: 0;
+            background-color: inherit;
+            h2 {
+                position: relative;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: $color-gray-dark;
+                font-size: 1rem;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 12px;
+                    height: 12px;
+                    border: 4px solid #707070;
+                    border-top-width: 4px;
+                    border-right-width: 4px;
+                    border-bottom-width: 4px;
+                    border-left-width: 4px;
+                    border-width: 4px 4px 0 0;
+                    float: right;
+                    position: relative;
+
+                    // arrow up
+                    top: 0px;
+                    transform: rotate(135deg);
+                }
+
+                &[aria-expanded="true"]::after {
+                    // arrow down
+                    top: 4px;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        .card-body {
+            padding-left: 22.888888%;
+        }
+    }
+
+    .resource-navigation {
+        margin-top: 2rem;
+        border-top: 1px solid $color-color-spot;
+        .p-2 {
+            max-width: 50%;
         }
     }
 }
@@ -639,16 +547,6 @@ article {
                     content: '\e904';
                 }
             }
-        }
-
-        &.volume-1 .path a.volume {
-           color: $color-volume-1;
-        }
-        &.volume-2 .path a.volume {
-           color: $color-volume-2;
-        }
-        &.volume-3 .path a.volume {
-           color: $color-volume-3;
         }
     }
 
@@ -755,27 +653,6 @@ article {
     }
 }
 
-/* profile pictures */
-.route-about-migration,
-.route-about-knowledge-and-education,
-.route-about-germanness
-{
-    #main-wrapper {
-        h2 {
-            clear: both;
-        }
-
-        img {
-            float: left;
-            max-width: 20%;
-            @media only screen and (min-width: $screen-lg-min) {
-                margin-left: -26%;
-            }
-            padding-right: 1em;
-            padding-bottom: 1em;
-        }
-    }
-}
 
 /* additional site specific styles */
 @import 'additional.scss';
