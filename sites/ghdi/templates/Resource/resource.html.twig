@@ -127,6 +127,17 @@
                     {% endif %}
                 </article>
                 <aside class="col-md-3 offset-lg-1">
+                    {% if parts.toc is defined and parts.toc is not empty %}
+                    <div class="toc d-none d-md-block">
+                        <h4>{{ 'Table of Contents'|trans }}</h4>
+                        <ul class="list-unstyled">
+                        {% for section in parts.toc %}
+                            <li><a href="#{{ section.id }}">{{ section.text }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
                     {% set terms = resource.tagsByType('term') %}
                     {% if terms|length > 0 %}
                     <h4>{{ 'Keywords'|trans }}</h4>

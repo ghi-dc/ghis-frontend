@@ -266,8 +266,31 @@ class ResourceController extends BaseController
         }
 
         return $this->removeByCssSelector('<body>' . $html . '</body>',
-                                          [ 'span.editorial', 'a.editorial-marker' ],
+                                          [ 'a.dta-fn-intext' ],
                                           true);
+    }
+
+    /**
+     * Remove nodes from HTML by CSS-Selector
+     */
+    function removeByCssSelector($html, $selectorsToRemove, $returnPlainText = false)
+    {
+        $crawler = new \Symfony\Component\DomCrawler\Crawler();
+        $crawler->addHtmlContent($html);
+
+        foreach ($selectorsToRemove as $selector) {
+            $crawler->filter($selector)->each(function ($crawler) {
+                foreach ($crawler as $node) {
+                    $node->parentNode->removeChild($node);
+                }
+            });
+        }
+
+        if ($returnPlainText) {
+            return $crawler->text();
+        }
+
+        return $crawler->html();
     }
 
     /**
@@ -288,14 +311,29 @@ class ResourceController extends BaseController
         $this->adjustMedia($crawler, $mediaBaseUrl);
         $this->adjustInternalLink($crawler);
 
-        // headers for TOC
         if ('introduction' == $genre) {
+            // h2 for TOC
             $sectionHeaders = $crawler->filterXPath('//h2')->each(function ($node, $i) {
                 return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
             });
             $parts['toc'] = $sectionHeaders;
         }
         else {
+            // h3 for TOC
+            $sectionHeaders = $crawler->filterXPath('//h3')->each(function ($node, $i) {
+                $id = $node->attr('id');
+                if (preg_match('/^section\-1\-\d+$/', $id)) {
+                    return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
+                }
+            });
+
+            // remove null-entries
+            $sectionHeaders = array_filter($sectionHeaders);
+
+            if (count($sectionHeaders) > 1) {
+                $parts['toc'] = $sectionHeaders;
+            }
+
             // move Further Reading to Accordeon
             $node = $crawler->filter('div > h2.dta-head')
                 ->last();
