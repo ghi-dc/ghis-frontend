@@ -46,21 +46,52 @@
             </div>
         </div><!-- .row -->
         {% endif %}
-        {% if sections is not empty %}
+        {% if sections is not empty or maps is not empty%}
         <div class="row">
-            <div class="col"><h2>{{ 'Contents'|trans }}</h2></div>
+            <ul class="nav nav-tabs" id="contentsTab" role="tablist">
+                {% if sections is not empty  %}
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="contents-tab" data-bs-toggle="tab" data-bs-target="#contents" type="button" role="tab" aria-controls="home" aria-selected="true"><h2>{{ 'Contents'|trans }}</h2></button>
+                </li>
+                {% endif %}
+                {% if maps is not empty  %}
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="contents-tab" data-bs-toggle="tab" data-bs-target="#maps" type="button" role="tab" aria-controls="home" aria-selected="true"><h2>{{ 'Maps'|trans }}</h2></button>
+                </li>
+            {% endif %}
         </div><!-- .row -->
-        <div class="row margin-top">
-            {% for section in sections %}
-                {% set section_thumbnail = section_thumbnail(section) %}
-                <div class="col-6 section d-flex flex-row">
-                    <div class="square"{% if section_thumbnail is not empty %} style="background-image: url('{{ app.request.basepath }}/{{ section_thumbnail }}');"{% endif %}></div>
-                    <div class="label">
-                        <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ section.dtaDirname }) }}">{{ section.title }}</a></h4>
+        <div class="tab-content" id="contentsTabContent">
+            {% if sections is not empty  %}
+            <div class="tab-pane fade show container-fluid p-0 active" id="contents" role="tabpanel" aria-labelledby="contents-tab">
+                <div class="row">
+                {% for section in sections %}
+                    {% set section_thumbnail = section_thumbnail(section) %}
+                    <div class="col-12 col-md-6 section d-flex flex-row">
+                        <div class="square"{% if section_thumbnail is not empty %} style="background-image: url('{{ app.request.basepath }}/{{ section_thumbnail }}');"{% endif %}></div>
+                        <div class="label">
+                            <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ section.dtaDirname }) }}">{{ section.title }}</a></h4>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div><!-- .row -->
+                {% endfor %}
+                </div><!-- .row -->
+            </div>
+            {% endif %}
+            {% if maps is not empty %}
+            <div class="tab-pane fade show container-fluid p-0" id="maps" role="tabpanel" aria-labelledby="maps-tab">
+                <div class="row">
+                {% for map in maps %}
+                    {% set section_thumbnail = '' %}
+                    <div class="col-12 col-md-6 section d-flex flex-row">
+                        <div class="square"{% if section_thumbnail is not empty %} style="background-image: url('{{ app.request.basepath }}/{{ section_thumbnail }}');"{% endif %}></div>
+                        <div class="label">
+                            <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ map.dtaDirname }) }}">{{ map.title }}</a></h4>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div><!-- .row -->
+            </div>
+            {% endif %}
+        </div><!-- .tab-content -->
         {% endif %}
     </div>
 </section><!-- .section -->

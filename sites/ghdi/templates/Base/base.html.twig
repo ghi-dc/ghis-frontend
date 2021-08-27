@@ -45,77 +45,77 @@
 
     <body role="document" class="d-flex flex-column min-vh-100 route-{{ app.request.get('_route') | replace({'_' : '-'}) }}{% if volume is defined %} {{ volume.getId(true) }}{% endif %}{% if document_class is defined %} {{ document_class }}{% endif %}">
         {% block navtop %}
-                <nav class="navbar navbar-expand-md navbar-light container">
-                    <a class="navbar-brand" href="{{ path('home') }}">
-                        <img src="{{ app.request.basepath }}/img/ghdi_logo.png" alt="{{ site_name|trans({}, 'additional') }}" id="logo" />
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="{{ 'Toggle navigation'|trans }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+        <nav class="navbar navbar-expand-md navbar-light container">
+            <a class="navbar-brand" href="{{ path('home') }}">
+                <img src="{{ app.request.basepath }}/img/ghdi_logo.png" alt="{{ site_name|trans({}, 'additional') }}" id="logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="{{ 'Toggle navigation'|trans }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarToggler">
-                        <div class="d-md-none">
-                            <ul class="navbar-nav">
-                                <li>
-                                    <a href="{{ path('about') }}" {#class="dropdown-toggle" id="dropdownAboutMenuButton" data-toggle="dropdown"#}>
-                                        {{ 'The Project'|trans }}
-                                    </a>
-                                </li>
-                            </ul>
-                            <form action="{{ path('search') }}" method="post">
-                                <div class="input-group">
-                                    <input id="search-box" name="q" class="form-control" />
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-outline">{{ octicon("search", '') }}</button>
-                                    </span>
-                                </div><!-- .input-group -->
-                            </form>
+            <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarToggler">
+                <div class="d-md-none">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a href="{{ path('about') }}" {#class="dropdown-toggle" id="dropdownAboutMenuButton" data-toggle="dropdown"#}>
+                                {{ 'The Project'|trans }}
+                            </a>
+                        </li>
+                    </ul>
+                    <form action="{{ path('search') }}" method="post">
+                        <div class="input-group">
+                            <input id="search-box" name="q" class="form-control" />
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-outline">{{ octicon("search", '') }}</button>
+                            </span>
+                        </div><!-- .input-group -->
+                    </form>
+                </div>
+                <ul id="navbar-about-locale" class="navbar-nav ms-auto flex-nowrap d-none d-md-block">
+                    <li class="list-inline-item{% if 'about' == app.request.attributes.get('_route') %} current{% endif %} dropdown">
+                        <a href="{{ path('about') }}" {#class="dropdown-toggle" id="dropdownAboutMenuButton" data-toggle="dropdown"#}>
+                            {{ 'The Project'|trans }}
+                        </a>
+                        <!--
+                        <div class="dropdown-menu" aria-labelledby="dropdownAboutMenuButton">
+                            <a class="dropdown-item" href="{{ path('about') }}">{{ 'About the Project'|trans }}</a>
+                            <a class="dropdown-item" href="{{ path('about-editors') }}">{{ 'Editors'|trans }}</a>
+                            <a class="dropdown-item" href="{{ path('about-team') }}">{{ 'GHI Project Team'|trans }}</a>
+                            <a class="dropdown-item" href="{{ path('terms') }}">{{ 'Terms and Conditions'|trans }}</a>
                         </div>
-                        <ul id="navbar-about-locale" class="navbar-nav ms-auto flex-nowrap d-none d-md-block">
-                            <li class="list-inline-item{% if 'about' == app.request.attributes.get('_route') %} current{% endif %} dropdown">
-                                <a href="{{ path('about') }}" {#class="dropdown-toggle" id="dropdownAboutMenuButton" data-toggle="dropdown"#}>
-                                    {{ 'The Project'|trans }}
-                                </a>
-                                <!--
-                                <div class="dropdown-menu" aria-labelledby="dropdownAboutMenuButton">
-                                    <a class="dropdown-item" href="{{ path('about') }}">{{ 'About the Project'|trans }}</a>
-                                    <a class="dropdown-item" href="{{ path('about-editors') }}">{{ 'Editors'|trans }}</a>
-                                    <a class="dropdown-item" href="{{ path('about-team') }}">{{ 'GHI Project Team'|trans }}</a>
-                                    <a class="dropdown-item" href="{{ path('terms') }}">{{ 'Terms and Conditions'|trans }}</a>
-                                </div>
-                                -->
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="{{ path('search') }}"><img src="{{ app.request.basepath }}/img/search.svg" alt="{{ 'Search'|trans }}" title="{{ 'Search'|trans }}" height="12" /></a>
-                            </li>
-                            {% for locale in locales %}
-                            <li class="list-inline-item locales{% if loop.first %} first{% endif %}{% if locale == app.request.locale %} current{% endif %}">
-                                {% if locale == app.request.locale %}
-                                    {{ locale|localeNameNative }}
-                                {% else %}
-                                    {% set route = 'home' %}
-                                    {% if app.request.attributes.get('_route') is not empty %}
-                                        {% set route = app.request.attributes.get('_route') %}
-                                    {% endif %}
-                                    {% if route_params_locale_switch is defined and route_params_locale_switch[locale] is defined %}
-                                        {% set route = 'dynamic' %}
-                                        {% set route_params = route_params_locale_switch[locale] %}
-                                    {% else %}
-                                        {% set route_params = {} %}
-                                        {% if app.request.attributes.get('_route_params') is not null %}
-                                            {% set route_params = app.request.attributes.get('_route_params') %}
-                                        {% endif %}
-                                        {% set route_params = route_params|merge(app.request.query.all) %}
-                                    {% endif %}
-                                    <a href="{{ path(route, route_params|merge({'_locale': locale})) }}">
-                                        {{ locale|localeNameNative }}
-                                    </a>
+                        -->
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{{ path('search') }}"><img src="{{ app.request.basepath }}/img/search.svg" alt="{{ 'Search'|trans }}" title="{{ 'Search'|trans }}" height="12" /></a>
+                    </li>
+                    {% for locale in locales %}
+                    <li class="list-inline-item locales{% if loop.first %} first{% endif %}{% if locale == app.request.locale %} current{% endif %}">
+                        {% if locale == app.request.locale %}
+                            {{ locale|localeNameNative }}
+                        {% else %}
+                            {% set route = 'home' %}
+                            {% if app.request.attributes.get('_route') is not empty %}
+                                {% set route = app.request.attributes.get('_route') %}
+                            {% endif %}
+                            {% if route_params_locale_switch is defined and route_params_locale_switch[locale] is defined %}
+                                {% set route = 'dynamic' %}
+                                {% set route_params = route_params_locale_switch[locale] %}
+                            {% else %}
+                                {% set route_params = {} %}
+                                {% if app.request.attributes.get('_route_params') is not null %}
+                                    {% set route_params = app.request.attributes.get('_route_params') %}
                                 {% endif %}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </nav>
+                                {% set route_params = route_params|merge(app.request.query.all) %}
+                            {% endif %}
+                            <a href="{{ path(route, route_params|merge({'_locale': locale})) }}">
+                                {{ locale|localeNameNative }}
+                            </a>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
         {% endblock %}
         {% set volumes = get_volumes(app.request.locale) %}
         {%

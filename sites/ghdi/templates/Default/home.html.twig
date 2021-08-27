@@ -100,7 +100,13 @@
                 <h4>4 {{ 'Maps'|trans }}</h4>
                 {% if featured['map'] is defined %}
                     {% set resource = featured['map'] %}
-                    <a href="#"><b>{{ resource.title }}</b></a>
+                    {% set volumeDtaDirname = null %}
+                    {% for volume in volumes %}
+                        {% if volume.getId(true) == resource.volumeIdFromShelfmark%}
+                            {% set volumeDtaDirname = volume.dtaDirname %}
+                        {% endif %}
+                    {% endfor %}
+                    <a href="{{ path('dynamic', { 'path': volumeDtaDirname ~ '/' ~ resource.dtaDirname }) }}"><b>{{ resource.title }}</b></a>
                 {% endif %}
             </div>
         </div><!-- .row -->

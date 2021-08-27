@@ -14,11 +14,16 @@
             </li>
             {% endif %}
             <li>
-                {% if 'introduction' == resource.genre %}
+            {% if 'introduction' == resource.genre %}
                 {{ 'Introduction'|trans }}
+            {% else %}
+                {% if 'map' == resource.genre %}
+                    {{ 'Map'|trans }}
                 {% else %}
-                {{ 'Source'|trans }} ({{ navigation.currentCount + 1 }}/{{ navigation.totalCount }})
+                    {{ 'Source'|trans }}
                 {% endif %}
+                ({{ navigation.currentCount + 1 }}/{{ navigation.totalCount }})
+            {% endif %}
             </li>
         </ul>
         <div class="p-2"><a class="print-view" href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ resource.dtaDirname }) }}.pdf">{{ 'Print View'|trans }}</a></div>

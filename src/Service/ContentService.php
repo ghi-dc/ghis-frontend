@@ -100,6 +100,15 @@ class ContentService
         return $sections;
     }
 
+    public function getMaps($volume)
+    {
+        $sections = $this->getRepository(\App\Entity\TeiFull::class)
+            ->findResourceByVolumeAndGenre($volume, 'map')
+            ;
+
+        return $sections;
+    }
+
     protected function buildPathFromShelfmark($shelfmark)
     {
         $parts = explode('/', $shelfmark);
@@ -236,6 +245,28 @@ class ContentService
                         if ('introduction' == $resource->getGenre()) {
                             // currently only single file
                             $parent = $root;
+
+                            break;
+                        }
+                        else if ('map' == $resource->getGenre()) {
+                            $maps = $this->getMaps($volume);
+
+                            for ($i = 0; $i < ($totalCount = count($maps)); $i++) {
+                                if ($maps[$i]->getId() == $resource->getId()) {
+                                    $currentCount = $i;
+
+                                    if ($i > 0) {
+                                        $previous = $maps[$i - 1];
+                                    }
+
+                                    if ($i < $totalCount - 1) {
+                                        $next = $maps[$i + 1];
+                                    }
+
+                                    break;
+                                }
+                            }
+
                             break;
                         }
                         else if (!empty($sectionParts)) {

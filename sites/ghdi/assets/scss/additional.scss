@@ -378,6 +378,23 @@ main.volume, main.section, main.introduction {
         font-weight: bold;
     }
 
+    #contentsTab {
+        border-bottom: none;
+
+        .nav-link {
+            border: none;
+
+            h2 {
+                color: $color-gray-dark;
+            }
+
+            &.active h2 {
+                color: $color-title-spot;
+            }
+        }
+        margin-bottom: 1rem;
+    }
+
     .section, .resource {
         margin-bottom: 2rem;
         .square {

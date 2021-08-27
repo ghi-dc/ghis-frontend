@@ -429,6 +429,7 @@ class ResourceController extends BaseController
             'volume' => $entity,
             'introduction' => $this->contentService->getIntroduction($volume),
             'sections' => $this->contentService->getSections($volume),
+            'maps' => $this->contentService->getMaps($volume),
             'navigation' => $this->contentService->buildNavigation($volume),
         ] + $this->buildLocaleSwitch($volume));
     }
