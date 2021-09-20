@@ -469,6 +469,99 @@ aside {
     }
 }
 
+.route-about,
+.route-about-working-groups,
+.route-about-migration,
+.route-about-knowledge-and-education,
+.route-about-germanness,
+.route-about-editors,
+.route-about-team,
+.route-terms,
+.error
+{
+    #main-wrapper {
+        &::before {
+            content: '';
+            display: block;
+            height: 160px;
+            background-color: $color-color-spot;
+        }
+
+        main {
+            margin-top: -124px;
+
+            > .row {
+                background-color: white;
+                padding-left: $logo-indent-text;
+                padding-top: $logo-indent-text;
+
+                article, .article {
+                    @include indent-text();
+
+                    @include dta-styles();
+                }
+            }
+
+            h2 {
+                &.source-head {
+                    display: none;
+                }
+
+                position: relative;
+                margin-top: 2rem;
+                padding-top: 0.5rem;
+
+                // font-weight: bold;
+                line-height: 1.2;
+                color: $color-color-spot;
+                text-transform: uppercase;
+                letter-spacing: 0.01em;
+
+                &::before {
+                    width: calc(50% - 15px);
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    border-top: 1px solid $color-color-spot;
+               }
+            }
+
+            h3 {
+              margin-top: 1rem;
+            }
+
+            ul.sub-nav {
+                padding-left: 0;
+
+                font-weight: bold;
+                li {
+                    margin-bottom: 0.75rem;
+
+                    a {
+                        display: block;
+                        padding-left: 7px;
+                        border-left: 3px solid transparent;
+                        transition: padding .35s ease;
+                    }
+
+                    &.current a, a:hover {
+                        border-left: 3px solid $color-color-link;
+                    }
+                }
+
+                @media only screen and (max-width: $screen-lg-min - 1px) {
+                    li {
+                        display: inline-block;
+                        margin: 0 1.5rem 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .route-search {
     .search-entry {
         &.volume-1 .path a.volume {

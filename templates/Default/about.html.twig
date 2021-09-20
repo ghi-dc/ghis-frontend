@@ -7,9 +7,7 @@
         {{ about.sub_nav() }}
 
         <div class="col-lg-10">
-            <ul class="breadcrumb">
-                <li>{{ 'The Project'|trans }}</li>
-            </ul>
+            {{ about.breadcrumb() }}
 
             {{ parts.body|raw }}
         </div>

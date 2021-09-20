@@ -1,5 +1,16 @@
-{% macro sub_nav() %}
-    <aside class="col-lg-2 order-lg-last">
+{% macro sub_nav(class = 'col-lg-2 order-lg-last') %}
+    <aside class="{{ class }}">
     {{ knp_menu_render('about') }}
     </aside>
+{% endmacro %}
+
+{% macro breadcrumb(prepend_home = false) %}
+    <div class="d-flex justify-content-between">
+        <ul class="breadcrumb p-2">
+            {% if prepend_home %}
+            <li><a href="{{ path('home') }}">{{ 'Home'|trans }}</a></li>
+            {% endif %}
+            <li>{{ 'The Project'|trans }}</li>
+        </ul>
+    </div>
 {% endmacro %}

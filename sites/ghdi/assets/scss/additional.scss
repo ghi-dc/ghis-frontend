@@ -447,6 +447,85 @@ main.volume, main.section, main.introduction {
     }
 }
 
+.route-about,
+.route-about-working-groups,
+.route-about-migration,
+.route-about-knowledge-and-education,
+.route-about-germanness,
+.route-about-editors,
+.route-about-team,
+.route-terms,
+.error
+{
+    main {
+        .banner {
+            padding-top: 7rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            background-color: $color-gray-light;
+        }
+
+        > .row {
+            article, .article {
+                @include dta-styles();
+            }
+        }
+
+        h2 {
+            &.source-head {
+                display: none;
+            }
+
+
+            position: relative;
+            margin-top: 2rem;
+            padding-top: 0.5rem;
+
+            &:first-of-type {
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            // font-weight: bold;
+            line-height: 1.2;
+            color: $color-color-spot;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+        }
+
+        h3 {
+          margin-top: 1rem;
+        }
+
+        ul.sub-nav {
+            padding-left: 0;
+
+            font-weight: bold;
+            li {
+                margin-bottom: 0.75rem;
+
+                a {
+                    display: block;
+                    padding-left: 7px;
+                    border-left: 3px solid transparent;
+                    transition: padding .35s ease;
+                }
+
+                &.current a, a:hover {
+                    border-left: 3px solid $color-color-link;
+                }
+            }
+
+            @media only screen and (max-width: $screen-lg-min - 1px) {
+                li {
+                    display: inline-block;
+                    margin: 0 1.5rem 0 0;
+                }
+            }
+        }
+    }
+}
+
 a.print-view {
     text-transform: none;
 }
@@ -499,6 +578,13 @@ article {
             text-underline-offset: 8px;
             margin-bottom: 2rem;
         }
+    }
+}
+
+.error
+{
+    h1 {
+        margin-top: 2rem;
     }
 }
 
