@@ -385,11 +385,25 @@ main.volume, main.section, main.introduction {
             border: none;
 
             h2 {
-                color: $color-gray-dark;
+                color: $color-color-link;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration-line: underline;
+                    text-decoration-style: solid;
+                    text-decoration-thickness: 4px;
+                    text-decoration-color: $color-color-link;
+                    text-underline-offset: 8px;
+                }
             }
 
             &.active h2 {
-                color: $color-title-spot;
+                color: $color-gray-dark;
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-decoration-thickness: 4px;
+                text-decoration-color: $color-color-link;
+                text-underline-offset: 8px;
             }
         }
         margin-bottom: 1rem;
