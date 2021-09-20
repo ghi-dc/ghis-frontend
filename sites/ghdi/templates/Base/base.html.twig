@@ -73,17 +73,15 @@
                 </div>
                 <ul id="navbar-about-locale" class="navbar-nav ms-auto flex-nowrap d-none d-md-block">
                     <li class="list-inline-item{% if 'about' == app.request.attributes.get('_route') %} current{% endif %} dropdown">
-                        <a href="{{ path('about') }}" {#class="dropdown-toggle" id="dropdownAboutMenuButton" data-toggle="dropdown"#}>
+                        <a href="{{ path('about') }}" class="dropdown-toggle" id="dropdownAboutMenuButton" data-bs-toggle="dropdown">
                             {{ 'The Project'|trans }}
                         </a>
-                        <!--
                         <div class="dropdown-menu" aria-labelledby="dropdownAboutMenuButton">
                             <a class="dropdown-item" href="{{ path('about') }}">{{ 'About the Project'|trans }}</a>
                             <a class="dropdown-item" href="{{ path('about-editors') }}">{{ 'Editors'|trans }}</a>
                             <a class="dropdown-item" href="{{ path('about-team') }}">{{ 'GHI Project Team'|trans }}</a>
                             <a class="dropdown-item" href="{{ path('terms') }}">{{ 'Terms and Conditions'|trans }}</a>
                         </div>
-                        -->
                     </li>
                     <li class="list-inline-item">
                         <a href="{{ path('search') }}"><img src="{{ app.request.basepath }}/img/search.svg" alt="{{ 'Search'|trans }}" title="{{ 'Search'|trans }}" height="12" /></a>
