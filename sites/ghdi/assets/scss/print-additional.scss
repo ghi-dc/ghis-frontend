@@ -1,8 +1,18 @@
 /*
- * additional site specific styles for print, currently here for ghis
+ * additional site specific styles for print, here for ghdi
  */
 #logo {
     width: 100%;
     text-align: left;
     margin-bottom: 8px;
+}
+
+article h1 {
+    margin-top: 4px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
