@@ -18,7 +18,7 @@
       </trans-unit>
       <trans-unit id="46b005909e66f5a13a9b8a1cefa818249d85e3d1" resname="Chapter">
         <source>Chapter</source>
-        <target state="new">Chapter</target>
+        <target state="new">Kapitel</target>
         <jms:reference-file line="20">\..\..\..\..\..\./sites/ghdi/templates\Resource\section.html.twig\</jms:reference-file>
         <jms:reference-file line="33">\..\..\..\..\..\./sites/ghdi/templates\Resource\section.html.twig\</jms:reference-file>
       </trans-unit>
@@ -86,13 +86,13 @@
       </trans-unit>
       <trans-unit id="2473e96bc614a911821242119918a241a41836d6" resname="Introduction">
         <source>Introduction</source>
-        <target state="new">Introduction</target>
+        <target state="new">Einleitung</target>
         <jms:reference-file line="41">\..\..\..\..\..\./sites/ghdi/templates\Resource\section.html.twig\</jms:reference-file>
         <jms:reference-file line="50">\..\..\..\..\..\./sites/ghdi/templates\Resource\section.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="f530db58b3e5088dc7412c6d2298ba3f8456bdeb" resname="Keywords">
         <source>Keywords</source>
-        <target state="new">Keywords</target>
+        <target state="new">Schlagworte</target>
         <jms:reference-file line="147">\..\..\..\..\..\./sites/ghdi/templates\Resource\resource.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="ab478f3efc840eebab919dff1b9512286f70c10c" resname="Map">
@@ -128,7 +128,7 @@
       </trans-unit>
       <trans-unit id="6da13addb000b67d42a6d66391713819e634149f" resname="Source">
         <source>Source</source>
-        <target state="new">Source</target>
+        <target state="new">Quelle</target>
         <jms:reference-file line="55">\..\..\..\..\..\./sites/ghdi/templates\Resource\resource.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="2eb56be3c2d93cdab0c52e677e3167dfddb30ac5" resname="Sources">
