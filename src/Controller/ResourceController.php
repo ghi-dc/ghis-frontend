@@ -319,6 +319,13 @@ class ResourceController extends BaseController
             $parts['toc'] = $sectionHeaders;
         }
         else {
+            // extract formatted title including italics and similar mark-up
+            $h1 = $crawler->filter('h1')
+                ->first();
+            if ($h1->count()) {
+                $parts['title'] = $this->innerHTML($h1->getNode(0));
+            }
+
             // h3 for TOC
             $sectionHeaders = $crawler->filterXPath('//h3')->each(function ($node, $i) {
                 $id = $node->attr('id');

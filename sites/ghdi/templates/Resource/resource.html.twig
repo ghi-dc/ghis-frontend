@@ -54,7 +54,14 @@
                 {% else %}
                     {{ 'Source'|trans }}
                 {% endif %}
-                <h1>{{ resource.title }}</h1>
+                <h1>
+                    {% if parts.title is defined %}
+                        {# pre-formatted #}
+                        {{ parts.title|raw }}
+                    {% else %}
+                        {{ resource.title }}
+                    {% endif %}
+                </h1>
             </div>
         </div><!-- .row -->
     </div><!-- .container -->

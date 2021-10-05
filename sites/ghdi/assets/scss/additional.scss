@@ -533,6 +533,10 @@ a.print-view {
 article {
     &.introduction {
         h1 {
+            display: block !important; /* override display: none; */
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+
             text-transform: none;
             color: $color-title-spot;
             font-size: 20px;

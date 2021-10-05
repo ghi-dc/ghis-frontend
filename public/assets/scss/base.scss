@@ -381,7 +381,7 @@ main.section {
     color: $color-volume-3;
 }
 
-article, div.content {
+article, div.content, section.banner {
     @include dta-styles();
 
     /* adjust sup in h1 */
