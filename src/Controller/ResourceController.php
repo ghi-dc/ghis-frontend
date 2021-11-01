@@ -630,6 +630,16 @@ class ResourceController extends BaseController
      *  }, name="about-team")
      *
      * @Route({
+     *  "en": "/about/partners",
+     *  "de": "/ueber/partner"
+     *  }, name="about-partners")
+     *
+     * @Route({
+     *  "en": "/about/history",
+     *  "de": "/ueber/entwicklung"
+     *  }, name="about-history")
+     *
+     * @Route({
      *  "en": "/terms",
      *  "de": "/impressum"
      *  }, name="terms")
@@ -653,5 +663,16 @@ class ResourceController extends BaseController
             'pageMeta' => $pageMeta,
             'parts' => $parts,
         ]);
+    }
+
+    /**
+     * @Route({
+     *  "en": "/contact",
+     *  "de": "/kontakt"
+     *  }, name="contact")
+     */
+    public function contactAction(Request $request)
+    {
+        return $this->redirect($this->generateUrl('terms') . '#contact');
     }
 }
