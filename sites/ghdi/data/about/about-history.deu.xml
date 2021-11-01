@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Entwicklung des Projekts</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
+                    <idno type="DTAID">ghdi:about</idno>
+                    <idno type="DTADirName">about</idno>
+                    <idno type="shelfmark">ghdi/900:about</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="deu">Deutsch</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p>
+                <hi rendition="#i">German History in Documents and Images</hi> (GHDI) wurde 2002 von
+                einer kleinen Gruppe <ref
+                    target="https://germanhistorydocs.ghi-dc.org/steering.cfm?language=german"
+                    >deutsch- und amerikanischstämmiger Historikern</ref> ins Leben gerufen, um eine
+                große Sammlung deutscher historischer Dokumente in deutscher und englischer
+                Übersetzung online verfügbar zu machen. Nach dem Vorbild anderer früherer Webseiten
+                wie den „Internet History Sourcebooks“ wollten die Initiatoren freien und einfachen
+                Zugang zu einer breiten Palette von Quellen bieten, die für die historische
+                Forschung und die akademische Lehre grundlegend sind. Während sich andere Webseiten
+                dieser Generation auf die Digitalisierung bestehender Sammlungen konzentrierten, war
+                es von Anfang an das Ziel von GHDI, einen neuen Korpus von Primärquellen zu
+                schaffen, der von kritischen Kommentaren begleitet wird. </p>
+
+            <p> Im Jahr 2003 erhielten die Organisatoren des Projekts ein mehrjähriges
+                Gründungsstipendium von der <ref target="https://maxkadefoundation.org/">Max Kade
+                    Foundation, New York</ref>, und eine großzügige Zusatzförderung der <ref
+                    target="https://www.zeit-stiftung.de/">ZEIT-Stiftung Ebelin und Gerd
+                    Bucerius</ref>. Nachdem die Finanzierung gesichert war, wählten die
+                Organisatoren eine kleine Gruppe renommierter Deutschland-Historiker/innen als <ref
+                    target="herausgeber#first-edition">Herausgeber</ref> aus, von denen keine/r
+                zuvor an einem „born digital“-Projekt beteiligt war. Die <ref
+                    target="https://germanhistorydocs.ghi-dc.org/?language=german">ursprüngliche
+                    Version von GHDI</ref> wurde noch im selben Jahr mit einer Handvoll Quellen
+                gestartet, die im Laufe der Zeit zu einer Sammlung von Tausenden von Quellen
+                anwuchs. Die erste Ausgabe, GHDI 1.0, wurde 2012 offiziell für vollständig erklärt. </p>
+
+            <p> Die erste Ausgabe von GHDI (GHDI 1.0) erweckte das Interesse eines großen und
+                vielfältigen Publikums – Lehrende an Universitäten und Schulen,
+                Wissenschaftler/innen, Studierende, Autoren und die interessierte Öffentlichkeit.
+                Sie regte Diskussionsrunden auf der Konferenz der <ref
+                    target="https://www.thegsa.org/sites/default/files/GSA_program_09.pdf">German
+                    Studies Association conference</ref> im Jahr 2009 und der <ref
+                    target="https://aha.confex.com/aha/2010/webprogram/Session3099.html">American
+                    Historical Association</ref> im Jahr 2010 an. Im Jahr 2010 wurde es mit dem <ref
+                    target="https://www.historians.org/awards-and-grants/awards-and-prizes/james-harvey-robinson-prize"
+                    >James Harvey Robinson Prize</ref> der American Historical Association
+                ausgezeichnet. Drei Jahre später war es Gegenstand eines Artikels in der
+                Fachzeitschrift <ref target="https://doi.org/10.1017/S0008938913000642"><hi
+                        rendition="#i">Central European History</hi></ref>. </p>
+
+            <p> In den Jahren 2015–16 beauftragte das DHI zwanzig Deutschland-Historiker/innen, das
+                Projekt zu begutachten. Parallel dazu entwickelte das DHI eine GHDI-Nutzerumfrage,
+                an der sich mehr als 1.000 Personen aus der ganzen Welt beteiligten. Darüber hinaus
+                berief das DHI eine Fokusgruppe von Experten/innen für deutsche und digitale
+                Geschichte ein, um Feedback zum Projekt einzuholen. Nach Abschluss dieses
+                Begutachtungsprozesses beschloss das Institut, die Webseite mit zwei Hauptzielen neu
+                zu starten. Das erste (technische) Ziel war die Überführung der Webseite auf eine
+                neue Infrastruktur mit verbesserter Funktionalität und besseren Aussichten für die
+                Langzeitarchivierung sowie die Schaffung einer modernen und ansprechenden
+                Benutzeroberfläche. Das zweite (redaktionelle) Ziel bestand darin, die Inhalte der
+                Seite zu überarbeiten und zu erweitern, um neuen Entwicklungen in der
+                Geschichtsschreibung und Methodik Rechnung zu tragen, insbesondere der <ref
+                    target="https://trafo.hypotheses.org/9619">transnationalen</ref> und visuellen
+                Wende in der Geschichtsforschung und -schreibung. Das DHI war hierbei in der
+                glücklichen Lage, zwei Förderungen zu erhalten: eine durch die <ref
+                    target="https://www.dfg.de/">Deutsche Forschungsgemeinschaft</ref> (DFG), um die
+                Realisierung des technischen Arbeitsprogramms zu unterstützen, und eine von der <ref
+                    target="https://www.zeit-stiftung.de/">ZEIT-Stiftung Ebelin und Gerd
+                    Bucerius</ref> um das redaktionelle Programm zu unterstützen. </p>
+
+            <p> Die neue, überarbeitete und erweiterte Ausgabe der Quellensammlung (GHDI 2.0)
+                enthält nahezu alle Quellen, die in der ursprünglichen Version enthalten waren (in
+                einigen Fällen wurden Quellen entfernt, da die urheberrechtlichen Genehmigungen
+                nicht verlängert werden konnten). Jeder Band enthält außerdem eine Auswahl neuer
+                Quellen (mit Kommentaren), die von den Herausgebern/innen der zweiten Auflage
+                ausgewählt wurden. Der <ref target="herausgeber">Redaktionsausschuss</ref> für die
+                überarbeitete Ausgabe umfasst sowohl bekannte Namen aus der ersten Ausgabe als auch
+                neue Mitglieder unseres Projekts. Alle Herausgeber/innen, sowohl die neuen als auch
+                die bisherigen, haben ihre jeweiligen Bände überprüft und überarbeitet, wobei sie
+                darauf achteten, dass neue Medien (soweit zutreffend) einbezogen werden, das
+                Spektrum der Perspektiven auf die deutsche Geschichte erweitert wird und ein
+                komplexeres, vernetzteres und nach außen gerichtetes Deutschland vorgestellt wird.
+            </p>
+        </body>
+    </text>
+</TEI>

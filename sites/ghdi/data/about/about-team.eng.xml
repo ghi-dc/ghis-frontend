@@ -3,108 +3,108 @@
 type="application/xml"
 schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title type="main">GHI Project Team</title>
-            </titleStmt>
-            <publicationStmt>
-                <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
-                </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
-                    <idno type="DTAID">ghis:about-team</idno>
-                    <idno type="DTADirName">team</idno>
-                    <idno type="shelfmark">ghis/901:about-team</idno>
-                </idno>
-            </publicationStmt>
-            <sourceDesc>
-                <p/>
-            </sourceDesc>
-        </fileDesc>
-        <profileDesc>
-            <langUsage>
-                <language ident="eng">English</language>
-            </langUsage>
-            <textClass>
-                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
-            </textClass>
-        </profileDesc>
-    </teiHeader>
-    <text>
-        <body>
-			<div n="2">				
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title type="main">GHI Project Team</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>
+					<orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+						Washington</orgName>
+				</publisher>
+				<pubPlace>Washington, D.C.</pubPlace>
+				<idno>
+					<idno type="DTAID">ghis:about-team</idno>
+					<idno type="DTADirName">team</idno>
+					<idno type="shelfmark">ghis/901:about-team</idno>
+				</idno>
+			</publicationStmt>
+			<sourceDesc>
+				<p/>
+			</sourceDesc>
+		</fileDesc>
+		<profileDesc>
+			<langUsage>
+				<language ident="eng">English</language>
+			</langUsage>
+			<textClass>
+				<classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+			</textClass>
+		</profileDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<div n="2">
 				<p>
-					<hi rendition="#i">German History in Documents and Images (GHDI)</hi>
-					is the product of close cooperation between the <ref target="editors">editors</ref> and the GHI-based project team, whose members are introduced below.
-				</p>
+					<hi rendition="#i">German History in Documents and Images</hi> (GHDI) is the
+					product of close cooperation between the <ref target="editors">editors</ref> and
+					the GHI-based project team, whose members are listed below in alphabetical
+					order. </p>
 			</div>
 
 			<div n="3">
 				<head>Daniel Burckhardt</head>
-				<p>
-					Technical developer Daniel Burckhardt designed the <hi rendition="#i">GHDI</hi> backend, integrated the search engine, implemented the presentation layer, and developed the TEI schema. At the GHI, Daniel works on <hi rendition="#i">German History Intersections</hi> and <hi rendition="#i">German History in Letters</hi>, as well as all other digital initiatives, including the annual digital history conference.
-				</p>
+				<p> Technical developer Daniel Burckhardt designed the GHDI backend, integrated the
+					search engine, implemented the presentation layer, and developed the TEI schema.
+					At the GHI, Daniel works on <hi rendition="#i">German History Intersections</hi>
+					and <hi rendition="#i">Migrant Connections</hi>, as well as other digital
+					history initiatives. </p>
 			</div>
 
 			<div n="3">
 				<head>Katharina Hering</head>
-				<p>
-					Digital project librarian Katharina (Katja) Hering is responsible for collection management (Collective Access), bilingual thesaurus development, and rights and reproduction research and administration. She also supports the GHDI editorial program through source research and other tasks. Katja also works on <hi rendition="#i">German History Intersections</hi> and <hi rendition="#i">German History in Letters</hi> and co-edits the <ref target="https://href.hypotheses.org/">digital history blog href</ref>.
-				</p>
+				<p> Digital project librarian Katharina (Katja) Hering is responsible for collection
+					management (Collective Access), bilingual thesaurus development, and rights and
+					reproduction research and administration. She also supports the GHDI editorial
+					program and is the contact person for digital maps. Katja also works on <hi
+						rendition="#i">German History Intersections</hi> and <hi rendition="#i"
+							>Migrant Connections</hi> and edits the GHI’s digital history blog <hi rendition="#i"><ref
+						target="https://href.hypotheses.org/">href</ref></hi>. </p>
 			</div>
 
 			<div n="3">
 				<head>Simone Lässig</head>
-				<p>
-					Simone Lässig is the director of the GHI. She is a cultural and social historian of the nineteenth and twentieth centuries. Her research focusses the history of knowledge, migration, memory cultures and memory politics, digital history, and educational media.
-				</p>
+				<p> Simone Lässig is the director of the GHI and, as such, the leader of the GHDI
+					project team. She is a cultural and social historian of the nineteenth and
+					twentieth centuries. Her research focuses on the history of knowledge,
+					migration, memory cultures and memory politics, digital history, and educational
+					media. </p>
 			</div>
 
 			<div n="3">
 				<head>Insa Kummer</head>
-				<p>
-					Insa Kummer contributes to the overall editorial program of <hi rendition="#i">GHDI</hi> by researching, translating, editing, and proofreading sources. At the GHI, Insa is co-manager of <hi rendition="#i">German History Intersections</hi> and co-edits the <ref target="https://www.ghi-dc.org/publications/ghi-bulletin.html?L=0">Bulletin</ref>.
-				</p>
+				<p> Insa Kummer contributes to the GHDI editorial program by researching,
+					translating, editing, and proofreading sources and other materials. She is also
+					active in rights and reproduction research. At the GHI, Insa co-manages the <hi
+						rendition="#i">German History Intersections</hi> project and co-edits the
+						<hi rendition="#i"><ref
+							target="https://www.ghi-dc.org/publications/bulletin"
+						>Bulletin</ref></hi>. </p>
 			</div>
 
 			<div n="3">
 				<head>Elisabeth Mait</head>
-				<p>
-					Research Associate Elisabeth Mait supports the <hi rendition="#i">GHDI</hi> project in many ways: by completing diverse research tasks, conducting metadata research, transcribing German script and Fraktur, and digitizing sources and preparing them for TEI markup. Elisabeth also works on <hi rendition="#i">German History Intersections</hi>.
-				</p>
+				<p> Elisabeth Mait supports GHDI by transcribing textual sources in German script
+					and <hi rendition="#i">Fraktur</hi>, by digitizing sources and preparing them
+					for TEI markup, and by proofreading texts. </p>
 			</div>
 
 			<div n="3">
 				<head>Kelly McCullough</head>
-				<p>
-					Kelly McCullough is the project leader of GHDI. She supports the project as a whole by overseeing contracts and outreach, and by translating, editing, and proofreading sources. Kelly also co-manages <hi rendition="#i">German History Intersection</hi> and is a co-editor of <ref target="https://href.hypotheses.org/">href</ref>.
-				</p>
+				<p> GHDI project manager Kelly McCullough coordinates the GHI-based project team and
+					works with sponsors, partners, volume editors, freelancers, and other external
+					contributors on all aspects of the editorial program. Kelly also co-manages the
+						<hi rendition="#i">German History Intersection</hi> project and manages the
+					GHI’s book series with Cambridge University Press. </p>
 			</div>
 
 			<div n="3">
-				<head>Student Interns</head>
-				<p>
-					The GHI project team is grateful for the assistance of the following student interns, who made especially significant contributions to GHDI:
-				</p>
-				<p>
-                Isabella Auerbach<lb />
-                Krista Bolton<lb />
-                Hanna Bosse<lb />
-                Chris Buchholz<lb />
-                Ashley Gonik<lb />
-                Daniel Graham<lb />
-                Milena Kagel<lb />
-                Sandra Kastenbauer<lb />
-                Sarah Maurer<lb />
-                Madeleine Miller<lb />
-                Laura Maria Niewoehner<lb />
-                Katharina Weygoldt<lb />
-                Alexandra Witte<lb />
-                Emily Woessner<lb />
-                Thorsten Zachary
-				</p>
+				<head>Josh Seale</head>
+				<p> Josh Seale supports the GHDI editorial program as a copyeditor, translator,
+					proofreader, and researcher. He also digitizes textual sources and prepares them
+					for TEI markup. Josh is also a key member of the GHI events team. </p>
 			</div>
 		</body>
-    </text>
+	</text>
 </TEI>

@@ -448,12 +448,10 @@ main.volume, main.section, main.introduction {
 }
 
 .route-about,
-.route-about-working-groups,
-.route-about-migration,
-.route-about-knowledge-and-education,
-.route-about-germanness,
 .route-about-editors,
 .route-about-team,
+.route-about-partners,
+.route-about-history,
 .route-terms,
 .error
 {
@@ -469,6 +467,10 @@ main.volume, main.section, main.introduction {
             article, .article {
                 @include dta-styles();
             }
+        }
+
+        article h1 {
+            display: none !important; /* override: article .introduction h1 */
         }
 
         h2 {
@@ -494,7 +496,7 @@ main.volume, main.section, main.introduction {
         }
 
         h3 {
-          margin-top: 1rem;
+            margin-top: 1rem;
         }
 
         ul.sub-nav {

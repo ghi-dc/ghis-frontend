@@ -3,97 +3,122 @@
 type="application/xml"
 schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title type="main">Terms and Conditions</title>
-            </titleStmt>
-            <publicationStmt>
-                <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
-                </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
-                    <idno type="DTAID">ghdi:about-terms</idno>
-                    <idno type="DTADirName">terms</idno>
-                    <idno type="shelfmark">ghdi/903:about-terms</idno>
-                </idno>
-            </publicationStmt>
-            <sourceDesc>
-                <p/>
-            </sourceDesc>
-        </fileDesc>
-        <profileDesc>
-            <langUsage>
-                <language ident="eng">English</language>
-            </langUsage>
-            <textClass>
-                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
-            </textClass>
-        </profileDesc>
-    </teiHeader>
-    <text>
-        <body>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title type="main">Terms and Conditions</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>
+					<orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+						Washington</orgName>
+				</publisher>
+				<pubPlace>Washington, D.C.</pubPlace>
+				<idno>
+					<idno type="DTAID">ghdi:about-terms</idno>
+					<idno type="DTADirName">terms</idno>
+					<idno type="shelfmark">ghdi/903:about-terms</idno>
+				</idno>
+			</publicationStmt>
+			<sourceDesc>
+				<p/>
+			</sourceDesc>
+		</fileDesc>
+		<profileDesc>
+			<langUsage>
+				<language ident="eng">English</language>
+			</langUsage>
+			<textClass>
+				<classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+			</textClass>
+		</profileDesc>
+	</teiHeader>
+	<text>
+		<body>
 			<div n="2">
 				<head>Conditions of Use</head>
-				<p>
-					The primary-source materials reproduced in <hi rendition="#i">German History in Documents and Images (GHDI)</hi> are intended for individual, academic, educational, and non-commercial use. Each source is fully attributed and includes a DOI and a recommended citation for use in referencing the project in academic books and articles, term papers, and student assignments in either printed or digital form.
-				</p>
+				<p> The source materials included in <hi rendition="#i">German History in Documents
+						and Images</hi> (GHDI) are intended for individual, academic, educational,
+					and non-commercial use. Each source is fully attributed and includes a DOI as
+					well as a recommended citation for use in referencing the project in academic
+					books and articles, term papers, and student assignments in either print or
+					digital form. </p>
 			</div>
 			<div n="2">
 				<head>Notice on Copyright</head>
-				<p>
-					<hi rendition="#i">GHDI</hi> includes hundreds of individual primary sources (i.e. original texts, translations, images, audiovisual files) of varying ownership and copyright status. Many sources are in the public domain; others are under copyright protection. In some cases, the status is unclear; in other cases, the copyright holders could not be identified or reached. In each instance, the <hi rendition="#i">Intersections</hi> project staff has done its best to determine the copyright status of the source and to contact the relevant parties. Questions or concerns about materials published in Intersections should be directed to <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>.
-				</p>
-				<p>
-					The <hi rendition="#i">GHDI</hi> staff has attempted to provide full attribution for each primary source included in the project. Likewise, the staff has endeavored to include copyright information for all materials, including those in the public domain. If you are interested in republishing copyrighted source materials in a book, article, website, or other format, please make direct contact with the relevant rightsholder (e.g. author, publisher, museum, etc.). The German Historical Institute, Washington DC, cannot grant reprint permission in instances when the copyright is held by others.
-				</p>
-				<p>
-					All module introductions, source commentaries, and editorial texts featured in <hi rendition="#i">GHDI</hi> were written expressly for the project and are licensed under a <ref target="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).</ref> This license allows for these texts to be republished (in unaltered form and with proper attribution) for academic and/or non-commercial purposes. English-language translations commissioned by the GHI of German-language documents in the public domain are also licensed under CC BY-NC-ND 4.0. Please use the recommended citation as a guide when republishing these translations.
-				</p>
+				<p> GHDI includes thousands of individual sources (original texts, translations,
+					images, audiovisual files) with varying ownership and copyright status. Many
+					sources are in the public domain; others are under copyright protection. In some
+					cases, the status is unclear; in other cases, the copyright holders could not be
+					identified or reached. In each instance, the GHDI project staff has done its
+					best to determine the copyright status of the source and to contact the relevant
+					parties. Questions or concerns about materials published in GHDI should be
+					directed to <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>. </p>
+				<p> The GHDI project staff has provided the fullest possible attribution for all of
+					the sources included in the collection. Likewise, the staff has endeavored to
+					include copyright information for all materials, including those in the public
+					domain. If you are interested in republishing copyrighted source materials in a
+					book, article, website, or other format, please make direct contact with the
+					relevant rightsholder (i.e., the author, publisher, museum, etc., credited in
+					the source or attribution line). The German Historical Institute, Washington DC,
+					cannot grant reprint permission in instances when the copyright is held by
+					others. </p>
+				<p> All volume introductions, commentaries, and didactics texts included in GHDI
+					were written expressly for the project and are licensed under a <ref
+						target="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons
+						Attribution-NonCommercial-NoDerivatives 4.0 International License (CC
+						BY-NC-ND 4.0).</ref> This license allows for these texts to be republished
+					(in unaltered form and with proper attribution) for academic and/or
+					non-commercial purposes. English-language translations commissioned by the GHI
+					of German-language documents in the public domain are also licensed under CC
+					BY-NC-ND 4.0. Please use the recommended citation as a guide when republishing
+					these translations. </p>
 			</div>
 
 			<div n="2" id="contact">
 				<head>Contact</head>
-				<p>
-					If you have questions or suggestions pertaining to <hi rendition="#i">GHDI</hi>, please contact us at <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>.
+				<p> If you have questions or suggestions pertaining to <hi rendition="#i">GHDI</hi>,
+					please contact us at <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>.
 				</p>
 			</div>
 
 			<div n="2" id="imprint">
 				<head>Imprint</head>
-				<p>
-					German Historical Institute<lb />
-					1607 New Hampshire Ave NW<lb />
-					Washington, DC 20009-2562<lb />
-					U.S.A.
-				</p>
-				<p>
-					Phone: +1.202.387.3355<lb />
-					<ref target="mailto:info@ghi-dc.org">info@ghi-dc.org</ref><lb />
+				<p> German Historical Institute<lb/>
+					 1607 New Hampshire Ave NW<lb/>
+					 Washington, DC 20009-2562<lb/>
+					 USA. </p>
+				<p> Phone: +1.202.387.3355<lb/>
+					<ref target="mailto:info@ghi-dc.org">info@ghi-dc.org</ref><lb/>
 					<ref target="https://www.ghi-dc.org/">www.ghi-dc.org</ref>
 				</p>
 
-				<p>
-					Authorized persons<lb />
-					Simone Lässig, Director<lb />
-					Axel Jansen, Deputy Director<lb />
-					Anne Kadolph, Administrative Director
-				</p>
+				<p> Authorized persons<lb/>
+					 Simone Lässig, Director<lb/>
+					 Axel Jansen, Deputy Director<lb/>
+					 Anne Kadolph, Administrative Director </p>
 			</div>
 
 			<div n="2" id="data-protection">
 				<head>Data Protection</head>
-				<p>
-					This is an online-service of the German Historical Institute. The general data protection declaration of the GHI applies to the processing of all personal data arising in the course of the operation of this site.
-				</p>
+				<p> This is an online-service of the German Historical Institute. The <ref
+						target="https://www.ghi-dc.org/privacy-policy">Privacy Policy</ref> of the
+					GHI applies to the processing of all personal data arising in the course of the
+					operation of this site. </p>
 			</div>
 
-			<div n="2" id="data-protection">
+			<div n="2" id="link-liability">
 				<head>Liability for Links</head>
-				<p>
-					Our site contains links to external websites, over which we have no influence. Therefore we can not accept any liability for this external content. The respective provider or operator of the websites is always responsible for the content of these pages. The linked pages were inspected for possible violations of law at the time of the placing of the link. Illegal contents were not apparent when the link was created. Continuous monitoring of the contents of the linked web pages is not plausible where there is no actual indication of an infringement of the law. Upon notification of violations, we will remove such links immediately.
-				</p>
+				<p> Our site contains links to external websites, over which we have no influence.
+					Therefore, we cannot accept any liability for this external content. The
+					respective provider or operator of the websites is always responsible for the
+					content of these pages. The linked pages were inspected for possible violations
+					of law at the time of the placing of the link. Illegal contents were not
+					apparent when the link was created. Continuous monitoring of the contents of the
+					linked web pages is not plausible where there is no actual indication of an
+					infringement of the law. Upon notification of violations, we will remove such
+					links immediately. </p>
 			</div>
 		</body>
-    </text>
+	</text>
 </TEI>

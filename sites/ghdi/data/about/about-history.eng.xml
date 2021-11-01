@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Project History</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
+                    <idno type="DTAID">ghdi:about</idno>
+                    <idno type="DTADirName">about</idno>
+                    <idno type="shelfmark">ghdi/900:about</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p>
+                <hi rendition="#i">German History in Documents and Images</hi> (GHDI) was conceived
+                in 2002 by a small group of <ref
+                    target="https://germanhistorydocs.ghi-dc.org/steering.cfm?language=english"
+                    >German- and American-born historians</ref> who sought to make a large
+                collection of German historical documents available online in German and English
+                translation. Modeled on other early websites such as the “Internet History
+                Sourcebooks,” GHDI aimed to provide free and easy access to a broad range of sources
+                needed for historical research and academic teaching. Whereas other sites of its
+                generation focused on digitizing existing collections, GHDI aimed from the start to
+                create a new corpus of primary sources accompanied by critical commentaries. </p>
+
+            <p> In 2003, the project’s organizers received a multi-year founding grant from the <ref
+                    target="https://maxkadefoundation.org/">Max Kade Foundation, New York</ref>, and
+                a generous supplementary grant from the <ref
+                    target="https://www.zeit-stiftung.de/en/">ZEIT-Stiftung Ebelin und Gerd
+                    Bucerius</ref>. With funding in place, the organizers then chose as <ref
+                    target="editors#first-edition">editors</ref> a small group of well-known
+                historians of Germany, none of whom had previously participated in a “born digital”
+                project. The original version of <hi rendition="#i"><ref
+                        target="https://germanhistorydocs.ghi-dc.org/?language=english">German
+                        History in Documents and Images</ref></hi> was launched later that year,
+                with a handful of sources that grew over time into a collection of thousands. The
+                first edition, or GHDI 1.0, was declared officially complete in 2012.</p>
+
+            <p> The first edition of GHDI (GHDI 1.0) attracted a large and varied
+                audience—professors, researchers, university students, writers, and the interested
+                public. It inspired roundtable discussions at the <ref
+                    target="https://www.thegsa.org/sites/default/files/GSA_program_09.pdf">German
+                    Studies Association conference</ref> in 2009 and the <ref
+                    target="https://aha.confex.com/aha/2010/webprogram/Session3099.html">American
+                    Historical Association</ref> meeting in 2010. It was awarded the <ref
+                    target="https://www.historians.org/awards-and-grants/awards-and-prizes/james-harvey-robinson-prize"
+                    >James Harvey Robinson Prize</ref> of the American Historical Association in
+                2010. Three years later, it was the subject of an article in <ref
+                    target="https://doi.org/10.1017/S0008938913000642"><hi rendition="#i">Central
+                        European History</hi></ref>. </p>
+
+            <p> In 2015–16, the GHI commissioned twenty historians of Germany to review the project.
+                In parallel, the GHI developed a GHDI user survey that was completed by more than
+                1,000 respondents from all over the world. Additionally, the GHI convened a focus
+                group of experts in German and digital history to gather feedback on the project. At
+                the conclusion of this review process, the GHI decided to relaunch GHDI with two
+                primary objectives in mind. The first (or technical) objective was to migrate the
+                website to a new infrastructure with enhanced functionality and better long-term
+                preservation prospects and to create a modern and responsive user interface. The
+                second (or editorial) objective was to revise and expand the contents of GHDI to
+                reflect new developments in historiography and methodology, especially the <ref
+                    target="https://trafo.hypotheses.org/9619">transnational</ref> and visual turns
+                in historical research and writing. The GHI was fortunate to secure two grants: one
+                from the <ref target="https://www.dfg.de/en/">Deutsche Forschungsgemeinschaft</ref>
+                (DFG) to support the realization of the technical work program, and one from the
+                    <ref target="https://www.zeit-stiftung.de/en/">ZEIT-Stiftung Ebelin und Gerd
+                    Bucerius</ref> to sponsor the editorial program. </p>
+
+            <p> The new revised and expanded edition of GHDI (GHDI 2.0) includes virtually all of
+                the sources included in the original version (in some cases, sources were removed
+                when copyright permissions could not be extended). Each volume also includes a
+                selection of new sources (with commentaries) chosen by the editor of the second
+                edition. The <ref target="editors">editorial board for the revised edition</ref>
+                includes familiar names from the first edition as well as newcomers to our project.
+                All of the editors, both new and returning, reviewed their respective volumes of
+                GHDI and revised them with an eye toward incorporating new media (when applicable),
+                diversifying the range of perspectives on German history, and introducing a more
+                complex, connected, and outward-looking Germany. </p>
+        </body>
+    </text>
+</TEI>

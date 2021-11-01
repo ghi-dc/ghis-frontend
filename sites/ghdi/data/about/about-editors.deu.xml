@@ -85,7 +85,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
                 </p>
             </div>
-            <div n="2">
+            <div n="2" id="first-edition">
                 <head>Erste Ausgabe (2004–2012)</head>
                 <p>Zu einer Zeit, als das Internet noch relativ jung war, wagten sich die ursprünglichen GHDI-Herausgeber/innen an eine neue Art von Geschichtsprojekt. Wir danken ihnen für ihre hervorragende Arbeit, welche die Grundlage für die heute existierende Webseite bildete. <hi rendition="#i">Die erste Auflage ist vollständig erhalten worden und kann <ref target="https://germanhistorydocs.ghi-dc.org/index.cfm?language=german">hier</ref>  abgerufen werden.</hi></p>
                 <p>

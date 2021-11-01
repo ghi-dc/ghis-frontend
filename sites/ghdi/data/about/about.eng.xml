@@ -10,9 +10,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
                 </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
                     <idno type="DTAID">ghdi:about</idno>
                     <idno type="DTADirName">about</idno>
                     <idno type="shelfmark">ghis/900:about</idno>
@@ -33,45 +35,54 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2" id="overview">				
-				<p>
-				    <hi rendition="#i">German History in Documents and Images (GHDI)</hi> is a comprehensive collection of original historical materials documenting German history from the beginning of the early modern period to the present. GHDI is an initiative of the German Historical Institute, Washington DC. Made possible by the generous support of the Max Kade Foundation and the ZEIT-Stiftung Ebelin und Gerd Bucerius, the project has been undertaken in cooperation with the Friends of the German Historical Institute, the Bildarchiv Preußischer Kulturbesitz and the IEG-MAPS, Institute of European History, Mainz. In August 2017, the Deutsche Forschungsgemeinschaft (DFG) awarded the GHI a generous grant in support of the relaunch of the portal.
-				</p>
-			</div>
-			
-			<div n="2" id="modules-and-sources">
-			    <head>Volumes and Sources </head>
-				<p>
-				    The project comprises ten volumes, each of which addresses a discrete period in Germany's history. Each volume has been compiled by leading scholars and includes:
-				</p>
-			    <list>
-			        <item>an introduction to key developments in Germany's social, political, and cultural history during the period;</item>
-			        <item>
-			            a selection of primary source documents (in German and English) as well as image originating from the period;			            
-			        </item>
-			        <item>
-			            a selection of relevant maps.			            
-			        </item>
-			    </list>
-				    
-				<p>	    
-				    Each volume addresses the following subjects: Government and Administration; Parties and Organizations; Military and War; Economy and Labor; Nature and Environment; Gender, Family, and Generations; Region, City, and Countryside; Religion; Literature, Art, and Music; Elite and Popular
-				    Cultures; and Science and Education.
-				</p>
-			    <p>				    
-				    All of the materials can be accessed through keyword, subject, and author searches. Advanced options also allow searches to be limited and refined. 
-				</p>
-			    <p>
-			        Many of the documents included in this project are difficult to locate in print publications, especially outside of Germany. All of the German-language documents included in GHDI are accompanied by contemporary English translations, almost all of which were commissioned for the project. GHDI also offers new access to a range of historically significant visual images, many of which will be unfamiliar to viewers. 
-			    </p>
-			</div>
+            <div n="2" xml:id="overview">
+                <p>
+                    <hi rendition="#i">German History in Documents and Images</hi> (GHDI) is an
+                    online collection of primary-source materials documenting various aspects of
+                    German history from the Early Modern period to the present. The project consists
+                    of ten chronologically ordered volumes, each of which features a large selection
+                    of carefully chosen texts and images, as well as maps and audiovisual sources in
+                    some cases. Each volume also includes an introduction to the featured period as
+                    well as other commentaries. The website is completely bilingual
+                    (English/German). Designed to serve broad audiences, GHDI aims to promote new
+                    approaches to research, academic teaching, and learning in the fields of German,
+                    European, and transnational history. </p>
+            </div>
 
-			<div n="2" id="platform">
-				<head>Digital Platform and Design</head>
-				<p>
-					<hi rendition="#i">GHDI</hi> features a responsive, user-friendly interface designed by edelweiss* büro für grafik und design (Hamburg). The backend is based on the integration of eXist-db, an open-source XML-database, with Collective Access, an open-source collection management system. A Solr search engine offers optimal search and navigational functionality. Standardized administrative, descriptive and technical metadata, including granular source and rights information, enhances discoverability and supports long-term digital stewardship. The use of standard format such as TEI P5 (for primary-source texts and translations) and DOI (persistent identifications) further supports access and digital preservation. 
-				</p>
-			</div>
-		</body>
+            <div n="2" xml:id="modules-and-sources">
+                <head>Volumes and Sources </head>
+                <p> Each of the project’s ten volumes has been edited by a <ref
+                        target="about/editors">leading expert</ref> (or team thereof) and includes: </p>
+                <list>
+                    <item>an introduction to key developments in German history during the chosen
+                        period</item>
+                    <item>a selection of texts, images, and (for later time periods) audiovisual
+                        sources</item>
+                    <item>maps designed specifically for the project</item>
+                    <item>recommendations for further reading</item>
+                </list>
+
+                <p> All source materials are fully cited, enriched with metadata, and connected via
+                    keywords and/or internal hyperlinks. </p>
+            </div>
+
+            <div n="2" xml:id="platform">
+                <head>Digital Platform and Design</head>
+                <p>
+                    <hi rendition="#i">GHDI</hi> features a responsive, user-friendly interface
+                    designed by <ref target="https://www.buero-edelweiss.de/">edelweiss* büro für
+                        grafik und design</ref> (Hamburg). The backend is based on the integration
+                    of <ref target="exist-db.org/">eXist-db</ref>, an open-source XML-database, with
+                        <ref target="https://www.collectiveaccess.org/">Collective Access</ref>, an
+                    open-source collection management system. A <ref
+                        target="https://solr.apache.org/">Solr search engine</ref> offers optimal
+                    search and navigational functionality. Standardized administrative, descriptive
+                    and technical metadata, including granular source and rights information,
+                    enhances discoverability and supports long-term digital stewardship. The use of
+                    standard format such as TEI P5 (for primary-source texts and translations) and
+                    DOI (persistent identifications) further supports access and digital
+                    preservation. </p>
+            </div>
+        </body>
     </text>
 </TEI>

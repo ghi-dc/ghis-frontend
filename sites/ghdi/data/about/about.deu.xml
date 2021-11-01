@@ -10,9 +10,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
                 </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
                     <idno type="DTAID">ghdi:about</idno>
                     <idno type="DTADirName">about</idno>
                     <idno type="shelfmark">ghdi/900:about</idno>
@@ -33,40 +35,56 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2" id="overview">
-				<p>
-				    <hi rendition="#i">German History in Documents and Images (GHDI)</hi> ist eine umfassende Sammlung von digitalisierten Quellen zur deutschen Geschichte von der Frühen Neuzeit bis zur Gegenwart. GHDI ist ein Projekt des Deutschen Historischen Instituts, Washington DC. Es wird ermöglicht durch die großzügige Unterstützung der Max Kade Foundation und der ZEIT-Stiftung Ebelin und Gerd Bucerius, und durchgeführt in Zusammenarbeit mit den Friends of the German Historical Institute, dem Bildarchiv Preußischer Kulturbesitz und the IEG-MAPS, Institut für Europäische Geschichte, Mainz. Im August 2017 erhielt das DHI von der Deutschen Forschungsgemeinschaft (DFG) eine großzügige Förderung für den umfassenden technischen und inhaltlichen Relaunch des Quellenportals.</p>
-			</div>
+            <div n="2" xml:id="overview">
+                <p>
+                    <hi rendition="#i">German History in Documents and Images</hi> (GHDI) ist ein
+                    Online-Portal von Primärquellenmaterialien, die verschiedene Aspekte der
+                    deutschen Geschichte von der Frühen Neuzeit bis zur Gegenwart dokumentieren. Das
+                    Projekt besteht aus zehn chronologisch geordneten Bänden, von denen jeder eine
+                    breite Auswahl an sorgfältig ausgewählten Text- und Bildquellen und Karten
+                    enthält. Wo es möglich war, schließen die Bände zudem auch audiovisuelle Quellen
+                    ein. Jeder Band enthält zudem eine Einführung in den jeweiligen Zeitraum sowie
+                    weitere Kommentare. Die Website ist komplett zweisprachig (Englisch/Deutsch)
+                    konzipiert. Das Projekt ist für ein breites Publikum konzipiert und möchte neue
+                    Ansätze in der Forschung, der akademischen Lehre und dem Lernen in den Bereichen
+                    der deutschen, europäischen und transnationalen Geschichte fördern. </p>
+            </div>
 
-			<div n="2" id="modules-and-sources">
-			    <head>Bände und Quellen</head>
-			    <p>
-			        Das Gesamtwerk besteht aus zehn Bänden, die jeweils eine Periode der deutschen Geschichte behandeln. Jeder Band ist von führenden Fachwissenschaftlerinnen und Fachwissenschaftlern bearbeitet worden und enthält jeweils die folgenden Teile:
-			    </p>
-			    <list>
-			        <item>eine Einführung in zentrale Entwicklungen der deutschen Sozial-, Politik- und Kulturgeschichte des betreffenden Zeitabschnitts,</item>
-			        <item>ausgewählte Text- (in Deutsch und Englisch) und Bildquellen, die aus der jeweiligen Periode stammen oder sich auf sie beziehen und </item>
-			        <item>ausgewähltes Kartenmaterial.</item>
-			    </list>
-			    
-			    <p>
-			        Bei der Auswahl der Dokumente und Bildquellen wurden die folgenden Kategorien zugrunde gelegt: Regierung und Verwaltung; Parteien und Organisationen; Militär und Krieg; Wirtschaft und Arbeit; Natur und Umwelt; Geschlecht, Familie und Generationen; Region, Stadt und Land; Religion;
-			        Literatur, Kunst und Musik; Eliten- und Populärkultur; Wissenschaft und Bildung.
-			    </p>
-			    <p>			        
-			        Alle Materialien sind durch die Stichwort-, Schlagwort- und Autorensuche zugänglich. Mit Hilfe der erweiterten Suchfunktion kann die Suche spezifiziert oder eingeschränkt werden.
-			    </p>
-			    <p>
-			        Viele der hier aufgenommenen Dokumente sind in herkömmlichen Publikationen nur schwer greifbar, insbesondere außerhalb Deutschlands. Sämtliche deutschsprachigen Dokumente der Quellensammlung werden durch eine englische Übersetzung ergänzt, die eigens für dieses Projekt angefertigt wurde. GHDI bietet darüber hinaus Zugang zu einer breiten Palette historisch bedeutsamer und zum großen Teil kaum bekannter Bildquellen.
-			    </p>
-			</div>
+            <div n="2" xml:id="modules-and-sources">
+                <head>Bände und Quellen</head>
+                <p> Jeder der zehn Bände des Projekts wurde von <ref target="ueber/herausgeber"
+                        >führenden Vertretern/innen ihres Fachs</ref> (oder einem entsprechenden
+                    Team) herausgegeben und enthält: </p>
+                <list>
+                    <item>eine Einführung in die wichtigsten Entwicklungen der deutschen Geschichte
+                        während des jeweiligen Zeitraums,</item>
+                    <item>eine Auswahl von Texten, Bildern und (für spätere Zeiträume)
+                        audiovisuellen Quellen,</item>
+                    <item>eigens für das Projekt entworfene Karten,</item>
+                    <item>Empfehlungen für weiterführende Literatur.</item>
+                </list>
 
-			<div n="2" id="platform">
-				<head>Digitale Plattform und Gestaltung</head>
-				<p>
-					<hi rendition="#i">GHDI</hi> bietet eine ansprechende, benutzerfreundliche Oberfläche, die vom edelweiss* büro für grafik und design (Hamburg) gestaltet wurde. Das Backend basiert auf der Integration von eXist-db, einer Open-Source-XML-Datenbank, mit Collective Access, einem Open-Source-Sammlungsverwaltungssystem. Eine Solr-Suchmaschine bietet optimale Such- und Navigationsfunktionalität. Standardisierte administrative, beschreibende und technische Metadaten, einschließlich granularer Quellen- und Rechteinformationen, verbessern die Auffindbarkeit und unterstützen die langfristige digitale Verwaltung. Die Verwendung von Standardformaten wie TEI P5 (für Primärquellentexte und Übersetzungen) und DOI (persistente Identifikationen) unterstützt den Zugang und die digitale Langzeitarchivierung.
-				</p>
-			</div>
-		</body>
+                <p> Alle Quellen sind vollständig zitiert, mit Metadaten angereichert und über
+                    Schlüsselwörter und/oder interne Hyperlinks miteinander verbunden. </p>
+            </div>
+
+            <div n="2" xml:id="platform">
+                <head>Digitale Plattform und Gestaltung</head>
+                <p> GHDI bietet eine ansprechende, benutzerfreundliche Oberfläche, die vom <ref
+                        target="https://www.buero-edelweiss.de/">edelweiss* büro für grafik und
+                        design</ref> (Hamburg) gestaltet wurde. Das Backend basiert auf der
+                    Integration von <ref target="exist-db.org/">eXist-db</ref>, einer
+                    Open-Source-XML-Datenbank, mit <ref target="https://www.collectiveaccess.org/"
+                        >Collective Access</ref>, einem Open-Source-Sammlungsverwaltungssystem. Eine
+                        <ref target="https://solr.apache.org/">Solr-Suchmaschine</ref> bietet
+                    optimale Such- und Navigationsfunktionalität. Standardisierte administrative,
+                    beschreibende und technische Metadaten, einschließlich granularer Quellen- und
+                    Rechteinformationen, verbessern die Auffindbarkeit und unterstützen die
+                    langfristige digitale Verwaltung. Die Verwendung von Standardformaten wie TEI P5
+                    (für Primärquellentexte und Übersetzungen) und DOI (persistente
+                    Identifikationen) unterstützt den Zugang und die digitale Langzeitarchivierung.
+                </p>
+            </div>
+        </body>
     </text>
 </TEI>

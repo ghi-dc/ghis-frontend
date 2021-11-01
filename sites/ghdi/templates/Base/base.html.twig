@@ -80,6 +80,8 @@
                             <a class="dropdown-item" href="{{ path('about') }}">{{ 'About the Project'|trans }}</a>
                             <a class="dropdown-item" href="{{ path('about-editors') }}">{{ 'Editors'|trans }}</a>
                             <a class="dropdown-item" href="{{ path('about-team') }}">{{ 'GHI Project Team'|trans }}</a>
+                            <a class="dropdown-item" href="{{ path('about-partners') }}">{{ 'Sponsors and Partners'|trans }}</a>
+                            <a class="dropdown-item" href="{{ path('about-history') }}">{{ 'Project History'|trans }}</a>
                             <a class="dropdown-item" href="{{ path('terms') }}">{{ 'Terms and Conditions'|trans }}</a>
                         </div>
                     </li>
@@ -208,7 +210,7 @@
                             <img src="{{ app.request.basepath }}/img/ghi_logo.png" alt="German Historical Institute Washington"  style="height: 17px; margin-bottom: 8px; width: auto" />
                         </a>
                         <a href="https://www.dfg.de/" target="_blank">
-                            <img src="{{ app.request.basepath }}/img/dfg.png" alt="Deutsche Forschungsgemeinsschaft"  style="height: 30px; width: auto; margin-left: 3em;" />
+                            <img src="{{ app.request.basepath }}/img/dfg.png" alt="Deutsche Forschungsgemeinsschaft" style="height: 30px; width: auto; margin-left: 3em;" />
                         </a>
                         <a href="https://www.zeit-stiftung.de/" target="_blank">
                             <img src="{{ app.request.basepath }}/img/zeit-stiftung.png" alt="ZEIT-Stiftung" style="height: 40px; width: auto; margin-left: 3em;" />
@@ -223,9 +225,9 @@
                             <img class="img-fluid w-25 logo-footer" src="{{ app.request.basepath }}/img/ghdi/footer-ghdi.png" alt="German History in Documents and Images" />
                         </a><br />
                         {% if 'de' == app.request.locale %}
-                            GHDI ist ein Projekt des <a href="https://www.ghi-dc.org/" target="_blank">Deutschen Historischen Instituts, Washington DC</a>. Es wird ermöglicht durch die großzügige Unterstützung der <a href="https://maxkadefoundation.org/" target="_blank">Max Kade Foundation</a> und der <a href="https://www.zeit-stiftung.de/en/" target="_blank">ZEIT-Stiftung Ebelin und Gerd Bucerius</a>, und durchgeführt in Zusammenarbeit mit den <a href="https://www.ghi-dc.org/about-us/friends-of-the-ghi" target="_blank">Friends of the German Historical Institute</a>, dem <a href="https://www.bpk-bildagentur.de/" target="_blank">Bildarchiv Preußischer Kulturbesitz</a> und the <a href="https://www.ieg-maps.uni-mainz.de/" target="_blank"> IEG-MAPS, Institut für Europäische Geschichte, Mainz</a>.
+                            GHDI ist ein Projekt des <a href="https://www.ghi-dc.org/" target="_blank">Deutschen Historischen Instituts, Washington DC</a>. Das Projekt wurde in Zusammenarbeit mit den <a href="https://www.ghi-dc.org/about-us/friends-of-the-ghi" target="_blank">Friends of the German Historical Institute</a> durchgeführt und ermöglicht durch die großzügige Unterstützung der <a href="https://www.dfg.de/" target="_blank">Deutschen Forschungsgemeinsschaft (DFG)</a>, der <a href="https://www.zeit-stiftung.de/" target="_blank">ZEIT-Stiftung Ebelin und Gerd Bucerius</a> sowie der <a href="https://maxkadefoundation.org/" target="_blank">Max Kade Foundation, New York</a>.
                         {% else %}
-                            GHDI is an initiative of the <a href="https://www.ghi-dc.org/" target="_blank">German Historical Institute, Washington DC</a>. Made possible by the generous support of the <a href="https://maxkadefoundation.org/" target="_blank">Max Kade Foundation</a> and the <a href="https://www.zeit-stiftung.de/en/" target="_blank">ZEIT-Stiftung Ebelin und Gerd Bucerius</a>, the project has been undertaken in cooperation with the <a href="https://www.ghi-dc.org/about-us/friends-of-the-ghi" target="_blank">Friends of the German Historical Institute</a>, the <a href="https://www.bpk-bildagentur.de/" target="_blank">Bildarchiv Preußischer Kulturbesitz</a> and the <a href="https://www.ieg-maps.uni-mainz.de/" target="_blank">IEG-MAPS, Institute of European History, Mainz</a>.
+                            GHDI is an initiative of the <a href="https://www.ghi-dc.org/" target="_blank">German Historical Institute, Washington DC</a>. The project was undertaken in collaboration with the <a href="https://www.ghi-dc.org/about-us/friends-of-the-ghi" target="_blank">Friends of the German Historical Institute</a>, and with significant support from the <a href="https://www.dfg.de/en/" target="_blank">Deutsche Forschungsgemeinsschaft</a>, the <a href="https://www.zeit-stiftung.de/en/" target="_blank">ZEIT-Stiftung Ebelin und Gerd Bucerius</a>, and the <a href="https://maxkadefoundation.org/" target="_blank">Max Kade Foundation, New York</a>.
                         {% endif %}
 
                         <div style="margin-top: 1em">

@@ -3,97 +3,127 @@
 type="application/xml"
 schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title type="main">Allgemeine Geschäftsbedingungen</title>
-            </titleStmt>
-            <publicationStmt>
-                <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
-                </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
-                    <idno type="DTAID">ghdi:about-terms</idno>
-                    <idno type="DTADirName">impressum</idno>
-                    <idno type="shelfmark">ghdi/903:about-terms</idno>
-                </idno>
-            </publicationStmt>
-            <sourceDesc>
-                <p/>
-            </sourceDesc>
-        </fileDesc>
-        <profileDesc>
-            <langUsage>
-                <language ident="deu">German</language>
-            </langUsage>
-            <textClass>
-                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
-            </textClass>
-        </profileDesc>
-    </teiHeader>
-    <text>
-        <body>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title type="main">Allgemeine Geschäftsbedingungen</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>
+					<orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+						Washington</orgName>
+				</publisher>
+				<pubPlace>Washington, D.C.</pubPlace>
+				<idno>
+					<idno type="DTAID">ghdi:about-terms</idno>
+					<idno type="DTADirName">impressum</idno>
+					<idno type="shelfmark">ghdi/903:about-terms</idno>
+				</idno>
+			</publicationStmt>
+			<sourceDesc>
+				<p/>
+			</sourceDesc>
+		</fileDesc>
+		<profileDesc>
+			<langUsage>
+				<language ident="deu">German</language>
+			</langUsage>
+			<textClass>
+				<classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+			</textClass>
+		</profileDesc>
+	</teiHeader>
+	<text>
+		<body>
 			<div n="2">
 				<head>Nutzungsbedingungen</head>
-				<p>					
-					Die in <hi rendition="#i">German History in Documents and Images (GHDI)</hi> wiedergegebenen Primärquellen sind für den individuellen, akademischen, pädagogischen und nicht-kommerziellen Gebrauch bestimmt. Neben vollständigen Quellenangaben sind sie mit einem DOI und der empfohlenen Zitierweise zur Verwendung in Fußnoten in akademischen Büchern und Artikeln, Hausarbeiten und Studienarbeiten in gedruckter oder digitaler Form versehen. 
-				</p>
+				<p> Die in <hi rendition="#i">German History in Documents and Images</hi> (GHDI)
+					wiedergegebenen Primärquellen sind für den individuellen, akademischen,
+					pädagogischen und nicht-kommerziellen Gebrauch bestimmt. Neben vollständigen
+					Quellenangaben sind sie mit einem DOI und der empfohlenen Zitierweise zur
+					Verwendung in Fußnoten in akademischen Büchern und Artikeln, Hausarbeiten und
+					Studienarbeiten in gedruckter oder digitaler Form versehen. </p>
 			</div>
+
 			<div n="2">
 				<head>Informationen zum Copyright</head>
-				<p>
-					<hi rendition="#i">GHDI</hi> umfasst Hunderte von Primärquellen (d.h. Originaltexte, Übersetzungen, Bilder, audiovisuelle Dateien) mit unterschiedlichem Eigentums- und Urheberrechtsstatus. Viele Quellen sind gemeinfrei, andere stehen unter Urheberrechtsschutz. In einigen Fällen ist der Status unklar, in anderen Fällen konnten die Urheberrechtsinhaber/innen nicht identifiziert oder erreicht werden. In jedem Fall taten die Mitarbeiter/innen des GHDI-Projekts ihr Bestes, um den Urheberrechtsstatus der Quelle zu ermitteln und mit den relevanten Parteien Kontakt aufzunehmen. Fragen oder Bedenken bezüglich der in <hi rendition="#i">GHDI</hi> veröffentlichten Materialien können an  <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref> gerichtet werden.
-				</p>
-				<p>
-					Das <hi rendition="#i">GHDI</hi>-Projektteam hat versucht, für jede in das Projekt einbezogene Primärquelle eine vollständige Quellenangabe vorzunehmen. Zusammen mit den Informationen, die von den Urheber/innen und den bewahrenden Institutionen zur Verfügung gestellt wurden, haben sich unsere Mitarbeiter/innen bemüht, die Urheberrechtsinformationen für alle Materialien, einschließlich der gemeinfreien, aufzunehmen. Wenn Sie daran interessiert sind, urheberrechtlich geschütztes Quellenmaterial in einem Buch, Artikel, einer Website oder in einem anderen Format zu veröffentlichen, wenden Sie sich bitte direkt an den jeweiligen Rechteinhaber/in (z.B. Autor/in, Verlag, Museum usw.). Das Deutsche Historische Institut, Washington DC, kann keine Nachdruckgenehmigung erteilen, wenn das Copyright bei anderen liegt.  
-				</p>
-				<p>
-					Alle Einführungen, Quellenkommentare und redaktionellen Texte in  <hi rendition="#i">GHDI</hi> wurden ausdrücklich für das Projekt verfasst und stehen unter einer <ref target="https://creativecommons.org/licenses/by-nc-nd/4.0/">internationalen Creative Commons Attribution-NonCommercial-NoDerivatives 4.0-Lizenz (CC BY-NC-ND 4.0)</ref>. Diese Lizenz erlaubt die Wiederveröffentlichung dieser Texte (in unveränderter Form und mit korrekter Quellenangabe) für akademische und/oder nicht-kommerzielle Zwecke. Vom DHI in Auftrag gegebene Übersetzungen deutschsprachiger gemeinfreier Dokumente sind ebenfalls unter CC BY-NC-ND 4.0 lizenziert. Bitte verwenden Sie die empfohlene Zitierweise als Leitfaden bei der Wiederveröffentlichung dieser Übersetzungen.
-				</p>				
+				<p> GHDI umfasst Tausende von Primärquellen (Originaltexte, Übersetzungen, Bilder,
+					audiovisuelle Dateien) mit unterschiedlichem Eigentums- und Urheberrechtsstatus.
+					Viele Quellen sind gemeinfrei, andere stehen unter Urheberrechtsschutz. In
+					einigen Fällen ist der Status unklar, in anderen Fällen konnten die
+					Urheberrechtsinhaber/innen nicht identifiziert oder erreicht werden. In jedem
+					Fall bemühten sich die Mitarbeiter/innen des GHDI-Projekts nach bestem Wissen,
+					den Urheberrechtsstatus der Quelle zu ermitteln und mit den relevanten Parteien
+					Kontakt aufzunehmen. Fragen oder Bedenken bezüglich der in GHDI veröffentlichten
+					Materialien können an <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>
+					gerichtet werden. </p>
+				<p> Das GHDI-Projektteam hat sich bemüht, für jede in das Projekt einbezogene
+					Primärquelle eine vollständige Quellenangabe vorzunehmen. Zusammen mit den
+					Informationen, die von den Urheber/innen und den bewahrenden Institutionen zur
+					Verfügung gestellt wurden, haben sich unsere Mitarbeiter/innen bemüht, die
+					Urheberrechtsinformationen für alle Materialien, einschließlich der
+					gemeinfreien, aufzunehmen. Wenn Sie daran interessiert sind, urheberrechtlich
+					geschütztes Quellenmaterial in einem Buch, Artikel, einer Webseite oder in einem
+					anderen Format zu veröffentlichen, wenden Sie sich bitte direkt an den
+					jeweiligen Rechteinhaber/in (z.B. Autor/in, Verlag, Museum usw., der in der
+					Quellen- oder Attributionsangabe genannt wird). Das Deutsche Historische
+					Institut, Washington DC, kann keine Nachdruckgenehmigung erteilen, wenn das
+					Copyright bei anderen liegt. </p>
+				<p> Alle Einführungen, Quellenkommentare und redaktionellen Texte in GHDI wurden
+					ausdrücklich für das Projekt verfasst und stehen unter einer <ref
+						target="https://creativecommons.org/licenses/by-nc-nd/4.0/">internationalen
+						Creative Commons Attribution-NonCommercial-NoDerivatives 4.0-Lizenz (CC
+						BY-NC-ND 4.0)</ref>. Diese Lizenz erlaubt die Wiederveröffentlichung dieser
+					Texte (in unveränderter Form und mit korrekter Quellenangabe) für akademische
+					und/oder nicht-kommerzielle Zwecke. Vom DHI in Auftrag gegebene Übersetzungen
+					deutschsprachiger gemeinfreier Dokumente sind ebenfalls unter CC BY-NC-ND 4.0
+					lizenziert. Bitte verwenden Sie die empfohlene Zitierweise als Leitfaden bei der
+					Wiederveröffentlichung dieser Übersetzungen. </p>
 			</div>
 
 			<div n="2" id="contact">
 				<head>Kontakt</head>
-				<p>
-					Bei Fragen oder Anregungen zu  <hi rendition="#i">GHDI</hi> kontaktieren Sie uns bitte unter <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>.
-				</p>
+				<p> Bei Fragen oder Anregungen zu GHDI kontaktieren Sie uns bitte unter <ref
+						target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>. </p>
 			</div>
 
 			<div n="2" id="imprint">
 				<head>Impressum</head>
-				<p>
-					Deutsches Historisches Institut<lb />
-					1607 New Hampshire Ave NW<lb />
-					Washington, DC 20009-2562<lb />
-					USA.
-				</p>
-				<p>
-					Telefon: +1.202.387.3355<lb />
-					<ref target="mailto:info@ghi-dc.org">info@ghi-dc.org</ref><lb />
+				<p> Deutsches Historisches Institut<lb/>
+					 1607 New Hampshire Ave NW<lb/>
+					 Washington, DC 20009-2562<lb/>
+					 USA. </p>
+				<p> Telefon: +1.202.387.3355<lb/>
+					<ref target="mailto:info@ghi-dc.org">info@ghi-dc.org</ref><lb/>
 					<ref target="https://www.ghi-dc.org/">www.ghi-dc.org</ref>
 				</p>
 
-				<p>
-					Vertretungsberechtigte<lb />
-					Simone Lässig, Direktorin<lb />
-					Axel Jansen, Stellvertretender Direktor<lb />
-					Anne Kadolph, Verwaltungsleiterin
-				</p>
+				<p> Vertretungsberechtigte<lb/>
+					 Simone Lässig, Direktorin<lb/>
+					 Axel Jansen, Stellvertretender Direktor<lb/>
+					 Anne Kadolph, Verwaltungsleiterin </p>
 			</div>
 
 			<div n="2" id="data-protection">
 				<head>Datenschutz</head>
-				<p>
-					Dies ist ein Online-Dienst des Deutschen Historischen Instituts, Washington DC. Die allgemeine Datenschutzerklärung des DHI gilt für die Verarbeitung aller personenbezogenen Daten, die im Rahmen des Betriebs dieser Website anfallen.
-				</p>
+				<p> Dies ist ein Online-Dienst des Deutschen Historischen Instituts, Washington DC.
+					Die <ref target="https://www.ghi-dc.org/privacy-policy">Datenschutzerklärung des
+						DHI</ref> gilt für die Verarbeitung aller personenbezogenen Daten, die im
+					Rahmen des Betriebs dieser Website anfallen. </p>
 			</div>
 
 			<div n="2" id="liability">
 				<head>Haftungsausschluss für Links</head>
-				<p>
-					Unsere Website enthält Links zu externen Websites, auf die wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-				</p>
+				<p> Unsere Website enthält Links zu externen Websites, auf die wir keinen Einfluss
+					haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr
+					übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige
+					Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden
+					zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft.
+					Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine
+					permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete
+					Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
+					Rechtsverletzungen werden wir derartige Links umgehend entfernen. </p>
 			</div>
 		</body>
-    </text>
+	</text>
 </TEI>

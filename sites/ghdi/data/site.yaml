@@ -1,7 +1,10 @@
 about:
-    about: 'About the Project'
-    'about-editors': 'Editors'
-    'about-team': 'GHI Project Team'
-    'terms': 'Terms and Conditions'
+    about: About the Project
+    'about-editors': Editors
+    'about-team': GHI Project Team
+    'about-partners': Sponsors and Partners
+    'about-history': Project History
+    terms: Terms and Conditions
+    contact: Contact
 
 focus:

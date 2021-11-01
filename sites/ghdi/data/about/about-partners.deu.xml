@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Förderer und Partner</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
+                    <idno type="DTAID">ghdi:about</idno>
+                    <idno type="DTADirName">about</idno>
+                    <idno type="shelfmark">ghdi/900:about</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="deu">Deutsch</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p> GHDI ist eine Initiative des <ref target="https://www.ghi-dc.org/">Deutschen
+                    Historischen Instituts, Washington DC</ref>. Das Projekt wurde in Zusammenarbeit
+                mit den <ref target="https://www.ghi-dc.org/about-us/friends-of-the-ghi">Friends of
+                    the German Historical Institute</ref> und mit maßgeblicher Unterstützung einer
+                Reihe von Sponsoren und Partnern durchgeführt, denen wir unseren größten Dank
+                aussprechen. </p>
+
+            <p> Die technische Infrastruktur der überarbeiteten und erweiterten zweiten Auflage von
+                GHDI wurde durch eine großzügige dreijährige Förderung der <ref
+                    target="https://www.dfg.de/">Deutschen Forschungsgemeinschaft</ref> (DFG) im
+                Rahmen ihres Förderstrangs „Infrastruktur für elektronische Publikationen und
+                digitale Wissenschaftskommunikation“ im Bereich „Wissenschaftliche
+                Literaturversorgungs- und Informationssysteme (LIS)“ unterstützt. Die ebenfalls
+                maßgebliche Förderung durch die <ref target="https://www.zeit-stiftung.de/"
+                    >ZEIT-Stiftung Ebelin und Gerd Bucerius</ref> unterstützte das redaktionelle
+                Arbeitsprogramm der zweiten Auflage.</p>
+            <p> Die <ref
+                    target="https://maxkadefoundation.org/">Max Kade Foundation, New York</ref>,
+                unterstützte die erste Auflage des Projekts mit einer großzügigen mehrjährigen
+                Förderung, die die ersten Anfänge der Webseite ermöglichte. Auch die ZEIT-Stiftung
+                Ebelin und Gerd Bucerius war einer der Hauptsponsoren der ersten Auflage. </p>
+
+            <p> Darüber hinaus danken wir unserem langjährigen Partner, der <ref
+                    target="https://www.bpk-bildagentur.de/">bpk-bildagentur</ref>, für die
+                anhaltende kollegiale Zusammenarbeit. Unserem neueren Partner, dem <ref
+                    target="https://www.dhm.de/sammlung/bildarchiv/">Bildarchiv des Deutschen
+                    Historischen Museums Berlin</ref>, danken wir ebenfalls für die hervorragende
+                Zusammenarbeit bei der zweiten Ausgabe von GHDI. Schließlich danken wir unseren
+                Kolleginnen und Kollegen in der <ref
+                    target="https://www.maxweberstiftung.de/ueber-uns/organisation/geschaeftsstelle.html"
+                    >Geschäftsstelle der Max Weber Stiftung in Bonn</ref> für ihre wesentliche
+                Unterstützung während der gesamten Projektentwicklung. </p>
+        </body>
+    </text>
+</TEI>

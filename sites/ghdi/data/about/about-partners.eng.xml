@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Sponsors and Partners</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
+                    <idno type="DTAID">ghdi:about</idno>
+                    <idno type="DTADirName">about</idno>
+                    <idno type="shelfmark">ghdi/900:about</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <p> GHDI is an initiative of the <ref target="https://www.ghi-dc.org/">German Historical
+                    Institute, Washington DC</ref>. The project was undertaken in collaboration with
+                the <ref target="https://www.ghi-dc.org/about-us/friends-of-the-ghi">Friends of the
+                    German Historical Institute</ref>, and with significant support from a select
+                group of sponsors and partners to whom we express our sincere thanks. </p>
+
+            <p> The technical infrastructure of the revised and expanded second edition of <hi
+                    rendition="#i">German History in Documents and Images</hi> was supported by a
+                generous three-year grant from the <ref target="https://www.dfg.de/en/">Deutschen
+                    Forschungsgemeinschaft</ref> (DFG) through its “Infrastructure for Electronic
+                Publications and Digital Science Communication” program in the area of “Scientific
+                Library Services and Information Systems.” A similarly generous grant from the <ref
+                    target="https://www.zeit-stiftung.de/en/">ZEIT-Stiftung Ebelin und Gerd
+                    Bucerius</ref> supported the editorial work program of the second edition. </p>
+            
+            <p> The <ref target="https://maxkadefoundation.org/">Max Kade Foundation, New
+                York</ref>, supported the first edition of the project with a generous multi-year
+                grant that enabled the first beginnings of <hi rendition="#i">German History in
+                    Documents and Images</hi>. The ZEIT-Stiftung Ebelin und Gerd Bucerius was also a
+                key sponsor of the first edition. </p>
+
+            <p> Additionally, we would like to thank our longstanding partner, the <ref
+                    target="https://www.bpk-bildagentur.de/">bpk-bildagentur</ref>, for many years
+                of collegiality and cooperation. We are likewise grateful to our newer partner, the
+               <ref target="https://www.dhm.de/en/collections/picture-archive/"
+                   >Picture Archive of the Deutsches Historisches Museum</ref>, for the excellent
+                collaboration on the second edition of GHDI. Finally, for their essential support
+                throughout the whole of the project’s history, we thank our colleagues at the <ref
+                    target="https://www.maxweberstiftung.de/en/ueber-uns/organisation/geschaeftsstelle.html"
+                    >Central Office of the Max Weber Foundation </ref>. </p>
+        </body>
+    </text>
+</TEI>
