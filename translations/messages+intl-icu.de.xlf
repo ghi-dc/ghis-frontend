@@ -147,7 +147,15 @@
       </trans-unit>
       <trans-unit id="43vk4Rf" resname="error.404.description">
         <source>error.404.description</source>
-        <target>Diese Seite wurde nicht gefunden. Bitte prüfen Sie die Adresse oder gehen Sie &lt;a href="{url}">zurück zur Startseite&lt;/a>.</target>
+        <target><![CDATA[Diese Seite wurde nicht gefunden. Bitte prüfen Sie die Adresse oder gehen Sie <a href="{url}">zurück zur Startseite</a>.]]></target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Startseite</target>
+      </trans-unit>
+      <trans-unit id="vhdrABX" resname="Map">
+        <source>Map</source>
+        <target>Karte</target>
       </trans-unit>
     </body>
   </file>

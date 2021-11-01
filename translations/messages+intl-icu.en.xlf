@@ -131,7 +131,15 @@
       </trans-unit>
       <trans-unit id="43vk4Rf" resname="error.404.description">
         <source>error.404.description</source>
-        <target>The requested page couldn't be located. Checkout for any URL misspelling or &lt;a href="{url}">return to the homepage&lt;/a>.</target>
+        <target><![CDATA[The requested page couldn't be located. Checkout for any URL misspelling or <a href="{url}">return to the homepage</a>.]]></target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="vhdrABX" resname="Map">
+        <source>Map</source>
+        <target>Map</target>
       </trans-unit>
     </body>
   </file>

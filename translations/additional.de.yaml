@@ -1,7 +1,9 @@
-Source Type:  Quellenart
-image:        Bild
-document:     Dokument
-audio:        Audio
-video:        Video
-map:          Karte
-introduction: Einführung
+Source Type:    Quellenart
+image:          Bild
+document:       Dokument
+audio:          Audio
+video:          Video
+map:            Karte
+volume:         Band
+introduction:   Einführung
+document-collection: Kapitel
