@@ -77,9 +77,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 			<div n="2" id="contact">
 				<head>Contact</head>
-				<p> If you have questions or suggestions pertaining to <hi rendition="#i">GHDI</hi>,
-					please contact us at <ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>.
-				</p>
+				<p> If you have questions or suggestions pertaining to GHDI, please contact us at
+						<ref target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref>. </p>
 			</div>
 
 			<div n="2" id="imprint">

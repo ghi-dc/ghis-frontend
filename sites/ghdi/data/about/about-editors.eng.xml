@@ -40,105 +40,100 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 the first edition. We are grateful to all of our colleagues for generously
                 contributing their time and expertise to this collective effort. </p>
             <div n="2">
-                <head>Second Edition</head>
-                <p>
-                    1. From the Reformation to the Thirty Years’ War, 1500–1648<lb/>
+                <head>Second Edition (2021– )</head>
+                <p> 1. From the Reformation to the Thirty Years’ War, 1500–1648<lb/>
                     <ref target="https://uwaterloo.ca/history/people-profiles/greta-kroeker">Greta
-                        Kroeker</ref> (University of Waterloo)
-                </p>
-                <p>
-                    2. From Absolutism to Napoleon, 1648–1815<lb/>
+                        Kroeker</ref> (University of Waterloo) </p>
+                <p> 2. From Absolutism to Napoleon, 1648–1815<lb/>
                     <ref target="https://history.cofc.edu/about/faculty-and-staff/coy-jason.php"
                         >Jason Coy</ref> (College of Charleston)<lb/>
-                    <ref target="https://history.gsu.edu/profile/jared-poley/"
-                        >Jared Poley</ref> (Georgia State University)
-                </p>
-                <p>
-                    3. <ref target="../from-vormaerz-to-prussian-dominance-1815-1866">From Vormärz to Prussian Dominance, 1815–1866</ref><lb/>
-                    <ref target="http://history.emory.edu/home/people/faculty/vick-brian.html">Brian Vick</ref> (Emory University)
-                </p>
-                <p>
-                    4. Forging an Empire: Bismarckian Germany, 1866–1890<lb/>
-                    <ref target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack">James Retallack</ref> (University of Toronto)
-                </p>
-                <p>
-                    5. Wilhelmine Germany and the First World War, 1890–1918<lb/>
-                    <ref target="https://www.colorado.edu/history/david-ciarlo">David Ciarlo</ref> (University of Colorado at Boulder)
-                </p>
-                <p>
-                    6. Weimar Germany 1918/19–1933<lb/>
-                    <ref target="https://www.miamioh.edu/cas/academics/departments/history/about/faculty/jensen/index.html">Erik Jensen</ref> (Miami University of Ohio)
-                </p>
-                <p>
-                    7. Nazi Germany, 1933–1945<lb/>
-                    <ref target="https://www.uab.edu/cas/history/people/faculty/jonathan-wiesen">S. Jonathan Wiesen</ref>  (University of Alabama at Birmingham)<lb/>
-                    <ref target="https://experts.mcmaster.ca/display/swettp">Pamela Swett</ref> (McMaster University)
-                </p>
-                <p>
-                    8. Occupation and the Emergence of Two States, 1945–1961<lb/>
-                    <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker Berghahn</ref>  (Columbia University)<lb/>
-                    <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref> (Northeastern University)
-                </p>
-                <p>
-                    9. Two Germanies, 1961–1989<lb/>
-                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad Jarausch</ref>  (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
-                </p>
-                <p>
-                    10. One Germany in Europe, 1989–2018<lb/>
-                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad Jarausch</ref>  (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
-                </p>
+                    <ref target="https://history.gsu.edu/profile/jared-poley/">Jared Poley</ref>
+                    (Georgia State University) </p>
+                <p> 3. <ref target="../from-vormaerz-to-prussian-dominance-1815-1866">From Vormärz
+                        to Prussian Dominance, 1815–1866</ref><lb/>
+                    <ref target="http://history.emory.edu/home/people/faculty/vick-brian.html">Brian
+                        Vick</ref> (Emory University) </p>
+                <p> 4. Forging an Empire: Bismarckian Germany, 1866–1890<lb/>
+                    <ref
+                        target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack"
+                        >James Retallack</ref> (University of Toronto) </p>
+                <p> 5. Wilhelmine Germany and the First World War, 1890–1918<lb/>
+                    <ref target="https://www.colorado.edu/history/david-ciarlo">David Ciarlo</ref>
+                    (University of Colorado at Boulder) </p>
+                <p> 6. Weimar Germany 1918/19–1933<lb/>
+                    <ref
+                        target="https://www.miamioh.edu/cas/academics/departments/history/about/faculty/jensen/index.html"
+                        >Erik Jensen</ref> (Miami University of Ohio) </p>
+                <p> 7. Nazi Germany, 1933–1945<lb/>
+                    <ref target="https://www.uab.edu/cas/history/people/faculty/jonathan-wiesen">S.
+                        Jonathan Wiesen</ref> (University of Alabama at Birmingham)<lb/>
+                    <ref target="https://experts.mcmaster.ca/display/swettp">Pamela Swett</ref>
+                    (McMaster University) </p>
+                <p> 8. Occupation and the Emergence of Two States, 1945–1961<lb/>
+                    <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker
+                        Berghahn</ref> (Columbia University)<lb/>
+                    <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref>
+                    (Northeastern University) </p>
+                <p> 9. Two Germanies, 1961–1989<lb/>
+                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
+                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
+                        Welsh</ref> (Wake Forest University) </p>
+                <p> 10. One Germany in Europe, 1989–2018<lb/>
+                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
+                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
+                        Welsh</ref> (Wake Forest University) </p>
             </div>
             <div n="2" id="first-edition">
                 <head>First Edition (2004–2012)</head>
-                <p>At a time when the internet was still relatively young, the original GHDI editors took a chance on a new type of history project. We thank them for their excellent work, which built the foundation of today’s GHDI. <hi rendition="#i">The first edition has been preserved in its entirety and can be accessed <ref target="https://germanhistorydocs.ghi-dc.org/index.cfm?language=english">here</ref>.</hi></p>
-                <p>
-                    1. From the Reformation to the Thirty Years’ War, 1500–1648<lb/>
-                    <ref target="https://history.berkeley.edu/people/faculty/emeritus/thomas-brady">Thomas A. Brady, Jr.</ref> (University of California at Berkeley)<lb/>
-                    <ref target="https://writinghistory.de/">Ellen Yutzy Glebe</ref> (University of California at Berkeley)
-                </p>
-                <p>
-                    2. From Absolutism to Napoleon, 1648–1815<lb/>
-                    <ref target="https://history.ucdavis.edu/people/hagen"
-                        >William Hagen</ref> (University of California at Davis)
-                </p>
-                <p>
-                    3. From Vormärz to Prussian Dominance, 1815–1866<lb/>
-                    <ref target="https://history.missouri.edu/people/sperber">Jonathan Sperber</ref> (University of Missouri at Columbia)
-                </p>
-                <p>
-                    4. Forging an Empire: Bismarckian Germany, 1866–1890 <lb/>
-                    <ref target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack">James Retallack</ref> (University of Toronto)
-                </p>
-                <p>
-                    5. Wilhelmine Germany and the First World War, 1890–1918<lb/>
-                    <ref target="https://chickerr.facultysite.georgetown.edu/">Roger Chickering</ref> (Georgetown University)
-                </p>
-                <p>
-                    6. Weimar Germany, 1918/19–1933<lb/>
-                    Eric D. Weitz † (The City College of New York)<lb/>
-                    <ref target="https://www.unca.edu/person/eric-roubinek-ph-d/">Eric Roubinek</ref> (University of North Carolina at Asheville)
-                </p>
-                <p>
-                    7. Nazi Germany, 1933–1945<lb/>
-                    <ref target="https://www.american.edu/cas/faculty/rbreit.cfm">Richard Breitman</ref> (American University)
-                </p>
-                <p>
-                    8. Occupation and the Emergence of Two States, 1945–1961<lb/>
-                    <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker Berghahn</ref>  (Columbia University)<lb/>
-                    <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref> (Northeastern University)
-                </p>
-                <p>
-                    9. Two Germanies, 1961–1989<lb/>
-                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad Jarausch</ref>  (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
-                </p>
-                <p>
-                    10. One Germany in Europe, 1989–2009<lb/>
-                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad Jarausch</ref>  (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
-                </p>
+                <p>At a time when the internet was still relatively young, the original GHDI editors
+                    took a chance on a new type of history project. We thank them for their
+                    excellent work, which built the foundation of today’s GHDI. <hi rendition="#i"
+                        >The first edition has been preserved in its entirety and can be accessed
+                            <ref
+                            target="https://germanhistorydocs.ghi-dc.org/index.cfm?language=english"
+                            >here</ref>.</hi></p>
+                <p> 1. From the Reformation to the Thirty Years’ War, 1500–1648<lb/>
+                    <ref target="https://history.berkeley.edu/people/faculty/emeritus/thomas-brady"
+                        >Thomas A. Brady, Jr.</ref> (University of California at Berkeley)<lb/>
+                    <ref target="https://writinghistory.de/">Ellen Yutzy Glebe</ref> (University of
+                    California at Berkeley) </p>
+                <p> 2. From Absolutism to Napoleon, 1648–1815<lb/>
+                    <ref target="https://history.ucdavis.edu/people/hagen">William Hagen</ref>
+                    (University of California at Davis) </p>
+                <p> 3. From Vormärz to Prussian Dominance, 1815–1866<lb/>
+                    <ref target="https://history.missouri.edu/people/sperber">Jonathan Sperber</ref>
+                    (University of Missouri at Columbia) </p>
+                <p> 4. Forging an Empire: Bismarckian Germany, 1866–1890 <lb/>
+                    <ref
+                        target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack"
+                        >James Retallack</ref> (University of Toronto) </p>
+                <p> 5. Wilhelmine Germany and the First World War, 1890–1918<lb/>
+                    <ref target="https://chickerr.facultysite.georgetown.edu/">Roger
+                        Chickering</ref> (Georgetown University) </p>
+                <p> 6. Weimar Germany, 1918/19–1933<lb/>
+                     Eric D. Weitz † (The City College of New York)<lb/>
+                    <ref target="https://www.unca.edu/person/eric-roubinek-ph-d/">Eric
+                        Roubinek</ref> (University of North Carolina at Asheville) </p>
+                <p> 7. Nazi Germany, 1933–1945<lb/>
+                    <ref target="https://www.american.edu/cas/faculty/rbreit.cfm">Richard
+                        Breitman</ref> (American University) </p>
+                <p> 8. Occupation and the Emergence of Two States, 1945–1961<lb/>
+                    <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker
+                        Berghahn</ref> (Columbia University)<lb/>
+                    <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref>
+                    (Northeastern University) </p>
+                <p> 9. Two Germanies, 1961–1989<lb/>
+                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
+                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
+                        Welsh</ref> (Wake Forest University) </p>
+                <p> 10. One Germany in Europe, 1989–2009<lb/>
+                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
+                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
+                        Welsh</ref> (Wake Forest University) </p>
             </div>
         </body>
     </text>

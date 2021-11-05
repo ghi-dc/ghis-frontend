@@ -525,6 +525,10 @@ main.volume, main.section, main.introduction {
                 }
             }
         }
+
+        article .dta-list-item {
+            margin-bottom: 0; /* no extra spacing for list-items in about */
+        }
     }
 }
 

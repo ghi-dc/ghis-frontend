@@ -10,9 +10,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
                 </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
                     <idno type="DTAID">ghdi:about-editors</idno>
                     <idno type="DTADirName">herausgeber</idno>
                     <idno type="shelfmark">ghdi/901:about-editors</idno>
@@ -33,107 +35,106 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-            <p> Auf dieser Seite stellen wir die Herausgeberinnen und Herausgeber der Neuauflage von GHDI vor. Das Gremium setzt sich sowohl aus neu hinzugekommenen Herausgeber/innen als auch aus einigen der ursprünglichen Heraugeber/innen der ersten Auflage zusammen. Wir möchten all unseren Kollegen und Kolleginnen für ihre Zeit und Arbeit an diesem Gemeinschaftswerk herzlich danken. </p>
+            <p> Auf dieser Seite stellen wir die Herausgeberinnen und Herausgeber der Neuauflage von
+                GHDI vor. Das Gremium setzt sich sowohl aus neu hinzugekommenen Herausgeber/innen
+                als auch aus einigen der ursprünglichen Herausgeber/innen der ersten Auflage
+                zusammen. Wir möchten all unseren Kollegen und Kolleginnen für ihre Zeit und Arbeit
+                an diesem Gemeinschaftswerk herzlich danken. </p>
             <div n="2">
-                <head>Zweite Ausgabe</head>
-                <p>
-                    1. Von der Reformation bis zum Dreißigjährigen Krieg, 1500–1648<lb/>
+                <head>Zweite Ausgabe (2021– )</head>
+                <p> 1. Von der Reformation bis zum Dreißigjährigen Krieg, 1500–1648<lb/>
                     <ref target="https://uwaterloo.ca/history/people-profiles/greta-kroeker">Greta
-                        Kroeker</ref> (University of Waterloo)
-                </p>
-                <p>
-                    2. Vom Absolutismus bis zu Napoleon, 1648–1815<lb/>
+                        Kroeker</ref> (University of Waterloo) </p>
+                <p> 2. Vom Absolutismus bis zu Napoleon, 1648–1815<lb/>
                     <ref target="https://history.cofc.edu/about/faculty-and-staff/coy-jason.php"
                         >Jason Coy</ref> (College of Charleston)<lb/>
-                    <ref target="https://history.gsu.edu/profile/jared-poley/"
-                        >Jared Poley</ref> (Georgia State University)
-                </p>
-                <p>
-                    3. <ref target="../vom-vormaerz-bis-zur-preussischen-vorherrschaft-1815-1866">Vom Vormärz bis zur preußischen Vorherrschaft, 1815–1866 </ref><lb/>
-                    <ref target="http://history.emory.edu/home/people/faculty/vick-brian.html">Brian Vick</ref> (Emory University)
-                </p>
-                <p>
-                    4. Reichsgründung: Bismarcks Deutschland, 1866–1890<lb/>
-                    <ref target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack">James Retallack</ref> (University of Toronto)
-                </p>
-                <p>
-                    5. Das Wilhelminische Kaiserreich und der Erste Weltkrieg, 1890–1918<lb/>
-                    <ref target="https://www.colorado.edu/history/david-ciarlo">David Ciarlo</ref> (University of Colorado at Boulder)
-                </p>
-                <p>
-                    6. Die Weimarer Republik, 1918/19–1933<lb/>
-                    <ref target="https://www.miamioh.edu/cas/academics/departments/history/about/faculty/jensen/index.html">Erik Jensen</ref> (Miami University of Ohio)
-                </p>
-                <p>
-                    7. Deutschland unter der Herrschaft des Nationalsozialismus, 1933–1945<lb/>
-                    <ref target="https://www.uab.edu/cas/history/people/faculty/jonathan-wiesen">S. Jonathan Wiesen</ref>  (University of Alabama at Birmingham)<lb/>
-                    <ref target="https://experts.mcmaster.ca/display/swettp">Pamela Swett</ref> (McMaster University)
-                </p>
-                <p>
-                    8. Die Besatzungszeit und die Entstehung zweier Staaten, 1945–1961<lb/>
-                    <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker Berghahn</ref>  (Columbia University)<lb/>
-                    <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref> (Northeastern University)
-                </p>
-                <p>
-                    9. Zwei deutsche Staaten, 1961–1989<lb/>
-                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad Jarausch</ref>  (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
-                </p>
-                <p>
-                    10. Ein Deutschland in Europa, 1989–2018<lb/>
-                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad Jarausch</ref>  (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
-                </p>
+                    <ref target="https://history.gsu.edu/profile/jared-poley/">Jared Poley</ref>
+                    (Georgia State University) </p>
+                <p> 3. <ref target="../vom-vormaerz-bis-zur-preussischen-vorherrschaft-1815-1866"
+                        >Vom Vormärz bis zur preußischen Vorherrschaft, 1815–1866 </ref><lb/>
+                    <ref target="http://history.emory.edu/home/people/faculty/vick-brian.html">Brian
+                        Vick</ref> (Emory University) </p>
+                <p> 4. Reichsgründung: Bismarcks Deutschland, 1866–1890<lb/>
+                    <ref
+                        target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack"
+                        >James Retallack</ref> (University of Toronto) </p>
+                <p> 5. Das Wilhelminische Kaiserreich und der Erste Weltkrieg, 1890–1918<lb/>
+                    <ref target="https://www.colorado.edu/history/david-ciarlo">David Ciarlo</ref>
+                    (University of Colorado at Boulder) </p>
+                <p> 6. Die Weimarer Republik, 1918/19–1933<lb/>
+                    <ref
+                        target="https://www.miamioh.edu/cas/academics/departments/history/about/faculty/jensen/index.html"
+                        >Erik Jensen</ref> (Miami University of Ohio) </p>
+                <p> 7. Deutschland unter der Herrschaft des Nationalsozialismus, 1933–1945<lb/>
+                    <ref target="https://www.uab.edu/cas/history/people/faculty/jonathan-wiesen">S.
+                        Jonathan Wiesen</ref> (University of Alabama at Birmingham)<lb/>
+                    <ref target="https://experts.mcmaster.ca/display/swettp">Pamela Swett</ref>
+                    (McMaster University) </p>
+                <p> 8. Die Besatzungszeit und die Entstehung zweier Staaten, 1945–1961<lb/>
+                    <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker
+                        Berghahn</ref> (Columbia University)<lb/>
+                    <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref>
+                    (Northeastern University) </p>
+                <p> 9. Zwei deutsche Staaten, 1961–1989<lb/>
+                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
+                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
+                        Welsh</ref> (Wake Forest University) </p>
+                <p> 10. Ein Deutschland in Europa, 1989–2018<lb/>
+                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
+                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
+                        Welsh</ref> (Wake Forest University) </p>
             </div>
             <div n="2" id="first-edition">
                 <head>Erste Ausgabe (2004–2012)</head>
-                <p>Zu einer Zeit, als das Internet noch relativ jung war, wagten sich die ursprünglichen GHDI-Herausgeber/innen an eine neue Art von Geschichtsprojekt. Wir danken ihnen für ihre hervorragende Arbeit, welche die Grundlage für die heute existierende Webseite bildete. <hi rendition="#i">Die erste Auflage ist vollständig erhalten worden und kann <ref target="https://germanhistorydocs.ghi-dc.org/index.cfm?language=german">hier</ref>  abgerufen werden.</hi></p>
-                <p>
-                    1. Von der Reformation bis zum Dreißigjährigen Krieg, 1500–1648<lb/>
-                    <ref target="https://history.berkeley.edu/people/faculty/emeritus/thomas-brady">Thomas A. Brady, Jr.</ref> (University of California at Berkeley)<lb/>
-                    <ref target="https://writinghistory.de/">Ellen Yutzy Glebe</ref> (University of California at Berkeley)
-                </p>
-                <p>
-                    2. Vom Absolutismus bis zu Napoleon, 1648–1815<lb/>
-                    <ref target="https://history.ucdavis.edu/people/hagen"
-                        >William Hagen</ref> (University of California at Davis)
-                </p>
-                <p>
-                    3. Vom Vormärz bis zur preußischen Vorherrschaft, 1815–1866<lb/>
-                    <ref target="https://history.missouri.edu/people/sperber">Jonathan Sperber</ref> (University of Missouri at Columbia)
-                </p>
-                <p>
-                    4. Reichsgründung: Bismarcks Deutschland, 1866–1890<lb/>
-                    <ref target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack">James Retallack</ref> (University of Toronto)
-                </p>
-                <p>
-                    5. Das Wilhelminische Kaiserreich und der Erste Weltkrieg, 1890–1918 <lb/>
-                    <ref target="https://chickerr.facultysite.georgetown.edu/">Roger Chickering</ref> (Georgetown University)
-                </p>
-                <p>
-                    6. Die Weimarer Republik, 1918/19–1933<lb/>
-                    Eric D. Weitz † (The City College of New York)<lb/>
-                    <ref target="https://www.unca.edu/person/eric-roubinek-ph-d/">Eric Roubinek</ref> (University of North Carolina at Asheville)
-                </p>
-                <p>
-                    7. Deutschland unter der Herrschaft des Nationalsozialismus, 1933–1945<lb/>
-                    <ref target="https://www.american.edu/cas/faculty/rbreit.cfm">Richard Breitman</ref> (American University)
-                </p>
-                <p>
-                    8. Die Besatzungszeit und die Entstehung zweier Staaten, 1945–1961<lb/>
-                    <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker Berghahn</ref>  (Columbia University)<lb/>
-                    <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref> (Northeastern University)
-                </p>
-                <p>
-                    9. Zwei deutsche Staaten, 1961–1989<lb/>
-                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad Jarausch</ref>  (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
-                </p>
-                <p>
-                    10. Ein Deutschland in Europa, 1989–2018<lb/>
-                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad Jarausch</ref>  (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga Welsh</ref> (Wake Forest University)
-                </p>
+                <p>Zu einer Zeit, als das Internet noch relativ jung war, wagten sich die
+                    ursprünglichen GHDI-Herausgeber/innen an eine neue Art von Geschichtsprojekt.
+                    Wir danken ihnen für ihre hervorragende Arbeit, welche die Grundlage für die
+                    heute existierende Webseite bildete. <hi rendition="#i">Die erste Auflage ist
+                        vollständig erhalten worden und kann <ref
+                            target="https://germanhistorydocs.ghi-dc.org/index.cfm?language=german"
+                            >hier</ref> abgerufen werden.</hi></p>
+                <p> 1. Von der Reformation bis zum Dreißigjährigen Krieg, 1500–1648<lb/>
+                    <ref target="https://history.berkeley.edu/people/faculty/emeritus/thomas-brady"
+                        >Thomas A. Brady, Jr.</ref> (University of California at Berkeley)<lb/>
+                    <ref target="https://writinghistory.de/">Ellen Yutzy Glebe</ref> (University of
+                    California at Berkeley) </p>
+                <p> 2. Vom Absolutismus bis zu Napoleon, 1648–1815<lb/>
+                    <ref target="https://history.ucdavis.edu/people/hagen">William Hagen</ref>
+                    (University of California at Davis) </p>
+                <p> 3. Vom Vormärz bis zur preußischen Vorherrschaft, 1815–1866<lb/>
+                    <ref target="https://history.missouri.edu/people/sperber">Jonathan Sperber</ref>
+                    (University of Missouri at Columbia) </p>
+                <p> 4. Reichsgründung: Bismarcks Deutschland, 1866–1890<lb/>
+                    <ref
+                        target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack"
+                        >James Retallack</ref> (University of Toronto) </p>
+                <p> 5. Das Wilhelminische Kaiserreich und der Erste Weltkrieg, 1890–1918 <lb/>
+                    <ref target="https://chickerr.facultysite.georgetown.edu/">Roger
+                        Chickering</ref> (Georgetown University) </p>
+                <p> 6. Die Weimarer Republik, 1918/19–1933<lb/>
+                     Eric D. Weitz † (The City College of New York)<lb/>
+                    <ref target="https://www.unca.edu/person/eric-roubinek-ph-d/">Eric
+                        Roubinek</ref> (University of North Carolina at Asheville) </p>
+                <p> 7. Deutschland unter der Herrschaft des Nationalsozialismus, 1933–1945<lb/>
+                    <ref target="https://www.american.edu/cas/faculty/rbreit.cfm">Richard
+                        Breitman</ref> (American University) </p>
+                <p> 8. Die Besatzungszeit und die Entstehung zweier Staaten, 1945–1961<lb/>
+                    <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker
+                        Berghahn</ref> (Columbia University)<lb/>
+                    <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref>
+                    (Northeastern University) </p>
+                <p> 9. Zwei deutsche Staaten, 1961–1989<lb/>
+                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
+                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
+                        Welsh</ref> (Wake Forest University) </p>
+                <p> 10. Ein Deutschland in Europa, 1989–2018<lb/>
+                    <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
+                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
+                        Welsh</ref> (Wake Forest University) </p>
             </div>
         </body>
     </text>
