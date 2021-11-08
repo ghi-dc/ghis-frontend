@@ -17,18 +17,17 @@ use App\Service\Xsl\XsltProcessor;
 class ResourceController extends BaseController
 {
     protected $xsltProcessor;
-    protected $themeContext;
 
     public function __construct(ContentService $contentService,
                                 KernelInterface $kernel,
-                                XsltProcessor $xsltProcessor,
                                 SettableThemeContext $themeContext,
-                                $dataDir, $siteKey)
+                                XsltProcessor $xsltProcessor,
+                                $dataDir,
+                                $siteKey)
     {
-        parent::__construct($contentService, $kernel, $dataDir, $siteKey);
+        parent::__construct($contentService, $kernel, $themeContext, $dataDir, $siteKey);
 
         $this->xsltProcessor = $xsltProcessor;
-        $this->themeContext = $themeContext;
     }
 
     /**

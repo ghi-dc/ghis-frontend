@@ -18,7 +18,7 @@ class DefaultController extends BaseController
         $volumes = $this->contentService->getVolumes();
 
         // load the focus
-        $info = Yaml::parseFile($this->dataDir . '/site.yaml');
+        $info = Yaml::parseFile($this->getDataDir() . '/site.yaml');
         $focus = [];
         if (is_array($info) && array_key_exists('focus', $info)) {
             if (is_array($info['focus']) && count($info['focus']) > 0) {

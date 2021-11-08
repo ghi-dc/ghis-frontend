@@ -8,6 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+use Knp\Component\Pager\PaginatorInterface;
+
+use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
+
 use App\Service\ContentService;
 
 class SearchController extends BaseController
@@ -29,10 +33,11 @@ class SearchController extends BaseController
 
     public function __construct(ContentService $contentService,
                                 KernelInterface $kernel,
-                                \Knp\Component\Pager\PaginatorInterface $paginator,
+                                SettableThemeContext $themeContext,
+                                PaginatorInterface $paginator,
                                 $dataDir, $siteKey)
     {
-        parent::__construct($contentService, $kernel, $dataDir, $siteKey);
+        parent::__construct($contentService, $kernel, $themeContext, $dataDir, $siteKey);
 
         $this->paginator = $paginator;
     }

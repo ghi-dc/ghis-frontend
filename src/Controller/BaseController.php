@@ -8,24 +8,41 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\String\ByteString;
 
+use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
+
 use App\Service\ContentService;
 
 class BaseController extends AbstractController
 {
     protected $contentService;
     protected $projectDir;
+    protected $themeContext;
     protected $dataDir;
     protected $siteKey;
 
     public function __construct(ContentService $contentService,
                                 KernelInterface $kernel,
+                                SettableThemeContext $themeContext,
                                 $dataDir,
                                 $siteKey)
     {
         $this->contentService = $contentService;
+        $this->themeContext = $themeContext;
         $this->projectDir = $kernel->getProjectDir();
         $this->dataDir = realpath($dataDir);
         $this->siteKey = $siteKey;
+    }
+
+    protected function getDataDir()
+    {
+        // look for site-specific override
+        $dataDir = $this->dataDir;
+        $theme = $this->themeContext->getTheme();
+        if (!is_null($theme)) {
+           $dataDir = join(DIRECTORY_SEPARATOR, [ $theme->getPath(), 'data' ]);
+        }
+
+        return $dataDir;
     }
 
     /**
