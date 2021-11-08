@@ -61,7 +61,7 @@ Translate templates
 
     ./bin/console translation:update --force de
 
-Site-specific translations (TODO: add --intl-icu as soon as https://github.com/schmittjoh/JMSTranslationBundle/pull/551 is merged)
+Site-specific translations
 
     ./bin/console translation:extract de --dir=./sites/ghdi/templates --output-dir=./sites/ghdi/translations
 
