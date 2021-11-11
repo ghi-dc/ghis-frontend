@@ -69,7 +69,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             <div n="2" xml:id="platform">
                 <head>Digital Platform and Design</head>
                 <p>
-                    <hi rendition="#i">GHDI</hi> features a responsive, user-friendly interface
+                    GHDI features a responsive, user-friendly interface
                     designed by <ref target="https://www.buero-edelweiss.de/">edelweiss* büro für
                         grafik und design</ref> (Hamburg). The backend is based on the integration
                     of <ref target="exist-db.org/">eXist-db</ref>, an open-source XML-database, with

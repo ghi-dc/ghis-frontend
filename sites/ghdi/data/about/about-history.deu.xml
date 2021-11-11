@@ -37,17 +37,15 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         <body>
             <p>
                 <hi rendition="#i">German History in Documents and Images</hi> (GHDI) wurde 2002 von
-                einer kleinen Gruppe <ref
-                    target="https://germanhistorydocs.ghi-dc.org/steering.cfm?language=german"
-                    >deutsch- und amerikanischstämmiger Historikern</ref> ins Leben gerufen, um eine
-                große Sammlung deutscher historischer Dokumente in deutscher und englischer
-                Übersetzung online verfügbar zu machen. Nach dem Vorbild anderer früherer Webseiten
-                wie den „Internet History Sourcebooks“ wollten die Initiatoren freien und einfachen
-                Zugang zu einer breiten Palette von Quellen bieten, die für die historische
-                Forschung und die akademische Lehre grundlegend sind. Während sich andere Webseiten
-                dieser Generation auf die Digitalisierung bestehender Sammlungen konzentrierten, war
-                es von Anfang an das Ziel von GHDI, einen neuen Korpus von Primärquellen zu
-                schaffen, der von kritischen Kommentaren begleitet wird. </p>
+                einer kleinen Gruppe deutsch- und amerikanischstämmiger Historiker ins Leben
+                gerufen, um eine große Sammlung deutscher historischer Dokumente in deutscher und
+                englischer Übersetzung online verfügbar zu machen. Nach dem Vorbild anderer früherer
+                Webseiten wie den „Internet History Sourcebooks“ wollten die Initiatoren freien und
+                einfachen Zugang zu einer breiten Palette von Quellen bieten, die für die
+                historische Forschung und die akademische Lehre grundlegend sind. Während sich
+                andere Webseiten dieser Generation auf die Digitalisierung bestehender Sammlungen
+                konzentrierten, war es von Anfang an das Ziel von GHDI, einen neuen Korpus von
+                Primärquellen zu schaffen, der von kritischen Kommentaren begleitet wird. </p>
 
             <p> Im Jahr 2003 erhielten die Organisatoren des Projekts ein mehrjähriges
                 Gründungsstipendium von der <ref target="https://maxkadefoundation.org/">Max Kade

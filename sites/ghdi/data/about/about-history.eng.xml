@@ -37,11 +37,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         <body>
             <p>
                 <hi rendition="#i">German History in Documents and Images</hi> (GHDI) was conceived
-                in 2002 by a small group of <ref
-                    target="https://germanhistorydocs.ghi-dc.org/steering.cfm?language=english"
-                    >German- and American-born historians</ref> who sought to make a large
-                collection of German historical documents available online in German and English
-                translation. Modeled on other early websites such as the “Internet History
+                in 2002 by a small group of German- and American-born historians who sought to make
+                a large collection of German historical documents available online in German and
+                English translation. Modeled on other early websites such as the “Internet History
                 Sourcebooks,” GHDI aimed to provide free and easy access to a broad range of sources
                 needed for historical research and academic teaching. Whereas other sites of its
                 generation focused on digitizing existing collections, GHDI aimed from the start to
