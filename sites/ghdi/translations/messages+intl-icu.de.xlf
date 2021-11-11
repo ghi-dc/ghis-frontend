@@ -186,11 +186,6 @@
         <target>Bände</target>
         <jms:reference-file line="50">\..\..\..\..\..\./sites/ghdi/templates\Default\home.html.twig\</jms:reference-file>
       </trans-unit>
-      <trans-unit id="5a4ba07755394871f0060de54bb4e9a3e94f4235" resname="additional.number_of_children">
-        <source>additional.number_of_children</source>
-        <target>{count, plural,one {Weitere Quelle} other {Weitere Quellen}}</target>
-        <jms:reference-file line="82">\..\..\..\..\..\./sites/ghdi/templates\Resource\resource.html.twig\</jms:reference-file>
-      </trans-unit>
     </body>
   </file>
 </xliff>
