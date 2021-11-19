@@ -19,6 +19,9 @@ class AppExtension extends AbstractExtension
     private $publicDir;
     private $volumeById = [];
 
+    /**
+     * ingest services and path to web-root
+     */
     public function __construct(ContentService $contentService,
                                 UrlGeneratorInterface $urlGenerator,
                                 $publicDir)
@@ -33,6 +36,9 @@ class AppExtension extends AbstractExtension
         }
     }
 
+    /**
+     * setup twig filters
+     */
     public function getFilters()
     {
         return [
@@ -44,22 +50,31 @@ class AppExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * setup twig functions
+     */
     public function getFunctions()
     {
         return [
             // site specific
             new TwigFunction('resource_path', [ $this, 'buildResourcePath' ]),
             new TwigFunction('resource_breadcrumb', [ $this, 'buildResourceBreadcrumb'], [ 'is_safe' => [ 'html' ] ]),
-            new TwigFunction('section_thumbnail', [ $this, 'buildSectionThumbnail' ]),
+            new TwigFunction('resource_thumbnail', [ $this, 'buildResourceThumbnail' ]),
             new TwigFunction('get_volumes', [ $this, 'getVolumes' ]),
         ];
     }
 
+    /**
+     * Generate the  name of a $locale in $locale
+     */
     public function getLocaleNameNative($locale)
     {
         return Locales::getName($locale, $locale);
     }
 
+    /**
+     * return $array with $key removed
+     */
     public function removeElementByKey($array, $key)
     {
         if (is_array($array) && array_key_exists($key, $array)) {
@@ -69,6 +84,10 @@ class AppExtension extends AbstractExtension
         return $array;
     }
 
+    /**
+     * build the path in the format
+     *  volume/resource
+     */
     public function buildResourcePath($resource)
     {
         $path = [];
@@ -84,6 +103,10 @@ class AppExtension extends AbstractExtension
         return join('/', $path);
     }
 
+    /**
+     * build the breadcrumb in the format
+     *     Volume-Title
+     */
     public function buildResourceBreadcrumb($resource)
     {
         $parts = [];
@@ -102,7 +125,12 @@ class AppExtension extends AbstractExtension
         return join('/', $parts);
     }
 
-    public function buildSectionThumbnail($resource)
+    /**
+     * build the file system path to
+     *  media/volume-x/resource-y.jpg
+     * below the web-root
+     */
+    public function buildResourceThumbnail($resource)
     {
         $volumeId = $resource->getVolumeIdFromShelfmark();
 
@@ -110,8 +138,9 @@ class AppExtension extends AbstractExtension
             return;
         }
 
-        $path[] = 'volumes'; // maybe switch to img
+        $path[] = 'media';
         $path[] = $this->volumeById[$volumeId]->getId(true);
+        $path[] = 'thumb';
         $path[] = join('.', [ $resource->getId(true), $resource->getLanguage() , 'jpg' ]);
 
         $relPath = join('/', $path);
@@ -135,6 +164,9 @@ class AppExtension extends AbstractExtension
         return null;
     }
 
+    /**
+     * Lookup all volumes in $locale
+     */
     public function getVolumes($locale)
     {
         $this->contentService->setLocale($locale);

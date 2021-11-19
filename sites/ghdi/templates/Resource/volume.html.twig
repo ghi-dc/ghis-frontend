@@ -65,9 +65,9 @@
             <div class="tab-pane fade show container-fluid p-0 active" id="contents" role="tabpanel" aria-labelledby="contents-tab">
                 <div class="row">
                 {% for section in sections %}
-                    {% set section_thumbnail = section_thumbnail(section) %}
-                    <div class="col-12 col-md-6 section d-flex flex-row">
-                        <div class="square"{% if section_thumbnail is not empty %} style="background-image: url('{{ app.request.basepath }}/{{ section_thumbnail }}');"{% endif %}></div>
+                    {% set section_thumbnail = resource_thumbnail(section) %}
+                    <div class="col-12 col-md-6 section">
+                        <div class="thumb"{% if section_thumbnail is not empty %} style="background-image: url('{{ app.request.basepath }}/{{ section_thumbnail }}');"{% endif %}></div>
                         <div class="label">
                             <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ section.dtaDirname }) }}">{{ section.title }}</a></h4>
                         </div>
@@ -80,9 +80,9 @@
             <div class="tab-pane fade show container-fluid p-0" id="maps" role="tabpanel" aria-labelledby="maps-tab">
                 <div class="row">
                 {% for map in maps %}
-                    {% set section_thumbnail = '' %}
-                    <div class="col-12 col-md-6 section d-flex flex-row">
-                        <div class="square"{% if section_thumbnail is not empty %} style="background-image: url('{{ app.request.basepath }}/{{ section_thumbnail }}');"{% endif %}></div>
+                    {% set resource_thumbnail = resource_thumbnail(map) %}
+                    <div class="col-12 col-md-6 col-lg-4 section">
+                        <div class="thumb"{% if resource_thumbnail is not empty %} style="background-image: url('{{ app.request.basepath }}/{{ resource_thumbnail }}');"{% endif %}></div>
                         <div class="label">
                             <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ map.dtaDirname }) }}">{{ map.title }}</a></h4>
                         </div>

@@ -36,7 +36,7 @@
         </div><!-- .row -->
         <div class="row margin-top">
             {% for section in sections %}
-                {% set section_thumbnail = section_thumbnail(section) %}
+                {% set section_thumbnail = resource_thumbnail(section) %}
                 <div class="col-6 section d-flex flex-row">
                     <div class="square"{% if section_thumbnail is not empty %} style="background-image: url('{{ app.request.basepath }}/{{ section_thumbnail }}');"{% endif %}></div>
                     <div class="label">
