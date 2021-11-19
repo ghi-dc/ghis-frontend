@@ -411,23 +411,26 @@ main.volume, main.section, main.introduction {
 
     .section, .resource {
         margin-bottom: 2rem;
-        .square {
-            width: 8rem;
-            min-height: 8rem;
+        .thumb {
+            width: 100%;
+            min-height: 10rem;
             background-color: gray;
-            flex-shrink: 0;
         }
         .label {
-            min-height: 8rem;
+            width: 100%;
+            min-height: 6rem;
+            h4 {
+                font-size: 18px;
+                font-weight: bold;
+            }
             background-color: $color-gray-light;
-            flex-grow: 1;
-            padding: 2rem;
+            padding: 0.5rem;
         }
     }
 
-    .section > .square {
+    .section > .thumb {
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center center;
         background-size: cover;
     }
 

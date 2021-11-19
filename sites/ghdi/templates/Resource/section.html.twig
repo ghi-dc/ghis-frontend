@@ -54,7 +54,9 @@
         {% endif %}
         {% if resources is not empty %}
         <div class="row">
-            <div class="col"><h2 style="padding-bottom: 2rem">{{ 'Contents'|trans }}</h2></div>
+            <div class="col">
+                <h2 style="padding-bottom: 2rem">{{ 'Contents'|trans }}</h2>
+            </div>
         </div><!-- .row -->
         <ol class="row list-unstyled">
             {% for resource in resources %}
