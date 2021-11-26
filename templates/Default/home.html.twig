@@ -20,24 +20,6 @@
         </div><!-- .row -->
     </div>
 </div>
-{#
-<div class="row section" style="padding-bottom: 0">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3"><h3>{{ 'Welcome'|trans }}</h3></div>
-            <div class="col-sm-9">
-                <p>
-                    {% if 'de' == app.request.locale %}
-                    Das DHI Washington freut sich, Ihnen diese Vorabversion unseres neuesten digitalen Projekts, <i>German History Intersections</i>, präsentieren zu können. Nach Fertigstellung wird die Website mehr als 600 Quellen enthalten, die zu gleichen Teilen auf die drei Themenmodule verteilt sind. Schauen Sie bitte im Laufe des Herbsts erneut vorbei, um zu sehen, wie sich das Angebot weiterentwickelt.
-                    {% else %}
-                    The GHI Washington is pleased to offer this limited preview of our newest digital project, <i>German History Intersections</i>. When complete, the site will include more than 600 sources, equally divided between the three modules. To see how our work develops, please check in over the course of the fall.
-                    {% endif %}
-                </p>
-            </div>
-        </div><!-- .row -->
-    </div>
-</div>
-#}
 {% if volumes|length > 0 %}
 <div class="row section">
     <div class="container">
@@ -49,7 +31,7 @@
     <div class="container-fluid">
         <div class="row">
         {% for volume in volumes %}
-            <div class="flex-grow-1 volume-teaser" style="background-image: url({{ app.request.basepath }}/volumes/{{ volume.getId(true) }}.jpg)">
+            <div class="flex-grow-1 volume-teaser" style="background-image: url({{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg)">
                 <div class="overlay">
                     <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }} {{ octicon("chevron-right", '', 2) }}</a></h4>
                 </div>
