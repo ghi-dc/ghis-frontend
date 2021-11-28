@@ -364,23 +364,6 @@ main.section {
 
 }
 
-.volume-1 .label:before {
-    color: $color-volume-1;
-}
-
-.volume-2 .label:before {
-    color: $color-volume-2;
-}
-
-.volume-2 .card-header h2:hover {
-    color: $color-volume-2 !important;
-}
-
-
-.volume-3 .label:before {
-    color: $color-volume-3;
-}
-
 article, div.content, section.banner {
     @include dta-styles();
 
