@@ -425,6 +425,16 @@ main.volume, main.section, main.introduction {
             }
             background-color: $color-gray-light;
             padding: 0.5rem;
+
+            .icn {
+                background-color: $color-color-link;
+                padding-left: 4px;
+                padding-right: 4px;
+
+                &::after {
+                    color: white;
+                }
+            }
         }
     }
 
