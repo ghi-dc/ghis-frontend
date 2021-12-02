@@ -98,7 +98,7 @@ ul#menu-volumes li {
         color: $color-gray-dark;
         font-size: 1rem;
 
-        &:not(:last-child):after {
+        &:not(:first-child):before {
             margin-left: 0.3rem;
             content: '/';
             margin-right: 0.3rem;
