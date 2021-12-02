@@ -506,29 +506,6 @@ article {
                 font-size: 1.125rem;
                 font-weight: bold;
                 line-height: 1.2;
-                &::before {
-                    content: '';
-                    font-size: 16px;
-                    font-family: 'ghi_icons_16';
-                    font-size: 16px;
-                    font-weight: normal;
-                    color: #b6b6b6;
-                    display: block;
-                    float: left;
-                    margin-left: -30px;
-                }
-                &.document::before {
-                    content: '\e901';
-                }
-                &.image::before {
-                    content: '\e902';
-                }
-                &.audio::before {
-                    content: '\e903';
-                }
-                &.video::before {
-                    content: '\e904';
-                }
             }
         }
     }
