@@ -8,3 +8,12 @@ about:
     contact: Contact
 
 focus:
+
+teaching:
+    -
+        title:
+            de: Lebensstationen. The Lifecycle of a Woman in Early Modern Germany (in English)
+            en: Lebensstationen. The Lifecycle of a Woman in Early Modern Germany
+        slug:
+            de: lebensstationen
+            en: lebensstationen

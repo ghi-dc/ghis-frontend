@@ -493,12 +493,9 @@ main.volume, main.section, main.introduction {
     }
 }
 
-.route-about,
-.route-about-editors,
-.route-about-team,
-.route-about-partners,
-.route-about-history,
+body[class*=" route-about"],
 .route-terms,
+body[class*=" route-teaching"],
 .error
 {
     main {
@@ -523,7 +520,6 @@ main.volume, main.section, main.introduction {
             &.source-head {
                 display: none;
             }
-
 
             position: relative;
             margin-top: 2rem;

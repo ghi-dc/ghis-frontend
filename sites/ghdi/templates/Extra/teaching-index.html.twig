@@ -1,0 +1,52 @@
+{% extends 'Base/base.html.twig' %}
+
+{% import 'Shared/extra.html.twig' as extra %}
+
+{% block maincontainer %}
+<main role="main" class="teaching">
+{% block body %}
+<section class="top banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ 'Teaching'|trans }}</h1>
+            </div>
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section><!-- .section -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ extra.breadcrumb('Teaching', null, true) }}
+            </div>
+        </div>
+        <div class="row">
+            <aside class="col-md-3 col-lg-2 offset-lg-1 order-md-last">
+                <ul class="sub-nav list-unstyled">
+                {% for entry in entries %}
+                <li><a href="#module-{{ loop.index }}">{{ 'Module'|trans }} {{ loop.index }}: {{ entry.title[app.request.locale] }}</a></li>
+                {% endfor %}
+                </ul>
+            </aside>
+            <article class="content introduction col-md-9 col-lg-8">
+{% if 'en' == app.request.locale %}
+                <h2>Introduction</h2>
+                <p>In this section, you can find teaching resources covering a wide range of thematic aspects developed by partners who successfully integrated GHDI into the class room.</p>
+                <p style="margin-bottom: 2em">We welcome <a href="{{ path('contact') }}">Feedback and Questions</a>.</p>
+{% else %}
+                <p>In diesem Abschnitt finden Sie Unterrichtsmaterialien, die ein breites Spektrum an thematischen Aspekten abdecken und von Partnern entwickelt wurden, die GHDI erfolgreich in den Unterricht integriert haben.</p>
+                <p style="margin-bottom: 2em">Wir freuen uns über <a href="{{ path('contact') }}">Feedback und Fragen</a>.</p>
+{% endif %}
+                {% for entry in entries %}
+                <h2 id="module-{{ loop.index }}">{{ 'Module'|trans }} {{ loop.index }}</h2>
+                <h4>{{ entry.title[app.request.locale] }}</h4>
+                <p><a href="{{ path('teaching', { 'slug': entry.slug[app.request.locale] }) }}">{{ 'Show module'|trans }} &gt;</a></p>
+                {% endfor %}
+            </article>
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section><!-- .section -->
+{% endblock %}
+</main>
+{% endblock %}
