@@ -461,6 +461,15 @@ main.volume, main.section, main.introduction {
 }
 
 .route-search {
+    main {
+        .banner {
+            padding-top: 7rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            background-color: $color-gray-light;
+        }
+    }
+
     .search-entry {
         a {
             h3 {
