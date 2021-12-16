@@ -42,7 +42,8 @@ class SearchController extends BaseController
         $this->paginator = $paginator;
     }
 
-    static function removeAccents($string) {
+    static function removeAccents($string)
+    {
         if (!preg_match('/[\x80-\xff]/', $string)) {
             return $string;
         }
@@ -402,7 +403,8 @@ class SearchController extends BaseController
             'pageMeta' => [ 'title' => $translator->trans('Search') ],
             'meta' => $meta,
             'facets' => $this->facets,
-            'highlighting' => isset($resultset) ? $resultset->getHighlighting() : null,
+            'highlighting' => isset($resultset)
+                ? $resultset->getHighlighting() : null,
             'pagination' => $pagination,
             'results' => $results,
         ]);

@@ -588,6 +588,7 @@ aside {
                     float: left;
                     margin-left: -30px;
                 }
+
                 &.document::before {
                     content: '\e901';
                 }
@@ -600,6 +601,16 @@ aside {
                 &.video::before {
                     content: '\e904';
                 }
+            }
+        }
+
+        blockquote {
+            padding-top: 0.4rem;
+            margin-bottom: 0;
+            font-style: italic;
+            color: $color-gray-dark;
+            .highlight {
+                font-weight: bold;
             }
         }
     }

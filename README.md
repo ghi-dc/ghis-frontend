@@ -1,5 +1,5 @@
-Front-end for GHIS
-==================
+Front-end for GHIS/GHDI
+=======================
 
 Installation
 ------------
@@ -20,7 +20,7 @@ Development Notes
 -----------------
 Project Setup
 
-- composer create-project symfony/website-skeleton:^5.2 ghis-frontend
+- composer create-project symfony/website-skeleton:^5.4 ghis-frontend
 - Remove ``"symfony/orm-pack": "*"``
 - composer require symfony/polyfill-intl-messageformatter
 - composer require knplabs/knp-menu-bundle
@@ -50,12 +50,10 @@ in mycore/conf/solr.xml
   <copyField source="*_ss" dest="_text_"/>
   <copyField source="*_t" dest="_text_"/>
 
-TODO: maybe add highlight for certain fields
-  <!--
-  <copyField source="description_s" dest="highlight"/>
-  <copyField source="text_t" dest="highlight"/>
-  -->
-
+add highlight and suggest for certain fields
+  <copyField source="note_t" dest="highlight"/>
+  <copyField source="body_t" dest="highlight"/>
+  <copyField source="authors_ss" dest="suggest"/>
 
 Translate templates
 

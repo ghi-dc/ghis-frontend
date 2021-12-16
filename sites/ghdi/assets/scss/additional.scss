@@ -499,6 +499,16 @@ main.volume, main.section, main.introduction {
                 }
             }
         }
+
+        blockquote {
+            padding-top: 0.4rem;
+            margin-bottom: 0;
+            font-style: italic;
+            color: $color-gray-dark;
+            .highlight {
+                font-weight: bold;
+            }
+        }
     }
 }
 

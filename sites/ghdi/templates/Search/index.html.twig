@@ -59,7 +59,10 @@
                             {% if highlightedDoc is not empty %}
                     <blockquote>
                                 {% for field, highlight in highlightedDoc %}
-                                    {{ highlight|join('...')|raw }}<br/>
+                                    {% for snippet in highlight %}
+                                        {{ snippet|raw }}&#8230;{% if not loop.last %}<br />{% endif %}
+                                    {% endfor %}
+                                    {% if not loop.last %}<br />{% endif %}
                                 {% endfor %}
                     </blockquote>
                             {% endif %}
