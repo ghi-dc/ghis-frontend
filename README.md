@@ -63,7 +63,6 @@ Site-specific translations
 
     ./bin/console translation:extract de --dir=./sites/ghdi/templates --output-dir=./sites/ghdi/translations
 
-
 Terminology
 -----------
 in translation/messages+intl+icu.de.xlf and data/styles/translation.xml
@@ -73,3 +72,7 @@ in translation/messages+intl+icu.de.xlf and data/styles/translation.xml
 * Additional Source(s) / Weitere Quelle(n)
 * Further Reading / Weiterführende Inhalte
 * Keywords / Schlagworte
+
+TODO
+----
+* Check https://github.com/bestit/flagception-bundle (e.g. for GHDI-Extra)
