@@ -127,7 +127,7 @@ class AppExtension extends AbstractExtension
 
     /**
      * build the file system path to
-     *  media/volume-x/resource-y.jpg
+     *  media/volume-m/thumb/resource-m(.language).jpg
      * below the web-root
      */
     public function buildResourceThumbnail($resource)
