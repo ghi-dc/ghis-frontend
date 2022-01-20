@@ -90,9 +90,11 @@ ul#menu-volumes li {
 .breadcrumb {
     background-color: inherit;
     padding: 0;
+
     &.p-2 {
         padding-left: 0 !important;
     }
+
     li {
         text-transform: uppercase;
         color: $color-gray-dark;
@@ -348,6 +350,54 @@ main.volume, main.section, main.introduction {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+    }
+}
+
+main.section {
+    ol {
+        li.resource {
+            counter-increment: item;
+            display: block;
+            font-size: 1rem;
+
+            .label {
+                position: relative;
+                padding: 1rem;
+                padding-left: 45px;
+
+                &:before {
+                    content: counter(item)".";
+                    display: block;
+                    float: left;
+                    width: 24px;
+                    font-weight: bold;
+                    margin-left: -35px;
+                    text-align: center;
+                }
+
+                .icn {
+                    position: absolute;
+                    bottom: 10px;
+                    left: 15px;
+                    color: #b6b6b6;
+                }
+            }
+        }
+    }
+
+    ol.section-navigation {
+        // line above, see https://stackoverflow.com/a/46535160
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            border-top: 1px solid $color-color-spot;
+            position: absolute;
+            top: -5px;
+            left: 15px;
+            right: 15px;
+        }
     }
 }
 

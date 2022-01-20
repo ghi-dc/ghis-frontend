@@ -9,7 +9,7 @@
  */
 @import 'color-definition.scss';
 
-$logo-width:    200px;
+$logo-width: 200px;
 $logo-outdent: 14px; /* corresponds with navbar padding-left: 1rem */
 $logo-indent-text: 53px - $logo-outdent;
 
@@ -316,54 +316,6 @@ a.print-view {
     }
 }
 
-/* route-specific styles */
-main.section {
-    ol {
-        li.resource {
-            counter-increment: item;
-            display: block;
-            font-size: 1rem;
-
-            .label {
-                position: relative;
-                padding: 1rem;
-                padding-left: 45px;
-                &:before {
-                    content: counter(item)".";
-                    display: block;
-                    float: left;
-                    width: 24px;
-                    font-weight: bold;
-                    margin-left: -35px;
-                    text-align: center;
-                }
-
-                .icn {
-                    position: absolute;
-                    bottom: 10px;
-                    left: 15px;
-                    color: #b6b6b6;
-                }
-            }
-        }
-    }
-
-    ol.section-navigation {
-        // line above, see https://stackoverflow.com/a/46535160
-        position: relative;
-        &::after {
-            content: "";
-            display: block;
-            border-top: 1px solid $color-color-spot;
-            position: absolute;
-            top: -5px;
-            left: 15px;
-            right: 15px;
-        }
-    }
-
-}
-
 article, div.content, section.banner {
     @include dta-styles();
 
@@ -372,7 +324,6 @@ article, div.content, section.banner {
         font-size: 1.67rem;
     }
 }
-
 
 article {
     ul#authors {
@@ -476,6 +427,7 @@ article {
     }
 }
 
+/* route-specific styles */
 .route-search {
     input, button {
         border: none;

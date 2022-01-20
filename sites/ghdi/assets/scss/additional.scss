@@ -380,6 +380,7 @@ main.volume, main.section, main.introduction {
 
     #contentsTab {
         border-bottom: none;
+        margin-bottom: 1rem;
 
         .nav-link {
             border: none;
@@ -406,35 +407,59 @@ main.volume, main.section, main.introduction {
                 text-underline-offset: 8px;
             }
         }
-        margin-bottom: 1rem;
     }
 
     .section, .resource {
         margin-bottom: 2rem;
+        counter-increment: item;
+
         .thumb {
             width: 100%;
             min-height: 10rem;
             background-color: gray;
         }
+
         .label {
             width: 100%;
             min-height: 6rem;
+            background-color: $color-gray-light;
+            padding: 0.5rem;
+            position: relative;
+
             h4 {
                 font-size: 18px;
                 font-weight: bold;
             }
-            background-color: $color-gray-light;
-            padding: 0.5rem;
+
+            &:after {
+                content: counter(item);
+                position: absolute;
+                left: 0.5rem;
+                bottom: 0.5rem;
+                font-size: 18px;
+                font-weight: bold;
+            }
 
             .icn {
+                position: absolute;
+                bottom: 0;
+                right: 0;
                 background-color: $color-color-link;
-                padding-left: 4px;
-                padding-right: 4px;
+                width: 24px;
+                height: 24px;
+                text-align: center;
 
                 &::after {
                     color: white;
                 }
             }
+        }
+    }
+
+    .resource {
+        .label {
+            width: 100%;
+            min-height: 9rem;
         }
     }
 
