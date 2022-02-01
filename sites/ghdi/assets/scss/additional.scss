@@ -329,6 +329,12 @@ main.resource {
         margin-bottom: 1rem;
         background-color: $color-gray-light;
     }
+
+    .source {
+        background-color: $color-gray-ultralight;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 }
 
 /* volume, section and introduction with background image */
@@ -622,7 +628,7 @@ a.print-view {
     text-transform: none;
 }
 
-article {
+article, .article-part {
     &.introduction {
         h1 {
             display: block !important; /* override display: none; */

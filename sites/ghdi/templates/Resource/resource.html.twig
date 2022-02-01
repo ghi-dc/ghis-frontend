@@ -45,33 +45,66 @@
 {% block maincontainer %}
 <main role="main" class="resource">
     {% block body %}
-<section class="top banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                {% if 'map' == resource.genre %}
-                    {{ 'Map'|trans }}
-                {% else %}
-                    {{ 'Source'|trans }}
-                {% endif %}
-                <h1>
-                    {% if parts.title is defined %}
-                        {# pre-formatted #}
-                        {{ parts.title|raw }}
+    <section class="top banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    {% if 'map' == resource.genre %}
+                        {{ 'Map'|trans }}
                     {% else %}
-                        {{ resource.title }}
+                        {{ 'Source'|trans }}
                     {% endif %}
-                </h1>
-            </div>
-        </div><!-- .row -->
-    </div><!-- .container -->
-</section><!-- .section -->
-<section>
-    <div class="container">
+                    <h1>
+                        {% if parts.title is defined %}
+                            {# pre-formatted #}
+                            {{ parts.title|raw }}
+                        {% else %}
+                            {{ resource.title }}
+                        {% endif %}
+                    </h1>
+                </div>
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section><!-- .section -->
+    <section class="info">
+        <div class="container">
             <div class="row article-wrapper">
                 {{ resource_helper.breadcrumb(resource, navigation, true) }}
 
-                <article class="col-md-9 col-lg-8 content {{ volume.getId(true) }}">
+                <div class="col-md-9 col-lg-8 article-part content {{ volume.getId(true) }}">
+                    {{ parts.abstract|raw }}
+                </div>
+
+                <aside class="col-md-3 offset-lg-1">
+                    {% if parts.toc is defined and parts.toc is not empty %}
+                    <div class="toc d-none d-md-block">
+                        <h4>{{ 'Table of Contents'|trans }}</h4>
+                        <ul class="list-unstyled">
+                        {% for section in parts.toc %}
+                            <li><a href="#{{ section.id }}">{{ section.text }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    {% set terms = resource.tagsByType('term') %}
+                    {% if terms|length > 0 %}
+                    <h4>{{ 'Keywords'|trans }}</h4>
+                    <ul class="tag-list">
+                    {% for term in terms %}
+                        <li><a href="{{ path('search', { 'filter' : { 'term': term.path } }) }}">{{ term.name }}</a></li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                </aside>
+            </div>
+        </div><!-- .container -->
+    </section>
+
+    <section class="source">
+        <div class="container">
+            <div class="row article-wrapper">
+                <div class="col-md-9 col-lg-8 article-part content {{ volume.getId(true) }}">
                     {{ parts.body|raw }}
 
                     <div class="accordion" id="bottom-information">
@@ -125,6 +158,14 @@
                         </div>
                     </div>
 
+                </div><!-- .article-part -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row article-wrapper">
                     {% if navigation.previous is not null or navigation.next is not null %}
                     <div class="d-flex justify-content-between resource-navigation">
                         <div class="p-2" style="padding-left: 0 !important">
@@ -137,34 +178,11 @@
                             <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">{{ navigation.next.title }} &gt;</a>
                             {% endif %}
                         </div>
-                    </div><!-- .row -->
+                    </div><!-- .d-flex -->
                     {% endif %}
-                </article>
-                <aside class="col-md-3 offset-lg-1">
-                    {% if parts.toc is defined and parts.toc is not empty %}
-                    <div class="toc d-none d-md-block">
-                        <h4>{{ 'Table of Contents'|trans }}</h4>
-                        <ul class="list-unstyled">
-                        {% for section in parts.toc %}
-                            <li><a href="#{{ section.id }}">{{ section.text }}</a></li>
-                        {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-
-                    {% set terms = resource.tagsByType('term') %}
-                    {% if terms|length > 0 %}
-                    <h4>{{ 'Keywords'|trans }}</h4>
-                    <ul class="tag-list">
-                    {% for term in terms %}
-                        <li><a href="{{ path('search', { 'filter' : { 'term': term.path } }) }}">{{ term.name }}</a></li>
-                    {% endfor %}
-                    </ul>
-                    {% endif %}
-                </aside>
             </div><!-- .row -->
-    </div><!-- container -->
-</section>
+        </div><!-- .container -->
+    </section>
     {% endblock %}
 </main>
 {% endblock %}

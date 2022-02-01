@@ -119,7 +119,15 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Extract innerXML of a $node
+     * Extract HTML of a $node
+     */
+    protected function saveHTML($node)
+    {
+        return $node->ownerDocument->saveHTML($node);
+    }
+
+    /**
+     * Extract innerHTML of a $node
      */
     protected function innerHTML($node)
     {
@@ -295,7 +303,11 @@ class ResourceController extends BaseController
     /**
      * Use DomCrawler to extract specific parts from the HTML-representation
      */
-    protected function buildPartsFromHtml(TranslatorInterface $translator, $html, $mediaBaseUrl, $genre, $printView)
+    protected function buildPartsFromHtml(TranslatorInterface $translator,
+                                          string $html,
+                                          string $mediaBaseUrl,
+                                          string $genre,
+                                          bool $printView)
     {
         $parts = [
             'additional' => [],
@@ -363,9 +375,34 @@ class ResourceController extends BaseController
             }
         }
 
+        if ('ghdi' == $this->siteKey && !$printView && 'introduction' != $genre) {
+            // we want abstract separated
+            $abstractParts = [];
+
+            $node = $crawler->filter('div > h2.source-description-head');
+            if ($node->count()) {
+                $element = $node->getNode(0);
+                $parentDiv = $element->parentNode;
+
+                $abstractParts[] = $this->saveHTML($element);
+                $parentDiv->removeChild($element);
+            }
+
+            $node = $crawler->filter('div > div.source-description');
+            if ($node->count()) {
+                $element = $node->getNode(0);
+                $parentDiv = $element->parentNode;
+
+                $abstractParts[] = $this->saveHTML($element);
+                $parentDiv->removeChild($element);
+            }
+
+            if (!empty($abstractParts)) {
+                $parts['abstract'] = join('', $abstractParts);
+            }
+        }
 
         $html = $crawler->filter('body')->first()->html();
-
         $parts['body'] = $this->markCombiningE($html);
 
         return $parts;
@@ -374,7 +411,10 @@ class ResourceController extends BaseController
     /**
      * Call XsltProcessor to transform TEI to HTML
      */
-    protected function resourceToHtml(Request $request, TranslatorInterface $translator, $volume, $resource, $printView = false, $embedView = false)
+    protected function resourceToHtml(Request $request,
+                                      TranslatorInterface $translator,
+                                      $volume, $resource,
+                                      $printView = false, $embedView = false)
     {
         $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
 
