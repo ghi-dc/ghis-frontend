@@ -14,6 +14,9 @@
             "ref": "dfcd909f037c7f1e2535bec00c1eba240d7aa513"
         }
     },
+    "boppy/solr-bundle": {
+        "version": "dev-master"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
@@ -109,9 +112,6 @@
     },
     "masterminds/html5": {
         "version": "2.7.4"
-    },
-    "maxgr0/solr-bundle": {
-        "version": "dev-master"
     },
     "minimalcode/search": {
         "version": "1.0.1"
@@ -660,7 +660,7 @@
         "version": "1.2.0"
     },
     "twig/extra-bundle": {
-        "version": "v3.3.0"
+        "version": "v3.3.7"
     },
     "twig/twig": {
         "version": "v3.3.0"
