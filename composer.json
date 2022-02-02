@@ -58,6 +58,7 @@
         "symfony/web-link": "^5.4",
         "symfony/yaml": "^5.4",
         "twig/extra-bundle": "^3.0",
+        "twig/string-extra": "^3.0",
         "twig/twig": "^3.0",
         "voku/html-min": "*"
     },

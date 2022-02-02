@@ -163,26 +163,34 @@
         </div><!-- .container -->
     </section>
 
-    <section>
+    {% if navigation.previous is not null or navigation.next is not null %}
+    <section class="bottom-navigation">
         <div class="container">
             <div class="row article-wrapper">
-                    {% if navigation.previous is not null or navigation.next is not null %}
-                    <div class="d-flex justify-content-between resource-navigation">
-                        <div class="p-2" style="padding-left: 0 !important">
-                            {% if navigation.previous is not null %}
-                            <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}">&lt; {{ navigation.previous.title }}</a>
-                            {% endif %}
-                        </div>
-                        <div class="p-2" style="text-align: right">
-                            {% if navigation.next is not null %}
-                            <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">{{ navigation.next.title }} &gt;</a>
-                            {% endif %}
-                        </div>
-                    </div><!-- .d-flex -->
+                <div class="col-md-9 col-lg-8 d-flex justify-content-between resource-navigation">
+                    {% if navigation.previous is not null %}
+                    <div class="p-2 previous">
+                        <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}">
+                            <div class="nav-control">&nbsp;</div>
+                            <b>{{ navigation.previous.title|u.truncate(100, '...') }}</b>
+                        </a>
+                    </div>
+                    {% else %}
+                        <div class="p-2"></div>
                     {% endif %}
+                    {% if navigation.next is not null %}
+                    <div class="p-2 next">
+                        <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">
+                            <div class="nav-control"></div>
+                            <b>{{ navigation.next.title|u.truncate(100, '...') }}</b>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div><!-- .d-flex -->
             </div><!-- .row -->
         </div><!-- .container -->
     </section>
+    {% endif %}
     {% endblock %}
 </main>
 {% endblock %}
