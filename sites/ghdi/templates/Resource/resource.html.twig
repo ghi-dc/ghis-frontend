@@ -166,13 +166,20 @@
     {% if navigation.previous is not null or navigation.next is not null %}
     <section class="bottom-navigation">
         <div class="container">
-            <div class="row article-wrapper">
+            <div class="row">
+                <div class="col-md-9 col-lg-8">
+                    <div class="p-2 resource-progress">
+                        <div id="done">;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-9 col-lg-8 d-flex justify-content-between resource-navigation">
                     {% if navigation.previous is not null %}
                     <div class="p-2 previous">
                         <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}">
                             <div class="nav-control">&nbsp;</div>
-                            <b>{{ navigation.previous.title|u.truncate(100, '...') }}</b>
+                            <b>{{ navigation.previous.title|u.truncate(80, '...') }}</b>
                         </a>
                     </div>
                     {% else %}
@@ -182,7 +189,7 @@
                     <div class="p-2 next">
                         <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">
                             <div class="nav-control"></div>
-                            <b>{{ navigation.next.title|u.truncate(100, '...') }}</b>
+                            <b>{{ navigation.next.title|u.truncate(80, '...') }}</b>
                         </a>
                     </div>
                     {% endif %}
@@ -190,6 +197,41 @@
             </div><!-- .row -->
         </div><!-- .container -->
     </section>
+    <script>
+        var $source = $('section.source');
+        var sourceTop = $source.offset().top;
+        var sourceHeight = $source.height();
+        // this can change after images are loaded
+        $( document ).ready(function() {
+            sourceHeight = $source.height();
+        });
+
+        var $done = $('#done');
+
+        var $bottomNavigation = $('section.bottom-navigation');
+
+        function setProgress($bottomNavigation) {
+            var bottomNavigationTop = $bottomNavigation.offset().top;
+
+            var done = 0;
+            if (bottomNavigationTop < sourceTop) {
+                ; // stay at 0
+            }
+            else if (bottomNavigationTop > sourceTop + sourceHeight) {
+                done = 100; // done
+            }
+            else {
+                done = Math.round(100.0 * (bottomNavigationTop - sourceTop) / sourceHeight);
+            }
+
+            $done.width(done + '%');
+        }
+
+        setProgress($bottomNavigation);
+        document.addEventListener('scroll', function(e) {
+            setProgress($bottomNavigation);
+        });
+    </script>
     {% endif %}
     {% endblock %}
 </main>

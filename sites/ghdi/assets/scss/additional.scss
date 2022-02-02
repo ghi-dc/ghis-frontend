@@ -341,6 +341,25 @@ main.resource {
         bottom: 0;
         width: 100%;
 
+        .resource-progress {
+            margin-top: 8px;
+            margin-bottom: 8px;
+
+            height: 16px;
+            background-color: $color-color-link;
+
+            position: relative;
+
+            #done {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 30%;
+                background-color: $color-color-spot;
+            }
+        }
+
         .previous, .next {
             width: 50%;
 
