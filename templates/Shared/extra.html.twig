@@ -1,0 +1,16 @@
+{% macro breadcrumb(label, route, prepend_home = false) %}
+    <div class="d-flex justify-content-between">
+        <ul class="breadcrumb p-2">
+            {% if prepend_home %}
+            <li><a href="{{ path('home') }}">{{ 'Home'|trans }}</a></li>
+            {% endif %}
+            <li>
+                {% if route is not empty %}
+                    <a href="{{ path(route) }}">{{ label|trans }}</a>
+                {% else %}
+                    {{ label|trans }}
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+{% endmacro %}
