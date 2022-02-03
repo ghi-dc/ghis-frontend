@@ -343,10 +343,10 @@ main.resource {
 
         .resource-progress {
             margin-top: 8px;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
 
-            height: 16px;
-            background-color: $color-color-link;
+            height: 8px;
+            background-color: $color-gray-light;
 
             position: relative;
 
@@ -366,7 +366,7 @@ main.resource {
             display: flex;
             position: relative;
             align-items: center;
-            background-color: $color-color-link;
+            background-color: $color-gray-light;
 
             .nav-control {
                 width: 16px;
@@ -381,14 +381,14 @@ main.resource {
             .nav-control {
                 left: 4px;
                 background-position: left center;
-                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23EDEDE5' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%230F256E' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
             }
 
-            margin-right: 4px;
+            margin-right: 2px;
             padding-left: 32px !important;
 
             a {
-                color: $color-gray-light;
+                color: $color-color-spot;
             }
         }
 
@@ -396,15 +396,15 @@ main.resource {
             .nav-control {
                 right: 4px;
                 background-position: right center;
-                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23EDEDE5' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%230F256E' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
             }
 
-            margin-left: 4px;
+            margin-left: 2px;
             padding-right: 32px !important;
             justify-content: right;
 
             a {
-                color: white;
+                color: $color-color-spot;
             }
         }
     }
