@@ -344,6 +344,7 @@ main.resource {
         .resource-progress {
             margin-top: 8px;
             margin-bottom: 4px;
+            padding: 0;
 
             height: 8px;
             background-color: $color-gray-light;
@@ -355,7 +356,7 @@ main.resource {
                 left: 0;
                 top: 0;
                 height: 100%;
-                width: 30%;
+                width: 0;
                 background-color: $color-color-spot;
             }
         }
