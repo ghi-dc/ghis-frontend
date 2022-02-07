@@ -3,6 +3,7 @@ twig:
     # local tweaks
     globals:
         site_name: '%app.site.name%'
+        site_email: '%app.site.email%'
         locales: "%app.supported_locales%"
     form_themes: ['bootstrap_4_horizontal_layout.html.twig']
 

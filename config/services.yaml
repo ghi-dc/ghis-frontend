@@ -8,6 +8,7 @@ parameters:
     app.supported_locales: ['en', 'de']
     app.site.key: "%env(string:SITE_KEY)%"
     app.site.name: "%env(string:SITE_NAME)%"
+    app.site.email: "%env(string:SITE_EMAIL)%"
     app.xsl_converter.saxonc_enable: "%env(bool:SAXONC_ENABLE)%"
     app.xsl_converter_adapter.arguments: "%env(string:JAVA_BIN)% -jar %kernel.project_dir%/data/styles/bin/saxon9he.jar -s:%%source%% -xsl:%%xsl%% %%additional%%"
 
