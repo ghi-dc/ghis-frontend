@@ -275,6 +275,17 @@ body.route-home {
         }
     }
 
+    .row.featured {
+        .genre {
+            background-color: black;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 180px;
+        }
+    }
+
     .row.focus {
         a {
             color: $color-gray-dark;

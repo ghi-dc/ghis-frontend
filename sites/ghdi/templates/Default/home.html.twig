@@ -70,6 +70,7 @@
             {% for key, info in featured %}
             <div class="col-sm-{{ colspan }}">
                 <h4>{{ info['totalCount'] }} {{ info['label']|trans }}</h4>
+                <div class="genre" style="background-image: url('{{ app.request.basepath }}/media/home/{{ key}}.jpg');"></div>
                 {% if info['resource'] is defined %}
                     {% set resource = info['resource'] %}
                     {% set volumeDtaDirname = null %}
