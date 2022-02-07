@@ -110,6 +110,11 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->query($query);
     }
 
+    public function getLastNumFound()
+    {
+        return $this->solr->getNumFound();
+    }
+
     public function findResourcesByGenres($genres = [], $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null)
     {
         $queryBuilder = $this->solr->getQueryBuilder($this->metaInformation->getEntity());
@@ -120,6 +125,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         $query->setUseAndOperator(true);
         $query->setHydrationMode($this->hydrationMode);
         $query->setRows(is_null($limit) ? self::MAX_ROWS : (int)$limit);
+
         if (!is_null($offset)) {
             $query->setStart((int)$offset);
         }

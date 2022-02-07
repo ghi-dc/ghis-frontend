@@ -60,16 +60,18 @@
         {% endfor %}
         </div>
     {% endif %}
-
+    {% if featured|length > 0 %}
+        {% set colspan = 12 // featured|length %}
         <div class="row section">
             <div class="col-sm-3"><h3>{{ 'Sources'|trans }}</h3></div>
             <div class="col-sm-9"></div>
         </div><!-- .row -->
         <div class="row featured">
-            <div class="col-sm-4">
-                <h4>111 {{ 'Documents'|trans }}</h4>
-                {% if featured['document'] is defined %}
-                    {% set resource = featured['document'] %}
+            {% for key, info in featured %}
+            <div class="col-sm-{{ colspan }}">
+                <h4>{{ info['totalCount'] }} {{ info['label']|trans }}</h4>
+                {% if info['resource'] is defined %}
+                    {% set resource = info['resource'] %}
                     {% set volumeDtaDirname = null %}
                     {% for volume in volumes %}
                         {% if volume.getId(true) == resource.volumeIdFromShelfmark%}
@@ -79,38 +81,9 @@
                     <a href="{{ path('dynamic', { 'path': volumeDtaDirname ~ '/' ~ resource.dtaDirname }) }}">{{ resource.title }}</a>
                 {% endif %}
             </div>
-            <div class="col-sm-4">
-                <h4>213 {{ 'Images'|trans }}</h4>
-                {% if featured['image'] is defined %}
-                    {% set resource = featured['image'] %}
-                    {% set volumeDtaDirname = null %}
-                    {% for volume in volumes %}
-                        {% if volume.getId(true) == resource.volumeIdFromShelfmark%}
-                            {% set volumeDtaDirname = volume.dtaDirname %}
-                        {% endif %}
-                    {% endfor %}
-                    <a href="{{ path('dynamic', { 'path': volumeDtaDirname ~ '/' ~ resource.dtaDirname }) }}"><b>{{ resource.title }}</b></a>
-                {% endif %}
-            </div>
-            {#
-            <div class="col-sm-3">
-                <h4>0 {{ 'Audio and Video'|trans }}</h4>
-            </div>
-            #}
-            <div class="col-sm-4">
-                <h4>5 {{ 'Maps'|trans }}</h4>
-                {% if featured['map'] is defined %}
-                    {% set resource = featured['map'] %}
-                    {% set volumeDtaDirname = null %}
-                    {% for volume in volumes %}
-                        {% if volume.getId(true) == resource.volumeIdFromShelfmark%}
-                            {% set volumeDtaDirname = volume.dtaDirname %}
-                        {% endif %}
-                    {% endfor %}
-                    <a href="{{ path('dynamic', { 'path': volumeDtaDirname ~ '/' ~ resource.dtaDirname }) }}"><b>{{ resource.title }}</b></a>
-                {% endif %}
-            </div>
+            {% endfor %}
         </div><!-- .row -->
+    {% endif %}
     </div>
 </section>
 

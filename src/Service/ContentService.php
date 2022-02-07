@@ -150,13 +150,20 @@ class ContentService
         return $resources;
     }
 
-    public function getResourcesByGenres($genres, array $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null)
+    public function getResourcesByGenres($genres, array $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null, $returnTotalCount = false)
     {
-        $resources = $this->getRepository(\App\Entity\TeiFull::class)
+        $repo = $this->getRepository(\App\Entity\TeiFull::class);
+
+        if ($returnTotalCount) {
+            return [
+                'resources' => $repo->findResourcesByGenres($genres, $orderBy, $limit, $offset),
+                'totalCount' => $repo->getLastNumFound(),
+            ];
+        }
+
+        return $repo
             ->findResourcesByGenres($genres, $orderBy, $limit, $offset)
             ;
-
-        return $resources;
     }
 
     private function lookupHasPart($resource)

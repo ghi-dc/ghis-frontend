@@ -41,11 +41,22 @@ class DefaultController extends BaseController
                 'audiovisual' => [ 'audio', 'video' ],
             ] as $key => $genres)
         {
-            $resources = $this->contentService->getResourcesByGenres($genres,
-                [ 'random_' . mt_rand() => 'ASC' ], 1);
+            $result = $this->contentService->getResourcesByGenres($genres,
+                [ 'random_' . mt_rand() => 'ASC' ], 1, 0, true);
 
-            if (count($resources) > 0) {
-                $featured[$key] = $resources[0];
+            if ($result['totalCount'] > 0) {
+                if ('audivisual' == $key) {
+                    $label = 'Audio and Video';
+                }
+                else {
+                    $label = ucfirst($key) . 's';
+                }
+
+                $featured[$key] = [
+                    'label' => $label,
+                    'resource' => $result['resources'][0],
+                    'totalCount' => $result['totalCount'],
+                ];
             }
         }
 
