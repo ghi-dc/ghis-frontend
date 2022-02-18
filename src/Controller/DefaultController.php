@@ -6,13 +6,14 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Yaml\Yaml;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DefaultController extends BaseController
 {
     /**
      * @Route("/", name="home")
      */
-    public function homeAction(Request $request)
+    public function homeAction(Request $request, TranslatorInterface $translator)
     {
         $this->contentService->setLocale($request->getLocale());
         $volumes = $this->contentService->getVolumes();
@@ -37,19 +38,19 @@ class DefaultController extends BaseController
         foreach ([
                 'document' => [ 'document' ],
                 'image' => [ 'image' ],
-                'map' => [ 'map' ],
                 'audiovisual' => [ 'audio', 'video' ],
+                'map' => [ 'map' ],
             ] as $key => $genres)
         {
             $result = $this->contentService->getResourcesByGenres($genres,
                 [ 'random_' . mt_rand() => 'ASC' ], 1, 0, true);
 
             if ($result['totalCount'] > 0) {
-                if ('audivisual' == $key) {
-                    $label = 'Audio and Video';
+                if ('audiovisual' == $key) {
+                    $label = $translator->trans('Audio and Video');
                 }
                 else {
-                    $label = ucfirst($key) . 's';
+                    $label = /** @Ignore */$translator->trans(ucfirst($key) . 's');
                 }
 
                 $featured[$key] = [

@@ -157,6 +157,10 @@
         <source>Map</source>
         <target>Karte</target>
       </trans-unit>
+      <trans-unit id="OaYQBuF" resname="Audio and Video">
+        <source>Audio and Video</source>
+        <target>Audio und Video</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

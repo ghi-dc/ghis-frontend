@@ -57,7 +57,7 @@ add highlight and suggest for certain fields
 
 Translate templates
 
-    ./bin/console translation:update --force de
+    ./bin/console translation:extract --force de
 
 Site-specific translations
 
