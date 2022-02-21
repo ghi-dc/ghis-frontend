@@ -67,7 +67,7 @@
       </trans-unit>
       <trans-unit id="0vcJo_1" resname="result.number_of_items">
         <source>result.number_of_items</source>
-        <target>{count, plural,=0 {No Results} one {# Result} other {# Results}}</target>
+        <target>{count, plural, =0 {No Results} one {# Result} other {# Results}}</target>
       </trans-unit>
       <trans-unit id="KDkdO8Z" resname="of">
         <source>of</source>
@@ -91,7 +91,7 @@
       </trans-unit>
       <trans-unit id="B.C5l.k" resname="additional.number_of_children">
         <source>additional.number_of_children</source>
-        <target>{count, plural,one {Additional Source} other {Additional Sources}}</target>
+        <target>{count, plural, =1 {Additional Source} other {Additional Sources}}</target>
       </trans-unit>
       <trans-unit id="EqUZtZu" resname="Recommended Citation">
         <source>Recommended Citation</source>
