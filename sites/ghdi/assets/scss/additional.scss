@@ -347,6 +347,12 @@ main.resource {
         padding-bottom: 2rem;
     }
 
+    #bottom-information {
+        h2 {
+            text-decoration: none; /* Additional Source Heading */
+        }
+    }
+
     .bottom-navigation {
         position: sticky;
         bottom: 0;
