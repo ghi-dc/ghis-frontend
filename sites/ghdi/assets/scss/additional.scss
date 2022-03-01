@@ -745,6 +745,10 @@ article, .article-part {
         .source-description, .source-citation {
             margin-top: 4rem;
         }
+
+        .source-description {
+            font-style: italic;
+        }
     }
 
     &.content {
