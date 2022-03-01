@@ -56,10 +56,10 @@
     [{{ 'now'|date('F d, Y'|trans) }}].
 {% endmacro %}
 
-{% macro volume_background(volume, css_selector) %}
+{% macro volume_background(volume, css_selector, use_gradient = false) %}
     <style>
         {{ css_selector }} {
-            background-image: url({{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg);
+            background-image: {% if use_gradient %}linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2)), {% endif %}url({{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg);
         }
     </style>
 {% endmacro %}

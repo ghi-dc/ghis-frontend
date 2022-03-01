@@ -3,11 +3,7 @@
 {% import 'Shared/resource.html.twig' as resource_helper %}
 
 {% block head %}
-    <style>
-        section.banner {
-            background-image: url({{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg);
-        }
-    </style>
+    {{ resource_helper.volume_background(volume, 'section.banner', true) }}
 {% endblock %}
 
 {% block maincontainer %}
