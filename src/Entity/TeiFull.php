@@ -38,6 +38,11 @@ extends TeiHeader
     protected $hasPart = [];
 
     /**
+     * @var \Datetime|null Solr last indexed datestamp.
+     */
+    protected $datestamp = null;
+
+    /**
      * Sets body.
      *
      * @param string $body
@@ -117,6 +122,19 @@ extends TeiHeader
     }
 
     // solr-stuff
+    public function setDatestamp($dateStr)
+    {
+        if (!empty($dateStr)) {
+            $this->datestamp = new \DateTime($dateStr);
+        }
+
+        return $this;
+    }
+
+    public function getDatestamp()
+    {
+        return $this->datestamp;
+    }
 
     /**
      * Solr-core depends on article-language

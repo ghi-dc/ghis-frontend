@@ -137,6 +137,39 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->query($query);
     }
 
+    public function findResourcesByConditions($conditions = [], $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null)
+    {
+        $queryBuilder = $this->solr->getQueryBuilder($this->metaInformation->getEntity());
+
+        if (array_key_exists('genres', $conditions)) {
+            $queryBuilder->where('genre')->in($conditions['genres']);
+        }
+
+        $query = $queryBuilder->getQuery();
+
+        if (!empty($conditions['datestamp'])) {
+            // filter on last indexed range (currently for OaiController)
+            $query->addFilterQuery([
+                'key' => 'datestamp',
+                'query' => 'datestamp:' . $conditions['datestamp'],
+            ]);
+        }
+
+        $query->setUseAndOperator(true);
+        $query->setHydrationMode($this->hydrationMode);
+        $query->setRows(is_null($limit) ? self::MAX_ROWS : (int)$limit);
+
+        if (!is_null($offset)) {
+            $query->setStart((int)$offset);
+        }
+
+        if (!is_null($orderBy)) {
+            $query->addSorts($orderBy);
+        }
+
+        return $this->solr->query($query);
+    }
+
     public function findResourcesBySection($section, $orderBy = [ 'shelfmark_s' => 'ASC' ])
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
@@ -157,7 +190,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
     protected function addChildDocumentsToQuery($query)
     {
         $prefix = $this->metaInformation->getDocumentName() . '_';
-        $query->addSearchTerm('id', '{!parent which="+id:'.$prefix.'*"}');
+        $query->addSearchTerm('id', '{!parent which="+id:' . $prefix . '*"}');
 
         // a bit of a hack to inject the _children_ field
         $mappedFields = $query->getMappedFields();

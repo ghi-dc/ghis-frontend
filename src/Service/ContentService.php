@@ -166,6 +166,22 @@ class ContentService
             ;
     }
 
+    public function getResourcesByConditions(array $conditions = [], array $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null, $returnTotalCount = false)
+    {
+        $repo = $this->getRepository(\App\Entity\TeiFull::class);
+
+        if ($returnTotalCount) {
+            return [
+                'resources' => $repo->findResourcesByConditions($conditions, $orderBy, $limit, $offset),
+                'totalCount' => $repo->getLastNumFound(),
+            ];
+        }
+
+        return $repo
+            ->findResourcesByConditions($conditions, $orderBy, $limit, $offset)
+            ;
+    }
+
     private function lookupHasPart($resource)
     {
         if (is_null($resource)) {

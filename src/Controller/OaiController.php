@@ -21,11 +21,10 @@ class OaiController extends BaseController
     public function dispatchAction(Request $request,
                                    TranslatorInterface $translator,
                                    RouterInterface $router,
-                                   \Twig\Environment $twig)
+                                   \Twig\Environment $twig,
+                                   \App\Twig\AppExtension $twigAppExtension)
     {
-        $laminasRequest = $this->buildRequest();
-
-        // repositoryName is localized siteName
+        // we need site_name / site_email
         $globals = $twig->getGlobals();
 
         // $repository is an instance of \Picturae\OaiPmh\Interfaces\Repository
@@ -35,15 +34,18 @@ class OaiController extends BaseController
             $this->contentService,
             [
                 'repositoryName' => /** @Ignore */ $translator->trans($globals['site_name']),
-                'administrationEmails' => [ 'intersections@ghi-dc.org' ],
-                'genres' => [ 'introduction', 'document', 'image', 'map' ],
+                'administrationEmails' => [ $globals['site_email'] ],
+                'genres' => [ 'introduction', 'document', 'image', 'audio', 'video', 'map' ],
+                'buildResourcePath' => function ($resource) use ($twigAppExtension) {
+                    return $twigAppExtension->buildResourcePath($resource);
+                },
             ]
         );
 
         // Instead of
         //   $provider = new \Picturae\OaiPmh\Provider($repository, $laminasRequest);
         // we use a derived class referencing oai.xsl
-        $provider = new OaiProvider($repository, $laminasRequest);
+        $provider = new OaiProvider($repository, $this->buildRequest());
 
         $psrResponse = $provider->getResponse();
 
@@ -192,7 +194,7 @@ implements InterfaceRepository
      */
     public function getGranularity()
     {
-        return \Picturae\OaiPmh\Interfaces\Repository\Identity::GRANULARITY_YYYY_MM_DD;
+        return \Picturae\OaiPmh\Interfaces\Repository\Identity::GRANULARITY_YYYY_MM_DDTHH_MM_SSZ;
     }
 
     /**
@@ -400,31 +402,44 @@ implements InterfaceRepository
     private function getEarliestDateStamp()
     {
         // Fetch earliest timestamp
-        return new DateTime('2016-01-01T00:00:00Z');
+        return new DateTime('2020-01-01T00:00:00Z');
     }
 
     protected function buildDateExpression($date)
     {
         $date->setTimezone(new \DateTimeZone('UTC'));
 
-        return $date->format('Y-m-d'); // currently no time in datePublished field
+        return $date->format('Y-m-d\TH:i:s\Z');
     }
 
     protected function getRecords($params)
     {
         $this->contentService->setLocale($this->request->getLocale());
 
+        $conditions = [
+            'genres' => $this->options['genres'],
+        ];
+
         if (!empty($params['set'])) {
             // TODO
         }
 
         if (!empty($params['from']) || !empty($params['until'])) {
-            // TODO
+            $range = [
+                'from' => '*',
+                'until' => '*',
+            ];
+            foreach ([ 'from', 'until' ] as $key) {
+                $range[$key] = !empty($params[$key])
+                    ? $this->buildDateExpression($params[$key]) : '*';
+            }
+
+            $conditions['datestamp'] = '[' . join(' TO ', array_values($range)) . ']';
         }
 
-        $results = $this->contentService->getResourcesByGenres($this->options['genres'],
-                                                              [ 'shelfmark_s' => 'ASC' ],
-                                                              $this->limit + 1, $params['offset']);
+        $results = $this->contentService->getResourcesByConditions($conditions,
+                                                                   [ 'shelfmark_s' => 'ASC' ],
+                                                                   $this->limit + 1, $params['offset']);
 
         $records = [];
         foreach ($results as $result) {
@@ -447,24 +462,26 @@ implements InterfaceRepository
         $title = self::xmlEncode($resource->getTitle());
 
         $creatorParts = $subjectParts = [];
-        $datePublished = new \DateTime();
-        // $datePublished = $article->getDatePublished();
+        $datePublished = null; // $datePublished = $resource->getDatePublished();
+        $datestamp = $resource->getDatestamp();
+        if (is_null($datestamp)) {
+            $datestamp = new \DateTime();
+        }
+
         $description = $resource->getNote();
 
-        $route = 'dynamic';
-        $params = [ 'path' => 'TODO' ];
-
-        /*
-        $doi = $article->getDoi();
+        $doi = $resource->getDoi();
         if (!empty($doi) && false === strpos('10.5072', $doi)) {
             $url = 'https://dx.doi.org/' . $doi;
         }
         else {
-        */
+            $route = 'dynamic';
+            $params = [
+                'path' => $this->options['buildResourcePath']($resource),
+            ];
+
             $url = $this->router->generate($route, $params, \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL);
-        /*
         }
-        */
 
         $description = self::xmlEncode($description);
         $subject = self::xmlEncode(implode(', ', $subjectParts));
@@ -501,7 +518,7 @@ EOT;
         $recordMetadata->loadXML($xml);
 
         $someRecord = new \Picturae\OaiPmh\Implementation\Record(
-            new \Picturae\OaiPmh\Implementation\Record\Header($identifier, $datePublished, [], false),
+            new \Picturae\OaiPmh\Implementation\Record\Header($identifier, $datestamp, [], false),
             $recordMetadata);
 
         return $someRecord;
