@@ -196,6 +196,9 @@
     "picturae/oai-pmh": {
         "version": "0.5.20"
     },
+    "presta/sitemap-bundle": {
+        "version": "v3.3.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },

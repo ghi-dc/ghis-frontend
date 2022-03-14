@@ -93,20 +93,16 @@ class ContentService
 
     public function getSections($volume)
     {
-        $sections = $this->getRepository(\App\Entity\TeiFull::class)
+        return $this->getRepository(\App\Entity\TeiFull::class)
             ->findSectionsByVolume($volume)
             ;
-
-        return $sections;
     }
 
     public function getMaps($volume)
     {
-        $sections = $this->getRepository(\App\Entity\TeiFull::class)
-            ->findResourceByVolumeAndGenre($volume, 'map')
+        return $this->getRepository(\App\Entity\TeiFull::class)
+            ->findResourcesByVolumeAndGenre($volume, 'map')
             ;
-
-        return $sections;
     }
 
     protected function buildPathFromShelfmark($shelfmark)
@@ -142,6 +138,35 @@ class ContentService
                 $parentResource->addPart($resource);
 
                 continue;
+            }
+
+            $resources[] = $resource;
+        }
+
+        return $resources;
+    }
+
+    public function getResourcesByVolume($volume)
+    {
+        $resources = [];
+
+        $resourcesById = [];
+
+        foreach ($this->getRepository(\App\Entity\TeiFull::class)
+                 ->findResourcesByVolumeAndGenre($volume, null) as $resource)
+        {
+            $resourcesById[$resource->getId(true)] = $resource;
+
+            $parts = $this->buildPathFromShelfmark($resource->getShelfmark());
+            $parentId = $parts[count($parts) - 2];
+            if (array_key_exists($parentId, $resourcesById)) {
+                $parentResource = $resourcesById[$parentId];
+                $parentResource->addPart($resource);
+
+                if ('document-collection' != $parentResource->getGenre()) {
+                    // skip child documents
+                    continue;
+                }
             }
 
             $resources[] = $resource;

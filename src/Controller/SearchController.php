@@ -371,9 +371,10 @@ class SearchController extends BaseController
 
     /**
      * @Route({
-     *  "en": "/search",
-     *  "de": "/suche"
-     *  }, name="search")
+     *      "en": "/search",
+     *      "de": "/suche"
+     *  }, name="search",
+     *  options={"sitemap" = true})
      */
     public function searchAction(Request $request, TranslatorInterface $translator)
     {

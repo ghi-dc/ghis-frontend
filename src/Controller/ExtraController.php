@@ -11,9 +11,10 @@ class ExtraController extends BaseController
 {
     /**
      * @Route({
-     *  "en": "/teaching",
-     *  "de": "/unterricht"
-     *  }, name="teaching-index")
+     *      "en": "/teaching",
+     *      "de": "/unterricht"
+     *  }, name="teaching-index",
+     *  options={"sitemap" = true})
      */
     public function teachingIndexAction(Request $request)
     {

@@ -92,7 +92,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->query($query);
     }
 
-    public function findResourceByVolumeAndGenre($volume, $genre, $orderBy = [ 'shelfmark_s' => 'ASC' ])
+    public function findResourcesByVolumeAndGenre($volume, $genre, $orderBy = [ 'shelfmark_s' => 'ASC' ])
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
         $query->setHydrationMode($this->hydrationMode);
@@ -101,7 +101,9 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         $query->setUseAndOperator(true);
         $query->addSearchTerm('id', $this->metaInformation->getDocumentName() . '_*');
         $query->addSearchTerm('shelfmark', addcslashes($volume->getShelfmark(), ':') . '/*');
-        $query->addSearchTerm('genre', $genre);
+        if (!empty($genre)) {
+            $query->addSearchTerm('genre', $genre);
+        }
 
         if (!is_null($orderBy)) {
             $query->addSorts($orderBy);

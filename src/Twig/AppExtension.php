@@ -6,6 +6,8 @@ namespace App\Twig;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Intl\Locales;
 
+use Symfony\Contracts\Translation\TranslatorInterface;
+
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -24,12 +26,15 @@ class AppExtension extends AbstractExtension
      */
     public function __construct(ContentService $contentService,
                                 UrlGeneratorInterface $urlGenerator,
+                                TranslatorInterface $translator,
                                 $publicDir)
     {
         $this->contentService = $contentService;
         $this->urlGenerator = $urlGenerator;
         $this->publicDir = realpath($publicDir);
 
+        $locale = explode('@', $translator->getLocale(), 2);
+        $this->contentService->setLocale($locale[0]);
         $volumes = $this->contentService->getVolumes();
         foreach ($volumes as $volume) {
             $this->volumeById[$volume->getId(true)] = $volume;

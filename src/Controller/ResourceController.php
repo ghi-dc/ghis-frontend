@@ -639,54 +639,58 @@ class ResourceController extends BaseController
 
     /**
      * @Route({
-     *  "en": "/about",
-     *  "de": "/ueber"
-     *  }, name="about")
+     *      "en": "/about",
+     *      "de": "/ueber"
+     *  }, name="about",
+     *  options={"sitemap" = true})
      *
      * @Route({
-     *  "en": "/about/working-groups",
-     *  "de": "/ueber/arbeitsgruppen"
+     *      "en": "/about/working-groups",
+     *      "de": "/ueber/arbeitsgruppen"
      *  }, name="about-working-groups")
      *
      * @Route({
-     *  "en": "/about/migration",
-     *  "de": "/ueber/migration"
+     *      "en": "/about/migration",
+     *      "de": "/ueber/migration"
      *  }, name="about-migration")
      *
      * @Route({
-     *  "en": "/about/knowledge-and-education",
-     *  "de": "/ueber/wissen-und-bildung"
+     *      "en": "/about/knowledge-and-education",
+     *      "de": "/ueber/wissen-und-bildung"
      *  }, name="about-knowledge-and-education")
      *
      * @Route({
-     *  "en": "/about/germanness",
-     *  "de": "/ueber/deutschsein"
+     *      "en": "/about/germanness",
+     *      "de": "/ueber/deutschsein"
      *  }, name="about-germanness")
      *
      * @Route({
-     *  "en": "/about/editors",
-     *  "de": "/ueber/herausgeber"
+     *      "en": "/about/editors",
+     *      "de": "/ueber/herausgeber"
      *  }, name="about-editors")
      *
      * @Route({
-     *  "en": "/about/team",
-     *  "de": "/ueber/team"
-     *  }, name="about-team")
+     *      "en": "/about/team",
+     *      "de": "/ueber/team"
+     *  }, name="about-team",
+     *  options={"sitemap" = true})
      *
      * @Route({
-     *  "en": "/about/partners",
-     *  "de": "/ueber/partner"
-     *  }, name="about-partners")
+     *      "en": "/about/partners",
+     *      "de": "/ueber/partner"
+     *  }, name="about-partners",
+     *  options={"sitemap" = true})
      *
      * @Route({
-     *  "en": "/about/history",
-     *  "de": "/ueber/entwicklung"
+     *      "en": "/about/history",
+     *      "de": "/ueber/entwicklung"
      *  }, name="about-history")
      *
      * @Route({
-     *  "en": "/terms",
-     *  "de": "/impressum"
-     *  }, name="terms")
+     *      "en": "/terms",
+     *      "de": "/impressum"
+     *  }, name="terms",
+     *  options={"sitemap" = true})
      */
     public function aboutAction(Request $request)
     {

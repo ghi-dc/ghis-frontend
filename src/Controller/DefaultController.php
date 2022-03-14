@@ -11,7 +11,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class DefaultController extends BaseController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="home",
+     *  options={"sitemap" = true})
      */
     public function homeAction(Request $request, TranslatorInterface $translator)
     {
