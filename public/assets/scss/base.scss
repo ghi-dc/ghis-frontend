@@ -156,6 +156,7 @@ $logo-indent-text: 53px - $logo-outdent;
 
         /* tables */
         .dta-table      { margin-top:0; /* margin-left:auto; margin-right:auto; background:#fff;*/  border-collapse:collapse }
+        .dta-table th   { vertical-align:top; border:1px solid #ccc; padding:3px }
         .dta-table td   { vertical-align:top; border:1px solid #ccc; padding:3px }
         caption h1,
         caption h2,
@@ -305,7 +306,7 @@ a.print-view {
     color: $color-gray-dark !important;
     font-size: 1rem;
     &::after {
-        background: url("../img/pdf.png") no-repeat;
+        background: url('../img/pdf.png') no-repeat;
         background-size: contain;
         background-position: center top;
         content: "";
