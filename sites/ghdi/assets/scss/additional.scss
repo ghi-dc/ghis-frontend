@@ -175,6 +175,12 @@ footer {
        padding-left: $logo-indent-text;
     }
 
+    .right {
+        @media (max-width: $screen-xs-max) {
+           padding-left: $logo-indent-text;
+        }
+    }
+
     li a {
         text-decoration: none;
         font-weight: bold;

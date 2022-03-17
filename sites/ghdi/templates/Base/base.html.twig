@@ -236,13 +236,23 @@
                                 <img class="img-fluid w-25 logo-footer" src="{{ app.request.basepath }}/img/ghdi/footer-ghis.png" alt="German History Intersections" />
                             </a>
                         </div>
+
+                        <div class="d-sm-none" style="margin-top: 1em">
+                            {{ 'Follow us'|trans }}<br />
+                            <a href="https://twitter.com/german_docs" target="_blank">
+                                <img src="{{ app.request.basepath }}/img/ghdi/footer-twitter.png" alt="Twitter" style="height: 30px; width: auto" /></a>
+                            {#<a href="https://www.facebook.com/GHIWashington" target="_blank">
+                                <img class="img-fluid w-25" src="{{ app.request.basepath }}/img/ghdi/footer-facebook.png" alt="Facebook" />
+                            </a>#}
+                        </div>
                     </div>
-                    <div class="col-sm-2 offset-sm-2">
+                    <div class="col-sm-2 offset-sm-1 text-sm-end d-none d-sm-block">
                         {{ 'Follow us'|trans }}<br />
                         <a href="https://twitter.com/german_docs" target="_blank">
                             <img class="img-fluid w-25" src="{{ app.request.basepath }}/img/ghdi/footer-twitter.png" alt="Twitter" /></a>
-                        <a href="https://www.facebook.com/GHIWashington" target="_blank"><img class="img-fluid w-25" src="{{ app.request.basepath }}/img/ghdi/footer-facebook.png" alt="Facebook" />
-                        </a>
+                        {#<a href="https://www.facebook.com/GHIWashington" target="_blank">
+                            <img class="img-fluid w-25" src="{{ app.request.basepath }}/img/ghdi/footer-facebook.png" alt="Facebook" />
+                        </a>#}
                     </div>
                 </div>
                 <div class="row" style="border-top: 1px solid white">
@@ -254,7 +264,7 @@
                             <li class="list-inline-item"><a href="{{ path('terms') }}#data-protection">{{ 'Data Protection'|trans }}</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-5" style="text-align: right">
+                    <div class="col-sm-5 right text-sm-end">
                         &copy; {{ 'German Historical Institute Washington'|trans }}, 2003-{{ 'now' | date('Y') }}
                     </div>
                 </div>
