@@ -41,7 +41,7 @@
                             {% set resource = result.entity %}
                     <div class="search-entry {{ resource.volumeIdFromShelfmark }}">
                         <a href="{{ resource_path(resource) }}">
-                            <h3 class="{{ resource.genre }}">{{ resource.title }}</h3>
+                            <h3 class="{{ resource.genre }}">{{ resource.title|markCombining }}</h3>
                         </a>
                         <div class="path">
                             in: {{ resource_breadcrumb(resource) }}

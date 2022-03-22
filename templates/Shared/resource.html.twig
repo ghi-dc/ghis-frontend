@@ -50,7 +50,7 @@
 
 {% macro citation(resource, volume) %}
     {% import _self as resource_helper %}
-    {{ resource.title }},
+    {{ resource.title|markCombining }},
     {{ 'published in:'|trans }} {{ site_name|trans({}, 'additional') }},
     &lt;{{- resource_helper.citation_link(resource, volume) -}}&gt;
     [{{ 'now'|date('F d, Y'|trans) }}].

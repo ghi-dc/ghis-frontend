@@ -49,6 +49,7 @@ class AppExtension extends AbstractExtension
         return [
             // site specific
             new TwigFilter('localeNameNative', [ $this, 'getLocaleNameNative' ]),
+            new TwigFilter('markCombining', [ $this, 'markCombining' ], [ 'is_safe' => [ 'html' ] ]),
 
             // general
             new TwigFilter('remove_by_key', [ $this, 'removeElementByKey' ]),
@@ -75,6 +76,26 @@ class AppExtension extends AbstractExtension
     public function getLocaleNameNative($locale)
     {
         return Locales::getName($locale, $locale);
+    }
+
+    /**
+     * Set a span around certain combining characters in order to switch font in css
+     *
+     * TODO: Keep in sync with method in RenderTeiTrait
+     */
+    public function markCombining($string)
+    {
+        // escape
+        $html =  htmlspecialchars($string, \ENT_QUOTES | \ENT_SUBSTITUTE, 'UTF-8');
+
+        // since it doesn't seem to possible to style the follwing with unicode-ranges
+        // set span in order to set an alternate font-family
+
+        // Unicode Character 'COMBINING MACRON' (U+0304)
+        $html = preg_replace('/([n]\x{0304})/u', '<span class="combining">\1</span>', $html);
+
+        // Unicode Character 'COMBINING LATIN SMALL LETTER E' (U+0364)
+        return preg_replace('/([aou]\x{0364})/u', '<span class="combining">\1</span>', $html);
     }
 
     /**

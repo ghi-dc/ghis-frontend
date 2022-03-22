@@ -100,13 +100,18 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Special treatment for Combining Latin Small Letter E
+     * Special treatment for Combining Characters
      */
-    protected function markCombiningE($html)
+    protected function markCombiningCharacters($html)
     {
-        // since it doesn't seem to possible to style this with unicode-range
-        // set a span around Combining Latin Small Letter E so we can set an alternate font-family
-        return preg_replace('/([aou]\x{0364})/u', '<span class="combining-e">\1</span>', $html);
+        // since it doesn't seem to possible to style the follwing with unicode-ranges
+        // set span in order to set an alternate font-family
+
+        // Unicode Character 'COMBINING MACRON' (U+0304)
+        $html = preg_replace('/([n]\x{0304})/u', '<span class="combining">\1</span>', $html);
+
+        // Unicode Character 'COMBINING LATIN SMALL LETTER E' (U+0364)
+        return preg_replace('/([aou]\x{0364})/u', '<span class="combining">\1</span>', $html);
     }
 
     /**
@@ -408,7 +413,7 @@ class ResourceController extends BaseController
             $html = str_replace('<div class="embed-responsive embed-responsive-16by9">', '<div class="ratio ratio-4x3">', $html);
         }
 
-        $parts['body'] = $this->markCombiningE($html);
+        $parts['body'] = $this->markCombiningCharacters($html);
 
         return $parts;
     }

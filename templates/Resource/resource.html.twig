@@ -106,12 +106,12 @@
                     <div class="d-flex justify-content-between resource-navigation">
                         <div class="p-2" style="padding-left: 0 !important">
                             {% if navigation.previous is not null %}
-                            <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}">&lt; {{ navigation.previous.title }}</a>
+                            <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}">&lt; {{ navigation.previous.title|markCombining }}</a>
                             {% endif %}
                         </div>
                         <div class="p-2" style="text-align: right">
                             {% if navigation.next is not null %}
-                            <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">{{ navigation.next.title }} &gt;</a>
+                            <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">{{ navigation.next.title|markCombining }} &gt;</a>
                             {% endif %}
                         </div>
                     </div><!-- .row -->
