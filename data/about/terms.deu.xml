@@ -83,13 +83,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 			<div n="2" id="data-protection">
 				<head>Datenschutz</head>
-				<p>
-					Dies ist ein Online-Dienst des Deutschen Historischen Instituts, Washington DC. Die allgemeine Datenschutzerklärung des DHI gilt für die Verarbeitung aller personenbezogenen Daten, die im Rahmen des Betriebs dieser Website anfallen.
-				</p>
+				<p> Dies ist ein Online-Dienst des Deutschen Historischen Instituts, Washington DC.
+					Die <ref target="https://www.ghi-dc.org/privacy-policy">Datenschutzerklärung des
+						DHI</ref> gilt für die Verarbeitung aller personenbezogenen Daten, die im
+					Rahmen des Betriebs dieser Website anfallen. </p>
 			</div>
 
-			<div n="2" id="data-protection">
-				<head>Haftungsausschluss für Links</head>
+        	<div n="2" id="liability">
+        		<head>Haftungsausschluss für Links</head>
 				<p>
 					Unsere Website enthält Links zu externen Websites, auf die wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
 				</p>
