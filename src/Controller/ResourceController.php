@@ -683,8 +683,7 @@ class ResourceController extends BaseController
      * @Route({
      *      "en": "/about/partners",
      *      "de": "/ueber/partner"
-     *  }, name="about-partners",
-     *  options={"sitemap" = true})
+     *  }, name="about-partners")
      *
      * @Route({
      *      "en": "/about/history",
