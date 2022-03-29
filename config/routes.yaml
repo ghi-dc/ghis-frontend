@@ -13,4 +13,10 @@ dynamic:
     requirements:
         path: ".+"
     controller: App\Controller\BaseController::dynamicAction
- 
+
+# fallback without language prefix so error-404 shows properly
+404:
+    path: /{path}
+    requirements:
+        path: ".+"
+    controller: App\Controller\BaseController::dynamicAction
