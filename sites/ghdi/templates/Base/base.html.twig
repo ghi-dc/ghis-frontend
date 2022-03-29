@@ -41,6 +41,15 @@
         #}
         <link href="{{ app.request.basepath }}{{ asset('css/base.css') }}" rel="stylesheet">
         {% block head %}{% endblock %}
+
+        {# https://realfavicongenerator.net/favicon_result #}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ app.request.basepath }}/ghdi/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ app.request.basepath }}/ghdi/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ app.request.basepath }}/ghdi/favicon-16x16.png">
+        <link rel="manifest" href="{{ app.request.basepath }}/ghdi/site.webmanifest">
+        <link rel="mask-icon" href="{{ app.request.basepath }}/ghdi/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
     </head>
 
     <body role="document" class="d-flex flex-column min-vh-100 route-{{ app.request.get('_route') | replace({'_' : '-'}) }}{% if volume is defined %} {{ volume.getId(true) }}{% endif %}{% if document_class is defined %} {{ document_class }}{% endif %}">
