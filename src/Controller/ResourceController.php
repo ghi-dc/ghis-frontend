@@ -705,7 +705,18 @@ class ResourceController extends BaseController
             ])
             . '/';
 
-        $parts = $this->aboutToHtml($request->get('_route'), $request->getLocale(), $mediaBaseUrl);
+        try {
+            $parts = $this->aboutToHtml($request->get('_route'), $request->getLocale(), $mediaBaseUrl);
+        }
+        catch (\Exception $e) {
+            // InvalidArgumentException if xml doesn't exist
+            // redirect to about, or - to avoid a loop - home
+            $target = 'about' != $request->get('_route')
+                ? 'about' : 'home';
+
+            return $this->redirectToRoute($target);
+        }
+
         $pageMeta = [];
         if (array_key_exists('title', $parts)) {
             $pageMeta['title'] = $parts['title'];
