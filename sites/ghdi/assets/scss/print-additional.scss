@@ -7,12 +7,37 @@
     margin-bottom: 8px;
 }
 
-article h1 {
-    margin-top: 4px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    font-size: 24px;
-    font-weight: bold;
-    padding-top: 16px;
-    padding-bottom: 16px;
+article {
+    h1 {
+        padding-top: 20px;
+        margin-bottom: 28px;
+
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    h2.source-description-head,
+    h2.source-head
+    {
+        font-size: 16px;
+        padding-bottom: 4px;
+        border-bottom: 2px solid black;
+    }
+
+    .source-description {
+        margin-left: 0em;
+        margin-bottom: 20px;
+    }
+
+    ul#authors {
+        /* don't show, since we
+         * - place h1 in banner
+         * - #authors currently search only
+         */
+        display: none;
+    }
+
+    h3.dta-head{
+        font-size: 14px;
+    }
 }
