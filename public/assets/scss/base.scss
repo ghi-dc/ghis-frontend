@@ -9,10 +9,7 @@
  */
 @import 'color-definition.scss';
 
-$logo-width: 200px;
-$logo-outdent: 14px; /* corresponds with navbar padding-left: 1rem */
-$logo-indent-text: 53px - $logo-outdent;
-
+@import 'sizes.scss';
 
 @mixin header-line-above($color) {
     display: block;
