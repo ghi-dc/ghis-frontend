@@ -733,7 +733,7 @@ a.print-view {
     text-transform: none;
 }
 
-article, .article-part {
+article, .article, .article-part {
     &.introduction {
         h1 {
             display: block !important; /* override display: none; */
