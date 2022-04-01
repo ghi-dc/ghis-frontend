@@ -503,7 +503,7 @@ main.volume, main.section, main.introduction {
                 }
             }
 
-            &.active h2 {
+            &.active {
                 color: $color-gray-dark;
                 text-decoration-line: underline;
                 text-decoration-style: solid;
