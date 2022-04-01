@@ -56,9 +56,10 @@
         </div><!-- .row -->
         <ol class="row list-unstyled">
             {% for resource in resources %}
-            <li class="col-md-6 col-lg-4 resource d-flex flex-row">
+                {% set url = path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ resource.dtaDirname }) %}
+            <li class="col-md-6 col-lg-4 resource d-flex flex-row" onclick="location.href='{{ url }}';" style="cursor: pointer;">
                 <div class="label">
-                    <h4><a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ resource.dtaDirname }) }}">{{ resource.title }}</a></h4>
+                    <h4><a href="{{ url }}">{{ resource.title }}</a></h4>
                     <i class="icn icn-{{ resource.genre }}"></i>
                 </div>
             </li>
