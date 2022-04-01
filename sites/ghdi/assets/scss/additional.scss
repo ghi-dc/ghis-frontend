@@ -484,13 +484,18 @@ main.volume, main.section, main.introduction {
     }
 
     #contentsTab {
-        border-bottom: none;
-        margin-bottom: 1rem;
+        padding-bottom: 4px;
+        border-bottom: 4px solid $color-gray-light;
+        margin-bottom: 2rem;
 
         .nav-link {
             border: none;
+            padding: 0;
+            margin-right: 2rem;
 
             h2 {
+                margin-bottom: 0;
+
                 color: $color-color-link;
                 text-decoration: none;
 
@@ -503,7 +508,7 @@ main.volume, main.section, main.introduction {
                 }
             }
 
-            &.active {
+            &.active h2 {
                 color: $color-gray-dark;
                 text-decoration-line: underline;
                 text-decoration-style: solid;

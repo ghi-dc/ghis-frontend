@@ -44,18 +44,20 @@
         {% endif %}
         {% if sections is not empty or maps is not empty%}
         <div class="row">
-            <ul class="nav nav-tabs" id="contentsTab" role="tablist">
+            <div class="container-fluid">
+                <ul class="nav nav-tabs" id="contentsTab" role="tablist">
                 {% if sections is not empty  %}
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="contents-tab" data-bs-toggle="tab" data-bs-target="#contents" type="button" role="tab" aria-controls="home" aria-selected="true"><h2>{{ 'Contents'|trans }}</h2></button>
-                </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="contents-tab" data-bs-toggle="tab" data-bs-target="#contents" role="tab" aria-controls="contents" aria-selected="true"><h2>{{ 'Contents'|trans }}</h2></a>
+                    </li>
                 {% endif %}
                 {% if maps is not empty  %}
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contents-tab" data-bs-toggle="tab" data-bs-target="#maps" type="button" role="tab" aria-controls="home" aria-selected="true"><h2>{{ 'Maps'|trans }}</h2></button>
-                </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="maps-tab" data-bs-toggle="tab" data-bs-target="#maps" role="tab" aria-controls="maps" aria-selected="false"><h2>{{ 'Maps'|trans }}</h2></a>
+                    </li>
                 {% endif %}
-            </ul>
+                </ul>
+            </div>
         </div><!-- .row -->
         <div class="tab-content" id="contentsTabContent">
             {% if sections is not empty  %}
