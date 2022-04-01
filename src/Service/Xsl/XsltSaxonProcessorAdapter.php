@@ -3,15 +3,18 @@
 namespace App\Service\Xsl;
 
 /**
- * Requires http://www.saxonica.com/saxon-c/index.xml
+ * Requires https://www.saxonica.com/saxon-c/index.xml
  *
- * Note: Saxon/C EXT 1.1.x showed memory leaks that
- * required Web-Server adjustments for php-fpm setting
+ * Note:
+ * Saxon/C EXT 1.1.x has memory leaks that
+ * require Web-Server adjustments for php-fpm setting
  *  pm.max_requests =
  * to a low enough value.
  *
- * This might be fixed in the latest version, see
- *  https://externals.io/message/100749
+ * Saxon/C EXT 1.2.1 doesn't work (see https://saxonica.plan.io/issues/4371)
+ *
+ * Saxon/C 11.3 works for a single transformation but crashes on the
+ * actual site.
  */
 class XsltSaxonProcessorAdapter
 {
@@ -34,8 +37,14 @@ class XsltSaxonProcessorAdapter
     {
         $this->errors = [];
 
-        $saxonProc = new \Saxon\SaxonProcessor(true);
-        $proc = $saxonProc->newXsltProcessor();
+        $saxonProc = new \Saxon\SaxonProcessor();
+        $version = $saxonProc->version();
+
+        $oldApi = $version < 11;
+
+        $proc = $oldApi
+            ? $saxonProc->newXsltProcessor()
+            : $saxonProc->newXslt30Processor();
 
         if (array_key_exists('params', $options)) {
             foreach ($options['params'] as $name => $value) {
@@ -46,23 +55,49 @@ class XsltSaxonProcessorAdapter
             }
         }
 
-        $proc->setSourceFromFile($srcFilename);
-        $proc->compileFromFile($xslFilename);
+        if ($oldApi) {
+            $proc->setSourceFromFile($srcFilename);
+            $proc->compileFromFile($xslFilename);
 
-        $res = $proc->transformToString();
-        if (is_null($res)) {
-            // simple error-handling
-            $res = false;
+            $res = $proc->transformToString();
+            if (is_null($res)) {
+                // simple error-handling
+                $res = false;
 
-            $errCount = $proc->getExceptionCount();
-            for ($i = 0; $i < $errCount; $i++) {
-                $this->errors[] = (object) [ 'message' => $proc->getErrorMessage($i) ];
+                $errCount = $proc->getExceptionCount();
+                for ($i = 0; $i < $errCount; $i++) {
+                    $this->errors[] = (object) [ 'message' => $proc->getErrorMessage($i) ];
+                }
             }
-        }
 
-        $proc->clearParameters();
-        $proc->clearProperties();
-        unset($proc);
+            $proc->clearParameters();
+            $proc->clearProperties();
+            unset($proc);
+        }
+        else {
+            $proc->transformFileToFile($srcFilename, $xslFilename, $filename = tempnam(sys_get_temp_dir(), 'saxonc'));
+            $res = file_get_contents($filename);
+            unlink($filename);
+
+            /*
+             * // preferred variant if stable
+             * $executable = $proc->compileFromFile($xslFilename);
+             * $res = $executable->transformFileToString($srcFilename);
+             * if(is_null($res)) {
+             *      $res = false;
+             *      if ($executable->exceptionOccurred()){
+             *          $this->errors[] = (object) [
+             *             'code' => $executable->getErrorCode(),
+             *             'message' => $executable->getErrorMessage(),
+             *          ];
+             *          $proc->exceptionClear();
+             *     }
+             *  }
+             */
+
+            $proc->clearParameters();
+            unset($proc);
+        }
 
         return $res;
     }
