@@ -738,29 +738,28 @@ body[class*=" route-teaching"],
             }
         }
 
-        article h1 {
-            display: none !important; /* override: article .introduction h1 */
-        }
-
-        h2 {
-            &.source-head {
-                display: none;
+        article {
+            h1 {
+                display: none !important; /* override: article .introduction h1 */
             }
 
-            position: relative;
-            margin-top: 2rem;
-            padding-top: 0.5rem;
-
-            &:first-of-type {
-                margin-top: 0;
-                padding-top: 0;
+            div.article > div {
+                margin-bottom: 2rem;
             }
 
-            // font-weight: bold;
-            line-height: 1.2;
-            color: $color-color-spot;
-            text-transform: uppercase;
-            letter-spacing: 0.01em;
+            h2 {
+                text-decoration: none;
+                margin-bottom: 1rem;
+
+                &:first-of-type {
+                    margin-top: 0;
+                    padding-top: 0;
+                }
+
+                &.source-head {
+                    display: none;
+                }
+            }
         }
 
         h3 {
