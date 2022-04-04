@@ -8,80 +8,95 @@
 
 {% block maincontainer %}
 <main role="main" class="section {{ volume.getId(true) }}">
-{% block body %}
-<section class="top banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                {{ 'Chapter'|trans }} {{ navigation.currentCount + 1 }}
-                <h1>{{ section.title }}</h1>
-            </div>
-        </div><!-- .row -->
-    </div><!-- .container -->
-</section><!-- .section -->
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col col-md-8">
-                <ul class="breadcrumb">
-                    <li><a href="{{ path('home') }}">{{ 'Home'|trans }}</a></li>
-                    <li><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></li>
-                    <li>{{ 'Chapter'|trans }} ({{ navigation.currentCount + 1 }}/{{ navigation.totalCount }})</li>
-                </ul>
-            </div>
-        </div><!-- .row -->
+    {% block body %}
+    <section class="top banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    {{ 'Chapter'|trans }} {{ navigation.currentCount + 1 }}
+                    <h1>{{ section.title }}</h1>
+                </div>
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section><!-- .section -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-8">
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('home') }}">{{ 'Home'|trans }}</a></li>
+                        <li><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></li>
+                        <li>{{ 'Chapter'|trans }} ({{ navigation.currentCount + 1 }}/{{ navigation.totalCount }})</li>
+                    </ul>
+                </div>
+            </div><!-- .row -->
 
-        {% if note is defined and note is not empty %}
-        <div class="row margin-top">
-            <div class="col indent">
-                <h2>{{ 'Introduction'|trans }}</h2>
-                <div class="content">
-                    {{ note|raw }}
+            {% if note is defined and note is not empty %}
+            <div class="row margin-top">
+                <div class="col indent">
+                    <h2>{{ 'Introduction'|trans }}</h2>
+                    <div class="content">
+                        {{ note|raw }}
+                    </div>
                 </div>
-            </div>
-        </div><!-- .row -->
-        {% elseif section.note is not empty %}
-        <div class="row margin-top">
-            <div class="col indent">
-                <h2>{{ 'Introduction'|trans }}</h2>
-                {{ section.note }}
-            </div>
-        </div><!-- .row -->
-        {% endif %}
-        {% if resources is not empty %}
-        <div class="row">
-            <div class="col">
-                <h2 style="padding-bottom: 2rem">{{ 'Contents'|trans }}</h2>
-            </div>
-        </div><!-- .row -->
-        <ol class="row list-unstyled">
-            {% for resource in resources %}
-                {% set url = path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ resource.dtaDirname }) %}
-            <li class="col-md-6 col-lg-4 resource d-flex flex-row" onclick="location.href='{{ url }}';" style="cursor: pointer;">
-                <div class="label">
-                    <h4><a href="{{ url }}">{{ resource.title }}</a></h4>
-                    <i class="icn icn-{{ resource.genre }}"></i>
+            </div><!-- .row -->
+            {% elseif section.note is not empty %}
+            <div class="row margin-top">
+                <div class="col indent">
+                    <h2>{{ 'Introduction'|trans }}</h2>
+                    {{ section.note }}
                 </div>
-            </li>
-            {% endfor %}
-        </ol><!-- .row -->
-        {% endif %}
-        {% if navigation.previous is not null or navigation.next is not null %}
-        <ol class="row list-unstyled section-navigation">
-            <li class="col-md-6">
-                {% if navigation.previous is not null %}
-                <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}">&lt; {{ navigation.previous.title }}</a>
-                {% endif %}
-            </li>
-            <li class="col-md-6" style="text-align: right">
-                {% if navigation.next is not null %}
-                <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}">{{ navigation.next.title }} &gt;</a>
-                {% endif %}
-            </li>
-        </ol><!-- .row -->
-        {% endif %}
-    </div><!-- container -->
-</section>
-{% endblock %}
+            </div><!-- .row -->
+            {% endif %}
+            {% if resources is not empty %}
+            <div class="row">
+                <div class="col">
+                    <h2 style="padding-bottom: 2rem">{{ 'Contents'|trans }}</h2>
+                </div>
+            </div><!-- .row -->
+            <ol class="row list-unstyled">
+                {% for resource in resources %}
+                    {% set url = path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ resource.dtaDirname }) %}
+                <li class="col-md-6 col-lg-4 resource d-flex flex-row" onclick="location.href='{{ url }}';" style="cursor: pointer;">
+                    <div class="label">
+                        <h4><a href="{{ url }}">{{ resource.title }}</a></h4>
+                        <i class="icn icn-{{ resource.genre }}"></i>
+                    </div>
+                </li>
+                {% endfor %}
+            </ol><!-- .row -->
+            {% endif %}
+        </div><!-- container -->
+    </section>
+
+    {% if navigation.previous is not null or navigation.next is not null %}
+    <section class="bottom-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-between resource-navigation">
+                    {% if navigation.previous is not null %}
+                    <div class="p-2 previous">
+                        <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.previous.dtaDirname }) }}" title="{{ 'Previous Chapter'|trans }}">
+                            <div class="nav-control">&nbsp;</div>
+                            {{ navigation.previous.title|u.truncate(60, '...') }}
+                        </a>
+                    </div>
+                    {% else %}
+                        <div class="p-2"></div>
+                    {% endif %}
+                    {% if navigation.next is not null %}
+                    <div class="p-2 next">
+                        <a href="{{ path('dynamic', { 'path': volume.dtaDirname ~ '/' ~ navigation.next.dtaDirname }) }}" title="{{ 'Next Chapter'|trans }}">
+                            <div class="nav-control"></div>
+                            {{ navigation.next.title|u.truncate(60, '...') }}
+                        </a>
+                    </div>
+                    {% endif %}
+                </div><!-- .d-flex -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </section>
+    {% endif %}
+    {% endblock %}
 </main>
 {% endblock %}
