@@ -36,7 +36,8 @@
             {% if pagination is not null and meta is not empty %}
                 <div class="summary">
                     {{ 'Display'|trans }}:
-                        {% if pagination.totalItemCount < 2 %}{{ 'result.number_of_items'|trans({ 'count': pagination.totalItemCount}) }}
+                        {% if pagination.totalItemCount < 2 %}
+                            {{ 'result.number_of_items'|trans({ 'count': pagination.totalItemCount}) }}
                         {% else %}
                             {% set paginationData = pagination.paginationData %}
 

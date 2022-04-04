@@ -635,20 +635,56 @@ main.volume, main.section, main.introduction {
         }
     }
 
+    .summary {
+        color: $color-gray-medium;
+        font-style: normal;
+    }
+
+    .page-link {
+        border: none;
+
+        &:hover {
+            text-decoration: underline;
+            color: $color-color-link;
+
+            background-color: white;
+            border-color: none;
+        }
+
+        &:focus {
+            background-color: none;
+            box-shadow: none;
+        }
+    }
+
+    .page-item.active .page-link {
+        background-color: white;
+        color: $color-body-text;
+        &:hover {
+            text-decoration: none;
+            color: $color-body-text;
+        }
+    }
+
+    .page-item:first-child .page-link {
+        padding-left: 0;
+    }
+
     .search-entry {
         a {
             h3 {
                 /* source type icons */
                 &::before {
+                    background-color: $color-gray-medium;
                     content: '';
-                    font-size: 16px;
                     font-family: 'icomoon';
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: normal;
-                    color: #b6b6b6;
+                    color: white;
                     display: block;
                     float: left;
                     margin-left: -30px;
+                    padding: 2px;
                 }
                 &.document::before {
                     content: '\e914';
@@ -662,6 +698,9 @@ main.volume, main.section, main.introduction {
                 &.video::before {
                     content: '\e908';
                 }
+                &.volume::before, &.document-collection::before, &.introduction::before, &.map::before {
+                    display: none;
+                }
             }
         }
 
@@ -671,7 +710,8 @@ main.volume, main.section, main.introduction {
             font-style: italic;
             color: $color-gray-dark;
             .highlight {
-                font-weight: bold;
+                /* font-weight: bold; */
+                background-color: #FBF27D;
             }
         }
     }
