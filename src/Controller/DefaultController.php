@@ -22,43 +22,45 @@ class DefaultController extends BaseController
         // load the focus
         $info = Yaml::parseFile($this->getDataDir() . '/site.yaml');
         $focus = [];
-        if (is_array($info) && array_key_exists('focus', $info)) {
-            if (is_array($info['focus']) && count($info['focus']) > 0) {
-                $focus = $info['focus'][array_rand($info['focus'])];
-                foreach ($volumes as $volume) {
-                    if ($volume->getId() == $focus['volume']) {
-                        $focus['volume'] = $volume;
-                        break;
-                    }
+        $featured = [];
+
+        if (is_array($info) && array_key_exists('focus', $info)
+            && is_array($info['focus']) && count($info['focus']) > 0)
+        {
+            $focus = $info['focus'][array_rand($info['focus'])];
+            foreach ($volumes as $volume) {
+                if ($volume->getId() == $focus['volume']) {
+                    $focus['volume'] = $volume;
+                    break;
                 }
             }
         }
+        else {
+            // get random
+            foreach ([
+                    'document' => [ 'document' ],
+                    'image' => [ 'image' ],
+                    'audiovisual' => [ 'audio', 'video' ],
+                    'map' => [ 'map' ],
+                ] as $key => $genres)
+            {
+                $result = $this->contentService->getResourcesByGenres($genres,
+                    [ 'random_' . mt_rand() => 'ASC' ], 1, 0, true);
 
-        // get random
-        $featured = [];
-        foreach ([
-                'document' => [ 'document' ],
-                'image' => [ 'image' ],
-                'audiovisual' => [ 'audio', 'video' ],
-                'map' => [ 'map' ],
-            ] as $key => $genres)
-        {
-            $result = $this->contentService->getResourcesByGenres($genres,
-                [ 'random_' . mt_rand() => 'ASC' ], 1, 0, true);
+                if ($result['totalCount'] > 0) {
+                    if ('audiovisual' == $key) {
+                        $label = $translator->trans('Audio and Video', [], 'additional');
+                    }
+                    else {
+                        $label = /** @Ignore */$translator->trans(ucfirst($key) . 's', [], 'additional');
+                    }
 
-            if ($result['totalCount'] > 0) {
-                if ('audiovisual' == $key) {
-                    $label = $translator->trans('Audio and Video');
+                    $featured[$key] = [
+                        'label' => $label,
+                        'resource' => $result['resources'][0],
+                        'totalCount' => $result['totalCount'],
+                    ];
                 }
-                else {
-                    $label = /** @Ignore */$translator->trans(ucfirst($key) . 's');
-                }
-
-                $featured[$key] = [
-                    'label' => $label,
-                    'resource' => $result['resources'][0],
-                    'totalCount' => $result['totalCount'],
-                ];
             }
         }
 
