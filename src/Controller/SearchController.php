@@ -23,6 +23,10 @@ class SearchController extends BaseController
             'field' => 'genre_s',
             'label' => 'Source Type',
         ],
+        'volume' => [
+            'field' => 'volume_id_s',
+            'label' => 'Volume',
+        ],
         'term' => [
             'field' => 'path_s',
             'label' => 'Keyword',
@@ -255,6 +259,23 @@ class SearchController extends BaseController
                 break;
                 */
 
+            case 'volume':
+                $volumesById = [];
+                foreach ($this->contentService->getVolumes() as $volume) {
+                    $volumesById[$volume->getId(true)] = $volume;
+                }
+                foreach ($facetResult->getValues() as $key => $count) {
+                    if (0 == $count || !array_key_exists($key, $volumesById)) {
+                        continue;
+                    }
+
+                    $ret[$key] = [
+                        'label' => $volumesById[$key]->getTitle(),
+                        'count' => $count,
+                    ];
+                }
+                break;
+
             default:
                 $ret = [];
                 foreach ($facetResult->getValues() as $key => $count) {
@@ -361,7 +382,7 @@ class SearchController extends BaseController
         $meta['facet'] = [];
         foreach ($this->facets as $facetName => $descr) {
             $facet = $resultset->getFacetSet()->getFacet($facetName);
-            if (!is_null($facet) && count($facet) > 1) {
+            if (!is_null($facet) && count($facet) >= 1) {
                 $meta['facet'][$facetName] = $this->buildFacet($facetName, $facet);
             }
         }
