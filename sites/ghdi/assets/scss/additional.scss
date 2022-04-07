@@ -887,7 +887,7 @@ aside {
         letter-spacing: 0.05em;
         /* text-transform: uppercase; */
         font-weight: bold;
-        color: $color-color-spot;
+        color: black;
     }
 
     ul.tag-list {
@@ -896,9 +896,9 @@ aside {
 
         li {
             display: inline-block;
-            padding: .5em .9em .6em .9em;
+            padding: .1em .6em .1em .6em;
             margin: 0 .25em .5em 0;
-            background-color: $color-gray-light;
+            background-color: $color-gray-ultralight;
         }
     }
 }
