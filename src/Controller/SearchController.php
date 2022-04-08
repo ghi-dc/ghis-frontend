@@ -12,6 +12,8 @@ use Knp\Component\Pager\PaginatorInterface;
 
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
 
+use Solarium\Component\Facet\JsonTerms;
+
 use App\Service\ContentService;
 
 class SearchController extends BaseController
@@ -28,7 +30,9 @@ class SearchController extends BaseController
             'label' => 'Volume',
         ],
         /*
-        // for facetting on child documents, we need to switch to json.facet
+        // for facetting on child documents, see
+        // https://blog.griddynamics.com/multi-select-faceting-for-nested-documents-in-solr/
+        // https://hiep-le.com/2020/05/22/search-and-faceting-on-nested-documents-with-solr-8/
         'term' => [
             'field' => 'path_s',
             'label' => 'Keyword',
@@ -219,10 +223,10 @@ class SearchController extends BaseController
     }
 
     /**
-     * Create facets and add corresponding filters to the solr query
+     * Add facets and corresponding filters to the solr query
      * for currently active filters
      */
-    protected function createFacets($solrQuery, $filter = [])
+    protected function addFacets($solrQuery, $filter = [])
     {
         // get the facetset component
         $facetSet = $solrQuery->getFacetSet();
@@ -232,16 +236,18 @@ class SearchController extends BaseController
             $field = array_key_exists('field', $descr)
                 ? $descr['field'] : $facetName . '_s'; // default is string fields
 
-            // create a facet field
-            $facetField = $facetSet
-                ->createFacetField([
-                    'key' => $facetName,
-                    'field' => $field,
-                    'exclude' => $facetName,
-                ])
-                // ->setMinCount(1) // only get the ones with matches
-                ->setLimit(1000) // increase from 100
-                ;
+            // https://solr.apache.org/guide/8_1/json-facet-api.html
+            $facetField = new JsonTerms([
+                'local_key' => $facetName,
+                'field' => $field,
+                // https://solr.apache.org/guide/8_1/json-faceting-domain-changes.html#filter-exclusions
+                'domain' => [ 'excludeTags' => $facetName ],
+                // 'limit' => 1000, // increase from 100
+                // JSON terms facets include the ability to get a total number of buckets,
+                // irrespective of the number requested by 'limit', by including 'numBuckets':true.
+                // 'numBuckets' => true,
+            ]);
+            $facetSet->addFacet($facetField);
 
             // if a filter is active, add the corresponding filter-query
             if (!empty($filter[$facetName])) {
@@ -295,8 +301,13 @@ class SearchController extends BaseController
                     $volumesById[$volume->getId(true)] = $volume;
                 }
 
-                foreach ($facetResult->getValues() as $key => $count) {
-                    if (0 == $count || !array_key_exists($key, $volumesById)) {
+                foreach ($facetResult->getBuckets() as $bucket) {
+                    if (0 == ($count = $bucket->getCount())) {
+                        continue;
+                    }
+
+                    $key = $bucket->getValue();
+                    if (!array_key_exists($key, $volumesById)) {
                         continue;
                     }
 
@@ -309,10 +320,12 @@ class SearchController extends BaseController
 
             default:
                 $ret = [];
-                foreach ($facetResult->getValues() as $key => $count) {
-                    if (0 == $count) {
+                foreach ($facetResult->getBuckets() as $bucket) {
+                    if (0 == ($count = $bucket->getCount())) {
                         continue;
                     }
+
+                    $key = $bucket->getValue();
 
                     $ret[$key] = [
                         'label' => $key,
@@ -371,7 +384,7 @@ class SearchController extends BaseController
         }
 
         // facetting
-        $this->createFacets($solrQuery, $filter);
+        $this->addFacets($solrQuery, $filter);
 
         // highlighting
         $hl = $solrQuery->getHighlighting();
