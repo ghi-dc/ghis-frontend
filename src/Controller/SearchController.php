@@ -192,9 +192,8 @@ class SearchController extends BaseController
             $q = trim($request->request->get('q'));
         }
         else {
-            $q = trim($request->query->get('q'));
-            if (empty($q)) {
-                $q = null;
+            if ($request->query->has('q')) {
+                $q = trim($request->query->get('q'));
             }
 
             $filter = $request->query->get('filter');
