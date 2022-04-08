@@ -27,26 +27,22 @@ class SearchController extends BaseController
             'field' => 'volume_id_s',
             'label' => 'Volume',
         ],
+        /*
+        // for facetting on child documents, we need to switch to json.facet
         'term' => [
             'field' => 'path_s',
             'label' => 'Keyword',
         ],
+        */
     ];
 
     private $paginator;
 
-    public function __construct(ContentService $contentService,
-                                KernelInterface $kernel,
-                                SettableThemeContext $themeContext,
-                                PaginatorInterface $paginator,
-                                $dataDir, $siteKey)
-    {
-        parent::__construct($contentService, $kernel, $themeContext, $dataDir, $siteKey);
-
-        $this->paginator = $paginator;
-    }
-
-    static function removeAccents($string)
+    /**
+     * The following two function are currently unused helpers
+     * for sorting facet results
+     */
+    protected static function removeAccents($string)
     {
         if (!preg_match('/[\x80-\xff]/', $string)) {
             return $string;
@@ -164,6 +160,23 @@ class SearchController extends BaseController
                        str_replace('.', 'Ω', mb_strtolower(self::removeAccents($b))));
     }
 
+    /**
+     * Override parent constructor to inject PaginatorInterface $paginator
+     */
+    public function __construct(ContentService $contentService,
+                                KernelInterface $kernel,
+                                SettableThemeContext $themeContext,
+                                PaginatorInterface $paginator,
+                                $dataDir, $siteKey)
+    {
+        parent::__construct($contentService, $kernel, $themeContext, $dataDir, $siteKey);
+
+        $this->paginator = $paginator;
+    }
+
+    /**
+     * Determine fulltext query and filter conditions from $request
+     */
     protected function getQuery(Request $request, $facetNames = [])
     {
         $q = null; $filter = [];
@@ -192,29 +205,32 @@ class SearchController extends BaseController
         return [ $q, $filter ];
     }
 
-    public function createFacets($solrQuery, $filter = [])
+    /**
+     * Build a filter query on $field for value $filter[$facetName]
+     * If the values aren't from a restricted set with known properties,
+     * as in our case, proper escaping might be needed
+     */
+    protected function buildFilterQuery($field, $filter, $facetName)
+    {
+        switch ($facetName) {
+            default:
+                return $field . ':' . $filter[$facetName];
+        }
+    }
+
+    /**
+     * Create facets and add corresponding filters to the solr query
+     * for currently active filters
+     */
+    protected function createFacets($solrQuery, $filter = [])
     {
         // get the facetset component
         $facetSet = $solrQuery->getFacetSet();
 
         // create the facets
         foreach ($this->facets as $facetName => $descr) {
-            if ('term' == $facetName) {
-                // we handle term directly
-                continue;
-            }
-
             $field = array_key_exists('field', $descr)
                 ? $descr['field'] : $facetName . '_s'; // default is string fields
-
-            if (!empty($filter[$facetName])) {
-                // set a filter-query to this value
-                $solrQuery->addFilterQuery([
-                    'key' => $facetName,
-                    'tag' => $facetName,
-                    'query' => $this->buildFilterQuery($field, $filter, $facetName),
-                ]);
-            }
 
             // create a facet field
             $facetField = $facetSet
@@ -224,18 +240,33 @@ class SearchController extends BaseController
                     'exclude' => $facetName,
                 ])
                 // ->setMinCount(1) // only get the ones with matches
-                ->setLimit(1000) // increase from 100 for author and topic
+                ->setLimit(1000) // increase from 100
                 ;
+
+            // if a filter is active, add the corresponding filter-query
+            if (!empty($filter[$facetName])) {
+                if ('term' != $facetName) {
+                    // we handle filter-query for term together with !parent blockjoin
+                    // therefore ignore it here
+
+                    // set a filter-query to this value
+                    $solrQuery->addFilterQuery([
+                        'key' => $facetName,
+                        'tag' => $facetName,
+                        'query' => $this->buildFilterQuery($field, $filter, $facetName),
+                    ]);
+                }
+            }
         }
     }
 
-    protected function buildFacet($name, $facetResult)
+    /**
+     * Expand facet response for display
+     */
+    protected function expandFacetResult($name, $facetResult)
     {
         switch ($name) {
-            /*
-            case 'region':
-            case 'period':
-            case 'subject':
+            case 'term':
                 $ret = [];
                 foreach ($facetResult->getValues() as $key => $count) {
                     if (0 == $count) {
@@ -257,13 +288,13 @@ class SearchController extends BaseController
                 }
 
                 break;
-                */
 
             case 'volume':
                 $volumesById = [];
                 foreach ($this->contentService->getVolumes() as $volume) {
                     $volumesById[$volume->getId(true)] = $volume;
                 }
+
                 foreach ($facetResult->getValues() as $key => $count) {
                     if (0 == $count || !array_key_exists($key, $volumesById)) {
                         continue;
@@ -302,14 +333,9 @@ class SearchController extends BaseController
         return $ret;
     }
 
-    protected function buildFilterQuery($field, $filter, $facetName)
-    {
-        switch ($facetName) {
-            default:
-                return $field . ':' . $filter[$facetName];
-        }
-    }
-
+    /**
+     * Build and execute the paginated solr query
+     */
     protected function doQuery(Request $request, $q, $filter, $resultsPerPage)
     {
         // native query
@@ -329,20 +355,13 @@ class SearchController extends BaseController
 
         $solrQuery->addFilterQuery([
             'key' => 'entity_s',
-            // 'query' => 'id:teifull_*',
             'query' => '{!parent which="+id:teifull_*"}'
                 . (!empty($filter['term'])
                           ? 'path_s:' . $helper->escapeTerm($filter['term']) . '*'
                           : ''),
         ]);
 
-        // paging
-        $solrQuery
-            ->setStart(0)
-            ->setRows($resultsPerPage)
-            ;
-
-        // actual query
+        // fulltext query
         $edismax = $solrQuery->getEdisMax();
         $edismax->setQueryFields('_text_');
         $edismax->setMinimumMatch('100%');
@@ -351,12 +370,12 @@ class SearchController extends BaseController
             $solrQuery->setQuery($q);
         }
 
+        // facetting
         $this->createFacets($solrQuery, $filter);
 
         // highlighting
         $hl = $solrQuery->getHighlighting();
         $hl->setFields('highlight');
-        // hl.requireFieldMatch=true.
         $hl->setSimplePrefix('<span class="highlight">');
         $hl->setSimplePostfix('</span>');
 
@@ -383,7 +402,7 @@ class SearchController extends BaseController
         foreach ($this->facets as $facetName => $descr) {
             $facet = $resultset->getFacetSet()->getFacet($facetName);
             if (!is_null($facet) && count($facet) >= 1) {
-                $meta['facet'][$facetName] = $this->buildFacet($facetName, $facet);
+                $meta['facet'][$facetName] = $this->expandFacetResult($facetName, $facet);
             }
         }
 
