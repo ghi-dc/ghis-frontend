@@ -338,7 +338,7 @@ class SearchController extends BaseController
             switch ($name) {
                 case 'volume':
                     if (!array_key_exists($key, $labelsByKey)) {
-                        continue;
+                        continue 2;
                     }
 
                     $ret[$key] = [
@@ -349,7 +349,7 @@ class SearchController extends BaseController
 
                 case 'term':
                     if (!array_key_exists($key, $labelsByKey)) {
-                        continue;
+                        continue 2;
                     }
 
                     $ret[$key] = [
