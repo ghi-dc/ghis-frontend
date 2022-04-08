@@ -29,15 +29,18 @@ class SearchController extends BaseController
             'field' => 'volume_id_s',
             'label' => 'Volume',
         ],
-        /*
+
         // for facetting on child documents, see
         // https://blog.griddynamics.com/multi-select-faceting-for-nested-documents-in-solr/
         // https://hiep-le.com/2020/05/22/search-and-faceting-on-nested-documents-with-solr-8/
         'term' => [
             'field' => 'path_s',
             'label' => 'Keyword',
+            'domain' =>  [
+                'excludeTags' => 'top',
+                'blockChildren' => 'id:teifull_*',
+            ],
         ],
-        */
     ];
 
     private $paginator;
@@ -236,12 +239,16 @@ class SearchController extends BaseController
             $field = array_key_exists('field', $descr)
                 ? $descr['field'] : $facetName . '_s'; // default is string fields
 
+            $domain = array_key_exists('domain', $descr)
+                ? $descr['domain']
+                : [ 'excludeTags' => $facetName ] // https://solr.apache.org/guide/8_1/json-faceting-domain-changes.html#filter-exclusions
+                ;
+
             // https://solr.apache.org/guide/8_1/json-facet-api.html
             $facetField = new JsonTerms([
                 'local_key' => $facetName,
                 'field' => $field,
-                // https://solr.apache.org/guide/8_1/json-faceting-domain-changes.html#filter-exclusions
-                'domain' => [ 'excludeTags' => $facetName ],
+                'domain' => $domain,
                 // 'limit' => 1000, // increase from 100
                 // JSON terms facets include the ability to get a total number of buckets,
                 // irrespective of the number requested by 'limit', by including 'numBuckets':true.
@@ -269,69 +276,94 @@ class SearchController extends BaseController
     /**
      * Expand facet response for display
      */
-    protected function expandFacetResult($name, $facetResult)
+    protected function expandFacetResult($name, $facetResult, $append = null)
     {
-        switch ($name) {
-            case 'term':
-                $ret = [];
-                foreach ($facetResult->getValues() as $key => $count) {
-                    if (0 == $count) {
-                        continue;
-                    }
+        $counts = [];
 
-                    $path = rtrim($key, ',');
-                    $parts = explode(',', $path);
-                    $label = $parts[count($parts) - 1];
-                    if (preg_match('/(.*)\-(\d+)$/', $label, $matches)) {
-                        $label = $matches[1];
-                        $key = $matches[2];
+        foreach ($facetResult->getBuckets() as $bucket) {
+            if (0 == ($count = $bucket->getCount())) {
+                continue;
+            }
+
+            $counts[$bucket->getValue()] = $count;
+        }
+
+        if (!is_null($append)) {
+            // append active term if it is not in $facetResult because limit is too low
+            foreach ($append as $key => $count) {
+                if (!array_key_exists($key, $counts)) {
+                    $counts[$key] = $count;
+                }
+            }
+        }
+
+        $ret = [];
+        if (empty($counts)) {
+            return $ret;
+        }
+
+        // build labels
+        $labelsByKey = [];
+        if ('volume' == $name) {
+            foreach ($this->contentService->getVolumes() as $volume) {
+                $labelsByKey[$volume->getId(true)] = $volume;
+            }
+        }
+        else if ('term' == $name) {
+            // get a select query instance
+            $solrClient = $this->contentService->getSolrClient();
+            $solrQuery = $solrClient->createSelect();
+            $solrQuery->setFields('path_s,name_s');
+
+            // create a filterquery
+            $orCondition = join(' OR ', array_map(function ($term) { return '"' . $term . '"'; },
+                                                  array_keys($counts)));
+            $solrQuery->createFilterQuery('path')->setQuery('path_s:(' . $orCondition . ')');
+
+            // get grouping component and set a field to group by
+            $groupComponent = $solrQuery->getGrouping();
+            $groupComponent->addField('path_s');
+            $groupComponent->setNumberOfGroups(false);
+            // $groupComponent->setMainResult(true); // disabled, doesn't seem to work with $resultset->getGrouping
+            $resultset = $solrClient->select($solrQuery);
+            foreach ($resultset->getGrouping() as $groupKey => $group) {
+                foreach ($group as $valueGroup) {
+                    $doc = $valueGroup->getDocuments()[0];
+                    $labelsByKey[$doc['path_s']] = $doc['name_s'];
+                }
+            }
+        }
+
+        foreach ($counts as $key => $count) {
+            switch ($name) {
+                case 'volume':
+                    if (!array_key_exists($key, $labelsByKey)) {
+                        continue;
                     }
 
                     $ret[$key] = [
-                        'label' => $label,
+                        'label' => $labelsByKey[$key]->getTitle(),
                         'count' => $count,
                     ];
-                }
+                    break;
 
-                break;
-
-            case 'volume':
-                $volumesById = [];
-                foreach ($this->contentService->getVolumes() as $volume) {
-                    $volumesById[$volume->getId(true)] = $volume;
-                }
-
-                foreach ($facetResult->getBuckets() as $bucket) {
-                    if (0 == ($count = $bucket->getCount())) {
-                        continue;
-                    }
-
-                    $key = $bucket->getValue();
-                    if (!array_key_exists($key, $volumesById)) {
+                case 'term':
+                    if (!array_key_exists($key, $labelsByKey)) {
                         continue;
                     }
 
                     $ret[$key] = [
-                        'label' => $volumesById[$key]->getTitle(),
+                        'label' => $labelsByKey[$key],
                         'count' => $count,
                     ];
-                }
-                break;
+                    break;
 
-            default:
-                $ret = [];
-                foreach ($facetResult->getBuckets() as $bucket) {
-                    if (0 == ($count = $bucket->getCount())) {
-                        continue;
-                    }
-
-                    $key = $bucket->getValue();
-
+                default:
                     $ret[$key] = [
                         'label' => $key,
                         'count' => $count,
                     ];
-                }
+            }
         }
 
         /*
@@ -368,7 +400,7 @@ class SearchController extends BaseController
 
         $solrQuery->addFilterQuery([
             'key' => 'entity_s',
-            'query' => '{!parent which="+id:teifull_*"}'
+            'query' => '{!parent tag=top which="+id:teifull_*"}'
                 . (!empty($filter['term'])
                           ? 'path_s:' . $helper->escapeTerm($filter['term']) . '*'
                           : ''),
@@ -415,7 +447,12 @@ class SearchController extends BaseController
         foreach ($this->facets as $facetName => $descr) {
             $facet = $resultset->getFacetSet()->getFacet($facetName);
             if (!is_null($facet) && count($facet) >= 1) {
-                $meta['facet'][$facetName] = $this->expandFacetResult($facetName, $facet);
+                $append = null;
+                if (!empty($filter[$facetName])) {
+                    $append = [ $filter[$facetName] => $meta['numFound'] ];
+                }
+
+                $meta['facet'][$facetName] = $this->expandFacetResult($facetName, $facet, $append);
             }
         }
 
