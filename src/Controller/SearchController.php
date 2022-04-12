@@ -30,12 +30,14 @@ class SearchController extends BaseController
             'label' => 'Volume',
         ],
 
-        // for facetting on child documents, see
-        // https://blog.griddynamics.com/multi-select-faceting-for-nested-documents-in-solr/
-        // https://hiep-le.com/2020/05/22/search-and-faceting-on-nested-documents-with-solr-8/
         'term' => [
             'field' => 'path_s',
             'label' => 'Keyword',
+            'limit' => 15,
+
+            // for facetting on child documents, see
+            // https://blog.griddynamics.com/multi-select-faceting-for-nested-documents-in-solr/
+            // https://hiep-le.com/2020/05/22/search-and-faceting-on-nested-documents-with-solr-8/
             'domain' =>  [
                 'excludeTags' => 'top',
                 'blockChildren' => 'id:teifull_*',
@@ -246,13 +248,18 @@ class SearchController extends BaseController
             // https://solr.apache.org/guide/8_1/json-facet-api.html
             $facetField = new JsonTerms([
                 'local_key' => $facetName,
-                'field' => $field,
+                'field' => $field, // The field name to facet over.
                 'domain' => $domain,
-                // 'limit' => 1000, // increase from 100
+                // 'limit' => 100, // Limits the number of buckets returned. Defaults to 10.
                 // JSON terms facets include the ability to get a total number of buckets,
-                // irrespective of the number requested by 'limit', by including 'numBuckets':true.
+                // irrespective of the number requested by 'limit', by including 'numBuckets': true.
                 // 'numBuckets' => true,
             ]);
+
+            if (array_key_exists('limit', $descr)) {
+                $facetField->setLimit($descr['limit']);
+            }
+
             $facetSet->addFacet($facetField);
 
             // if a filter is active, add the corresponding filter-query
@@ -313,6 +320,7 @@ class SearchController extends BaseController
             $solrClient = $this->contentService->getSolrClient();
             $solrQuery = $solrClient->createSelect();
             $solrQuery->setFields('path_s,name_s');
+            $solrQuery->setRows(count($counts)); // fetch everything in a single call
 
             // create a filterquery
             $orCondition = join(' OR ', array_map(function ($term) { return '"' . $term . '"'; },
