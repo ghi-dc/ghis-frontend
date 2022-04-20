@@ -44,7 +44,6 @@
 
 <section class="stripe">
     <div class="container">
-
     {% if volumes|length > 0 %}
         <div class="row section">
             <div class="col-sm-3"><h3>{{ 'Volumes'|trans }}</h3></div>
@@ -53,10 +52,12 @@
         <div class="row volumes">
         {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
         {% for volume in volumes %}
+            {% if volume.id != 'ghdi:volume-4' %}
             <div class="col-sm-{{ numCols}} hyphens-auto">
                 <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a>
                 {#{ volume.note }#}
             </div>
+            {% endif %}
         {% endfor %}
         </div>
     {% endif %}
