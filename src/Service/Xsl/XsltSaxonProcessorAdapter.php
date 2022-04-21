@@ -14,7 +14,7 @@ namespace App\Service\Xsl;
  * Saxon/C EXT 1.2.1 doesn't work (see https://saxonica.plan.io/issues/4371)
  *
  * Saxon/C 11.3 works for a single transformation but crashes on the
- * actual site.
+ * actual site, see https://saxonica.plan.io/issues/5449.
  */
 class XsltSaxonProcessorAdapter
 {
@@ -75,25 +75,35 @@ class XsltSaxonProcessorAdapter
             unset($proc);
         }
         else {
+            /*
             $proc->transformFileToFile($srcFilename, $xslFilename, $filename = tempnam(sys_get_temp_dir(), 'saxonc'));
             $res = file_get_contents($filename);
             unlink($filename);
+            */
 
-            /*
-             * // preferred variant if stable
-             * $executable = $proc->compileFromFile($xslFilename);
-             * $res = $executable->transformFileToString($srcFilename);
-             * if(is_null($res)) {
-             *      $res = false;
-             *      if ($executable->exceptionOccurred()){
-             *          $this->errors[] = (object) [
-             *             'code' => $executable->getErrorCode(),
-             *             'message' => $executable->getErrorMessage(),
-             *          ];
-             *          $proc->exceptionClear();
-             *     }
-             *  }
-             */
+            $executable = $proc->compileFromFile($xslFilename);
+
+            // the following doesn't work yet, see https://saxonica.plan.io/issues/5449#change-20293
+            // $res = $executable->transformFileToString($srcFilename);
+
+            // use the following workaround instead
+            $executable->setInitialMatchSelectionAsFile($srcFilename);
+            $executable->setGlobalContextFromFile($srcFilename);
+            $res = $executable->applyTemplatesReturningString();
+
+            if (is_null($res)) {
+                $res = false;
+                if ($executable->exceptionOccurred()){
+                    $this->errors[] = (object) [
+                        'code' => $executable->getErrorCode(),
+                        'message' => $executable->getErrorMessage(),
+                    ];
+                    $proc->exceptionClear();
+                }
+            }
+
+            $executable->clearParameters();
+            $executable->clearProperties();
 
             $proc->clearParameters();
             unset($proc);
