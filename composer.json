@@ -5,6 +5,18 @@
         {
             "type": "vcs",
             "url": "https://github.com/boppy/SolrBundle.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "citation-style-language/locales",
+                "version": "1.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/citation-style-language/locales.git",
+                    "reference": "master"
+                }
+            }
         }
     ],
     "require": {
@@ -13,6 +25,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "armin/scssphp-bundle": "^1.1",
+        "citation-style-language/locales": "^1.0",
         "doctrine/annotations": "^1.0",
         "edwinhoksberg/octicons-php": "^1.1",
         "fluentdom/fluentdom": "^8.0",
@@ -29,6 +42,7 @@
         "picturae/oai-pmh": "0.5.20",
         "presta/sitemap-bundle": "^3.3",
         "sabre/xml": "^1.5",
+        "seboettg/citeproc-php": "^2.2",
         "sensio/framework-extra-bundle": "^5.1",
         "sylius/theme-bundle": "^2.1",
         "symfony/asset": "^5.4",

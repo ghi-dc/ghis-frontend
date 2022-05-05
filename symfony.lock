@@ -17,6 +17,9 @@
     "boppy/solr-bundle": {
         "version": "dev-master"
     },
+    "citation-style-language/locales": {
+        "version": "1.0.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
@@ -115,6 +118,9 @@
     },
     "myclabs/deep-copy": {
         "version": "1.10.2"
+    },
+    "myclabs/php-enum": {
+        "version": "1.8.3"
     },
     "netresearch/jsonmapper": {
         "version": "v2.1.0"
@@ -279,6 +285,12 @@
     },
     "sebastian/version": {
         "version": "3.0.2"
+    },
+    "seboettg/citeproc-php": {
+        "version": "v2.2.5"
+    },
+    "seboettg/collection": {
+        "version": "v2.1.1"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
