@@ -554,7 +554,7 @@ class ResourceController extends BaseController
 
         $citeProc = new \Seboettg\CiteProc\CiteProc(file_get_contents($cslPath), $cslLocale);
 
-        return sprintf('<div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/ghdi_bibliography/collections/%s" target="_blank">%s</a></div>',
+        return sprintf('<div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div>',
                        $dataAsObject->{'group-id'},
                        $dataAsObject->key,
                        $translator->trans('View in Zotero Groups Library', [], 'additional'))
