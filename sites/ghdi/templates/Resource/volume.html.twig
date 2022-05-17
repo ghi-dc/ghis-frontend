@@ -42,7 +42,7 @@
             </div>
         </div><!-- .row -->
         {% endif %}
-        {% if sections is not empty or maps is not empty%}
+        {% if sections is not empty or maps is not empty or bibliography is not empty %}
         <div class="row">
             <div class="container-fluid">
                 <ul class="nav nav-tabs" id="contentsTab" role="tablist">
@@ -54,6 +54,11 @@
                 {% if maps is not empty  %}
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="maps-tab" data-bs-toggle="tab" data-bs-target="#maps" role="tab" aria-controls="maps" aria-selected="false"><h2>{{ 'Maps'|trans }}</h2></a>
+                    </li>
+                {% endif %}
+                {% if bibliography is not empty  %}
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="bibliography-tab" data-bs-toggle="tab" data-bs-target="#bibliography" role="tab" aria-controls="bibliography" aria-selected="false"><h2>{{ 'Bibliography'|trans }}</h2></a>
                     </li>
                 {% endif %}
                 </ul>
@@ -89,6 +94,15 @@
                         </div>
                     </div>
                 {% endfor %}
+                </div><!-- .row -->
+            </div>
+            {% endif %}
+            {% if bibliography is not empty %}
+            <div class="tab-pane fade show container-fluid p-0" id="bibliography" role="tabpanel" aria-labelledby="bibliography-tab">
+                <div class="row">
+                    <div class="col-md-8">
+                        {{ bibliography|raw }}
+                    </div>
                 </div><!-- .row -->
             </div>
             {% endif %}

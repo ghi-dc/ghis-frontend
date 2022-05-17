@@ -189,6 +189,22 @@ footer {
     }
 }
 
+/* bibliography */
+.zotero-group-link {
+    text-align: right;
+    margin-bottom: 2rem;
+
+    a, a:link, a:visited {
+        color: $color-gray-dark;
+        text-decoration: underline;
+    }
+}
+
+.csl-bib-body {
+    .csl-entry {
+        margin-bottom: 1rem;
+    }
+}
 
 /* route-specific styles */
 body.route-home {

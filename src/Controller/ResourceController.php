@@ -466,9 +466,105 @@ class ResourceController extends BaseController
     }
 
     /**
+     * Localize certain publisher-place
+     */
+    protected function localizePublisherPlace(&$dataAsObject, $locale)
+    {
+        static $LOCALIZATIONS = [
+            'en' => [
+                'Köln' => 'Cologne',
+                'München' => 'Munich',
+                'Wien' => 'Vienna',
+            ],
+            'de' => [
+                'Cologne' => 'Köln',
+                'Munich' => 'München',
+                'Vienna' => 'Wien',
+            ],
+        ];
+
+        if (!array_key_exists($locale, $LOCALIZATIONS)) {
+            return;
+        }
+
+        for ($i = 0; $i < count($dataAsObject); $i++) {
+            $publication = & $dataAsObject[$i];
+            if (property_exists($publication, 'publisher-place')) {
+                foreach ($LOCALIZATIONS[$locale] as $search => $replace) {
+                    $publication->{'publisher-place'} = preg_replace('/\b' . preg_quote($search, '/') . '\b/',
+                                                                     $replace,
+                                                                     $publication->{'publisher-place'});
+                }
+            }
+        }
+    }
+
+    /**
+     * Tweak CiteProc output
+     */
+    protected function postProcessBiblio($biblio, $cslLocale)
+    {
+        if ('de-DE' == $cslLocale) {
+            // . übersetzt von doesn't get properly capitalized
+            $biblio = str_replace('. übersetzt von', '. Übersetzt von', $biblio);
+        }
+
+        /* vertical-align: super doesn't render nicely:
+           http://stackoverflow.com/a/1530819/2114681
+        */
+        $biblio = preg_replace('/style="([^"]*)vertical\-align\:\s*super;([^"]*)"/',
+                               'style="\1vertical-align: top; font-size: 66%;\2"', $biblio);
+
+        return $biblio;
+    }
+
+    /**
+     * Render bibliography
+     */
+    public function buildBibliography($volume, $translator, $locale)
+    {
+        $fname = 'chicago-author-date-append.csl';
+        $cslLocale = 'en-US';
+
+        switch ($locale) {
+            case 'de':
+                $cslLocale = 'de-DE';
+                break;
+        }
+
+        $volumeId = $volume->getId(true);
+        $dataPath = join(DIRECTORY_SEPARATOR, [
+            $this->dataDir, 'volumes', $volumeId,
+            str_replace('volume-', 'bibliography-', $volumeId) . '.json',
+        ]);
+
+        if (!file_exists($dataPath)) {
+            return;
+        }
+
+        $dataAsObject = json_decode(file_get_contents($dataPath));
+        if (false === $dataAsObject) {
+            return;
+        }
+
+        $this->localizePublisherPlace($dataAsObject->data, $locale);
+
+        $cslPath = $this->getDataDir() . '/csl/'
+            . $fname;
+
+        $citeProc = new \Seboettg\CiteProc\CiteProc(file_get_contents($cslPath), $cslLocale);
+
+        return sprintf('<div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/ghdi_bibliography/collections/%s" target="_blank">%s</a></div>',
+                       $dataAsObject->{'group-id'},
+                       $dataAsObject->key,
+                       $translator->trans('View in Zotero Groups Library', [], 'additional'))
+            . $this->postProcessBiblio(@$citeProc->render($dataAsObject->data), $cslLocale);
+    }
+
+    /**
      * Render volume ToC
      */
-    public function volumeAction(Request $request, $volume)
+    public function volumeAction(Request $request, TranslatorInterface $translator, $volume)
     {
         $this->contentService->setLocale($request->getLocale());
 
@@ -486,6 +582,7 @@ class ResourceController extends BaseController
             'introduction' => $this->contentService->getIntroduction($volume),
             'sections' => $this->contentService->getSections($volume),
             'maps' => $this->contentService->getMaps($volume),
+            'bibliography' => $this->buildBibliography($volume, $translator, $request->getLocale()),
             'navigation' => $this->contentService->buildNavigation($volume),
         ] + $this->buildLocaleSwitch($volume));
     }
