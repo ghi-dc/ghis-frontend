@@ -59,8 +59,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					reproduction research and administration. She also supports the GHDI editorial
 					program and is the contact person for digital maps. Katja also works on <hi
 						rendition="#i">German History Intersections</hi> and <hi rendition="#i"
-							>Migrant Connections</hi> and edits the GHI’s digital history blog <hi rendition="#i"><ref
-						target="https://href.hypotheses.org/">href</ref></hi>. </p>
+						>Migrant Connections</hi> and edits the GHI’s digital history blog <hi
+						rendition="#i"><ref target="https://href.hypotheses.org/">href</ref></hi>.
+				</p>
 			</div>
 
 			<div n="3">
@@ -101,9 +102,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 			<div n="3">
 				<head>Josh Seale</head>
-				<p> Josh Seale supports the GHDI editorial program as a copyeditor, translator,
-					proofreader, and researcher. He also digitizes textual sources and prepares them
-					for TEI markup. Josh is also a key member of the GHI events team. </p>
+				<p> Josh Seale was a GHDI project contributor in 2021–2022, during which time he
+					supported the editorial program as a copyeditor, translator, proofreader, and
+					researcher. He also digitized texts and prepared them for TEI markup. </p>
 			</div>
 		</body>
 	</text>

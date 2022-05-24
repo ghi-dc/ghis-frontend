@@ -45,12 +45,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 			<div n="3">
 				<head>Daniel Burckhardt</head>
-				<p> Technischer Entwickler Daniel Burckhardt entwarf das Backend von <hi
-						rendition="#i">GHDI</hi>, integrierte die Suchmaschine, implementierte die
-					Präsentationsschicht und entwickelte das TEI-Schema. Am DHI arbeitet Daniel
-					Burckhardt außerdem an den Projekten <hi rendition="#i">German History
-						Intersections</hi> und an <hi rendition="#i">Migrant Connections</hi>, sowie
-					an allen anderen Initiativen im Bereich der digitalen Geschichte. </p>
+				<p> Technischer Entwickler Daniel Burckhardt entwarf das Backend von GHDI,
+					integrierte die Suchmaschine, implementierte die Präsentationsschicht und
+					entwickelte das TEI-Schema. Am DHI arbeitet Daniel Burckhardt außerdem an den
+					Projekten <hi rendition="#i">German History Intersections</hi> und an <hi
+						rendition="#i">Migrant Connections</hi>, sowie an allen anderen Initiativen
+					im Bereich der digitalen Geschichte. </p>
 			</div>
 
 			<div n="3">
@@ -99,16 +99,16 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					Projektteam und arbeitet mit Sponsoren, Partnern, Bandherausgebern, freien
 					Mitarbeitern und anderen externen Mitarbeitern an allen Aspekten des
 					Redaktionsprogramms. Sie ist außerdem Co-Leiterin des Projekts <hi
-						rendition="#i">German History Intersections</hi> und betreut die
-					Buchreihe des GHI bei Cambridge University Press. </p>
+						rendition="#i">German History Intersections</hi> und betreut die Buchreihe
+					des GHI bei Cambridge University Press. </p>
 			</div>
 
 			<div n="3">
 				<head>Josh Seale</head>
-				<p> Josh Seale unterstützt das GHDI-Redaktionsprogramm durch Lektorat,
-					Korrekturlesung, Übersetzung und Forschung. Außerdem digitalisiert er
-					Textquellen und bereitet sie für die TEI-Auszeichnung vor. Josh ist außerdem ein
-					wichtiges Mitglied des GHI-Event-Teams. </p>
+				<p> Josh Seale war von 2021 bis 2022 Mitarbeiter des GHDI-Projekts. In dieser Zeit
+					unterstützte er das Redaktionsprogramm durch Lektorat, Korrekturlesung,
+					Übersetzung und Forschung. Außerdem digitalisierte er Textquellen und bereitete
+					sie für die TEI-Auszeichnung vor. </p>
 			</div>
 		</body>
 	</text>
