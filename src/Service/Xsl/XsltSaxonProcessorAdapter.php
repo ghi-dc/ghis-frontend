@@ -105,7 +105,7 @@ class XsltSaxonProcessorAdapter
             $executable->clearParameters();
             $executable->clearProperties();
 
-            $proc->clearParameters();
+            $proc->clearParameters(); // maybe $proc->clearParameter(); see https://saxonica.plan.io/issues/5533#change-20835
             unset($proc);
         }
 
