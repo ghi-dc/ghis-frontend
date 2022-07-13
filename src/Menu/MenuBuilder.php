@@ -106,7 +106,6 @@ class MenuBuilder
         foreach ($submenu as $route => $label) {
             $item = $menu->addChild($this->translator->trans($label), [
                 'route' => $route,
-
             ]);
         }
 
