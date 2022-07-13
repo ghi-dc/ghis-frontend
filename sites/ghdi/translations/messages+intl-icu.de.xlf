@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2022-05-17T13:48:48Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2022-07-13T12:34:07Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -9,11 +9,11 @@
       <trans-unit id="ced1419ef4fe14493ebab8e9ef74b8c1e2a287e3" resname="About the Project">
         <source>About the Project</source>
         <target>Über das Projekt</target>
-        <jms:reference-file line="91">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="101">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="619d65e1ae1a2704aa306451ac2a75a0cde345a8" resname="Bibliography">
         <source>Bibliography</source>
-        <target state="new">Bibliografie</target>
+        <target>Bibliografie</target>
         <jms:reference-file line="61">\..\..\..\..\..\./sites/ghdi/templates\Resource\volume.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="46b005909e66f5a13a9b8a1cefa818249d85e3d1" resname="Chapter">
@@ -25,12 +25,12 @@
       <trans-unit id="09d60fa2313ad487bd96547473ab3a3c4b2d8746" resname="Conditions of Use">
         <source>Conditions of Use</source>
         <target>Nutzungsbedingungen</target>
-        <jms:reference-file line="272">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="282">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="b37456c4530be810dc040f50da72eda09addfb0a" resname="Contact">
         <source>Contact</source>
         <target>Kontakt</target>
-        <jms:reference-file line="273">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="283">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="f5cbdf6bfb51439be085b5c6b7460a7c91eabc3c" resname="Contents">
         <source>Contents</source>
@@ -40,7 +40,7 @@
       <trans-unit id="06e87cd3cbe3b826b0ab52bb510603dd41864b70" resname="Data Protection">
         <source>Data Protection</source>
         <target>Datenschutz</target>
-        <jms:reference-file line="275">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="285">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="574ff9b0c49cdeb5f5508548ae0cab44fecee038" resname="Display">
         <source>Display</source>
@@ -50,7 +50,7 @@
       <trans-unit id="ed63036d8730b34c2af3aa53fe984d9883388a1c" resname="Editors">
         <source>Editors</source>
         <target>Herausgeber/innen</target>
-        <jms:reference-file line="92">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="102">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="28813f59f8275e106e04da6c06afb4bbb67cb1cb" resname="Filter Results">
         <source>Filter Results</source>
@@ -60,18 +60,25 @@
       <trans-unit id="d24443255333a700b71f2d19eebc1deb1248966d" resname="Follow us">
         <source>Follow us</source>
         <target>Folgen Sie uns</target>
-        <jms:reference-file line="252">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
-        <jms:reference-file line="261">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="262">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="271">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="55e11711976913994e8c3a6a37551d36335bea3d" resname="GHDI Extra">
+        <source>GHDI Extra</source>
+        <target state="new">GHDI Extra</target>
+        <jms:reference-file line="72">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="93">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="12">\..\..\..\..\..\./sites/ghdi/templates\Extra\teaching-index.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="e5c7baa68b94160765f8f0f3ae991a1e3e911c99" resname="GHI Project Team">
         <source>GHI Project Team</source>
         <target>DHI Projektteam</target>
-        <jms:reference-file line="93">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="103">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="1b52e932467b3153c51d6c741c24975da40a48c3" resname="German Historical Institute Washington">
         <source>German Historical Institute Washington</source>
         <target>Deutsches Historisches Institut Washington</target>
-        <jms:reference-file line="279">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="289">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="70f8bb9a8a5393ef080507a89e4b98d139000d65" resname="Home">
         <source>Home</source>
@@ -82,7 +89,7 @@
       <trans-unit id="db71e0bfdd6b22014556039ac1d59c60c65b4e4e" resname="Imprint">
         <source>Imprint</source>
         <target>Impressum</target>
-        <jms:reference-file line="274">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="284">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="2473e96bc614a911821242119918a241a41836d6" resname="Introduction">
         <source>Introduction</source>
@@ -125,7 +132,7 @@
       <trans-unit id="2429e5b0b5eb23d1be2b6816c9238d7019d03e7f" resname="Partner project">
         <source>Partner project</source>
         <target>Partnerprojekt</target>
-        <jms:reference-file line="245">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="255">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="50f94286ba30706a19070d3ec0a0c8d34d6cf6eb" resname="Previous">
         <source>Previous</source>
@@ -141,7 +148,7 @@
       <trans-unit id="b8442dc4d1ec0bad64eee08dd76a30bc77df4064" resname="Project History">
         <source>Project History</source>
         <target>Entwicklung des Projekts</target>
-        <jms:reference-file line="95">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="105">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="1de9b5aa8ef2a69cf3b723e9f4dded03396a160c" resname="Read on">
         <source>Read on</source>
@@ -157,7 +164,7 @@
       <trans-unit id="bce06414177f72ab70e6387b6af9f8ceef0d6049" resname="Search">
         <source>Search</source>
         <target>Suche</target>
-        <jms:reference-file line="100">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="110">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
         <jms:reference-file line="13">\..\..\..\..\..\./sites/ghdi/templates\Search\index.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="50a279de829f2dc398ac2ac7c9367508ea4b5df5" resname="Show all">
@@ -168,7 +175,7 @@
       <trans-unit id="649e665b373a74942d4605daa552cc0575e0c946" resname="Show module">
         <source>Show module</source>
         <target>Modul anzeigen</target>
-        <jms:reference-file line="43">\..\..\..\..\..\./sites/ghdi/templates\Extra\teaching-index.html.twig\</jms:reference-file>
+        <jms:reference-file line="47">\..\..\..\..\..\./sites/ghdi/templates\Extra\teaching-index.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="6da13addb000b67d42a6d66391713819e634149f" resname="Source">
         <source>Source</source>
@@ -184,7 +191,7 @@
       <trans-unit id="d71af9c76a7b8c80409506e5b29a12d967c36636" resname="Sponsors and Partners">
         <source>Sponsors and Partners</source>
         <target>Förderer und Partner</target>
-        <jms:reference-file line="94">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="104">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="9730d4326a7b8a0d13c2be3b7fe29b80ad152bf6" resname="Table of Contents">
         <source>Table of Contents</source>
@@ -192,26 +199,26 @@
         <jms:reference-file line="35">\..\..\..\..\..\./sites/ghdi/templates\Resource\introduction.html.twig\</jms:reference-file>
         <jms:reference-file line="103">\..\..\..\..\..\./sites/ghdi/templates\Resource\resource.html.twig\</jms:reference-file>
       </trans-unit>
-      <trans-unit id="e5a9f0446bf733e2f032dd68cc779ff4a1d9e74a" resname="Teaching">
-        <source>Teaching</source>
-        <target>Unterricht</target>
-        <jms:reference-file line="12">\..\..\..\..\..\./sites/ghdi/templates\Extra\teaching-index.html.twig\</jms:reference-file>
-      </trans-unit>
       <trans-unit id="894031ed8d341b5ecab5e23002585055f0b7ee4d" resname="Terms and Conditions">
         <source>Terms and Conditions</source>
         <target>Allgemeine Geschäftsbedingungen</target>
-        <jms:reference-file line="96">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="106">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="ababcd2092c790cd48094defea5bb6fa5036c0d6" resname="The Project">
         <source>The Project</source>
         <target>Das Projekt</target>
-        <jms:reference-file line="72">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
-        <jms:reference-file line="88">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="77">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+        <jms:reference-file line="98">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="1ec0b00d7e4a7ebd7e91c21e91a99ece12fa858a" resname="Toggle navigation">
         <source>Toggle navigation</source>
         <target>Navigation umschalten</target>
         <jms:reference-file line="63">\..\..\..\..\..\./sites/ghdi/templates\Base\base.html.twig\</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="662c7b6fb8451de0d041834edcf31a60f68a8d5a" resname="Visit site">
+        <source>Visit site</source>
+        <target state="new">Zur Website</target>
+        <jms:reference-file line="45">\..\..\..\..\..\./sites/ghdi/templates\Extra\teaching-index.html.twig\</jms:reference-file>
       </trans-unit>
       <trans-unit id="3b18e8e332500f3dfedb21b0aed686cfa9832cfe" resname="Volume">
         <source>Volume</source>

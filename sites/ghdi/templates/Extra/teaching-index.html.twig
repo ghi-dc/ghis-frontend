@@ -40,7 +40,13 @@
                 {% for entry in entries %}
                 <h2 id="module-{{ loop.index }}">{{ 'Module'|trans }} {{ loop.index }}</h2>
                 <h4>{{ entry.title[app.request.locale] }}</h4>
-                <p><a href="{{ path('teaching', { 'slug': entry.slug[app.request.locale] }) }}">{{ 'Show module'|trans }} &gt;</a></p>
+                <p>
+                    {% if entry.url is defined %}
+                    <a href="{{ entry.url[app.request.locale] }}">{{ 'Visit site'|trans }} &gt;</a>
+                    {% else %}
+                    <a href="{{ path('teaching', { 'slug': entry.slug[app.request.locale] }) }}">{{ 'Show module'|trans }} &gt;</a>
+                    {% endif %}
+                </p>
                 {% endfor %}
             </article>
         </div><!-- .row -->
