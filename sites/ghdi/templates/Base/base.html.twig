@@ -68,6 +68,11 @@
                 <div class="d-md-none">
                     <ul class="navbar-nav">
                         <li>
+                            <a href="{{ path('teaching-index') }}">
+                                {{ 'GHDI Extra'|trans }}
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ path('about') }}" {#class="dropdown-toggle" id="dropdownAboutMenuButton" data-toggle="dropdown"#}>
                                 {{ 'The Project'|trans }}
                             </a>
@@ -83,6 +88,11 @@
                     </form>
                 </div>
                 <ul id="navbar-about-locale" class="navbar-nav ms-auto flex-nowrap d-none d-md-block">
+                    <li class="list-inline-item{% if 'teaching-index' == app.request.attributes.get('_route') %} current{% endif %} dropdown">
+                        <a href="{{ path('teaching-index') }}">
+                            {{ 'GHDI Extra'|trans }}
+                        </a>
+                    </li>
                     <li class="list-inline-item{% if 'about' == app.request.attributes.get('_route') %} current{% endif %} dropdown">
                         <a href="{{ path('about') }}" class="dropdown-toggle" id="dropdownAboutMenuButton" data-bs-toggle="dropdown">
                             {{ 'The Project'|trans }}

@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>{{ 'Teaching'|trans }}</h1>
+                <h1>{{ 'GHDI Extra'|trans }}</h1>
             </div>
         </div><!-- .row -->
     </div><!-- .container -->
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                {{ extra.breadcrumb('Teaching', null, true) }}
+                {{ extra.breadcrumb('GHDI Extra', null, true) }}
             </div>
         </div>
         <div class="row">
@@ -32,10 +32,10 @@
             <article class="content introduction col-md-9 col-lg-8">
 {% if 'en' == app.request.locale %}
                 <h2>Teaching Resources</h2>
-                <p style="margin-bottom: 2em">This section includes teaching materials based on primary sources found in GHDI, <i><a href="https://germanhistory-intersections.org/" target="_blank">German History Intersections</a></i>, and other digital collections. The materials are suitable for use in a variety of academic settings. We hope that this section expands over time! If you are a teacher, student, researcher, writer, etc., and would like to contribute source-based teaching materials, please contact us at <a href="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</a>. Materials relating to maps, sound clips, and film are especially welcome.</p>
+                <p style="margin-bottom: 2em">This section includes teaching materials based on primary sources found in GHDI, <i><a href="https://germanhistory-intersections.org/" target="_blank">German History Intersections</a></i>, and other digital collections. The materials are suitable for use in a variety of academic settings. We hope that this section expands over time. If you are a teacher, student, researcher, writer, etc., and would like to contribute source-based teaching materials, please contact us at <a href="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</a>. Materials relating to maps, sound clips, and film are especially welcome.</p>
 {% else %}
                 <h2>Für die Lehre</h2>
-                <p style="margin-bottom: 2em">Dieser Abschnitt enthält Unterrichtsmaterialien, die auf Primärquellen aus GHDI, <i><a href="https://germanhistory-intersections.org/" target="_blank">German History Intersections</a></i> und anderen digitalen Sammlungen basieren. Die Materialien eignen sich für den Einsatz in einer Vielzahl von akademischen Kontexten. Wir hoffen, dass dieser Abschnitt im Laufe der Zeit erweitert wird! Wenn Sie Dozent/in, Student/in, Forscher/in, Autor/in usw. sind und quellenbasierte Unterrichtsmaterialien beisteuern möchten, kontaktieren Sie uns bitte unter <a href="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</a>. Materialien zu Karten, Soundclips und Filmen sind besonders willkommen.</p>
+                <p style="margin-bottom: 2em">Dieser Abschnitt enthält Unterrichtsmaterialien, die auf Primärquellen aus GHDI, <i><a href="https://germanhistory-intersections.org/" target="_blank">German History Intersections</a></i> und anderen digitalen Sammlungen basieren. Die Materialien eignen sich für den Einsatz in einer Vielzahl von akademischen Kontexten. Wir hoffen, dass dieser Abschnitt im Laufe der Zeit erweitert wird. Wenn Sie Dozent/in, Student/in, Forscher/in, Autor/in usw. sind und quellenbasierte Unterrichtsmaterialien beisteuern möchten, kontaktieren Sie uns bitte unter <a href="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</a>. Materialien zu Karten, Soundclips und Filmen sind besonders willkommen.</p>
 {% endif %}
                 {% for entry in entries %}
                 <h2 id="module-{{ loop.index }}">{{ 'Module'|trans }} {{ loop.index }}</h2>
