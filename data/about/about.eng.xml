@@ -47,11 +47,23 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 			</div>
 
 			<div n="2" id="platform">
-				<head>Digital Platform and Design</head>
-				<p>
-					<hi rendition="#i">German History Intersections</hi> features a responsive, user-friendly interface designed by edelweiss* büro für grafik und design (Hamburg). The backend is based on the integration of eXist-db, an open-source XML-database, with Collective Access, an open-source collection management system. A Solr search engine offers optimal search and navigational functionality. Standardized administrative, descriptive and technical metadata, including granular source and rights information, enhances discoverability and supports long-term digital stewardship. The use of standard format such as TEI P5 (for primary-source texts and translations) and DOI (persistent identifications) further supports access and digital preservation. 
-				</p>
-			</div>
+                <head>Digital Platform and Design</head>
+                <p>
+                    <hi rendition="#i">German History Intersections</hi> features a responsive,
+                    user-friendly interface designed by <ref target="https://www.buero-edelweiss.de/">edelweiss* büro für
+                        grafik und design</ref>
+                    (Hamburg). The backend is based on the integration of <ref target="https://exist-db.org/">eXist-db</ref>, an open-source
+                    XML-database, with <ref target="https://www.collectiveaccess.org/">CollectiveAccess</ref>, an open-source collection management
+                    system. A <ref
+                        target="https://solr.apache.org/">Solr search engine</ref> offers optimal search and navigational
+                    functionality. The source code is published on <ref
+                    target="https://github.com/ghi-dc">GitHub</ref> under a free license.
+                    Standardized administrative, descriptive and technical metadata, including
+                    granular source and rights information, enhances discoverability and supports
+                    long-term digital stewardship. The use of standard format such as TEI P5 (for
+                    primary-source texts and translations) and DOI (persistent identifications)
+                    further supports access and digital preservation. </p>
+            </div>
 		</body>
     </text>
 </TEI>

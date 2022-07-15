@@ -72,11 +72,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     GHDI features a responsive, user-friendly interface
                     designed by <ref target="https://www.buero-edelweiss.de/">edelweiss* büro für
                         grafik und design</ref> (Hamburg). The backend is based on the integration
-                    of <ref target="exist-db.org/">eXist-db</ref>, an open-source XML-database, with
-                        <ref target="https://www.collectiveaccess.org/">Collective Access</ref>, an
+                    of <ref target="https://exist-db.org/">eXist-db</ref>, an open-source XML-database, with
+                        <ref target="https://www.collectiveaccess.org/">CollectiveAccess</ref>, an
                     open-source collection management system. A <ref
                         target="https://solr.apache.org/">Solr search engine</ref> offers optimal
-                    search and navigational functionality. Standardized administrative, descriptive
+                    search and navigational functionality. The source code is published on <ref target="https://github.com/ghi-dc">GitHub</ref> under a free license. Standardized administrative, descriptive
                     and technical metadata, including granular source and rights information,
                     enhances discoverability and supports long-term digital stewardship. The use of
                     standard format such as TEI P5 (for primary-source texts and translations) and
