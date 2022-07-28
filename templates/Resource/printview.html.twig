@@ -5,14 +5,6 @@
 {% block style %}
     {{ parent() }}
 
-    {#
-        triggers scssphp, this one doesn't prepend app.request.basepath
-        since it overrides \Symfony\Bridge\Twig\Extension\AssetExtension
-        and doesn't prepend $this->getBasePath().ltrim($versionedPath, '/')
-        as in Symfony\Component\Asset\PathPackage
-    #}
-    <link href="{{ app.request.basepath }}{{ asset('css/print.css') }}" rel="stylesheet">
-
     <style>
     {% if 'introduction' == resource.genre %}
     /* omit Source/Quelle heading */
