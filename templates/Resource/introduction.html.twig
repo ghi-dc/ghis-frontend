@@ -3,6 +3,9 @@
 {% import 'Shared/resource.html.twig' as resource_helper %}
 
 {% block head %}
+    {% if schema is defined and schema is not empty %}
+        {{ schema.toScript()|raw }}
+    {% endif %}
     <style>
         main.introduction {
             background-image: url({{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg);

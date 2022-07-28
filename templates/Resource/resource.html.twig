@@ -6,6 +6,9 @@
     {% if parts.meta is defined %}
     {{ resource_helper.meta_tags(parts.meta) }}
     {% endif %}
+    {% if schema is defined and schema is not empty %}
+        {{ schema.toScript()|raw }}
+    {% endif %}
     <style>
         .carousel-item {
             width: 100%;

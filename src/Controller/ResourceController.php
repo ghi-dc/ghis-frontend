@@ -7,9 +7,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
+
+use Spatie\SchemaOrg\Schema;
 
 use App\Service\ContentService;
 use App\Service\Xsl\XsltProcessor;
@@ -622,6 +625,7 @@ class ResourceController extends BaseController
      */
     public function resourceAction(Request $request,
                                    TranslatorInterface $translator,
+                                   UrlGeneratorInterface $urlGenerator,
                                    $volume, $resource)
     {
         $pageMeta = [
@@ -629,6 +633,21 @@ class ResourceController extends BaseController
         ];
 
         $parts = $this->resourceToHtml($request, $translator, $volume, $resource);
+
+        // initial Schema.org
+        $schema = Schema::creativeWork()
+            ->name($resource->getTitle())
+            ->abstract($resource->getNote())
+            ->if(count($resource->getTags()) > 0, function ($schema) use ($resource) {
+                $schema->keywords(
+                    array_map(function ($tag) {
+                            return $tag->getName();
+                        }, $resource->getTags()));
+            })
+            ->url($urlGenerator->generate('dynamic', [
+                    'path' => $volume->getDtaDirname() . '/' . $resource->getId(),
+                ], UrlGeneratorInterface::ABSOLUTE_URL))
+            ;
 
         switch ($resource->getGenre()) {
             case 'introduction':
@@ -646,6 +665,7 @@ class ResourceController extends BaseController
 
         return $this->render($template, [
             'pageMeta' => $pageMeta,
+            'schema' => $schema,
             'volume' => $volume,
             'resource' => $resource,
             'parts' => $parts,
