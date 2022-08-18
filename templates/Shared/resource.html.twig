@@ -30,6 +30,11 @@
     </div>
 {% endmacro %}
 
+{% macro volume_responsible(volume) %}
+    {% for editor in volume.editors %}{% if not loop.first %}, {% endif %}{{ editor.name }}{% endfor %}
+    {% if volume.responsible is not empty %}<br />{% for responsible in volume.responsible %}{% if not loop.first %}<br />{% endif %}{{ responsible.role }} {% if responsible.persName is defined %}{{ responsible.persName }}{% else %}{{ responsible.name }}{% endif %}{% endfor %}{% endif %}
+{% endmacro %}
+
 {% macro meta_tags(metaNameValues) %}
     {% for meta in metaNameValues %}
         {% set parts = meta|split(':', 2) %}

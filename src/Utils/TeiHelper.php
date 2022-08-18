@@ -218,6 +218,7 @@ class TeiHelper
         foreach ($result as $element) {
             $responsible = [
                 'role' => '',
+                'name' => [],
             ];
 
             foreach ($element->childNodes as $childNode) {
@@ -233,7 +234,7 @@ class TeiHelper
                     case 'name':
                     case 'persName':
                         $responsible['nameType'] = $childNode->nodeName;
-                        $responsible['name'] = $this->extractTextContent($childNode);
+                        $responsible['name'][] = $this->extractTextContent($childNode);
                 }
             }
 
@@ -242,6 +243,7 @@ class TeiHelper
                     $article->responsible = [];
                 }
 
+                $responsible['name'] = join(', ', $responsible['name']);
                 $article->responsible[] = $responsible;
             }
         }
