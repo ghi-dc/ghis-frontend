@@ -354,12 +354,19 @@ article, .article-part {
 
     .source-citation {
         margin-top: 4rem;
-        /* color: $color-gray-dark; */
+        & + .source-citation {
+            /* bring second one, e.g. translation, closer up */
+            margin-top: 2rem;
+        }
     }
 
     /* no top-margin for .source-citation below image */
     .article.image .source-citation {
         margin-top: 0rem;
+        & + .source-citation {
+            /* bring second one, e.g. translation, closer up */
+            margin-top: 2rem;
+        }
     }
 
     img {
