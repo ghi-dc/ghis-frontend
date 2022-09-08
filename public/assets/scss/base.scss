@@ -361,6 +361,17 @@ article, .article-part {
     }
 
     .article.image {
+        .carousel-text {
+            p.dta-p:first-of-type {
+                /* prepend a margin above transcript in carousel */
+                margin-top: 1rem;
+            }
+            p.dta-p:last-of-type {
+                /* append a margin below transcript in carousel for indicators not to overlap */
+                margin-bottom: 3rem;
+            }
+        }
+
         .source-citation {
             /* no top-margin for .source-citation below image */
             margin-top: 0rem;
