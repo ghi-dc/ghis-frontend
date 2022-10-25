@@ -192,13 +192,12 @@
                     'en': 'One Germany in Europe',
                 }
             }
-
         %}
         {% block navvolumes %}
         <nav class="navbar navbar-expand flex-nowrap container-fluid p-0">
             <ul class="navbar-nav nav-fill w-100" id="volumes" style="overflow-x: auto">
             {% for key,info in volumeDescr %}
-                {% set path = '#' %}
+                {% set path = path('home') ~ '#first-edition-' ~ key %}
                 {% for aVolume in volumes %}
                     {% if aVolume.getId(true) == key %}
                         {% set path = path('dynamic', { 'path': aVolume.dtaDirname }) %}
