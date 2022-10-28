@@ -28,7 +28,7 @@
             <div class="col-sm-9"></div>
         </div><!-- .row -->
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid d-none d-sm-block">
         <div class="row">
         {% for volume in volumes %}
             <div class="flex-grow-1 volume-teaser" style="background-image: url({{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg)">
@@ -44,6 +44,7 @@
         {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
         {% for volume in volumes %}
             <div class="col-sm-{{ numCols}} hyphens-auto">
+                <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}"><img class="d-sm-none" src="{{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg" style="margin-top: 16px; width: 100%; height: auto;" /></a>
                 <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
                 {{ volume.note }}
             </div>
