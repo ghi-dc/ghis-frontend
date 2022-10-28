@@ -52,14 +52,30 @@ ul#navbar-about-locale li {
 
 footer {
     background-color: $color-gray-light;
+
     .row {
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
+
     a {
         color: $color-gray-dark;
         &:hover {
             color: $color-color-link;
+        }
+    }
+
+    @media only screen and (max-width: $screen-sm-min - 1px) {
+        #logo-ghi {
+            margin-left: 0;
+        }
+
+        .terms {
+            margin-top: 1rem;
+            li {
+                display: inline-block;
+                padding-right: 1em;
+            }
         }
     }
 }
@@ -214,32 +230,32 @@ body.route-home {
         }
 
         img.focus {
+            width: 100%;
+            height: auto;
+
             @media (min-width: $screen-sm-min) {
                 position: absolute;
                 z-index: 1;
-                width: 100%;
                 padding-right: 24px;
             }
         }
 
-        .col-sm-9 {
-            blockquote {
-                position: relative;
-                background-color: $color-gray-light;
-                margin-top: 3.6rem;
-                margin-left: -4rem;
-                padding-left: 6.5rem;
-                padding-top: 2rem;
-                padding-right: 1rem;
+        blockquote {
+            position: relative;
+            background-color: $color-gray-light;
+            margin-top: 3.6rem;
+            margin-left: -4rem;
+            padding-left: 6.5rem;
+            padding-top: 2rem;
+            padding-right: 1rem;
 
-                &::before {
-                    content: "\201C";
-                    color: $color-color-spot;
-                    font-size: 6rem;
-                    position: absolute;
-                    left: 4rem;
-                    top: -1rem;
-                }
+            &::before {
+                content: "\201C";
+                color: $color-color-spot;
+                font-size: 6rem;
+                position: absolute;
+                left: 4rem;
+                top: -1rem;
             }
         }
     }

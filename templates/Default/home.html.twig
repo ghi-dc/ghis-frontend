@@ -6,8 +6,8 @@
 <div class="row section color-inverse">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3"><h3>{{ 'The Project'|trans }}</h3></div>
-            <div class="col-sm-9">
+            <div class="col-12 col-sm-4 col-md-3"><h3>{{ 'The Project'|trans }}</h3></div>
+            <div class="col-12 col-sm-8 col-md-9">
                 <p>
                     {% if 'de' == app.request.locale %}
                     <i>German History Intersections</i> ist ein quellenbasiertes digitales Projekt, das drei große Themenbereiche über den Zeitraum von 1500 bis zur Gegenwart untersucht – Migration, Wissen und Bildung sowie Deutschsein. Indem diese Themen über Jahrhunderte hinweg verfolgt werden, bietet das Projekt eine Alternative zur traditionellen Geschichtsschreibung, die sich auf einzelne historische Perioden konzentriert.
@@ -24,8 +24,7 @@
 <div class="row section">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3"><h3>{{ 'The Topics'|trans }}</h3></div>
-            <div class="col-sm-9"></div>
+            <div class="col-12 col-sm-4 col-md-3"><h3>{{ 'The Topics'|trans }}</h3></div>
         </div><!-- .row -->
     </div>
     <div class="container-fluid d-none d-sm-block">
@@ -63,13 +62,13 @@
 <div class="row">
     <div class="container">
         <div class="row focus">
-            <div class="col-sm-3">
+            <div class="col-12 col-sm-4 col-md-3">
                 <h3>{{ 'Focus'|trans }}</h3>
                 <a href="{{ path('dynamic', { 'path': focus.volume.getDtaDirname() ~ '/'~ focus.uid }) }}">
                     <img class="img-responsive focus" src="{{ app.request.basepath }}/media/focus/{{ focus.image }}" alt="{{ focus.title[app.request.locale] }}" />
                 </a>
             </div>
-            <div class="col-sm-9">
+            <div class="col-12 col-sm-8 col-md-9">
                 <blockquote class="blockquote">
                     <p>
                         {{ focus.blurb[app.request.locale]|raw }}
