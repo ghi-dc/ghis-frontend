@@ -213,6 +213,15 @@ body.route-home {
             }
         }
 
+        img.focus {
+            @media (min-width: $screen-sm-min) {
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                padding-right: 24px;
+            }
+        }
+
         .col-sm-9 {
             blockquote {
                 position: relative;
