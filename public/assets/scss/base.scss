@@ -235,13 +235,6 @@ body {
 
     a, a:hover {
         color: $color-color-link;
-
-        /* break long URLs
-         * overflow-wrap: anywhere isn't supported in Safari yet
-         */
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        word-break: break-word;
   }
 }
 
@@ -370,6 +363,15 @@ article, .article-part {
             /* bring second one, e.g. translation, closer up */
             margin-top: 2rem;
         }
+    }
+
+    a {
+        /* break long URLs
+         * overflow-wrap: anywhere isn't supported in Safari yet
+         */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
     }
 
     .article.image {
