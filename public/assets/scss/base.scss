@@ -235,7 +235,14 @@ body {
 
     a, a:hover {
         color: $color-color-link;
-    }
+
+        /* break long URLs
+         * overflow-wrap: anywhere isn't supported in Safari yet
+         */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+  }
 }
 
 /* see https://github.com/mnater/Hyphenopoly */
@@ -384,10 +391,6 @@ article, .article-part {
             & + .source-citation {
                 /* bring second one, e.g. translation, closer up */
                 margin-top: 2rem;
-            }
-
-            a {
-                overflow-wrap: break-word;
             }
         }
 
