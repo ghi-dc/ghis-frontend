@@ -64,7 +64,7 @@
             <name and="text" delimiter=", "/>
           </names>
           <names variable="editor translator" delimiter=", ">
-            <label form="verb" suffix=" "/>
+            <label form="verb" suffix="&#160;"/>
             <name and="text" delimiter=", "/>
           </names>
         </group>
