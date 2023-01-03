@@ -44,6 +44,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					books and articles, term papers, and student assignments in either print or
 					digital form. </p>
 			</div>
+
 			<div n="2">
 				<head>Notice on Copyright</head>
 				<p> GHDI includes thousands of individual sources (original texts, translations,
@@ -73,6 +74,21 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					of German-language documents in the public domain are also licensed under CC
 					BY-NC-ND 4.0. Please use the recommended citation as a guide when republishing
 					these translations. </p>
+			</div>
+
+			<div n="2" id="content-notice">
+				<head>Content Notice</head>
+				<p> GHDI covers topics such as war, violence, and genocide. Some sources include
+					period-specific terminology and/or imagery that modern-day users may find
+					offensive or even harmful. Examples include texts and images permeated by
+					racist, sexist, xenophobic, colonialist, Eurocentric, ableist, and/or
+					anti-LGBTQ+ thinking. Our translations into English follow the original German
+					sources closely. This emphasis on historical accuracy means that translated
+					texts occasionally include terms that are derogatory toward individuals or
+					groups. Pronouns in the English translations are rarely gender-inclusive because
+					they were rarely intended as such in the original German texts. The GHI presents
+					these difficult sources because we believe in the value of intensive critical
+					engagement with the past. </p>
 			</div>
 
 			<div n="2" id="contact">

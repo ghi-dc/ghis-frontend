@@ -81,6 +81,18 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 					Wiederveröffentlichung dieser Übersetzungen. </p>
 			</div>
 
+			<div n="2" id="content-notice">
+				<head>Inhaltshinweis</head>
+				<p> GHDI behandelt Themen wie Krieg, Gewalt und Völkermord. Einige Quellen enthalten
+					zeittypische Terminologie und/oder Bilder, die von heutigen Nutzer/innen als
+					verstörend oder sogar verletzend empfunden werden können. Beispiele hierfür sind
+					Texte und Bilder, die von rassistischem, sexistischem, fremdenfeindlichem,
+					kolonialistischem, eurozentrischem, ableistischem und/oder Anti-LGBTQ+-Denken
+					durchdrungen sind. Das DHI präsentiert diese schwierigen Quellen, weil wir von
+					dem Wert einer intensiven kritischen Auseinandersetzung mit der Vergangenheit
+					überzeugt sind. </p>
+			</div>
+
 			<div n="2" id="contact">
 				<head>Kontakt</head>
 				<p> Bei Fragen oder Anregungen zu GHDI kontaktieren Sie uns bitte unter <ref
