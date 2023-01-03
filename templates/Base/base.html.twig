@@ -94,7 +94,7 @@
                             {% endif %}
                             {% set route_params = route_params|merge(app.request.query.all) %}
                         {% endif %}
-                        <a href="{{ path(route, route_params|merge({'_locale': locale})) }}">{{ locale }}</a>
+                        <a href="{{ path(route, route_params|merge({ '_locale': locale })) }}">{{ locale }}</a>
                     {% endif %}
                 </li>
                 {% endfor %}
@@ -103,6 +103,42 @@
                 </li>
             </ul>
         </nav>
+        {% endblock %}
+
+        {% block notice %}
+        {% set notice_dismissed = app.request.cookies.get('content_notice') %}
+        {% if not notice_dismissed %}
+        <script>
+            function setCookie(cName, cValue, expDays) {
+                var date = new Date();
+                date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + date.toUTCString();
+                document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+            }
+
+            function noticeDismiss() {
+                setCookie('content_notice', 1, 731); // 2 years
+
+                $('#notice').hide();
+
+                return false;
+            }
+        </script>
+        <div id="notice">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <b>{{ 'Content Notice'|trans }}</b>: {{ 'This site includes sources you may find offensive or even harmful.'|trans }} <a href="{{ path('terms') }}#content-notice">{{ 'Learn more...'|trans }}</a>
+                    </div>
+                    <div class="col-sm-3" style="text-align: right">
+                        <a href="#" onClick="return noticeDismiss();">
+                            {{ 'Dismiss'|trans }}<span id="closer">&#x2715</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         {% endblock %}
 
         {% block maincontainer %}

@@ -161,6 +161,22 @@
         <source>Audio and Video</source>
         <target>Audio und Video</target>
       </trans-unit>
+      <trans-unit id="zewGZfM" resname="Content Notice">
+        <source>Content Notice</source>
+        <target>Inhaltshinweis</target>
+      </trans-unit>
+      <trans-unit id="wj72s2t" resname="This site includes sources you may find offensive or even harmful.">
+        <source>This site includes sources you may find offensive or even harmful.</source>
+        <target>Diese Web-Site zeigt Quellen, die als verletzend empfunden werden können.</target>
+      </trans-unit>
+      <trans-unit id="C.p..or" resname="Learn more...">
+        <source>Learn more...</source>
+        <target>Mehr...</target>
+      </trans-unit>
+      <trans-unit id="SIRb.zN" resname="Dismiss">
+        <source>Dismiss</source>
+        <target>Schließen</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

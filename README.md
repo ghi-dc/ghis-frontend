@@ -13,7 +13,7 @@ License
     and
         German History Intersections (GHIS)
 
-    (C) 2020-2022 German Historical Institute Washington
+    (C) 2020-2023 German Historical Institute Washington
         Daniel Burckhardt
 
 
@@ -90,7 +90,7 @@ add highlight and suggest for certain fields
 
 ### Translate templates
 
-    ./bin/console translation:update --force de
+    ./bin/console translation:extract --force de
 
 #### Site-specific translations
 

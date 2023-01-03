@@ -33,68 +33,75 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2">
-				<head>Nutzungsbedingungen</head>
-				<p>					
-					Die in <hi rendition="#i">German History Intersections</hi> wiedergegebenen Primärquellen sind für den individuellen, akademischen, pädagogischen und nicht-kommerziellen Gebrauch bestimmt. Neben vollständigen Quellenangaben sind sie mit einem DOI und der empfohlenen Zitierweise zur Verwendung in Fußnoten in akademischen Büchern und Artikeln, Hausarbeiten und Studienarbeiten in gedruckter oder digitaler Form versehen. 
-				</p>
-			</div>
-			<div n="2">
-				<head>Informationen zum Copyright</head>
-				<p>
-					<hi rendition="#i">German History Intersections</hi> umfasst Hunderte von Primärquellen (d.h. Originaltexte, Übersetzungen, Bilder, audiovisuelle Dateien) mit unterschiedlichem Eigentums- und Urheberrechtsstatus. Viele Quellen sind gemeinfrei, andere stehen unter Urheberrechtsschutz. In einigen Fällen ist der Status unklar, in anderen Fällen konnten die Urheberrechtsinhaber/innen nicht identifiziert oder erreicht werden. In jedem Fall taten die Mitarbeiter/innen des Intersections-Projekts ihr Bestes, um den Urheberrechtsstatus der Quelle zu ermitteln und mit den relevanten Parteien Kontakt aufzunehmen. Fragen oder Bedenken bezüglich der in <hi rendition="#i">Intersections</hi> veröffentlichten Materialien können an <ref target="mailto:intersections@ghi-dc.org">intersections@ghi-dc.org</ref> gerichtet werden.
-				</p>
-				<p>
-					Das <hi rendition="#i">Intersections</hi>-Projektteam hat versucht, für jede in das Projekt einbezogene Primärquelle eine vollständige Quellenangabe vorzunehmen. Zusammen mit den Informationen, die von den Urheber/innen und den bewahrenden Institutionen zur Verfügung gestellt wurden, haben sich unsere Mitarbeiter/innen bemüht, die Urheberrechtsinformationen für alle Materialien, einschließlich der gemeinfreien, aufzunehmen. Wenn Sie daran interessiert sind, urheberrechtlich geschütztes Quellenmaterial in einem Buch, Artikel, einer Website oder in einem anderen Format zu veröffentlichen, wenden Sie sich bitte direkt an den jeweiligen Rechteinhaber/in (z.B. Autor/in, Verlag, Museum usw.). Das Deutsche Historische Institut, Washington DC, kann keine Nachdruckgenehmigung erteilen, wenn das Copyright bei anderen liegt.  
-				</p>
-				<p>
-					Alle Moduleinführungen, Quellenkommentare und redaktionellen Texte in  <hi rendition="#i">Intersections</hi> wurden ausdrücklich für das Projekt verfasst und stehen unter einer <ref target="https://creativecommons.org/licenses/by-nc-nd/4.0/">internationalen Creative Commons Attribution-NonCommercial-NoDerivatives 4.0-Lizenz (CC BY-NC-ND 4.0)</ref>. Diese Lizenz erlaubt die Wiederveröffentlichung dieser Texte (in unveränderter Form und mit korrekter Quellenangabe) für akademische und/oder nicht-kommerzielle Zwecke. Vom DHI in Auftrag gegebene Übersetzungen deutschsprachiger gemeinfreier Dokumente sind ebenfalls unter CC BY-NC-ND 4.0 lizenziert. Bitte verwenden Sie die empfohlene Zitierweise als Leitfaden bei der Wiederveröffentlichung dieser Übersetzungen.
-				</p>				
-			</div>
+            <div n="2">
+                <head>Nutzungsbedingungen</head>
+                <p>
+                    Die in <hi rendition="#i">German History Intersections</hi> wiedergegebenen Primärquellen sind für den individuellen, akademischen, pädagogischen und nicht-kommerziellen Gebrauch bestimmt. Neben vollständigen Quellenangaben sind sie mit <!--einem DOI und--> der empfohlenen Zitierweise zur Verwendung in Fußnoten in akademischen Büchern und Artikeln, Hausarbeiten und Studienarbeiten in gedruckter oder digitaler Form versehen.
+                </p>
+            </div>
+            <div n="2">
+                <head>Informationen zum Copyright</head>
+                <p>
+                    <hi rendition="#i">German History Intersections</hi> umfasst Hunderte von Primärquellen (d.h. Originaltexte, Übersetzungen, Bilder, audiovisuelle Dateien) mit unterschiedlichem Eigentums- und Urheberrechtsstatus. Viele Quellen sind gemeinfrei, andere stehen unter Urheberrechtsschutz. In einigen Fällen ist der Status unklar, in anderen Fällen konnten die Urheberrechtsinhaber/innen nicht identifiziert oder erreicht werden. In jedem Fall taten die Mitarbeiter/innen des Intersections-Projekts ihr Bestes, um den Urheberrechtsstatus der Quelle zu ermitteln und mit den relevanten Parteien Kontakt aufzunehmen. Fragen oder Bedenken bezüglich der in <hi rendition="#i">Intersections</hi> veröffentlichten Materialien können an <ref target="mailto:intersections@ghi-dc.org">intersections@ghi-dc.org</ref> gerichtet werden.
+                </p>
+                <p>
+                    Das <hi rendition="#i">Intersections</hi>-Projektteam hat versucht, für jede in das Projekt einbezogene Primärquelle eine vollständige Quellenangabe vorzunehmen. Zusammen mit den Informationen, die von den Urheber/innen und den bewahrenden Institutionen zur Verfügung gestellt wurden, haben sich unsere Mitarbeiter/innen bemüht, die Urheberrechtsinformationen für alle Materialien, einschließlich der gemeinfreien, aufzunehmen. Wenn Sie daran interessiert sind, urheberrechtlich geschütztes Quellenmaterial in einem Buch, Artikel, einer Website oder in einem anderen Format zu veröffentlichen, wenden Sie sich bitte direkt an den jeweiligen Rechteinhaber/in (z.B. Autor/in, Verlag, Museum usw.). Das Deutsche Historische Institut, Washington DC, kann keine Nachdruckgenehmigung erteilen, wenn das Copyright bei anderen liegt.
+                </p>
+                <p>
+                    Alle Moduleinführungen, Quellenkommentare und redaktionellen Texte in  <hi rendition="#i">Intersections</hi> wurden ausdrücklich für das Projekt verfasst und stehen unter einer <ref target="https://creativecommons.org/licenses/by-nc-nd/4.0/">internationalen Creative Commons Attribution-NonCommercial-NoDerivatives 4.0-Lizenz (CC BY-NC-ND 4.0)</ref>. Diese Lizenz erlaubt die Wiederveröffentlichung dieser Texte (in unveränderter Form und mit korrekter Quellenangabe) für akademische und/oder nicht-kommerzielle Zwecke. Vom DHI in Auftrag gegebene Übersetzungen deutschsprachiger gemeinfreier Dokumente sind ebenfalls unter CC BY-NC-ND 4.0 lizenziert. Bitte verwenden Sie die empfohlene Zitierweise als Leitfaden bei der Wiederveröffentlichung dieser Übersetzungen.
+                </p>
+            </div>
 
-			<div n="2" id="contact">
-				<head>Kontakt</head>
-				<p>
-					Bei Fragen oder Anregungen zu  <hi rendition="#i">German History Intersections</hi> kontaktieren Sie uns bitte unter <ref target="mailto:intersections@ghi-dc.org">intersections@ghi-dc.org</ref>.
-				</p>
-			</div>
+            <div n="2" id="content-notice">
+                <head>Inhaltshinweis</head>
+                <p>
+                    <hi rendition="#i">German History Intersections</hi>
+                    behandelt Themen wie Krieg, Gewalt und Völkermord. Einige Quellen enthalten zeittypische Terminologie und/oder Bilder, die von heutigen Nutzer:innen als verstörend oder sogar verletzend empfunden werden können. Beispiele hierfür sind Texte und Bilder, die von rassistischem, sexistischem, fremdenfeindlichem, kolonialistischem, eurozentrischem, ableistischem und/oder Anti-LGBTQ+-Denken durchdrungen sind. Das DHI präsentiert diese schwierigen Quellen, weil wir von dem Wert einer intensiven kritischen Auseinandersetzung mit der Vergangenheit überzeugt sind.             </p>
+            </div>
 
-			<div n="2" id="imprint">
-				<head>Impressum</head>
-				<p>
-					Deutsches Historisches Institut<lb />
-					1607 New Hampshire Ave NW<lb />
-					Washington, DC 20009-2562<lb />
-					USA.
-				</p>
-				<p>
-					Telefon: +1.202.387.3355<lb />
-					<ref target="mailto:info@ghi-dc.org">info@ghi-dc.org</ref><lb />
-					<ref target="https://www.ghi-dc.org/">www.ghi-dc.org</ref>
-				</p>
+            <div n="2" id="contact">
+                <head>Kontakt</head>
+                <p>
+                    Bei Fragen oder Anregungen zu  <hi rendition="#i">German History Intersections</hi> kontaktieren Sie uns bitte unter <ref target="mailto:intersections@ghi-dc.org">intersections@ghi-dc.org</ref>.
+                </p>
+            </div>
 
-				<p>
-					Vertretungsberechtigte<lb />
-					Simone Lässig, Direktorin<lb />
-					Axel Jansen, Stellvertretender Direktor<lb />
-					Anne Kadolph, Verwaltungsleiterin
-				</p>
-			</div>
+            <div n="2" id="imprint">
+                <head>Impressum</head>
+                <p>
+                    Deutsches Historisches Institut<lb />
+                    1607 New Hampshire Ave NW<lb />
+                    Washington, DC 20009-2562<lb />
+                    USA.
+                </p>
+                <p>
+                    Telefon: +1.202.387.3355<lb />
+                    <ref target="mailto:info@ghi-dc.org">info@ghi-dc.org</ref><lb />
+                    <ref target="https://www.ghi-dc.org/">www.ghi-dc.org</ref>
+                </p>
 
-			<div n="2" id="data-protection">
-				<head>Datenschutz</head>
-				<p> Dies ist ein Online-Dienst des Deutschen Historischen Instituts, Washington DC.
-					Die <ref target="https://www.ghi-dc.org/privacy-policy">Datenschutzerklärung des
-						DHI</ref> gilt für die Verarbeitung aller personenbezogenen Daten, die im
-					Rahmen des Betriebs dieser Website anfallen. </p>
-			</div>
+                <p>
+                    Vertretungsberechtigte<lb />
+                    Simone Lässig, Direktorin<lb />
+                    Axel Jansen, Stellvertretender Direktor<lb />
+                    Anne Kadolph, Verwaltungsleiterin
+                </p>
+            </div>
 
-        	<div n="2" id="liability">
-        		<head>Haftungsausschluss für Links</head>
-				<p>
-					Unsere Website enthält Links zu externen Websites, auf die wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-				</p>
-			</div>
-		</body>
+            <div n="2" id="data-protection">
+                <head>Datenschutz</head>
+                <p> Dies ist ein Online-Dienst des Deutschen Historischen Instituts, Washington DC.
+                    Die <ref target="https://www.ghi-dc.org/privacy-policy">Datenschutzerklärung des
+                        DHI</ref> gilt für die Verarbeitung aller personenbezogenen Daten, die im
+                    Rahmen des Betriebs dieser Website anfallen. </p>
+            </div>
+
+            <div n="2" id="liability">
+                <head>Haftungsausschluss für Links</head>
+                <p>
+                    Unsere Website enthält Links zu externen Websites, auf die wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+                </p>
+            </div>
+        </body>
     </text>
 </TEI>

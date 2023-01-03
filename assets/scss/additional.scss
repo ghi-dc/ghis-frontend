@@ -50,6 +50,16 @@ ul#navbar-about-locale li {
     }
 }
 
+#notice {
+    background-color: $color-gray-light;
+
+    #closer {
+        margin-left: 12px;
+        display: inline-block;
+        text-decoration: none;
+    }
+}
+
 footer {
     background-color: $color-gray-light;
 
