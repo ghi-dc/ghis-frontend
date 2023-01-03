@@ -26,8 +26,11 @@
 <section>
     <div class="container">
         <div class="row section">
-            <div class="col-sm-12 col-md-6 offset-md-1">
-                <h1>{{ site_name|trans({}, 'additional') }}</h1>
+            <div class="col-sm-12 col-md-9 col-lg-6 offset-md-1">
+                <h1>{#{ site_name|trans({}, 'additional') }#}
+                    German History<br class="d-none d-sm-block" />
+                    in Documents and Images
+                </h1>
                 <p style="margin-bottom: 0">
                     {% if 'de' == app.request.locale %}
                         <i>German History in Documents and Images</i> (GHDI) ist ein Online-Portal von Primärquellenmaterialien, die verschiedene Aspekte der deutschen Geschichte von der Frühen Neuzeit bis zur Gegenwart dokumentieren. Das Projekt besteht aus zehn chronologisch geordneten Bänden, von denen jeder eine breite Auswahl an sorgfältig ausgewählten Text- und Bildquellen und Karten enthält. Wo es möglich war, schließen die Bände zudem auch audiovisuelle Quellen ein. Jeder Band enthält zudem eine Einführung in den jeweiligen Zeitraum sowie weitere Kommentare. Die Website ist komplett zweisprachig (Englisch/Deutsch) konzipiert. Das Projekt ist für ein breites Publikum konzipiert und möchte neue Ansätze in der Forschung, der akademischen Lehre und dem Lernen in den Bereichen der deutschen, europäischen und transnationalen Geschichte fördern.
@@ -69,9 +72,9 @@
         </div><!-- .row -->
         <div class="row featured">
             {% for key, info in featured %}
-            <div class="col-sm-{{ colspan }}">
+            <div class="col-sm-6 col-md-{{ colspan }}">
                 <h4>{% if 'audiovisual' != key %}<a href="{{ path('search', { 'filter' : { 'genre' : key } }) }}">{% endif %}{{ info['totalCount'] }} {{ info['label'] }}{% if 'audiovisual' != key %}</a>{% endif %}</h4>
-                <div class="genre" style="background-image: url('{{ app.request.basepath }}/media/home/{{ key}}.jpg');"></div>
+                <div class="genre" style="background-color: white; background-image: url('{{ app.request.basepath }}/media/home/{{ key }}.svg'); background-size: contain; background-origin: content-box; padding: 24px; opacity: 0.3;"></div>
                 {% if info['resource'] is defined %}
                     {% set resource = info['resource'] %}
                     {% set volumeDtaDirname = null %}
@@ -102,7 +105,7 @@
         {% if 'de' == locale %}{% set languageAppend = '&language=german' %}{% endif %}
         {% for id, descr in volumeDescr %}
             {% if id == 'ghdi:volume-4' or id == 'volume-7' or id not in volumeIds %}
-            <div class="col-sm-{{ numCols}} hyphens-auto" style="margin-bottom: 1rem">
+            <div class="col-sm-6 col-md-{{ numCols}} hyphens-auto" style="margin-bottom: 1rem">
                 <a id="first-edition-{{ id }}" href="https://germanhistorydocs.ghi-dc.org/section.cfm?section_id={{ id|replace({ 'volume-' : '' }) + 6 }}{{ languageAppend }}">{{ descr[locale] }} ({{ descr.period }})</a>
                 {#{ volume.note }#}
             </div>
