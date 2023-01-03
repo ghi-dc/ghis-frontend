@@ -25,14 +25,9 @@
         </script>
         <script src="{{ app.request.basepath }}/vendor/Hyphenopoly-4.6.0/Hyphenopoly_Loader.js" type="text/javascript"></script>
 
-        <script src="{{ app.request.basepath }}/js/jquery-3.6.0.min.js"></script>
-        <script src="{{ app.request.basepath }}/js/popper.min.js"></script>
-
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="{{ app.request.basepath }}/vendor/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ app.request.basepath }}/vendor/bootstrap-5.2.3-dist/css/bootstrap.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="{{ app.request.basepath }}/vendor/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
         {#
             triggers scssphp, this one doesn't prepend app.request.basepath
             since it overrides \Symfony\Bridge\Twig\Extension\AssetExtension
@@ -40,6 +35,18 @@
             as in Symfony\Component\Asset\PathPackage
         #}
         <link href="{{ app.request.basepath }}{{ asset('css/base.css') }}" rel="stylesheet">
+
+        {#
+            TODO: move as many script as possible to block javascripts at the end
+            of the body.
+            This will require delayed calls within <script>-tags in
+            resource.html.twig
+        #}
+        <script src="{{ app.request.basepath }}/js/jquery-3.6.0.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="{{ app.request.basepath }}/vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+
         {% block head %}{% endblock %}
 
         {# https://realfavicongenerator.net/favicon_result #}
