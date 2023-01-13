@@ -5,6 +5,7 @@ twig:
         site_name: '%app.site.name%'
         site_email: '%app.site.email%'
         locales: "%app.supported_locales%"
+        site_matomo_id: '%app.site.matomo.id%'
     form_themes: ['bootstrap_4_horizontal_layout.html.twig']
 
 when@test:
