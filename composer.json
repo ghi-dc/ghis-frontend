@@ -29,6 +29,7 @@
         "citation-style-language/locales": "^1.0",
         "doctrine/annotations": "^1.0",
         "edwinhoksberg/octicons-php": "^1.1",
+        "flagception/flagception-bundle": "^4.3",
         "fluentdom/fluentdom": "^8.0",
         "gmo/iso-639": "^1.0",
         "jms/translation-bundle": "^1.6",

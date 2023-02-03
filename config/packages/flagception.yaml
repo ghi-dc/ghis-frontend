@@ -1,0 +1,7 @@
+# See full configuration at https://github.com/bestit/flagception-bundle
+flagception:
+    features:
+        get_similar:
+            default: false
+            constraint: 'siteKey == "ghdi" and (hostname == "localhost" or hostname matches "/^dev\./")'
+
