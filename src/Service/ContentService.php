@@ -248,6 +248,55 @@ class ContentService
     }
 
     /**
+     * Look-up similar sources.
+     *
+     * In order to make this work, you need to configure the MoreLikeThis-handler
+     *  https://solr.apache.org/guide/8_8/morelikethis.html#request-handler-configuration
+     *
+     * and make sure termVectors="true" is set on
+     *   <field name="_text_" type="text_de" multiValued="true" indexed="true" termVectors="true" stored="false"/>
+     *   <field name="_meta_" type="text_de" multiValued="true" indexed="true" termVectors="true" stored="true"/>
+     */
+    public function getSimilarResources($resource, $maxDocuments = 5, $minScore = 10)
+    {
+        // get a morelikethis query instance
+        // see https://solarium.readthedocs.io/en/stable/queries/morelikethis-query/
+        $solrClient = $this->solr->getClient();
+
+        $query = $solrClient->createMoreLikeThis();
+
+        $query->setQuery('id:teifull_' . str_replace(':', '\\:', $resource->getId()));
+
+        $query->setMltFields('_meta_,_text_');
+        $query->setQueryfields('_meta_^0.9,_text_^1.0');
+        $query->setMinimumDocumentFrequency(1);
+        $query->setMinimumTermFrequency(1);
+
+        $query->createFilterQuery('id')->setQuery('id:teifull_*');
+        // $query->setInterestingTerms('_text_');
+        $query->setMatchInclude(false);
+
+        $matches = [];
+        try {
+            // this executes the query and returns the result
+            $resultset = $solrClient->select($query);
+        }
+        catch (\Exception $e) {
+            return $matches;
+        }
+
+        foreach ($resultset as $document) {
+            if (count($matches) >= $maxDocuments || $document->score < $minScore) {
+                break;
+            }
+
+            $matches[] = $this->hydrateDocument($document);
+        }
+
+        return $matches;
+    }
+
+    /**
      * Build resource to resource navigation
      */
     public function buildNavigation($resource)
