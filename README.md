@@ -73,7 +73,20 @@ Development Notes
 
 ### Solr
 
-in {ghdi|ghis}_{de|en}/conf/solr.xml
+In {ghdi|ghis}_{de|en}/conf/solr.xml
+
+Customize the following fields (depending on the language of the core)
+
+    <field name="_text_" type="text_de" multiValued="true" indexed="true" stored="false"/>
+    <fieldType name="pdaterange" class="solr.DateRangeField" />
+    <field name="date_indexed_dt" type="pdaterange" indexed="true" stored="true" multiValued="false"/>
+    <field name="highlight" type="text_de" indexed="true" stored="true" multiValued="true"/>
+    <!-- last indexed datestamp for OAI, https://stackoverflow.com/a/14658046 -->
+    <field name="datestamp" type="pdate" indexed="true" stored="true" default="NOW" multiValued="false"/>
+
+    <field name="geo" type="location" indexed="true" stored="true"/>
+
+and copyField rules
 
     <!-- Only enabled in the "schemaless" data-driven example (assuming the client
          does not know what fields may be searched) because it's very expensive to index everything twice. -->
@@ -82,11 +95,35 @@ in {ghdi|ghis}_{de|en}/conf/solr.xml
     <copyField source="*_ss" dest="_text_"/>
     <copyField source="*_t" dest="_text_"/>
 
-add highlight and suggest for certain fields
+Add note and body to highlight
 
     <copyField source="note_t" dest="highlight"/>
     <copyField source="body_t" dest="highlight"/>
-    <copyField source="authors_ss" dest="suggest"/>
+
+
+If you want to activate similar sources, you need to add the MoreLikeThis handler
+in {ghdi|ghis}_{de|en}/conf/solrconfig.xml
+
+  <!-- The MoreLikeThis request handler is not configured by default and needs to be set up before using it.
+          https://solr.apache.org/guide/8_8/morelikethis.html#request-handler-configuration
+  -->
+  <requestHandler name="/mlt" class="solr.MoreLikeThisHandler">
+    <lst name="defaults">
+       <str name="echoParams">explicit</str>
+       <str name="wt">json</str>
+    </lst>
+  </requestHandler>
+
+In addition, you need to store the termVectors
+
+  <field name="_text_" type="text_de" multiValued="true" indexed="true" termVectors="true" stored="false"/>
+  <field name="_meta_" type="text_de" multiValued="true" indexed="true" termVectors="true" stored="true"/>
+
+and populate _meta_
+
+  <copyField source="title_s" dest="_meta_"/>
+  <copyField source="authors_ss" dest="_meta_"/>
+  <copyField source="genre_s" dest="_meta_"/>
 
 ### Translate templates
 
