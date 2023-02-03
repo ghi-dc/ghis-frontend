@@ -181,8 +181,28 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                        {% if similar is defined and similar is not empty %}
+                        <div class="card">
+                            <div class="card-header" id="headingSimilar">
+                                <h2 class="mb-0 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseSimilar" aria-expanded="false" aria-controls="collapseSimilar">
+                                    {{ 'Related Sources'|trans }}
+                                </h2>
+                            </div>
+                            <div id="collapseSimilar" class="collapse" aria-labelledby="headingSimilar" data-bs-parent="#bottom-information">
+                                <div class="card-body">
+                                    {% for related in similar %}
+                                    <div class="similar-entry {{ related.volumeIdFromShelfmark }}">
+                                        <a href="../{{ resource_path(related) }}"  class="{{ related.genre }}">
+                                            {{ related.title }}
+                                        </a>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div><!-- .article-part -->
             </div><!-- .row -->
         </div><!-- .container -->

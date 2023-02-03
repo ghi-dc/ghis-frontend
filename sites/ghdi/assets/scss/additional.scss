@@ -476,6 +476,44 @@ main.section, main.resource {
             }
         }
     }
+
+    .similar-entry {
+        margin-bottom: 4px;
+
+        a {
+            display: inline-block;
+
+            /* source type icons */
+            &::before {
+                background-color: $color-gray-medium;
+                content: '';
+                font-family: 'icomoon';
+                font-size: 14px;
+                font-weight: normal;
+                color: white;
+                display: block;
+                float: left;
+                margin-left: -30px;
+                padding: 2px;
+            }
+
+            &.document::before {
+                content: '\e914';
+            }
+            &.image::before {
+                content: '\e913';
+            }
+            &.audio::before {
+                content: '\e912';
+            }
+            &.video::before {
+                content: '\e908';
+            }
+            &.volume::before, &.document-collection::before, &.introduction::before, &.map::before {
+                display: none;
+            }
+        }
+    }
 }
 
 main.section {

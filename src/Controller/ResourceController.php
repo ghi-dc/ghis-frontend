@@ -14,6 +14,9 @@ use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
 
 use Spatie\SchemaOrg\Schema;
 
+use Flagception\Manager\FeatureManagerInterface;
+use Flagception\Model\Context as ConstraintContext;
+
 use App\Service\ContentService;
 use App\Service\Xsl\XsltProcessor;
 
@@ -626,6 +629,7 @@ class ResourceController extends BaseController
     public function resourceAction(Request $request,
                                    TranslatorInterface $translator,
                                    UrlGeneratorInterface $urlGenerator,
+                                   FeatureManagerInterface $featureManager,
                                    $volume, $resource)
     {
         $pageMeta = [
@@ -649,6 +653,7 @@ class ResourceController extends BaseController
                 ], UrlGeneratorInterface::ABSOLUTE_URL))
             ;
 
+        $similar = [];
         switch ($resource->getGenre()) {
             case 'introduction':
                 /* for full editor information */
@@ -661,6 +666,13 @@ class ResourceController extends BaseController
 
             default:
                 $template = 'Resource/resource.html.twig';
+
+                $context = new ConstraintContext();
+                $context->add('hostname', $request->server->get('HTTP_HOST'));
+                $context->add('siteKey', $this->siteKey);
+                if ($featureManager->isActive('get_similar', $context)) {
+                    $similar = $this->contentService->getSimilarResources($resource);
+                }
         }
 
         return $this->render($template, [
@@ -669,6 +681,7 @@ class ResourceController extends BaseController
             'volume' => $volume,
             'resource' => $resource,
             'parts' => $parts,
+            'similar' => $similar,
             'navigation' => $this->contentService->buildNavigation($resource),
         ] + $this->buildLocaleSwitch($volume, $resource));
     }
