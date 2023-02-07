@@ -43,7 +43,7 @@
         "picturae/oai-pmh": "0.5.20",
         "presta/sitemap-bundle": "^3.3",
         "sabre/xml": "^1.5",
-        "seboettg/citeproc-php": "^2.2",
+        "seboettg/citeproc-php": "^2.5",
         "sensio/framework-extra-bundle": "^5.1",
         "spatie/schema-org": "^3.4",
         "sylius/theme-bundle": "^2.1",
