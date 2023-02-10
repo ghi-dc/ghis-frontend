@@ -565,6 +565,11 @@ main.resource {
             text-decoration: none; /* Additional Source Heading */
         }
     }
+
+    .article > div + div {
+        /* extra spacing between sections */
+        margin-top: 1rem;
+    }
 }
 
 /* volume, section and introduction with background image */
