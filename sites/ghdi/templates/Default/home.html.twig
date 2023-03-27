@@ -52,7 +52,11 @@
             <div class="col"><h3>{{ 'Volumes'|trans }}</h3></div>
         </div><!-- .row -->
         <div class="row volumes">
-        {% set numCols = (12 / (volumes|length - 2))|round(0, 'floor') %}
+        {% if volumes|length <= 2 %}
+            {% set numCols = volumes|length %}
+        {% else %}
+            {% set numCols = (12 / (volumes|length - 2))|round(0, 'floor') %}
+        {% endif %}
         {% if numCols < 4 %}{% set numCols = 4 %}{% endif %}
         {% for volume in volumes %}
             {% if volume.id != 'ghdi:volume-4' and volume.id != 'ghdi:volume-7' %}

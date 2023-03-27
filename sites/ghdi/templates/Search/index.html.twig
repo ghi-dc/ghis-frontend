@@ -37,11 +37,11 @@
                 <div class="summary">
                     {{ 'Display'|trans }}:
                         {% if pagination.totalItemCount < 2 %}
-                            {{ 'result.number_of_items'|trans({ 'count': pagination.totalItemCount}) }}
+                            {{ 'result.number_of_items'|trans({ 'count': pagination.totalItemCount }) }}
                         {% else %}
                             {% set paginationData = pagination.paginationData %}
 
-                            {{ paginationData.firstItemNumber }}{% if paginationData.lastItemNumber != paginationData.firstItemNumber %}-{{ paginationData.lastItemNumber }}{% endif %} {{ 'of'|trans }} {{ 'result.number_of_items'|trans({ 'count': pagination.totalItemCount}) }}
+                            {{ paginationData.firstItemNumber }}{% if paginationData.lastItemNumber != paginationData.firstItemNumber %}-{{ paginationData.lastItemNumber }}{% endif %} {{ 'of'|trans }} {{ 'result.number_of_items'|trans({ 'count': pagination.totalItemCount }) }}
                         {% endif %}
                 </div>
 
