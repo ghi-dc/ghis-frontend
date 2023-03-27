@@ -4,7 +4,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/boppy/SolrBundle.git"
+            "url": "https://github.com/burki/SolrBundle.git"
         },
         {
             "type": "package",
@@ -20,12 +20,12 @@
         }
     ],
     "require": {
-        "php": "^7.3.0",
+        "php": "^7.3|^8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
         "armin/scssphp-bundle": "^1.1",
-        "boppy/solr-bundle": "dev-master",
+        "boppy/solr-bundle": "dev-solarium-6",
         "citation-style-language/locales": "^1.0",
         "doctrine/annotations": "^1.0",
         "edwinhoksberg/octicons-php": "^1.1",
@@ -60,7 +60,7 @@
         "symfony/intl": "^5.4",
         "symfony/mailer": "^5.4",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/polyfill-intl-messageformatter": "^1.13",
+        "symfony/polyfill-intl-messageformatter": "^1.27",
         "symfony/process": "^5.4",
         "symfony/property-access": "^5.4",
         "symfony/property-info": "^5.4",
