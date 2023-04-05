@@ -59,7 +59,7 @@
         {% endif %}
         {% if numCols < 4 %}{% set numCols = 4 %}{% endif %}
         {% for volume in volumes %}
-            {% if volume.id != 'ghdi:volume-4' and volume.id != 'ghdi:volume-7' %}
+            {% if volume.id != 'ghdi:volume-7' %}
             <div class="col-sm-{{ numCols}} hyphens-auto">
                 <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a>
                 {#{ volume.note }#}
