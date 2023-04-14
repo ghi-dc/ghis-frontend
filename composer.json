@@ -5,18 +5,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/burki/SolrBundle.git"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "citation-style-language/locales",
-                "version": "1.0.0",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/citation-style-language/locales.git",
-                    "reference": "master"
-                }
-            }
         }
     ],
     "require": {
@@ -26,7 +14,6 @@
         "ext-intl": "*",
         "armin/scssphp-bundle": "^1.1",
         "boppy/solr-bundle": "dev-solarium-6",
-        "citation-style-language/locales": "^1.0",
         "doctrine/annotations": "^1.0",
         "edwinhoksberg/octicons-php": "^1.1",
         "flagception/flagception-bundle": "^4.3",
@@ -43,7 +30,7 @@
         "picturae/oai-pmh": "0.5.20",
         "presta/sitemap-bundle": "^3.3",
         "sabre/xml": "^1.5",
-        "seboettg/citeproc-php": "^2.5",
+        "seboettg/citeproc-php": "^2.6",
         "spatie/schema-org": "^3.4",
         "sylius/theme-bundle": "^2.1",
         "symfony/asset": "^5.4",
