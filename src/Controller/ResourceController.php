@@ -514,6 +514,11 @@ class ResourceController extends BaseController
             // . übersetzt von doesn't get properly capitalized
             $biblio = str_replace('. übersetzt von', '. Übersetzt von', $biblio);
         }
+        else if ('en-US' == $cslLocale) {
+            // Problem with <style-options punctuation-in-quote="true"/>
+            // see https://github.com/seboettg/citeproc-php/issues/101
+            $biblio = preg_replace('/([\?\!])\.(”)/', '\1\2', str_replace('”.', '.”', $biblio));
+        }
 
         /* vertical-align: super doesn't render nicely:
            http://stackoverflow.com/a/1530819/2114681
