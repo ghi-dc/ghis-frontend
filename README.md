@@ -142,7 +142,3 @@ in translation/messages+intl+icu.de.xlf and data/styles/translation.xml
 * Additional Source(s) / Weitere Quelle(n)
 * Further Reading / Weiterführende Inhalte
 * Keywords / Schlagworte
-
-TODO
-----
-* Check https://github.com/bestit/flagception-bundle (e.g. for GHDI-Extra)
