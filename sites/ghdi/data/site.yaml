@@ -17,6 +17,15 @@ teaching:
         slug:
             de: lebensstationen
             en: lebensstationen
+
+    -
+        title:
+            de: "Forging an Empire: Bismarckian Germany. Chronology 1815-1898 (in English)"
+            en: "Forging an Empire: Bismarckian Germany. Chronology 1815-1898"
+        slug:
+            de: forging-an-empire-chronology
+            en: forging-an-empire-chronology
+
     -
         title:
             de: Ausgewählte Videoclips zu den Themen Migration, „Deutschsein“, und Wissen und Bildung
