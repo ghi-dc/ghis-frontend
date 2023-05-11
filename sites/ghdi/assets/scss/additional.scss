@@ -231,20 +231,35 @@ footer {
 }
 
 /* bibliography */
-.zotero-group-link {
-    text-align: right;
+.zotero-group-link-wrapper {
     margin-bottom: 2rem;
+    width: 100%;
 
-    a, a:link, a:visited {
-        color: $color-gray-dark;
-        text-decoration: underline;
+    h3 {
+        float: left;
+        max-width: 60%;
+    }
+
+    .zotero-group-link {
+        text-align: right;
+
+        a, a:link, a:visited {
+            color: $color-gray-dark;
+            text-decoration: underline;
+        }
     }
 }
 
 .csl-bib-body {
+    clear: both;
+
     .csl-entry {
         margin-bottom: 1rem;
     }
+}
+
+.csl-bib-body + .zotero-group-link-wrapper {
+    margin-top: 2rem;
 }
 
 /* route-specific styles */

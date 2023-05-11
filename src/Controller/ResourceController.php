@@ -532,7 +532,7 @@ class ResourceController extends BaseController
     /**
      * Render bibliography
      */
-    public function buildBibliography($volume, $translator, $locale)
+    public function buildBibliography($volume, $sections, $translator, $locale)
     {
         $fname = 'chicago-author-date-append.csl';
         $cslLocale = 'en-US';
@@ -553,23 +553,54 @@ class ResourceController extends BaseController
             return;
         }
 
-        $dataAsObject = json_decode(file_get_contents($dataPath));
-        if (false === $dataAsObject) {
+        $bibdataAsObject = json_decode(file_get_contents($dataPath));
+        if (false === $bibdataAsObject) {
             return;
         }
 
-        $this->localizePublisherPlace($dataAsObject->data, $locale);
-
         $cslPath = $this->getDataDir() . '/csl/'
             . $fname;
-
         $citeProc = new \Seboettg\CiteProc\CiteProc(file_get_contents($cslPath), $cslLocale);
 
-        return sprintf('<div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div>',
-                       $dataAsObject->{'group-id'},
-                       $dataAsObject->key,
-                       $translator->trans('View in Zotero Groups Library', [], 'additional'))
-            . $this->postProcessBiblio(@$citeProc->render($dataAsObject->data), $cslLocale);
+        $parts = [];
+
+        if (property_exists($bibdataAsObject, 'collections')) {
+            foreach ($bibdataAsObject->collections as $chapterId => $collection) {
+                $title = null;
+                foreach ($sections as $section) {
+                    if ($chapterId == $section->getId()) {
+                        $title = $section->getTitle();
+                        break;
+                    }
+                }
+
+                if (is_null($title)) {
+                    continue;
+                }
+
+                $this->localizePublisherPlace($collection->data, $locale);
+
+                $parts[] = sprintf('<div class="zotero-group-link-wrapper"><h3>%s</h3><div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div></div>',
+                                   htmlspecialchars($title, ENT_COMPAT, 'utf-8'),
+                                   $collection->{'group-id'},
+                                   $collection->key,
+                                   $translator->trans('View in Zotero Groups Library', [], 'additional'))
+                    . $this->postProcessBiblio(@$citeProc->render($collection->data), $cslLocale);
+            }
+        }
+        else {
+            $collection = $bibdataAsObject; // single collection
+
+            $this->localizePublisherPlace($collection->data, $locale);
+
+            $parts[] = sprintf('<div class="zotero-group-link-wrapper"><div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div></div>',
+                               $collection->{'group-id'},
+                               $collection->key,
+                               $translator->trans('View in Zotero Groups Library', [], 'additional'))
+                . $this->postProcessBiblio(@$citeProc->render($collection->data), $cslLocale);
+        }
+
+        return join('', $parts);
     }
 
     /**
@@ -587,13 +618,15 @@ class ResourceController extends BaseController
             'title' => $volume->getTitle(),
         ];
 
+        $sections = $this->contentService->getSections($volume);
+
         return $this->render('Resource/volume.html.twig', [
             'pageMeta' => $pageMeta,
             'volume' => $entity,
             'introduction' => $this->contentService->getIntroduction($volume),
-            'sections' => $this->contentService->getSections($volume),
+            'sections' => $sections,
             'maps' => $this->contentService->getMaps($volume),
-            'bibliography' => $this->buildBibliography($volume, $translator, $request->getLocale()),
+            'bibliography' => $this->buildBibliography($volume, $sections, $translator, $request->getLocale()),
             'navigation' => $this->contentService->buildNavigation($volume),
         ] + $this->buildLocaleSwitch($volume));
     }
