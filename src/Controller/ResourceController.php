@@ -564,6 +564,18 @@ class ResourceController extends BaseController
 
         $parts = [];
 
+        if (property_exists($bibdataAsObject, 'data')) {
+            $collection = $bibdataAsObject; // main collection
+
+            $this->localizePublisherPlace($collection->data, $locale);
+
+            $parts[] = sprintf('<div class="zotero-group-link-wrapper"><div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div></div>',
+                               $collection->{'group-id'},
+                               $collection->key,
+                               $translator->trans('View in Zotero Groups Library', [], 'additional'))
+                . $this->postProcessBiblio(@$citeProc->render($collection->data), $cslLocale);
+        }
+
         if (property_exists($bibdataAsObject, 'collections')) {
             foreach ($bibdataAsObject->collections as $chapterId => $collection) {
                 $title = null;
@@ -587,17 +599,6 @@ class ResourceController extends BaseController
                                    $translator->trans('View in Zotero Groups Library', [], 'additional'))
                     . $this->postProcessBiblio(@$citeProc->render($collection->data), $cslLocale);
             }
-        }
-        else {
-            $collection = $bibdataAsObject; // single collection
-
-            $this->localizePublisherPlace($collection->data, $locale);
-
-            $parts[] = sprintf('<div class="zotero-group-link-wrapper"><div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div></div>',
-                               $collection->{'group-id'},
-                               $collection->key,
-                               $translator->trans('View in Zotero Groups Library', [], 'additional'))
-                . $this->postProcessBiblio(@$citeProc->render($collection->data), $cslLocale);
         }
 
         return join('', $parts);
