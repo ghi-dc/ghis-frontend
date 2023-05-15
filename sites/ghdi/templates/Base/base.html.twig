@@ -74,6 +74,37 @@
             <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarToggler">
                 <div class="d-md-none">
                     <ul class="navbar-nav">
+                        {% if locales|length > 1 %}
+                        <li class="nav-item">
+                            <ul class="text-end list-inline">
+                            {% for locale in locales %}
+                            <li class="list-inline-item locales{% if loop.first %} first{% endif %}{% if locale == app.request.locale %} current{% endif %}">
+                                {% if locale == app.request.locale %}
+                                    {{ locale|localeNameNative }}
+                                {% else %}
+                                    {% set route = 'home' %}
+                                    {% if app.request.attributes.get('_route') is not empty %}
+                                        {% set route = app.request.attributes.get('_route') %}
+                                    {% endif %}
+                                    {% if route_params_locale_switch is defined and route_params_locale_switch[locale] is defined %}
+                                        {% set route = 'dynamic' %}
+                                        {% set route_params = route_params_locale_switch[locale] %}
+                                    {% else %}
+                                        {% set route_params = {} %}
+                                        {% if app.request.attributes.get('_route_params') is not null %}
+                                            {% set route_params = app.request.attributes.get('_route_params') %}
+                                        {% endif %}
+                                        {% set route_params = route_params|merge(app.request.query.all) %}
+                                    {% endif %}
+                                    <a href="{{ path(route, route_params|merge({'_locale': locale})) }}">
+                                        {{ locale|localeNameNative }}
+                                    </a>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                            </ul>
+                        </li>
+                        {% endif %}
                         <li>
                             <a href="{{ path('teaching-index') }}">
                                 {{ 'GHDI Extra'|trans }}
