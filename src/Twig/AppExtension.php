@@ -44,7 +44,7 @@ class AppExtension extends AbstractExtension
     /**
      * setup twig filters
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             // site specific
@@ -59,7 +59,7 @@ class AppExtension extends AbstractExtension
     /**
      * setup twig functions
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             // site specific

@@ -31,7 +31,7 @@ class NoDatabaseValueHydratorWithChildren extends \FS\SolrBundle\Doctrine\Hydrat
         $this->metaInformationFactory = $metaInformationFactory;
     }
 
-    public function hydrate($document, MetaInformationInterface $metaInformation)
+    public function hydrate($document, MetaInformationInterface $metaInformation): object
     {
         $targetEntity = parent::hydrate($document, $metaInformation);
 
