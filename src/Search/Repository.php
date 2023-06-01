@@ -228,7 +228,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         $query->setHydrationMode($this->hydrationMode);
 
         $query->setUseAndOperator(true);
-        $uidCondition = addcslashes($uid, ':');
+        $uidCondition = $uid;
         $prefix = $this->metaInformation->getDocumentName() . '_';
         if ($prefix !== substr($uidCondition, 0, strlen($prefix))) {
             $uidCondition = $prefix . $uidCondition;
