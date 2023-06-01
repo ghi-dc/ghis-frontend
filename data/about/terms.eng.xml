@@ -113,11 +113,10 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     <ref target="mailto:info@ghi-dc.org">info@ghi-dc.org</ref><lb/>
                     <ref target="https://www.ghi-dc.org/">www.ghi-dc.org</ref>
                 </p>
-
                 <p> Authorized persons<lb/>
                      Simone Lässig, Director<lb/>
                      Axel Jansen, Deputy Director<lb/>
-                     Anne Kadolph, Administrative Director </p>
+                     Anne Kadolph, Head of Administration</p>
             </div>
 
             <div n="2" id="data-protection">

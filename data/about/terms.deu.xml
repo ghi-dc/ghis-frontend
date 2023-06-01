@@ -46,7 +46,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </div>
 
             <div n="2">
-                <head>Informationen zum Copyright</head>
+                <head>Rechtehinweis</head>
                 <p>
                     <hi rendition="#i">German History Intersections</hi> umfasst Hunderte von
                     Primärquellen (d.h. Originaltexte, Übersetzungen, Bilder, audiovisuelle Dateien)
