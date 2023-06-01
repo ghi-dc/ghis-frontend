@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "63d95fdf2b4c0d19de23fc50c602621c",
+    "content-hash": "f2037b0a3c08b148908ccaffcd5dff82",
     "packages": [
         {
             "name": "armin/scssphp-bundle",
@@ -909,28 +909,28 @@
         },
         {
             "name": "gmo/iso-639",
-            "version": "v1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gmo/iso-639.git",
-                "reference": "c6f7f1233459dbe1833245ae47cdd075b0849ab0"
+                "url": "https://github.com/jtl-software/connector-iso-639.git",
+                "reference": "4834357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gmo/iso-639/zipball/c6f7f1233459dbe1833245ae47cdd075b0849ab0",
-                "reference": "c6f7f1233459dbe1833245ae47cdd075b0849ab0",
+                "url": "https://api.github.com/repos/jtl-software/connector-iso-639/zipball/4834357",
+                "reference": "4834357",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Gmo\\Iso639\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -942,10 +942,9 @@
                 "language"
             ],
             "support": {
-                "issues": "https://github.com/gmo/iso-639/issues",
-                "source": "https://github.com/gmo/iso-639/tree/v1.0.0"
+                "source": "https://github.com/jtl-software/connector-iso-639/tree/v1.0.1"
             },
-            "time": "2015-07-17T00:18:37+00:00"
+            "time": "2022-10-25T07:14:49+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -12352,7 +12351,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "boppy/solr-bundle": 20
+        "boppy/solr-bundle": 20,
+        "gmo/iso-639": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

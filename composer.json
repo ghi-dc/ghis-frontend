@@ -5,6 +5,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/burki/SolrBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/jtl-software/connector-iso-639.git"
         }
     ],
     "require": {
@@ -18,7 +22,7 @@
         "edwinhoksberg/octicons-php": "^1.1",
         "flagception/flagception-bundle": "^4.3",
         "fluentdom/fluentdom": "^8.0",
-        "gmo/iso-639": "^1.0",
+        "gmo/iso-639": "dev-master#4834357",
         "jms/translation-bundle": "^1.7",
         "knplabs/knp-menu-bundle": "^3.2",
         "knplabs/knp-paginator-bundle": "^5.9",
