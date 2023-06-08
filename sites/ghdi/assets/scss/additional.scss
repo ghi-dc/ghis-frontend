@@ -492,6 +492,16 @@ main.section, main.resource {
         }
     }
 
+    /* hide progress-bar for image, map and audio-visual */
+    &.image, &.map, &.audio, &.video
+    {
+        .bottom-navigation {
+            .resource-progress {
+                height: 0px;
+            }
+        }
+    }
+
     .similar-entry {
         margin-bottom: 4px;
 

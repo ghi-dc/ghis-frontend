@@ -4,7 +4,7 @@
 
 {% block head %}
     {% if parts.meta is defined %}
-    {{ resource_helper.meta_tags(parts.meta) }}
+        {{ resource_helper.meta_tags(parts.meta) }}
     {% endif %}
     {% if schema is defined and schema is not empty %}
         {{ schema.toScript()|raw }}
@@ -56,7 +56,7 @@
 {% endblock %}
 
 {% block maincontainer %}
-<main role="main" class="resource">
+<main role="main" class="resource {{ resource.genre }}">
     {% block body %}
     <section class="top banner">
         <div class="container">
