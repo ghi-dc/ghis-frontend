@@ -159,16 +159,16 @@
         },
         {
             "name": "citation-style-language/styles",
-            "version": "v0.0.249",
+            "version": "v0.0.250",
             "source": {
                 "type": "git",
                 "url": "https://github.com/citation-style-language/styles.git",
-                "reference": "256250be9c6ab34bba4a070b5c050f7848b37beb"
+                "reference": "9bae9efc5579deeab6753fbeac2d563dcaad50d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/citation-style-language/styles/zipball/256250be9c6ab34bba4a070b5c050f7848b37beb",
-                "reference": "256250be9c6ab34bba4a070b5c050f7848b37beb",
+                "url": "https://api.github.com/repos/citation-style-language/styles/zipball/9bae9efc5579deeab6753fbeac2d563dcaad50d9",
+                "reference": "9bae9efc5579deeab6753fbeac2d563dcaad50d9",
                 "shasum": ""
             },
             "type": "library",
@@ -186,7 +186,7 @@
             "homepage": "http://citationstyles.org/",
             "support": {
                 "issues": "https://github.com/citation-style-language/styles/issues",
-                "source": "https://github.com/citation-style-language/styles/tree/v0.0.249"
+                "source": "https://github.com/citation-style-language/styles/tree/v0.0.250"
             },
             "funding": [
                 {
@@ -194,7 +194,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-18T13:18:49+00:00"
+            "time": "2023-05-27T18:28:04+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -274,25 +274,29 @@
         },
         {
             "name": "doctrine/deprecations",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "8cffffb2218e01f3b370bf763e00e81697725259"
+                "reference": "612a3ee5ab0d5dd97b7cf3874a6efe24325efac3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/8cffffb2218e01f3b370bf763e00e81697725259",
-                "reference": "8cffffb2218e01f3b370bf763e00e81697725259",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/612a3ee5ab0d5dd97b7cf3874a6efe24325efac3",
+                "reference": "612a3ee5ab0d5dd97b7cf3874a6efe24325efac3",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1|^8.0"
+                "php": "^7.1 || ^8.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^9",
-                "phpunit/phpunit": "^7.5|^8.5|^9.5",
-                "psr/log": "^1|^2|^3"
+                "phpstan/phpstan": "1.4.10 || 1.10.15",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
+                "psalm/plugin-phpunit": "0.18.4",
+                "psr/log": "^1 || ^2 || ^3",
+                "vimeo/psalm": "4.30.0 || 5.12.0"
             },
             "suggest": {
                 "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
@@ -311,9 +315,9 @@
             "homepage": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/v1.1.0"
+                "source": "https://github.com/doctrine/deprecations/tree/v1.1.1"
             },
-            "time": "2023-05-29T18:55:17+00:00"
+            "time": "2023-06-03T09:27:29+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -8897,16 +8901,16 @@
         },
         {
             "name": "twig/extra-bundle",
-            "version": "v3.6.0",
+            "version": "v3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/twig-extra-bundle.git",
-                "reference": "4a9674e775f49a9df5e26da66546e8f3364afe67"
+                "reference": "802cc2dd46ec88285d6c7fa85c26ab7f2cd5bc49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/twig-extra-bundle/zipball/4a9674e775f49a9df5e26da66546e8f3364afe67",
-                "reference": "4a9674e775f49a9df5e26da66546e8f3364afe67",
+                "url": "https://api.github.com/repos/twigphp/twig-extra-bundle/zipball/802cc2dd46ec88285d6c7fa85c26ab7f2cd5bc49",
+                "reference": "802cc2dd46ec88285d6c7fa85c26ab7f2cd5bc49",
                 "shasum": ""
             },
             "require": {
@@ -8955,7 +8959,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/twigphp/twig-extra-bundle/tree/v3.6.0"
+                "source": "https://github.com/twigphp/twig-extra-bundle/tree/v3.6.1"
             },
             "funding": [
                 {
@@ -8967,7 +8971,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-14T11:03:02+00:00"
+            "time": "2023-05-06T11:11:46+00:00"
         },
         {
             "name": "twig/string-extra",
@@ -9038,16 +9042,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.6.0",
+            "version": "v3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "106c170d08e8415d78be2d16c3d057d0d108262b"
+                "reference": "7e7d5839d4bec168dfeef0ac66d5c5a2edbabffd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/106c170d08e8415d78be2d16c3d057d0d108262b",
-                "reference": "106c170d08e8415d78be2d16c3d057d0d108262b",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7e7d5839d4bec168dfeef0ac66d5c5a2edbabffd",
+                "reference": "7e7d5839d4bec168dfeef0ac66d5c5a2edbabffd",
                 "shasum": ""
             },
             "require": {
@@ -9093,7 +9097,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.6.0"
+                "source": "https://github.com/twigphp/Twig/tree/v3.6.1"
             },
             "funding": [
                 {
@@ -9105,7 +9109,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-03T19:06:57+00:00"
+            "time": "2023-06-08T12:52:13+00:00"
         },
         {
             "name": "voku/html-min",
