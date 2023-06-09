@@ -408,7 +408,7 @@ body.route-home {
 
 main.volume, main.section, main.introduction {
     .banner {
-        padding-top: 12rem;
+        padding-top: 9rem;
         margin-bottom: 1rem;
         background-color: gray;
         background-size: cover;
@@ -605,6 +605,10 @@ main.volume, main.section, main.introduction {
 
     .banner {
         /* volume title */
+        div.wrapper {
+            min-height: 8.5rem;
+        }
+
         h1 {
             text-transform: none;
             color: white;

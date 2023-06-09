@@ -13,7 +13,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>{{ volume.title }}</h1>
+                <div class="wrapper d-flex flex-column">
+                    <h1 class="mt-auto">{{ volume.title }}</h1>
+                </div>
                 <p>
                     {{ resource_helper.volume_responsible(volume) }}
                 </p>
