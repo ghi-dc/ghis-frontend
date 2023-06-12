@@ -4,7 +4,7 @@
 
 {% block head %}
     {% if parts.meta is defined %}
-    {{ resource_helper.meta_tags(parts.meta) }}
+        {{ resource_helper.meta_tags(parts.meta) }}
     {% endif %}
     {% if schema is defined and schema is not empty %}
         {{ schema.toScript()|raw }}
@@ -100,6 +100,7 @@
                             </div>
                         </div>
                         {% endfor %}
+
                         <div class="card">
                             <div class="card-header" id="headingCitation">
                                 <h2 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseCitation" aria-expanded="true" aria-controls="collapseCitation">

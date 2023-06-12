@@ -459,6 +459,9 @@ article, .article-part {
     }
 
     .resource-navigation {
+        position: sticky;
+        bottom: 0;
+        background-color: white;
         margin-top: 2rem;
         border-top: 1px solid $color-color-spot;
         .p-2 {
