@@ -236,7 +236,7 @@ class ResourceController extends BaseController
     /**
      * Adjust media-tags to point to the proper destination
      */
-    protected function adjustMedia($crawler, $baseUrl, $imgClass = null)
+    protected function adjustMedia($crawler, $baseUrl, $printView = false, $imgClass = null)
     {
         $crawler->filter('audio > source')->each(function ($node, $i) use ($baseUrl) {
             $src = $node->attr('src');
@@ -264,9 +264,30 @@ class ResourceController extends BaseController
             }
         });
 
-        $crawler->filter('img')->each(function ($node, $i) use ($baseUrl, $imgClass) {
+        $crawler->filter('img')->each(function ($node, $i) use ($baseUrl, $printView, $imgClass) {
             $src = $node->attr('src');
-            $node->getNode(0)->setAttribute('src', $this->buildFullUrl($src, $baseUrl));
+            $url = $this->buildFullUrl($src, $baseUrl);
+
+            if ($printView) {
+                // for SVG, check for a rasterized PNG
+                $urlParts = parse_url($url);
+                $pathinfo = pathinfo($urlParts['path']);
+                if ('svg' == $pathinfo['extension']) {
+                    // replace last occurrance of .svg with .png
+                    $pos = strrpos($url, $search = '.svg');
+                    if ($pos !== false) {
+                        $urlPng = substr_replace($url, '.png', $pos, strlen($search));
+
+                        $info = @exif_imagetype($urlPng);
+                        if (false !== $info) {
+                            // PNG image exists
+                            $url = $urlPng;
+                        }
+                    }
+                }
+            }
+
+            $node->getNode(0)->setAttribute('src', $url);
             if (!empty($imgClass)) {
                 $node->getNode(0)->setAttribute('class', $imgClass);
             }
@@ -330,7 +351,7 @@ class ResourceController extends BaseController
 
         $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
 
-        $this->adjustMedia($crawler, $mediaBaseUrl);
+        $this->adjustMedia($crawler, $mediaBaseUrl, $printView);
         $this->adjustInternalLink($crawler);
 
         if ('introduction' == $genre) {
