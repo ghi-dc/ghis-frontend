@@ -14,6 +14,7 @@
     "require": {
         "php": "^7.3|^8.1",
         "ext-ctype": "*",
+        "ext-exif": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
         "armin/scssphp-bundle": "^1.2",
