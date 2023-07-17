@@ -271,7 +271,7 @@ class SearchController extends BaseController
                     // set a filter-query to this value
                     $solrQuery->addFilterQuery([
                         'key' => $facetName,
-                        'tag' => $facetName,
+                        'local_tag' => $facetName,
                         'query' => $this->buildFilterQuery($field, $filter, $facetName),
                     ]);
                 }
