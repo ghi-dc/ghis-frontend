@@ -8,6 +8,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/burki/OaiPmh"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/jtl-software/connector-iso-639.git"
         }
     ],
@@ -32,9 +36,9 @@
         "mpdf/mpdf": "^8.1",
         "nyholm/psr7": "^1.8",
         "phpdocumentor/reflection-docblock": "^5.2",
-        "picturae/oai-pmh": "0.5.20",
         "presta/sitemap-bundle": "^3.3",
         "sabre/xml": "^1.5",
+        "saidatom/oai-pmh": "dev-master",
         "seboettg/citeproc-php": "^2.6",
         "spatie/schema-org": "^3.4",
         "sylius/theme-bundle": "^2.1",
