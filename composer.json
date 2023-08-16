@@ -4,7 +4,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/burki/SolrBundle.git"
+            "url": "https://github.com/burki/SolrBundle"
         },
         {
             "type": "vcs",
@@ -12,7 +12,7 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/jtl-software/connector-iso-639.git"
+            "url": "https://github.com/jtl-software/connector-iso-639"
         }
     ],
     "require": {
