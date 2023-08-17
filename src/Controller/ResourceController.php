@@ -797,7 +797,7 @@ class ResourceController extends BaseController
     /**
      * Render about file in TEI format
      */
-    protected function aboutToHtml($route, $locale, $mediaBaseUrl, $fnameXsl = 'dta2html.xsl')
+    protected function aboutToHtml(Request $request, string $mediaBaseUrl, string $fnameXsl = 'dta2html.xsl')
     {
         $dataDir = $this->dataDir;
         $theme = $this->themeContext->getTheme();
@@ -805,16 +805,41 @@ class ResourceController extends BaseController
            $dataDir = join(DIRECTORY_SEPARATOR, [ $theme->getPath(), 'data' ]);
         }
 
-        $fname = join('.', [ $route, \App\Utils\Iso639::code1To3($locale), 'xml' ]);
+        $fname = join('.', [
+            $route = $request->get('_route'),
+            \App\Utils\Iso639::code1To3($locale = $request->getLocale()),
+            'xml',
+        ]);
 
         $fnameFull = join(DIRECTORY_SEPARATOR, [ $dataDir, 'about', $fname ]);
 
-        $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXsl, [
+        $transformOptions = [
             'params' => [
                 // stylesheet parameters
                 'titleplacement' => 1,
             ]
-        ]);
+        ];
+
+        // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
+        $response = new Response();
+
+        $eTag = $this->xsltProcessor->computeETag($fnameFull, $fnameXsl, $transformOptions);
+
+        if (!is_null($eTag)) {
+            // create a Response with an ETag and/or a Last-Modified header
+            $response->setEtag($eTag);
+
+            // Set response as public. Otherwise it will be private by default.
+            $response->setPublic();
+        }
+
+        // Check that the Response is not modified for the given Request
+        if ($response->isNotModified($request)) {
+            // return the 304 Response immediately
+            return $response;
+        }
+
+        $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXsl, $transformOptions);
 
         $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
 
@@ -829,7 +854,15 @@ class ResourceController extends BaseController
             $parts['title'] = $node->text();
         }
 
-        return $parts;
+        $pageMeta = [];
+        if (array_key_exists('title', $parts)) {
+            $pageMeta['title'] = $parts['title'];
+        }
+
+        return $this->render('Default/about.html.twig', [
+            'pageMeta' => $pageMeta,
+            'parts' => $parts,
+        ], $response);
     }
 
     /**
@@ -896,7 +929,7 @@ class ResourceController extends BaseController
             . '/';
 
         try {
-            $parts = $this->aboutToHtml($request->get('_route'), $request->getLocale(), $mediaBaseUrl);
+            $response = $this->aboutToHtml($request, $mediaBaseUrl);
         }
         catch (\Exception $e) {
             // InvalidArgumentException if xml doesn't exist
@@ -904,18 +937,10 @@ class ResourceController extends BaseController
             $target = 'about' != $request->get('_route')
                 ? 'about' : 'home';
 
-            return $this->redirectToRoute($target);
+            $response = $this->redirectToRoute($target);
         }
 
-        $pageMeta = [];
-        if (array_key_exists('title', $parts)) {
-            $pageMeta['title'] = $parts['title'];
-        }
-
-        return $this->render('Default/about.html.twig', [
-            'pageMeta' => $pageMeta,
-            'parts' => $parts,
-        ]);
+        return $response;
     }
 
     /**
