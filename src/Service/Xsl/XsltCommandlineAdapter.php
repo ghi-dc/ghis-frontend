@@ -59,6 +59,31 @@ class XsltCommandlineAdapter
         return $xslFilename;
     }
 
+    public function computeETag($srcFilename, $xslFilename, $options = [])
+    {
+        if (!file_exists($srcFilename)) {
+            return null;
+        }
+
+        $srcModified = filemtime($srcFilename);
+        if (false === $srcModified) {
+            return null;
+        }
+
+        $xslFilename = $this->expandXslFilename($xslFilename);
+
+        if (!file_exists($xslFilename)) {
+            return null;
+        }
+
+        $xslModifiedXsl = filemtime($xslFilename);
+        if (false === $xslModifiedXsl) {
+            return null;
+        }
+
+        return join('-', [ $srcModified, $xslModifiedXsl, md5(json_encode($options)) ]);
+    }
+
     public function transformToXml($srcFilename, $xslFilename, $options = [])
     {
         $this->errors = [];

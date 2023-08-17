@@ -35,6 +35,33 @@ extends NativeXsltProcessor
         return $this->errors;
     }
 
+    public function computeETag($fnameXml, $fnameXsl, $options = [])
+    {
+        if (isset($this->adapter) && method_exists($this->adapter, 'computeETag')) {
+            return $this->adapter->computeETag($fnameXml, $fnameXsl, $options);
+        }
+
+        if (!file_exists($fnameXml)) {
+            return null;
+        }
+
+        $modifiedXml = filemtime($fnameXml);
+        if (false === $modifiedXml) {
+            return null;
+        }
+
+        if (!file_exists($fnameXsl)) {
+            return null;
+        }
+
+        $modifiedXsl = filemtime($fnameXsl);
+        if (false === $modifiedXsl) {
+            return null;
+        }
+
+        return join('-', [ $modifiedXml, $modifiedXsl, md5(json_encode($options)) ]);
+    }
+
     public function transformFileToXml($fnameXml, $fnameXsl, $options = [])
     {
         if (isset($this->adapter)) {
