@@ -3,5 +3,4 @@ flagception:
     features:
         get_similar:
             default: false
-            constraint: 'siteKey == "ghdi" and (hostname == "localhost" or hostname matches "/^dev\./")'
-
+            constraint: 'siteKey == "ghdi" and (hostname == "localhost" or hostname matches "/germanhistorydocs/")'
