@@ -56,7 +56,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 				<p>
 					Martina Kessel ist Professorin für Moderne Geschichte und Geschlechtergeschichte an der Universität Bielefeld. Sie ist Autorin der Monografien <hi rendition="#i">Gewalt und Gelächter. 'Deutschsein' 1914-1945</hi> (2019), <hi rendition="#i">Langeweile: zum Umgang mit Gefühlen und Zeit in Deutschland vom späten 18. bis zum frühen 20. Jahrhundert</hi> (2001), und <hi rendition="#i">Westeuropa und die deutsche Teilung. Englische und französische Deutschlandpolitik auf den Außenministerkonferenzen 1945-1947</hi> (1989).
 				</p>
-				<p><ref target="http://wwwhomes.uni-bielefeld.de/mkessel/">wwwhomes.uni-bielefeld.de/mkessel/</ref></p>
+				<p><ref target="https://wwwhomes.uni-bielefeld.de/mkessel/">wwwhomes.uni-bielefeld.de/mkessel/</ref></p>
 			</div>
 
 			<div n="2">
@@ -65,7 +65,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 				<p>
 					Eva Marie Lehner ist Wissenschaftliche Mitarbeiterin am Bonn Center for Dependency and Slavery Studies der Universität Bonn. Als Historikerin der Frühen Neuzeit hat sie sich auf die Geschichte des Körpers, des Geschlechts und der Sexualität, die historische Anthropologie, die Identität und kirchliche Verzeichnungsprozesse spezialisiert. Ihre jüngsten Publikationen und Vorträge beziehen sich auf ihr aktuelles Forschungsprojekt zu süddeutschen Kirchenbüchern im 16. und 17. Jahrhundert.
 				</p>
-				<p><ref target="https://www.dependency.uni-bonn.de/en/about-us/people/faculty/postdoctoral-researchers/eva-marie-lehner">www.dependency.uni-bonn.de/en/about-us/people/faculty/postdoctoral-researchers/eva-marie-lehner</ref></p>
+				<p><ref target="https://www.dependency.uni-bonn.de/en/people/postdoctoral-researchers/dr-eva-marie-lehner">www.dependency.uni-bonn.de/en/people/postdoctoral-researchers/dr-eva-marie-lehner</ref></p>
 			</div>
 		</body>
     </text>
