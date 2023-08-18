@@ -54,6 +54,29 @@ class ContentService
         }
     }
 
+    public function computeETag()
+    {
+        if (is_null($this->currentLocale)) {
+            return;
+        }
+
+        $client = $this->solr->getClient();
+        $core = $client->getEndpoint($this->buildSolrEndpoint($this->currentLocale))->getCore();
+
+        // create a CoreAdmin query
+        $coreAdminQuery = $client->createCoreAdmin();
+
+        // use the CoreAdmin query to build a Status action
+        $statusAction = $coreAdminQuery->createStatus();
+        $statusAction->setCore($core);
+        $coreAdminQuery->setAction($statusAction);
+
+        $response = $client->coreAdmin($coreAdminQuery);
+        $statusResult = $response->getStatusResult();
+
+        return $statusResult->getLastModified()->getTimestamp();
+    }
+
     public function getSolrClient($locale = null)
     {
         if (!is_null($locale)) {
@@ -254,8 +277,8 @@ class ContentService
      *  https://solr.apache.org/guide/8_8/morelikethis.html#request-handler-configuration
      *
      * and make sure termVectors="true" is set on
-     *   <field name="_text_" type="text_de" multiValued="true" indexed="true" termVectors="true" stored="false"/>
-     *   <field name="_meta_" type="text_de" multiValued="true" indexed="true" termVectors="true" stored="true"/>
+     *   <field name="_text_" type="text_{de|general}" multiValued="true" indexed="true" termVectors="true" stored="false"/>
+     *   <field name="_meta_" type="text_{de|general}" multiValued="true" indexed="true" termVectors="true" stored="true"/>
      */
     public function getSimilarResources($resource, $maxDocuments = 5, $minScore = 10)
     {
