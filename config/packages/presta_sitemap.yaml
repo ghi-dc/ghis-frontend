@@ -5,6 +5,6 @@ presta_sitemap:
         # lastmod: now
     alternate:
         enabled: true
-        default_locale: 'en'
-        locales: ['en', 'de']
+        default_locale: '%app.default_locale%'
+        locales: '%app.supported_locales%'
         i18n: symfony

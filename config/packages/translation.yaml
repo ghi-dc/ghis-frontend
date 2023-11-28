@@ -1,5 +1,5 @@
 framework:
-    default_locale: en
+    default_locale: '%app.default_locale%'
     # JMS\TranslationBundle\JMSTranslationBundle needs validation
     validation: ~
     translator:

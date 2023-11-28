@@ -6,6 +6,7 @@
 parameters:
     # array/collection parameters
     app.supported_locales: ['en', 'de']
+    app.default_locale: 'en'
     app.site.key: "%env(string:SITE_KEY)%"
     app.site.name: "%env(string:SITE_NAME)%"
     app.site.email: "%env(string:SITE_EMAIL)%"
