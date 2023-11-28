@@ -8,6 +8,7 @@ namespace App\EventListener;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -108,7 +109,7 @@ implements EventSubscriberInterface
             'path' => $this->twigAppExtension->buildResourcePath(!is_null($resource) ? $resource : $volume),
         ];
 
-        $url = $this->router->generate($route, $params, \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL);
+        $url = $this->router->generate($route, $params, UrlGeneratorInterface::ABSOLUTE_URL);
 
         $datestamp = is_null($resource)
             ? $volume->getDatestamp() : $resource->getDatestamp();
@@ -125,7 +126,7 @@ implements EventSubscriberInterface
 
             // add decorations for alternate language versions
             foreach ($alternate['route_params_locale_switch'] as $altLocale => $params) {
-                $altUrl = $this->router->generate($route, $params + [ '_locale' => $altLocale ], \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL);
+                $altUrl = $this->router->generate($route, $params + [ '_locale' => $altLocale ], UrlGeneratorInterface::ABSOLUTE_URL);
 
                 $sitemapUrl->addLink($altUrl, $altLocale);
             }
