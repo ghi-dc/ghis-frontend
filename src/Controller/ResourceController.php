@@ -445,6 +445,33 @@ class ResourceController extends BaseController
         return $parts;
     }
 
+    protected function buildResourcePath($volume, $resource)
+    {
+        $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
+
+        return join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
+    }
+
+    protected function expandXslPath($fnameXsl)
+    {
+        return join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'styles', $fnameXsl ]);
+    }
+
+    protected function computeResourceToHtmlEtag($volume, $resource)
+    {
+        $fnameFull = $this->buildResourcePath($volume, $resource);
+
+        $fnameXslFull = $this->expandXslPath('dta2html.xsl');
+
+        return $this->xsltProcessor->computeETag($fnameFull, $fnameXslFull, [
+            'params' => [
+                'titleplacement' => 1,
+                'lang' => $resource->getLanguage(),
+            ],
+        ]);
+
+    }
+
     /**
      * Call XsltProcessor to transform TEI to HTML
      */
@@ -453,12 +480,9 @@ class ResourceController extends BaseController
                                       $volume, $resource,
                                       $printView = false, $embedView = false)
     {
-        $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
+        $fnameFull = $this->buildResourcePath($volume, $resource);
 
-        $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
-
-        $fnameXsl = $embedView ? 'dta2html-embed.xsl' : 'dta2html.xsl';
-        $fnameXslFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'styles', $fnameXsl ]);
+        $fnameXslFull = $this->expandXslPath($embedView ? 'dta2html-embed.xsl' : 'dta2html.xsl');
 
         $html = $this->xsltProcessor->transformFileToXml($fnameFull, $fnameXslFull, [
             'params' => [
@@ -579,8 +603,7 @@ class ResourceController extends BaseController
             return;
         }
 
-        $cslPath = $this->getDataDir() . '/csl/'
-            . $fname;
+        $cslPath = $this->getDataDir() . '/csl/' . $fname;
         $citeProc = new \Seboettg\CiteProc\CiteProc(file_get_contents($cslPath), $cslLocale);
 
         $parts = [];
@@ -600,10 +623,16 @@ class ResourceController extends BaseController
         if (property_exists($bibdataAsObject, 'collections')) {
             foreach ($bibdataAsObject->collections as $chapterId => $collection) {
                 $title = null;
-                foreach ($sections as $section) {
-                    if ($chapterId == $section->getId()) {
-                        $title = $section->getTitle();
-                        break;
+
+                if (preg_match('/^tag\:(.*)/', $chapterId, $matches)) {
+                    $title = $translator->trans($matches[1], [], 'additional');
+                }
+                else {
+                    foreach ($sections as $section) {
+                        if ($chapterId == $section->getId()) {
+                            $title = $section->getTitle();
+                            break;
+                        }
                     }
                 }
 
@@ -613,11 +642,17 @@ class ResourceController extends BaseController
 
                 $this->localizePublisherPlace($collection->data, $locale);
 
-                $parts[] = sprintf('<div class="zotero-group-link-wrapper"><h3>%s</h3><div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div></div>',
+                $groupLink = '';
+                if (property_exists($collection, 'group-link')) {
+                    $groupLink = sprintf('<div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div>',
+                                         $collection->{'group-id'}, $collection->key,
+                                         $translator->trans('View in Zotero Groups Library', [], 'additional'));
+                }
+
+
+                $parts[] = sprintf('<div class="zotero-group-link-wrapper"><h3>%s</h3>%s</div>',
                                    htmlspecialchars($title, ENT_COMPAT, 'utf-8'),
-                                   $collection->{'group-id'},
-                                   $collection->key,
-                                   $translator->trans('View in Zotero Groups Library', [], 'additional'))
+                                   $groupLink)
                     . $this->postProcessBiblio(@$citeProc->render($collection->data), $cslLocale);
             }
         }
@@ -632,8 +667,7 @@ class ResourceController extends BaseController
     {
         $this->contentService->setLocale($request->getLocale());
 
-        $fname = join('.', [ $volume->getId(true), $volume->getLanguage(), 'xml' ]);
-        $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
+        $fnameFull = $this->buildResourcePath($volume, $volume);
         $entity = \App\Entity\TeiFull::fromXml($fnameFull, false);
 
         $pageMeta = [
@@ -661,6 +695,32 @@ class ResourceController extends BaseController
     {
         $this->contentService->setLocale($request->getLocale());
 
+        // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
+        $response = new Response();
+
+        $eTag = null;
+        $eTagSolr = $this->contentService->computeETag();
+        if (!is_null($eTagSolr)) {
+            $eTagResourceToHtml = $this->computeResourceToHtmlEtag($volume, $section);
+            if (!is_null($eTagResourceToHtml)) {
+                $eTag = join('-', [ $eTagSolr, $eTagResourceToHtml ]);
+            }
+        }
+
+        if (!is_null($eTag)) {
+            // create a Response with an ETag and/or a Last-Modified header
+            $response->setEtag($eTag);
+
+            // Set response as public. Otherwise it will be private by default.
+            $response->setPublic();
+        }
+
+        // Check that the Response is not modified for the given Request
+        if ($response->isNotModified($request)) {
+            // return the 304 Response immediately
+            return $response;
+        }
+
         $pageMeta = [
             'title' => $section->getTitle(),
         ];
@@ -674,13 +734,14 @@ class ResourceController extends BaseController
         }
 
         return $this->render('Resource/section.html.twig', [
-            'pageMeta' => $pageMeta,
-            'volume' => $volume,
-            'section' => $section,
-            'note' => $note,
-            'resources' => $this->contentService->getResources($section),
-            'navigation' => $this->contentService->buildNavigation($section),
-        ] + $this->buildLocaleSwitch($volume, $section));
+                'pageMeta' => $pageMeta,
+                'volume' => $volume,
+                'section' => $section,
+                'note' => $note,
+                'resources' => $this->contentService->getResources($section),
+                'navigation' => $this->contentService->buildNavigation($section),
+            ] + $this->buildLocaleSwitch($volume, $section),
+            $response);
     }
 
     /**
@@ -692,6 +753,34 @@ class ResourceController extends BaseController
                                    FeatureManagerInterface $featureManager,
                                    $volume, $resource)
     {
+        $this->contentService->setLocale($request->getLocale());
+
+        // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
+        $response = new Response();
+
+        $eTag = null;
+        $eTagSolr = $this->contentService->computeETag();
+        if (!is_null($eTagSolr)) {
+            $eTagResourceToHtml = $this->computeResourceToHtmlEtag($volume, $resource);
+            if (!is_null($eTagResourceToHtml)) {
+                $eTag = join('-', [ $eTagSolr, $eTagResourceToHtml ]);
+            }
+        }
+
+        if (!is_null($eTag)) {
+            // create a Response with an ETag and/or a Last-Modified header
+            $response->setEtag($eTag);
+
+            // Set response as public. Otherwise it will be private by default.
+            $response->setPublic();
+        }
+
+        // Check that the Response is not modified for the given Request
+        if ($response->isNotModified($request)) {
+            // return the 304 Response immediately
+            return $response;
+        }
+
         $pageMeta = [
             'title' => $resource->getTitle(),
         ];
@@ -736,14 +825,15 @@ class ResourceController extends BaseController
         }
 
         return $this->render($template, [
-            'pageMeta' => $pageMeta,
-            'schema' => $schema,
-            'volume' => $volume,
-            'resource' => $resource,
-            'parts' => $parts,
-            'similar' => $similar,
-            'navigation' => $this->contentService->buildNavigation($resource),
-        ] + $this->buildLocaleSwitch($volume, $resource));
+                'pageMeta' => $pageMeta,
+                'schema' => $schema,
+                'volume' => $volume,
+                'resource' => $resource,
+                'parts' => $parts,
+                'similar' => $similar,
+                'navigation' => $this->contentService->buildNavigation($resource),
+            ] + $this->buildLocaleSwitch($volume, $resource),
+            $response);
     }
 
     /**
