@@ -71,7 +71,7 @@ class AppExtension extends AbstractExtension
     }
 
     /**
-     * Generate the  name of a $locale in $locale
+     * Generate the name of a $locale in $locale
      */
     public function getLocaleNameNative($locale)
     {
@@ -167,7 +167,7 @@ class AppExtension extends AbstractExtension
         $path[] = 'media';
         $path[] = $this->volumeById[$volumeId]->getId(true);
         $path[] = 'thumb';
-        $path[] = join('.', [ $resource->getId(true), $resource->getLanguage() , 'jpg' ]);
+        $path[] = join('.', [ $resource->getId(true), $resource->getLanguage(), 'jpg' ]);
 
         $relPath = join('/', $path);
 
