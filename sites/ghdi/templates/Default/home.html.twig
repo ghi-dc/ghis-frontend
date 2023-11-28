@@ -59,7 +59,7 @@
         {% endif %}
         {% if numCols < 4 %}{% set numCols = 4 %}{% endif %}
         {% for volume in volumes %}
-            {% if volume.id != 'ghdi:volume-7' %}
+            {% if volume.id != 'ghdi:volume-8' %}
             <div class="col-sm-{{ numCols}} hyphens-auto">
                 <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a>
                 {#{ volume.note }#}
@@ -108,7 +108,7 @@
         {% set volumeIds = volumes|map(volume => "#{volume.getId(true)}") %}
         {% if 'de' == locale %}{% set languageAppend = '&language=german' %}{% endif %}
         {% for id, descr in volumeDescr %}
-            {% if id == 'ghdi:volume-4' or id == 'volume-7' or id not in volumeIds %}
+            {% if id == 'volume-8' or id not in volumeIds %}
             <div class="col-sm-6 col-md-{{ numCols}} hyphens-auto" style="margin-bottom: 1rem">
                 <a id="first-edition-{{ id }}" href="https://germanhistorydocs.ghi-dc.org/section.cfm?section_id={{ id|replace({ 'volume-' : '' }) + 6 }}{{ languageAppend }}">{{ descr[locale] }} ({{ descr.period }})</a>
                 {#{ volume.note }#}
