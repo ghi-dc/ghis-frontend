@@ -4,6 +4,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% if pageMeta is defined and pageMeta.noindex is defined and pageMeta.noindex %}
+        <meta name="robots" content="noindex">
+        {% endif %}
         <title>
             {% if pageMeta is defined and pageMeta.title is defined %}{{ pageMeta.title }} | {% endif %}
             {{ site_name|trans({}, 'additional') }}

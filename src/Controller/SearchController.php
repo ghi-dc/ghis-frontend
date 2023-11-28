@@ -475,6 +475,8 @@ class SearchController extends BaseController
      */
     public function searchAction(Request $request, TranslatorInterface $translator)
     {
+        $pageMeta = [ 'title' => $translator->trans('Search') ];
+
         list($q, $filter) = $this->getQuery($request, array_keys($this->facets));
 
         list($pagination, $meta) = $this->doQuery($request, $q, $filter, self::PAGE_SIZE);
@@ -483,6 +485,10 @@ class SearchController extends BaseController
         $resultset = null;
 
         if (!is_null($pagination)) {
+            if ($request->isMethod('GET')) {
+                $pageMeta['noindex'] = true; // don't index result pages
+            }
+
             // prepare documents using the resultset iterator
             foreach ($pagination->getItems() as $document) {
                 // the documents are also iterable, to get all fields
@@ -498,7 +504,7 @@ class SearchController extends BaseController
         }
 
         return $this->render('Search/index.html.twig', [
-            'pageMeta' => [ 'title' => $translator->trans('Search') ],
+            'pageMeta' => $pageMeta,
             'meta' => $meta,
             'facets' => $this->facets,
             'highlighting' => isset($resultset)
