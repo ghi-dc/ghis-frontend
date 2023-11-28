@@ -461,13 +461,13 @@
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "5.3",
-            "ref": "6df817da0ca2b8cddbb6e690051d7f2b45530d06"
+            "ref": "221b9cc0a623f567e83ccd61a8ac82a9a91e2b5b"
         },
         "files": [
-            ".env.test",
-            "bin/phpunit",
-            "phpunit.xml.dist",
-            "tests/bootstrap.php"
+            "./.env.test",
+            "./bin/phpunit",
+            "./phpunit.xml.dist",
+            "./tests/bootstrap.php"
         ]
     },
     "symfony/polyfill-intl-grapheme": {
