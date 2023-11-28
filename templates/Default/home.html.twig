@@ -53,10 +53,11 @@
 </div>
 {% endif %}
 {% if focus is not empty %}
+    {% set focus_url = path('dynamic', { 'path': focus.volume.getDtaDirname() ~ '/' ~ focus.uid }) %}
     {% set workinggroup = {} %}
     {% for volume in volumes %}
         {% if volume.id == focus.volume.id %}
-            {% set workinggroup = workinggroup|merge({'label': volume.title, 'path': volume.getDtaDirname() }) %}
+            {% set workinggroup = workinggroup|merge({ 'label': volume.title, 'path': volume.getDtaDirname() }) %}
         {% endif %}
     {% endfor %}
 <div class="row">
@@ -64,16 +65,16 @@
         <div class="row focus">
             <div class="col-12 col-sm-4 col-md-3">
                 <h3>{{ 'Focus'|trans }}</h3>
-                <a href="{{ path('dynamic', { 'path': focus.volume.getDtaDirname() ~ '/'~ focus.uid }) }}">
+                <a href="{{ focus_url }}">
                     <img class="img-responsive focus" src="{{ app.request.basepath }}/media/focus/{{ focus.image }}" alt="{{ focus.title[app.request.locale] }}" />
                 </a>
             </div>
             <div class="col-12 col-sm-8 col-md-9">
                 <blockquote class="blockquote">
                     <p>
-                        {{ focus.blurb[app.request.locale]|raw }}
+                        {{ focus.blurb[app.request.locale]|replace({ '<a href="%focus_url%">' : '<a href="' ~ focus_url ~ '">' })|raw }}
                     </p>
-                    <p style="font-size: 80%; margin-left: 1.1rem;"><b>{{ focus.editor }}</b>{% if focus.institution[app.request.locale] is not empty %}, {{ focus.institution[app.request.locale] }}{% endif %}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>” working group{% endif %}</p>
+                    <p class="editor"><b>{{ focus.editor }}</b>{% if focus.institution[app.request.locale] is not empty %}, {{ focus.institution[app.request.locale] }}{% endif %}{% if 'de' == app.request.locale %}, Mitglied der Arbeitsgruppe „<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>“{% else %}, member of the “<a href="{{ path('dynamic', { 'path': workinggroup.path }) }}">{{ workinggroup.label }}</a>” working group{% endif %}</p>
                     {% if focus.credits is defined and focus.credits[app.request.locale] is defined %}
                     <footer class="blockquote-footer">{{ focus.credits[app.request.locale] }}</footer>
                     {% endif %}
