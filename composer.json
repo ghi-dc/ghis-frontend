@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.1",
+        "php": "^8.1",
         "ext-ctype": "*",
         "ext-exif": "*",
         "ext-iconv": "*",
@@ -85,7 +85,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.4.0"
+            "php": "8.1.0"
         },
         "preferred-install": {
             "*": "dist"

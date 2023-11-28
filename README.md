@@ -22,7 +22,7 @@ License
     published by the Free Software Foundation, either version 3 of the
     License, or (at your option) any later version.
 
-    You may run your copy of the code under the logos of GHIS/GHDI.
+    You may not run your copy of the code under the logos of GHIS/GHDI.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -44,8 +44,7 @@ Installation
 ------------
 Requirements
 
-- PHP 7.3 or 7.4 (check with `php -v`)
-  PHP 8 doesn't work yet (due to "solarium/solarium": "^5.1")
+- PHP 8.1 (check with `php -v`)
 - composer (check with `composer -v`; if it is missing, see https://getcomposer.org/)
 - Java 1.8 (for XSLT and Solr, check with `java -version`)
 
