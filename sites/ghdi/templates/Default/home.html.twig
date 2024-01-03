@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row section">
             <div class="col-sm-12 col-md-9 col-lg-6 offset-md-1">
-                <h1>{#{ site_name|trans({}, 'additional') }#}
+                <h1>
                     German History<br class="d-none d-sm-block" />
                     in Documents and Images
                 </h1>
@@ -35,7 +35,8 @@
                     {% if 'de' == app.request.locale %}
                         <i>German History in Documents and Images</i> (GHDI) ist ein Online-Portal von Primärquellenmaterialien, die verschiedene Aspekte der deutschen Geschichte von der Frühen Neuzeit bis zur Gegenwart dokumentieren. Das Projekt besteht aus zehn chronologisch geordneten Bänden, von denen jeder eine breite Auswahl an sorgfältig ausgewählten Text- und Bildquellen und Karten enthält. Wo es möglich war, schließen die Bände zudem auch audiovisuelle Quellen ein. Jeder Band enthält zudem eine Einführung in den jeweiligen Zeitraum sowie weitere Kommentare. Die Website ist komplett zweisprachig (Englisch/Deutsch) konzipiert. Das Projekt ist für ein breites Publikum konzipiert und möchte neue Ansätze in der Forschung, der akademischen Lehre und dem Lernen in den Bereichen der deutschen, europäischen und transnationalen Geschichte fördern.
                     {% else %}
-                        <i>German History in Documents and Images</i> (GHDI) is an online collection of primary-source materials documenting various aspects of German history from the Early Modern period to the present. The project consists of ten chronologically ordered volumes, each of which features a large selection of carefully chosen texts and images, as well as maps and audiovisual sources in some cases. Each volume also includes an introduction to the featured period as well as other commentaries. The website is completely bilingual (English/German). Designed to serve broad audiences, GHDI aims to promote new approaches to research, academic teaching, and learning in the fields of German, European, and transnational history.                    {% endif %}
+                        <i>German History in Documents and Images</i> (GHDI) is an online collection of primary-source materials documenting various aspects of German history from the Early Modern period to the present. The project consists of ten chronologically ordered volumes, each of which features a large selection of carefully chosen texts and images, as well as maps and audiovisual sources in some cases. Each volume also includes an introduction to the featured period as well as other commentaries. The website is completely bilingual (English/German). Designed to serve broad audiences, GHDI aims to promote new approaches to research, academic teaching, and learning in the fields of German, European, and transnational history.
+                    {% endif %}
                 </p>
                 <div style="text-align: right">
                     <a class="btn btn-primary" href="{{ path('about') }}">{{ 'Read on'|trans }}</a>
@@ -59,7 +60,7 @@
         {% endif %}
         {% if numCols < 4 %}{% set numCols = 4 %}{% endif %}
         {% for volume in volumes %}
-            {% if volume.id != 'ghdi:volume-8' %}
+            {% if volume.id != 'ghdi:volume-10' %}
             <div class="col-sm-{{ numCols}} hyphens-auto">
                 <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a>
                 {#{ volume.note }#}
@@ -108,7 +109,7 @@
         {% set volumeIds = volumes|map(volume => "#{volume.getId(true)}") %}
         {% if 'de' == locale %}{% set languageAppend = '&language=german' %}{% endif %}
         {% for id, descr in volumeDescr %}
-            {% if id == 'volume-8' or id not in volumeIds %}
+            {% if id == 'volume-10' or id not in volumeIds %}
             <div class="col-sm-6 col-md-{{ numCols}} hyphens-auto" style="margin-bottom: 1rem">
                 <a id="first-edition-{{ id }}" href="https://germanhistorydocs.ghi-dc.org/section.cfm?section_id={{ id|replace({ 'volume-' : '' }) + 6 }}{{ languageAppend }}">{{ descr[locale] }} ({{ descr.period }})</a>
                 {#{ volume.note }#}
