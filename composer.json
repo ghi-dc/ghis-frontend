@@ -38,7 +38,7 @@
         "phpdocumentor/reflection-docblock": "^5.2",
         "presta/sitemap-bundle": "^3.3",
         "sabre/xml": "^1.5",
-        "saidatom/oai-pmh": "dev-master",
+        "square-bit/oai-pmh": "dev-master",
         "seboettg/citeproc-php": "^2.6",
         "spatie/schema-org": "^3.4",
         "sylius/theme-bundle": "^2.3",
