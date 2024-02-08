@@ -22,8 +22,6 @@
  */
 namespace App\EventListener;
 
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
@@ -44,7 +42,7 @@ class LanguageListener
 
     public function setLocale(RequestEvent $event)
     {
-        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+        if (HttpKernelInterface::MAIN_REQUEST !== $event->getRequestType()) {
             return;
         }
 
