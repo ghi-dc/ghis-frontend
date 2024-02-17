@@ -84,6 +84,10 @@ implements \JsonSerializable
 
     protected static function normalizeWhitespace($tei)
     {
+        if (is_null($tei)) {
+            return $tei;
+        }
+
         return preg_replace('/\R+/', ' ', $tei); // get rid of newlines added e.g. through pretty-printing
     }
 
