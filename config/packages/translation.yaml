@@ -6,3 +6,4 @@ framework:
         fallbacks:
             - en
         default_path: '%kernel.project_dir%/translations'
+        # providers:
