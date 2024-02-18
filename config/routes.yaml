@@ -7,6 +7,11 @@ site:
         en: '/en'
         de: '/de'
 
+home:
+    path:
+        en: /
+    controller: App\Controller\DefaultController::homeAction
+
 # catch-all after annotations so volume-slug can be used as toplevel path
 dynamic:
     path:
