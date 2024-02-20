@@ -374,7 +374,7 @@
               </iframe>
             </xsl:when>
             <xsl:otherwise>
-              <div class="embed-responsive embed-responsive-4by3"><!-- todo: get from width/height -->
+              <div class="embed-responsive embed-responsive-4by3 ratio ratio-4x3"><!-- todo: get from width/height -->
                 <iframe class="embed-responsive-item" allowFullScreen="allowFullScreen">
                   <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
                 </iframe>
