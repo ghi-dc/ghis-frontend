@@ -367,11 +367,20 @@
       </xsl:when>
       <xsl:when test="tei:media/@mimeType='text/html'">
         <!-- custom code for iframe -->
-        <div class="embed-responsive embed-responsive-4by3"><!-- todo: get from width/height -->
-        <iframe class="embed-responsive-item" allowFullScreen="allowFullScreen">
-          <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
-        </iframe>
-        </div>
+        <xsl:choose>
+          <xsl:when test="contains(tei:media/@url,'ardaudiothek.de')">
+              <iframe style="width: 100%; height: 185px" frameBorder="0" scrolling="no">
+                <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
+              </iframe>
+            </xsl:when>
+            <xsl:otherwise>
+              <div class="embed-responsive embed-responsive-4by3"><!-- todo: get from width/height -->
+                <iframe class="embed-responsive-item" allowFullScreen="allowFullScreen">
+                  <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
+                </iframe>
+              </div>
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:if test="tei:figDesc"><xsl:text> </xsl:text><xsl:apply-templates select="tei:figDesc" mode="figdesc"/></xsl:if>
       </xsl:when>
       <xsl:when test="(local-name(preceding-sibling::node()[1]) = 'lb' and local-name(following-sibling::node()[1]) = 'lb') or @rendition='#c'">
