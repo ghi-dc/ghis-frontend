@@ -48,8 +48,10 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 				<p> Technischer Entwickler Daniel Burckhardt entwarf das Backend von GHDI,
 					integrierte die Suchmaschine, implementierte die Präsentationsschicht und
 					entwickelte das TEI-Schema. Am DHI arbeitet Daniel Burckhardt außerdem an den
-					Projekten <hi rendition="#i">German History Intersections</hi> und an <hi
-						rendition="#i">Migrant Connections</hi>, sowie an allen anderen Initiativen
+					Projekten <hi rendition="#i"><ref
+						target="https://germanhistory-intersections.org/">German History Intersections</ref></hi> und an <hi
+							rendition="#i"><ref
+								target="https://www.migrantconnections.org/">Migrant Connections</ref></hi>, sowie an allen anderen Initiativen
 					im Bereich der digitalen Geschichte. </p>
 			</div>
 
@@ -77,12 +79,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 			<div n="3">
 				<head>Insa Kummer</head>
-				<p> Insa Kummer trägt durch Recherche, Übersetzung, Bearbeitung und Lektorat von
-					Quellen zum gesamten Redaktionsprogramm bei. Sie ist auch in der Rechte- und
-					Reproduktionsforschung tätig. Am DHI arbeitet Insa als Co-Leiterin des Projekts
-						<hi rendition="#i">German History Intersections</hi> und des <ref
-						target="https://www.ghi-dc.org/publications/bulletin">DHI <hi rendition="#i"
-							>Bulletin</hi></ref>. </p>
+				<p> Insa Kummer ist seit Mai 2023 die GHDI-Projektmanagerin. Sie koordiniert das am
+					GHI ansässige Projektteam und arbeitet mit Sponsoren, Partnern,
+					Bandherausgebern, freien Mitarbeitern und anderen externen Mitarbeitern an allen
+					Aspekten des Redaktionsprogramms. Am DHI arbeitet Insa zudem als Co-Leiterin des
+					Projekts <hi rendition="#i">German History Intersections</hi>.</p>
 			</div>
 
 			<div n="3">
@@ -95,12 +96,10 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 			<div n="3">
 				<head>Kelly McCullough</head>
-				<p> GHDI-Projektmanagerin Kelly McCullough koordiniert das am GHI ansässige
-					Projektteam und arbeitet mit Sponsoren, Partnern, Bandherausgebern, freien
-					Mitarbeitern und anderen externen Mitarbeitern an allen Aspekten des
-					Redaktionsprogramms. Sie ist außerdem Co-Leiterin des Projekts <hi
-						rendition="#i">German History Intersections</hi> und betreut die Buchreihe
-					des GHI bei Cambridge University Press. </p>
+				<p> Kelly McCullough ist die Gründungsprojektmanagerin von GHDI. Sie leitete  das
+					am GHI ansässige Projektteam von 2003 bis April 2023. Sie ist außerdem
+					Co-Leiterin des Projekts <hi rendition="#i">German History Intersections</hi>
+					und betreut die Buchreihe des GHI bei Cambridge University Press. </p>
 			</div>
 
 			<div n="3">
