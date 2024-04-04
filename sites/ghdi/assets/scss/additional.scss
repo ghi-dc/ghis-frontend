@@ -341,8 +341,6 @@ body.route-home {
     .row.volumes,
     .row.featured
     {
-        padding-bottom: 1rem;
-
         h4, h5 {
             font-weight: bold;
             font-size: 24px;
@@ -357,6 +355,10 @@ body.route-home {
 
         h5 {
             display: inline;
+        }
+
+        .volume {
+            margin-bottom: 1rem;
         }
 
         a {
@@ -376,6 +378,7 @@ body.route-home {
             height: 180px;
             margin-bottom: 2rem;
         }
+
         padding-bottom: 2rem;
     }
 
