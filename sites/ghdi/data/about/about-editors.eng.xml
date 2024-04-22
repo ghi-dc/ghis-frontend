@@ -51,9 +51,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     (Georgia State University) </p>
                 <p> 3. <ref target="../from-vormaerz-to-prussian-dominance-1815-1866">From Vormärz
                         to Prussian Dominance, 1815–1866</ref><lb/>
-                    <ref target="http://history.emory.edu/home/people/faculty/vick-brian.html">Brian
-                        Vick</ref> (Emory University) </p>
-                <p> 4. Forging an Empire: Bismarckian Germany, 1866–1890<lb/>
+                    <ref target="https://history.emory.edu/people/bios/faculty-bios/vick-brian.html"
+                        >Brian Vick</ref> (Emory University) </p>
+                <p> 4. <ref target="../forging-an-empire-bismarckian-germany-1866-1890">Forging an Empire: Bismarckian Germany, 1866–1890</ref><lb/>
                     <ref
                         target="https://www.history.utoronto.ca/people/directories/all-faculty/james-retallack"
                         >James Retallack</ref> (University of Toronto) </p>
@@ -61,29 +61,30 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     <ref target="https://www.colorado.edu/history/david-ciarlo">David Ciarlo</ref>
                     (University of Colorado at Boulder) </p>
                 <p> 6. Weimar Germany 1918/19–1933<lb/>
-                    <ref
-                        target="https://www.miamioh.edu/cas/academics/departments/history/about/faculty/jensen/index.html"
-                        >Erik Jensen</ref> (Miami University of Ohio) </p>
-                <p> 7. Nazi Germany, 1933–1945<lb/>
+                    <ref target="https://miamioh.edu/profiles/cas/erik-jensen.html">Erik
+                        Jensen</ref> (Miami University of Ohio) </p>
+                <p> 7. <ref target="../nazi-germany-1933-1945">Nazi Germany, 1933–1945</ref><lb/>
                     <ref target="https://www.uab.edu/cas/history/people/faculty/jonathan-wiesen">S.
                         Jonathan Wiesen</ref> (University of Alabama at Birmingham)<lb/>
                     <ref target="https://experts.mcmaster.ca/display/swettp">Pamela Swett</ref>
                     (McMaster University) </p>
-                <p> 8. Occupation and the Emergence of Two States, 1945–1961<lb/>
+                <p> 8. <ref target="../occupation-and-the-emergence-of-two-states-1945-1961">Occupation and the Emergence of Two States, 1945–1961</ref><lb/>
                     <ref target="https://history.columbia.edu/person/berghahn-volker-r/">Volker
                         Berghahn</ref> (Columbia University)<lb/>
                     <ref target="https://cssh.northeastern.edu/faculty/uta-poiger/">Uta Poiger</ref>
                     (Northeastern University) </p>
-                <p> 9. Two Germanies, 1961–1989<lb/>
+                <p> 9. <ref target="../two-germanies-1961-1989">Two Germanies, 1961–1989</ref><lb/>
                     <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
                         Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
-                        Welsh</ref> (Wake Forest University) </p>
-                <p> 10. One Germany in Europe, 1989–2018<lb/>
+                    <ref
+                        target="https://college.wfu.edu/college-news/teacher-scholar-legacies/teacher-scholar-legacies-helga-welsh/"
+                        >Helga Welsh</ref> (Wake Forest University) </p>
+                <p> 10. <ref target="../a-new-germany-1990-2023">A New Germany, 1990–2023</ref><lb/>
                     <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
                         Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
-                        Welsh</ref> (Wake Forest University) </p>
+                    <ref
+                        target="https://college.wfu.edu/college-news/teacher-scholar-legacies/teacher-scholar-legacies-helga-welsh/"
+                        >Helga Welsh</ref> (Wake Forest University) </p>
             </div>
             <div n="2" id="first-edition">
                 <head>First Edition (2004–2012)</head>
@@ -112,8 +113,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <p> 5. Wilhelmine Germany and the First World War, 1890–1918<lb/>
                     <ref target="https://chickerr.facultysite.georgetown.edu/">Roger
                         Chickering</ref> (Georgetown University) </p>
-                <p> 6. Weimar Germany, 1918/19–1933<lb/>
-                     Eric D. Weitz † (The City College of New York)<lb/>
+                <p> 6. Weimar Germany, 1918/19–1933<lb/> Eric D. Weitz † (The City College of New York)<lb/>
                     <ref target="https://www.unca.edu/person/eric-roubinek-ph-d/">Eric
                         Roubinek</ref> (University of North Carolina at Asheville) </p>
                 <p> 7. Nazi Germany, 1933–1945<lb/>
@@ -127,13 +127,15 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <p> 9. Two Germanies, 1961–1989<lb/>
                     <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
                         Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
-                        Welsh</ref> (Wake Forest University) </p>
+                    <ref
+                        target="https://college.wfu.edu/college-news/teacher-scholar-legacies/teacher-scholar-legacies-helga-welsh/"
+                        >Helga Welsh</ref> (Wake Forest University) </p>
                 <p> 10. One Germany in Europe, 1989–2009<lb/>
                     <ref target="https://history.unc.edu/faculty-members/konrad-h-jarausch/">Konrad
                         Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
-                    <ref target="https://politics.wfu.edu/faculty-and-staff/helga-welsh/">Helga
-                        Welsh</ref> (Wake Forest University) </p>
+                    <ref
+                        target="https://college.wfu.edu/college-news/teacher-scholar-legacies/teacher-scholar-legacies-helga-welsh/"
+                        >Helga Welsh</ref> (Wake Forest University) </p>
             </div>
         </body>
     </text>
