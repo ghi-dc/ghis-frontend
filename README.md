@@ -13,7 +13,7 @@ License
     and
         German History Intersections (GHIS)
 
-    (C) 2020-2023 German Historical Institute Washington
+    (C) 2020-2024 German Historical Institute Washington
         Daniel Burckhardt
 
 
@@ -123,6 +123,46 @@ and populate _meta_
   <copyField source="title_s" dest="_meta_"/>
   <copyField source="authors_ss" dest="_meta_"/>
   <copyField source="genre_s" dest="_meta_"/>
+
+#### Solr service
+
+    sudo vi /etc/systemd/system/solr-ghis-ghdi.service
+
+with the following content
+
+    [Unit]
+    Description=Apache Solr for GHIS/GHDI
+    After=syslog.target network.target remote-fs.target nss-lookup.target systemd-journald-dev-log.socket
+    Before=apache2.service
+
+    [Service]
+    Type=forking
+    User=ghdi
+    #LimitNOFILE=1048576
+    #LimitNPROC=1048576
+    WorkingDirectory=/path/to/solr/server
+    Environment=RUNAS=ghdi
+    Environment=SOLR_INSTALL_DIR=/path/to/solr
+
+    ExecStart=/path/to/solr/bin/solr start
+    ExecStop=/path/to/solr/bin/solr stop
+
+    Restart=on-failure
+    RestartSec=5
+
+    [Install]
+    WantedBy=multi-user.target
+
+Then reload and test
+
+    sudo systemctl daemon-reload
+    sudo systemctl start solr-ghis-ghdi
+    sudo systemctl status solr-ghis-ghdi
+
+If everything works fine, enable after reboot
+
+    sudo systemctl enable solr-ghis-ghdi
+
 
 ### Translate templates
 
