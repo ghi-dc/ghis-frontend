@@ -1,6 +1,6 @@
 {
     "type": "project",
-    "license": "proprietary",
+    "license": "AGPL-3.0-or-later",
     "repositories": [
         {
             "type": "vcs",
@@ -25,11 +25,11 @@
         "fluentdom/fluentdom": "^8.0",
         "gmo/iso-639": "dev-master#4834357",
         "jms/translation-bundle": "^2.2",
-        "knplabs/knp-menu-bundle": "^3.3",
-        "knplabs/knp-paginator-bundle": "^6.3",
+        "knplabs/knp-menu-bundle": "^3.4",
+        "knplabs/knp-paginator-bundle": "^6.4",
         "laminas/laminas-diactoros": "^2.26",
         "masterminds/html5": "^2.8",
-        "mpdf/mpdf": "^8.1",
+        "mpdf/mpdf": "^8.2",
         "nyholm/psr7": "^1.8",
         "phpdocumentor/reflection-docblock": "^5.2",
         "presta/sitemap-bundle": "^4.1",
@@ -37,7 +37,7 @@
         "square-bit/oai-pmh": "^0.3",
         "seboettg/citeproc-php": "^2.6",
         "spatie/schema-org": "^3.23",
-        "sylius/theme-bundle": "^2.3",
+        "sylius/theme-bundle": "^2.4",
         "symfony/asset": "^6.4",
         "symfony/console": "^6.4",
         "symfony/css-selector": "^6.4",
@@ -64,9 +64,9 @@
         "symfony/validator": "^6.4",
         "symfony/web-link": "^6.4",
         "symfony/yaml": "^6.4",
-        "twig/extra-bundle": "^3.8",
-        "twig/string-extra": "^3.8",
-        "twig/twig": "^3.8",
+        "twig/extra-bundle": "^3.11",
+        "twig/string-extra": "^3.11",
+        "twig/twig": "^3.11",
         "voku/html-min": "*"
     },
     "require-dev": {
@@ -76,8 +76,7 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^6.4",
         "symfony/stopwatch": "^6.4",
-        "symfony/web-profiler-bundle": "^6.4",
-        "vimeo/psalm": "^4.2"
+        "symfony/web-profiler-bundle": "^6.4"
     },
     "config": {
         "platform": {
