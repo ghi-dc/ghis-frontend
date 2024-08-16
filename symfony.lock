@@ -1,10 +1,4 @@
 {
-    "amphp/amp": {
-        "version": "v2.5.2"
-    },
-    "amphp/byte-stream": {
-        "version": "v1.8.0"
-    },
     "armin/scssphp-bundle": {
         "version": "1.0",
         "recipe": {
@@ -19,21 +13,6 @@
     },
     "citation-style-language/locales": {
         "version": "1.0.0"
-    },
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.1"
-    },
-    "composer/pcre": {
-        "version": "1.0.0"
-    },
-    "composer/semver": {
-        "version": "3.2.4"
-    },
-    "composer/xdebug-handler": {
-        "version": "1.4.5"
-    },
-    "dnoegel/php-xdg-base-dir": {
-        "version": "v0.1.1"
     },
     "doctrine/annotations": {
         "version": "1.14",
@@ -62,12 +41,6 @@
     },
     "edwinhoksberg/octicons-php": {
         "version": "1.1.0"
-    },
-    "felixfbecker/advanced-json-rpc": {
-        "version": "v3.2.0"
-    },
-    "felixfbecker/language-server-protocol": {
-        "version": "v1.5.0"
     },
     "flagception/flagception-bundle": {
         "version": "4.3",
@@ -126,9 +99,6 @@
     "myclabs/php-enum": {
         "version": "1.8.3"
     },
-    "netresearch/jsonmapper": {
-        "version": "v2.1.0"
-    },
     "nikic/php-parser": {
         "version": "v4.10.4"
     },
@@ -143,9 +113,6 @@
         "files": [
             "config/packages/nyholm_psr7.yaml"
         ]
-    },
-    "openlss/lib-array2xml": {
-        "version": "1.0.0"
     },
     "phar-io/manifest": {
         "version": "2.0.1"
@@ -629,9 +596,6 @@
     "twig/twig": {
         "version": "v3.3.0"
     },
-    "vimeo/psalm": {
-        "version": "4.4.1"
-    },
     "voku/html-min": {
         "version": "4.4.8"
     },
@@ -640,8 +604,5 @@
     },
     "webmozart/assert": {
         "version": "1.9.1"
-    },
-    "webmozart/path-util": {
-        "version": "2.3.0"
     }
 }
