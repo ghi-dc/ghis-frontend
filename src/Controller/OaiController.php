@@ -15,9 +15,7 @@ use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
  */
 class OaiController extends BaseController
 {
-    /**
-     * @Route("/oai", name="oai")
-     */
+    #[Route(path: '/oai', name: 'oai')]
     public function dispatchAction(Request $request,
                                    TranslatorInterface $translator,
                                    RouterInterface $router,

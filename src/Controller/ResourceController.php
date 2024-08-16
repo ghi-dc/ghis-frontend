@@ -981,60 +981,16 @@ class ResourceController extends BaseController
         ], $response);
     }
 
-    /**
-     * @Route({
-     *      "en": "/about",
-     *      "de": "/ueber"
-     *  }, name="about",
-     *  options={"sitemap" = true})
-     *
-     * @Route({
-     *      "en": "/about/working-groups",
-     *      "de": "/ueber/arbeitsgruppen"
-     *  }, name="about-working-groups")
-     *
-     * @Route({
-     *      "en": "/about/migration",
-     *      "de": "/ueber/migration"
-     *  }, name="about-migration")
-     *
-     * @Route({
-     *      "en": "/about/knowledge-and-education",
-     *      "de": "/ueber/wissen-und-bildung"
-     *  }, name="about-knowledge-and-education")
-     *
-     * @Route({
-     *      "en": "/about/germanness",
-     *      "de": "/ueber/deutschsein"
-     *  }, name="about-germanness")
-     *
-     * @Route({
-     *      "en": "/about/editors",
-     *      "de": "/ueber/herausgeber"
-     *  }, name="about-editors")
-     *
-     * @Route({
-     *      "en": "/about/team",
-     *      "de": "/ueber/team"
-     *  }, name="about-team",
-     *  options={"sitemap" = true})
-     *
-     * @Route({
-     *      "en": "/about/partners",
-     *      "de": "/ueber/partner"
-     *  }, name="about-partners")
-     *
-     * @Route({
-     *      "en": "/about/history",
-     *      "de": "/ueber/entwicklung"
-     *  }, name="about-history")
-     *
-     * @Route({
-     *      "en": "/terms",
-     *      "de": "/impressum"
-     *  }, name="terms",
-     *  options={"sitemap" = true})
-     */
+    #[Route(path: ['en' => '/about', 'de' => '/ueber'], name: 'about', options: ['sitemap' => true])]
+    #[Route(path: ['en' => '/about/working-groups', 'de' => '/ueber/arbeitsgruppen'], name: 'about-working-groups')]
+    #[Route(path: ['en' => '/about/migration', 'de' => '/ueber/migration'], name: 'about-migration')]
+    #[Route(path: ['en' => '/about/knowledge-and-education', 'de' => '/ueber/wissen-und-bildung'], name: 'about-knowledge-and-education')]
+    #[Route(path: ['en' => '/about/germanness', 'de' => '/ueber/deutschsein'], name: 'about-germanness')]
+    #[Route(path: ['en' => '/about/editors', 'de' => '/ueber/herausgeber'], name: 'about-editors')]
+    #[Route(path: ['en' => '/about/team', 'de' => '/ueber/team'], name: 'about-team', options: ['sitemap' => true])]
+    #[Route(path: ['en' => '/about/partners', 'de' => '/ueber/partner'], name: 'about-partners')]
+    #[Route(path: ['en' => '/about/history', 'de' => '/ueber/entwicklung'], name: 'about-history')]
+    #[Route(path: ['en' => '/terms', 'de' => '/impressum'], name: 'terms', options: ['sitemap' => true])]
     public function aboutAction(Request $request)
     {
         $mediaBaseUrl = join('/', [
@@ -1059,12 +1015,7 @@ class ResourceController extends BaseController
         return $response;
     }
 
-    /**
-     * @Route({
-     *  "en": "/contact",
-     *  "de": "/kontakt"
-     *  }, name="contact")
-     */
+    #[Route(path: ['en' => '/contact', 'de' => '/kontakt'], name: 'contact')]
     public function contactAction(Request $request)
     {
         return $this->redirect($this->generateUrl('terms') . '#contact');

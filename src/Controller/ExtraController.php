@@ -9,13 +9,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class ExtraController extends BaseController
 {
-    /**
-     * @Route({
-     *      "en": "/teaching",
-     *      "de": "/unterricht"
-     *  }, name="teaching-index",
-     *  options={"sitemap" = true})
-     */
+    #[Route(path: ['en' => '/teaching', 'de' => '/unterricht'], name: 'teaching-index', options: ['sitemap' => true])]
     public function teachingIndexAction(Request $request)
     {
         // load the teaching
@@ -31,12 +25,7 @@ class ExtraController extends BaseController
         ]);
     }
 
-    /**
-     * @Route({
-     *  "en": "/teaching/{slug}",
-     *  "de": "/lehre/{slug}"
-     *  }, name="teaching")
-     */
+    #[Route(path: ['en' => '/teaching/{slug}', 'de' => '/lehre/{slug}'], name: 'teaching')]
     public function teachingDetailAction(Request $request, $slug)
     {
         // load the teaching

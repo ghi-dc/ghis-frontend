@@ -10,10 +10,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DefaultController extends BaseController
 {
-    /**
-     * @Route("/", name="home",
-     *  options={"sitemap" = true})
-     */
+    #[Route(path: '/', name: 'home', options: ['sitemap' => true])]
     public function homeAction(Request $request, TranslatorInterface $translator)
     {
         $this->contentService->setLocale($request->getLocale());

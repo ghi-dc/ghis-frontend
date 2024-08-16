@@ -471,13 +471,7 @@ class SearchController extends BaseController
         return [ $pagination, $meta ];
     }
 
-    /**
-     * @Route({
-     *      "en": "/search",
-     *      "de": "/suche"
-     *  }, name="search",
-     *  options={"sitemap" = true})
-     */
+    #[Route(path: ['en' => '/search', 'de' => '/suche'], name: 'search', options: ['sitemap' => true])]
     public function searchAction(Request $request, TranslatorInterface $translator)
     {
         $pageMeta = [ 'title' => $translator->trans('Search') ];
