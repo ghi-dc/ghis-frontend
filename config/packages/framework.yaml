@@ -2,7 +2,7 @@
 framework:
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
-    annotations: true # deprecated TODO: move to attributes and set to false
+    annotations: false
     http_method_override: false
     handle_all_throwables: true
 

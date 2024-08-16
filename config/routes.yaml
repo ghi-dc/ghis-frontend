@@ -2,7 +2,7 @@ site:
     resource:
         path: ../src/Controller/
         namespace: App\Controller
-    type: annotation    # TODO: switch to attribute
+    type: attribute
     prefix:
         en: '/en'
         de: '/de'
@@ -12,7 +12,7 @@ home:
         en: /
     controller: App\Controller\DefaultController::homeAction
 
-# catch-all after annotations so volume-slug can be used as toplevel path
+# catch-all after attributes so volume-slug can be used as toplevel path
 dynamic:
     path:
         de: /de/{path}
