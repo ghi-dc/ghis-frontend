@@ -23,6 +23,7 @@ implements \JsonSerializable
      *
      * @Solr\Id
      */
+    #[Solr\Id]
     protected $id;
 
     /**
@@ -30,6 +31,7 @@ implements \JsonSerializable
      *
      * @Solr\Field(type="string")
      */
+    #[Solr\Field(type:"string")]
     protected $title;
 
     protected $authors = [];
@@ -44,6 +46,7 @@ implements \JsonSerializable
      *
      * @Solr\Field(type="text")
      */
+    #[Solr\Field(type:"text")]
     protected $note;
 
     protected $sourceDescBibl;
@@ -53,6 +56,7 @@ implements \JsonSerializable
      *
      * @Solr\Field(type="string")
      */
+    #[Solr\Field(type:"string")]
     protected $language;
 
     /**
@@ -60,6 +64,7 @@ implements \JsonSerializable
      *
      * @Solr\Field(type="string")
      */
+    #[Solr\Field(type:"string")]
     protected $shelfmark;
 
     protected $dateCreation;
@@ -73,6 +78,7 @@ implements \JsonSerializable
      *
      * @Solr\Field(type="string")
      */
+    #[Solr\Field(type:"string")]
     private $slug;
 
     /**
@@ -80,6 +86,7 @@ implements \JsonSerializable
      *
      * @Solr\Field(type="string")
      */
+    #[Solr\Field(type:"string")]
     private $genre;
 
     protected static function normalizeWhitespace($tei)

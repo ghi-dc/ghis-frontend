@@ -15,6 +15,8 @@ use FS\SolrBundle\Doctrine\Annotation as Solr;
  * @Solr\Document(indexHandler="indexHandler", repository="App\Search\Repository")
  * @Solr\SynchronizationFilter(callback="shouldBeIndexed")
  */
+#[Solr\Document(indexHandler:"indexHandler", repository:"App\Search\Repository")]
+#[Solr\SynchronizationFilter(callback:"shouldBeIndexed")]
 class TeiFull
 extends TeiHeader
 {
@@ -23,6 +25,7 @@ extends TeiHeader
      *
      * @Solr\Field(type="text")
      */
+    #[Solr\Field(type:"text")]
     protected $body;
 
     /**
@@ -30,6 +33,7 @@ extends TeiHeader
      *
      * @Solr\Field(type="strings", nestedClass="App\Entity\Tag")
      */
+    #[Solr\Field(type:"strings", nestedClass:"App\Entity\Tag")]
     protected $tags = [];
 
     /**

@@ -7,6 +7,7 @@ use FS\SolrBundle\Doctrine\Annotation as Solr;
 /**
  * @Solr\Nested()
  */
+#[Solr\Nested]
 class Tag
 {
     /**
@@ -14,6 +15,7 @@ class Tag
      *
      * @Solr\Id
      */
+    #[Solr\Id]
     protected $id;
 
      /**
@@ -21,6 +23,7 @@ class Tag
      *
      * @Solr\Field(type="string")
      */
+    #[Solr\Field(type:"string")]
     protected $path;
 
     /**
@@ -28,6 +31,7 @@ class Tag
      *
      * @Solr\Field(type="string")
      */
+    #[Solr\Field(type:"string")]
     protected $type;
 
     /**
@@ -35,6 +39,7 @@ class Tag
      *
      * @Solr\Field(type="string")
      */
+    #[Solr\Field(type:"string")]
     protected $name;
 
     /**
