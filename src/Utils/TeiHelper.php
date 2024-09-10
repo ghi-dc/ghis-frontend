@@ -186,6 +186,16 @@ class TeiHelper
                 : $this->extractTextContent($result[0]);
         }
 
+        // language - pulled up since we build language-dependent joiner for responsible
+        $langIdents = [];
+        $result = $header('./tei:profileDesc/tei:langUsage/tei:language');
+        foreach ($result as $element) {
+            if (!empty($element['ident'])) {
+                $langIdents[] = (string)$element['ident'];
+            }
+        }
+        $article->language = join(', ', $langIdents);
+
         // author / editor
         foreach ([ 'author' => 'tei:author', 'editor' => 'tei:editor[not(@role="translator")]' ] as $tagName => $tagExpression) {
             $result = $header('./tei:fileDesc/tei:titleStmt/' . $tagExpression . '/tei:persName');
@@ -243,7 +253,30 @@ class TeiHelper
                     $article->responsible = [];
                 }
 
-                $responsible['name'] = join(', ', $responsible['name']);
+                $joinerDefault = ', ';
+
+                $countResponsible = count($responsible['name']);
+                switch ($article->language) {
+                    case 'deu':
+                        $joinerLast = ' und ';
+                        break;
+
+                        case 'eng':
+                        $joinerLast = $countResponsible > 2
+                            ? ', and ' // Oxford Comma
+                            : ' and ';
+                        break;
+
+                        default:
+                            $joinerLast = $joinerDefault;
+                }
+
+                if ($countResponsible > 2 && $joinerLast != $joinerDefault) {
+                    $last = array_pop($responsible['name']);
+                    $responsible['name'] = [ join($joinerDefault, $responsible['name']), $last ];
+                }
+
+                $responsible['name'] = join($joinerLast, $responsible['name']);
                 $article->responsible[] = $responsible;
             }
         }
@@ -371,16 +404,6 @@ class TeiHelper
 
         $article->terms = $terms;
         $article->meta = $meta;
-
-        // language
-        $langIdents = [];
-        $result = $header('./tei:profileDesc/tei:langUsage/tei:language');
-        foreach ($result as $element) {
-            if (!empty($element['ident'])) {
-                $langIdents[] = (string)$element['ident'];
-            }
-        }
-        $article->language = join(', ', $langIdents);
 
         if (!$headerOnly) {
             $result = $dom('/tei:TEI/tei:text/tei:body');
