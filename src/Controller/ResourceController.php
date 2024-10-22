@@ -828,7 +828,6 @@ class ResourceController extends BaseController
                 // for citation
                 $crawler = new \Symfony\Component\DomCrawler\Crawler();
                 $crawler->addHtmlContent($parts['body']);
-                $authors = [];
                 $crawler->filter('#authors li')->each(function ($nodes, $i) use ($resource) {
                     foreach ($nodes as $node) {
                         $resource->addAuthor($node->textContent);
@@ -875,8 +874,10 @@ class ResourceController extends BaseController
         // https://mpdf.github.io/about-mpdf/limitations.html
         $crawler = new \Symfony\Component\DomCrawler\Crawler();
         $crawler->addHtmlContent($parts['body']);
-        $crawler->filter('#authors li')->each(function ($nodes, $i) {
+        $crawler->filter('#authors li')->each(function ($nodes, $i) use ($resource) {
             foreach ($nodes as $node) {
+                $resource->addAuthor($node->textContent);
+
                 $newnode = $node->ownerDocument->createElement('span');
                 if ($i > 0) {
                     $separator = $node->ownerDocument->createTextNode(', ');
