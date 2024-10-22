@@ -336,6 +336,7 @@ class ResourceController extends BaseController
      * Use DomCrawler to extract specific parts from the HTML-representation
      */
     protected function buildPartsFromHtml(TranslatorInterface $translator,
+                                          \App\Entity\TeiHeader $volume,
                                           string $html,
                                           string $mediaBaseUrl,
                                           string $genre,
@@ -355,11 +356,25 @@ class ResourceController extends BaseController
         $this->adjustInternalLink($crawler);
 
         if ('introduction' == $genre) {
-            // h2 for TOC
-            $sectionHeaders = $crawler->filterXPath('//h2')->each(function ($node, $i) {
-                return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
-            });
-            $parts['toc'] = $sectionHeaders;
+            if ($printView) {
+                $h1 = $crawler->filter('h1')
+                    ->first();
+                if ($h1->count()) {
+                   $node = $h1->getNode(0);
+                   $element = $node->ownerDocument
+                        ->createElement('h2', $volume->getTitle());
+
+                    // Insert the new element
+                    $node->parentNode->insertBefore($element, $node);
+                }
+            }
+            else {
+                // h2 for TOC
+                $sectionHeaders = $crawler->filterXPath('//h2')->each(function ($node, $i) {
+                    return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
+                });
+                $parts['toc'] = $sectionHeaders;
+            }
         }
         else {
             // extract formatted title including italics and similar mark-up
@@ -498,7 +513,7 @@ class ResourceController extends BaseController
             ])
             . '/';
 
-        $parts = $this->buildPartsFromHtml($translator, $html, $mediaBaseUrl, $resource->getGenre(), $printView);
+        $parts = $this->buildPartsFromHtml($translator, $volume, $html, $mediaBaseUrl, $resource->getGenre(), $printView);
 
         $children = $resource->getParts();
         if (!empty($children)) {
