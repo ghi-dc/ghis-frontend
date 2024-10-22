@@ -336,6 +336,7 @@ class ResourceController extends BaseController
      * Use DomCrawler to extract specific parts from the HTML-representation
      */
     protected function buildPartsFromHtml(TranslatorInterface $translator,
+                                          \App\Entity\TeiHeader $volume,
                                           string $html,
                                           string $mediaBaseUrl,
                                           string $genre,
@@ -355,11 +356,25 @@ class ResourceController extends BaseController
         $this->adjustInternalLink($crawler);
 
         if ('introduction' == $genre) {
-            // h2 for TOC
-            $sectionHeaders = $crawler->filterXPath('//h2')->each(function ($node, $i) {
-                return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
-            });
-            $parts['toc'] = $sectionHeaders;
+            if ($printView) {
+                $h1 = $crawler->filter('h1')
+                    ->first();
+                if ($h1->count()) {
+                   $node = $h1->getNode(0);
+                   $element = $node->ownerDocument
+                        ->createElement('h2', $volume->getTitle());
+
+                    // Insert the new element
+                    $node->parentNode->insertBefore($element, $node);
+                }
+            }
+            else {
+                // h2 for TOC
+                $sectionHeaders = $crawler->filterXPath('//h2')->each(function ($node, $i) {
+                    return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
+                });
+                $parts['toc'] = $sectionHeaders;
+            }
         }
         else {
             // extract formatted title including italics and similar mark-up
@@ -498,7 +513,7 @@ class ResourceController extends BaseController
             ])
             . '/';
 
-        $parts = $this->buildPartsFromHtml($translator, $html, $mediaBaseUrl, $resource->getGenre(), $printView);
+        $parts = $this->buildPartsFromHtml($translator, $volume, $html, $mediaBaseUrl, $resource->getGenre(), $printView);
 
         $children = $resource->getParts();
         if (!empty($children)) {
@@ -810,6 +825,15 @@ class ResourceController extends BaseController
                 $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
                 $volume = \App\Entity\TeiFull::fromXml($fnameFull, false);
 
+                // for citation
+                $crawler = new \Symfony\Component\DomCrawler\Crawler();
+                $crawler->addHtmlContent($parts['body']);
+                $crawler->filter('#authors li')->each(function ($nodes, $i) use ($resource) {
+                    foreach ($nodes as $node) {
+                        $resource->addAuthor($node->textContent);
+                    }
+                });
+
                 $template = 'Resource/introduction.html.twig';
                 break;
 
@@ -850,8 +874,10 @@ class ResourceController extends BaseController
         // https://mpdf.github.io/about-mpdf/limitations.html
         $crawler = new \Symfony\Component\DomCrawler\Crawler();
         $crawler->addHtmlContent($parts['body']);
-        $crawler->filter('#authors li')->each(function ($nodes, $i) {
+        $crawler->filter('#authors li')->each(function ($nodes, $i) use ($resource) {
             foreach ($nodes as $node) {
+                $resource->addAuthor($node->textContent);
+
                 $newnode = $node->ownerDocument->createElement('span');
                 if ($i > 0) {
                     $separator = $node->ownerDocument->createTextNode(', ');

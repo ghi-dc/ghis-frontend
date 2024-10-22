@@ -26,6 +26,12 @@
         <div class="row">
             <article class="content introduction col-md-10">
                 {{ parts.body|raw }}
+
+                <div class="source-citation">
+                    {{ 'Recommended Citation'|trans }}: {{ resource_helper.citation(resource, volume) }}
+
+                    {#{ resource_helper.article_license(license) }#}
+                </div>
             </article>
         </div><!-- .row -->
     </div>
