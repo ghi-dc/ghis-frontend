@@ -34,11 +34,30 @@ implements \JsonSerializable
     #[Solr\Field(type:"string")]
     protected $title;
 
+    /**
+     * @Solr\Field(type="strings", getter="getFullname")
+     */
+    #[Solr\Field(type:"strings", getter:"getFullname")]
     protected $authors = [];
+
     protected $editors = [];
     protected $translator;
     protected $responsible = [];
+
+    /**
+     * @var string The licence text.
+     *
+     * @Solr\Field(type="string")
+     */
+    #[Solr\Field(type:"string")]
     protected $licence;
+
+    /**
+     * @var string The licence URL.
+     *
+     * @Solr\Field(type="string")
+     */
+    #[Solr\Field(type:"string")]
     protected $licenceTarget;
 
     /**
@@ -49,6 +68,12 @@ implements \JsonSerializable
     #[Solr\Field(type:"text")]
     protected $note;
 
+    /**
+     * @var string The bibliographic citation.
+     *
+     * @Solr\Field(type="text")
+     */
+    #[Solr\Field(type:"string")]
     protected $sourceDescBibl;
 
     /**
@@ -58,6 +83,11 @@ implements \JsonSerializable
      */
     #[Solr\Field(type:"string")]
     protected $language;
+
+    /**
+     * @var string The language code of the original.
+     */
+    private $translatedFrom;
 
     /**
      * @var string The shelfmark.
@@ -127,8 +157,14 @@ implements \JsonSerializable
 
     protected static function hydrateEntity($entity, $article)
     {
-        $entity->setId($article->uid);
-        $entity->setTitle($article->name);
+        if (property_exists($article, 'uid')) {
+            $entity->setId($article->uid);
+        }
+
+        if (isset($article->name)) {
+            $entity->setTitle($article->name);
+        }
+
         $entity->setLanguage($article->language);
 
         foreach ([ 'author', 'editor' ] as $key) {
@@ -143,6 +179,10 @@ implements \JsonSerializable
 
         $entity->setTranslator($article->translator);
 
+        if (property_exists($article, 'translatedFrom')) {
+            $entity->setTranslatedFrom($article->translatedFrom);
+        }
+
         if (property_exists($article, 'responsible')) {
             foreach ($article->responsible as $responsible) {
                 $entity->addResponsible($responsible['name'], $responsible['role'], $responsible['nameType']);
@@ -153,13 +193,19 @@ implements \JsonSerializable
             $entity->setDtaDirName($article->slug);
         }
 
-        $entity->setShelfmark($article->shelfmark);
+        $entity->setGenre($article->genre);
+        if (property_exists($article, 'shelfmark')) {
+            $entity->setShelfmark($article->shelfmark);
+        }
+
+        if (property_exists($article, 'doi')) {
+            $entity->setDoi($article->doi);
+        }
 
         if (property_exists($article, 'abstract')) {
             $entity->setNote($article->abstract);
         }
 
-        $entity->setGenre($article->genre);
         $entity->setTerms($article->terms);
         $entity->setMeta($article->meta);
 
@@ -428,6 +474,38 @@ implements \JsonSerializable
     }
 
     /**
+     * Sets translated from.
+     *
+     * @param string $language
+     *
+     * @return $this
+     */
+    public function setTranslatedFrom($language)
+    {
+        if (!empty($language)) {
+            $this->addClassCode('#translated-from', $language);
+        }
+
+        // for solr-annotation
+        $this->translatedFrom = $this->getTranslatedFrom();
+
+        return $this;
+    }
+
+    /**
+     * Gets translated from.
+     *
+     * @return string
+     */
+    public function getTranslatedFrom()
+    {
+        $codes = $this->getClassCodes('#translated-from');
+        if (!empty($codes)) {
+            return $codes[0];
+        }
+    }
+
+    /**
      * Sets creation date.
      *
      * @param string $dateCreation
@@ -518,6 +596,7 @@ implements \JsonSerializable
      */
     public function setGenre($genre)
     {
+        $this->clearClassCodes('#genre');
         $this->addClassCode('#genre', $genre);
 
         // for solr-annotation
@@ -721,7 +800,7 @@ implements \JsonSerializable
         }
     }
 
-    public function jsonSerialize(): array
+    public function jsonSerialize(): mixed
     {
         return [
             'id' => $this->getId(),
