@@ -810,6 +810,16 @@ class ResourceController extends BaseController
                 $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
                 $volume = \App\Entity\TeiFull::fromXml($fnameFull, false);
 
+                // for citation
+                $crawler = new \Symfony\Component\DomCrawler\Crawler();
+                $crawler->addHtmlContent($parts['body']);
+                $authors = [];
+                $crawler->filter('#authors li')->each(function ($nodes, $i) use ($resource) {
+                    foreach ($nodes as $node) {
+                        $resource->addAuthor($node->textContent);
+                    }
+                });
+
                 $template = 'Resource/introduction.html.twig';
                 break;
 

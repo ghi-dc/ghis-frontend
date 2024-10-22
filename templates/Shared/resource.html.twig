@@ -60,7 +60,8 @@
 
 {% macro citation(resource, volume) %}
     {% import _self as resource_helper %}
-    {{ resource.title|markCombining }},
+    {% if 'introduction' == resource.genre %}
+        {% if resource.authors is not empty %}{{ resource.authors|join(', ') }}: {% endif %}{{ volume.title }}. {% endif %}{{ resource.title|markCombining }},
     {{ 'published in:'|trans }} {{ site_name|trans({}, 'additional') }},
     &lt;{{- resource_helper.citation_link(resource, volume) -}}&gt;
     [{{ 'now'|date('F d, Y'|trans) }}].
