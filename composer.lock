@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfb3d7bd9c090dba6eb5905f9911aec2",
+    "content-hash": "e0f7ee9fbedf68b30f65be795290d3ed",
     "packages": [
         {
             "name": "armin/scssphp-bundle",
@@ -766,22 +766,22 @@
         },
         {
             "name": "flagception/flagception-bundle",
-            "version": "4.4.2",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/playox/flagception-bundle.git",
-                "reference": "f98520e4ba42207b9df91a266c26aa148137eaba"
+                "reference": "72b4b1b36ab47a65215105376cf0e675747cf3d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/playox/flagception-bundle/zipball/f98520e4ba42207b9df91a266c26aa148137eaba",
-                "reference": "f98520e4ba42207b9df91a266c26aa148137eaba",
+                "url": "https://api.github.com/repos/playox/flagception-bundle/zipball/72b4b1b36ab47a65215105376cf0e675747cf3d6",
+                "reference": "72b4b1b36ab47a65215105376cf0e675747cf3d6",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.7 | ^2.0",
                 "flagception/flagception": "^1.5",
-                "php": "^7.1.3 | ^8.0",
+                "php": "^8.0",
                 "symfony/config": "^4.4 | ^5.0 | ^6.0 | ^7.0",
                 "symfony/dependency-injection": "^4.4 | ^5.0 | ^6.0 | ^7.0",
                 "symfony/http-kernel": "^4.4 | ^5.0 | ^6.0 | ^7.0",
@@ -834,9 +834,9 @@
             ],
             "support": {
                 "issues": "https://github.com/playox/flagception-bundle/issues",
-                "source": "https://github.com/playox/flagception-bundle/tree/4.4.2"
+                "source": "https://github.com/playox/flagception-bundle/tree/5.0.1"
             },
-            "time": "2024-01-15T13:28:08+00:00"
+            "time": "2024-08-05T08:04:41+00:00"
         },
         {
             "name": "fluentdom/fluentdom",
@@ -1126,12 +1126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/burki/JMSTranslationBundle.git",
-                "reference": "eb2a0ea3c138de8ea64cf8ef55cac86bc1269b35"
+                "reference": "66f9a7a9d572b153642e07e21cdf97fa9d81c868"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burki/JMSTranslationBundle/zipball/eb2a0ea3c138de8ea64cf8ef55cac86bc1269b35",
-                "reference": "eb2a0ea3c138de8ea64cf8ef55cac86bc1269b35",
+                "url": "https://api.github.com/repos/burki/JMSTranslationBundle/zipball/66f9a7a9d572b153642e07e21cdf97fa9d81c868",
+                "reference": "66f9a7a9d572b153642e07e21cdf97fa9d81c868",
                 "shasum": ""
             },
             "require": {
@@ -1211,7 +1211,7 @@
             "support": {
                 "source": "https://github.com/burki/JMSTranslationBundle/tree/master"
             },
-            "time": "2024-08-14T08:28:20+00:00"
+            "time": "2024-12-01T18:22:48+00:00"
         },
         {
             "name": "knplabs/knp-components",

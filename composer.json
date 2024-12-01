@@ -29,7 +29,7 @@
         "boppy/solr-bundle": "dev-attributes",
         "doctrine/annotations": "^1.14",
         "edwinhoksberg/octicons-php": "^1.1",
-        "flagception/flagception-bundle": "^4.4",
+        "flagception/flagception-bundle": "^5.0",
         "fluentdom/fluentdom": "^8.0",
         "gmo/iso-639": "dev-master#4834357",
         "jms/translation-bundle": "dev-master",
