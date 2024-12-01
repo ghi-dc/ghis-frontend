@@ -29,7 +29,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
     /**
      * {@inheritdoc}
      */
-    public function findBy(array $args, array $orderBy = null, $limit = null, $offset = null): array
+    public function findBy(array $args, ?array $orderBy = null, $limit = null, $offset = null): array
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
         $query->setHydrationMode($this->hydrationMode);

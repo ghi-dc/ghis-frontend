@@ -92,7 +92,7 @@ class OaiProvider extends \Picturae\OaiPmh\Provider
      * @param \Psr\Http\Message\ServerRequestInterface|null $request
      */
     public function __construct(\Picturae\OaiPmh\Interfaces\Repository $repository,
-                                \Psr\Http\Message\ServerRequestInterface $request = null)
+                                ?\Psr\Http\Message\ServerRequestInterface $request = null)
     {
         parent::__construct($repository, $request);
 
@@ -267,7 +267,7 @@ implements InterfaceRepository
      * @param string $set name of the set containing this record
      * @return RecordList
      */
-    public function listRecords($metadataFormat = null, DateTime $from = null, DateTime $until = null, $set = null)
+    public function listRecords($metadataFormat = null, ?DateTime $from = null, ?DateTime $until = null, $set = null)
     {
         $params = [
             'offset' => 0,
@@ -369,8 +369,8 @@ implements InterfaceRepository
      */
     private function encodeResumptionToken(
         $offset = 0,
-        DateTime $from = null,
-        DateTime $until = null,
+        ?DateTime $from = null,
+        ?DateTime $until = null,
         $metadataPrefix = null,
         $set = null
     ) {

@@ -423,7 +423,7 @@ class TeiHelper
         return $article;
     }
 
-    private function createElement($doc, $name, $content = null, array $attributes = null)
+    private function createElement($doc, $name, $content = null, ?array $attributes = null)
     {
         list($prefix, $localName) = \FluentDOM\Utility\QualifiedName::split($name);
 
