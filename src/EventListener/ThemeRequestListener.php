@@ -4,7 +4,6 @@
 namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
 use Sylius\Bundle\ThemeBundle\Repository\ThemeRepositoryInterface;
@@ -30,7 +29,7 @@ class ThemeRequestListener
 
     public function onKernelRequest(RequestEvent $event): void
     {
-        if (HttpKernelInterface::MAIN_REQUEST !== $event->getRequestType()) {
+        if (!$event->isMainRequest()) {
             // don't do anything if it's not the master request
             return;
         }
