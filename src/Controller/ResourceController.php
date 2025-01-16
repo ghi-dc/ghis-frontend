@@ -790,7 +790,7 @@ class ResourceController extends BaseController
             $response->setPublic();
         }
 
-        // Check that the Response is not modified for the given Request
+        // Check if the Response is not modified for the given Request
         if ($response->isNotModified($request)) {
             // return the 304 Response immediately
             return $response;
@@ -804,6 +804,9 @@ class ResourceController extends BaseController
 
         // initial Schema.org
         $schema = Schema::creativeWork()
+            ->identifier($urlGenerator->generate('dynamic', [
+                    'path' => $volume->getDtaDirname() . '/' . $resource->getId(),
+                ], UrlGeneratorInterface::ABSOLUTE_URL))
             ->name($resource->getTitle())
             ->abstract($resource->getNote())
             ->if(count($resource->getTags()) > 0, function ($schema) use ($resource) {
@@ -813,7 +816,7 @@ class ResourceController extends BaseController
                         }, $resource->getTags()));
             })
             ->url($urlGenerator->generate('dynamic', [
-                    'path' => $volume->getDtaDirname() . '/' . $resource->getId(),
+                    'path' => $volume->getDtaDirname() . '/' . $resource->getDtaDirname(),
                 ], UrlGeneratorInterface::ABSOLUTE_URL))
             ;
 

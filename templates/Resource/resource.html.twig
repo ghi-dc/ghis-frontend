@@ -7,6 +7,9 @@
         {{ resource_helper.meta_tags(parts.meta) }}
     {% endif %}
     {% if schema is defined and schema is not empty %}
+        {% if schema['url'] is defined %}
+        <link rel="canonical" href="{{ schema['url'] }}" />
+        {% endif %}
         {{ schema.toScript()|raw }}
     {% endif %}
     <style>
