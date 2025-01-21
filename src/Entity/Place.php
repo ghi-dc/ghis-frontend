@@ -44,7 +44,7 @@ extends SchemaOrg
     protected $geo;
 
     /**
-     * @var Place
+     * @var Place|null
      *
      * @Serializer\Type("App\Entity\Place")
      */
@@ -168,7 +168,7 @@ extends SchemaOrg
         return $this->getIdentifier('geonames');
     }
 
-    public function setContainedInPlace(Place $parent = null)
+    public function setContainedInPlace(?Place $parent = null)
     {
         $this->containedInPlace = $parent;
     }
