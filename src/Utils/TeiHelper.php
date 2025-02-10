@@ -1218,23 +1218,9 @@ extends \Sabre\Xml\Reader
 {
     protected $collected;
 
-    function collect($output)
-    {
-        $this->collected[] = $output;
-    }
-
-    function parse() : array
-    {
-        $this->collected = [];
-        parent::parse();
-
-        return $this->collected;
-    }
-
     static function collectElement(CollectingReader $reader)
     {
         $name = $reader->getClark();
-        // var_dump($name);
         $attributes = $reader->parseAttributes();
 
         $res = [
@@ -1246,5 +1232,18 @@ extends \Sabre\Xml\Reader
         $reader->collect($res);
 
         $reader->next();
+    }
+
+    public function collect($output)
+    {
+        $this->collected[] = $output;
+    }
+
+    public function parse(): array
+    {
+        $this->collected = [];
+        parent::parse();
+
+        return $this->collected;
     }
 }
