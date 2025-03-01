@@ -5,23 +5,35 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
-
 use Symfony\Contracts\Translation\TranslatorInterface;
-
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
+use Psr\Http\Message\ServerRequestInterface;
+use Picturae\OaiPmh\Exception\IdDoesNotExistException;
+use Picturae\OaiPmh\Implementation\MetadataFormatType as ImplementationMetadataFormatType;
+use Picturae\OaiPmh\Implementation\RecordList as OaiRecordList;
+use Picturae\OaiPmh\Implementation\Repository\Identity as ImplementationIdentity;
+use Picturae\OaiPmh\Implementation\Set;
+use Picturae\OaiPmh\Implementation\SetList;
+use Picturae\OaiPmh\Interfaces\MetadataFormatType;
+use Picturae\OaiPmh\Interfaces\Record;
+use Picturae\OaiPmh\Interfaces\RecordList;
+use Picturae\OaiPmh\Interfaces\Repository as InterfaceRepository;
+use Picturae\OaiPmh\Interfaces\Repository\Identity;
+use Picturae\OaiPmh\Interfaces\SetList as InterfaceSetList;
 
 /**
- * Use Picturae OAI-PMH package to implement an OAI-endpoint /oai
+ * Use Picturae OAI-PMH package to implement an OAI-endpoint /oai.
  */
 class OaiController extends BaseController
 {
     #[Route(path: '/oai', name: 'oai')]
-    public function dispatchAction(Request $request,
-                                   TranslatorInterface $translator,
-                                   RouterInterface $router,
-                                   \Twig\Environment $twig,
-                                   \App\Twig\AppExtension $twigAppExtension)
-    {
+    public function dispatchAction(
+        Request $request,
+        TranslatorInterface $translator,
+        RouterInterface $router,
+        \Twig\Environment $twig,
+        \App\Twig\AppExtension $twigAppExtension
+    ) {
         // we need site_name / site_email
         $globals = $twig->getGlobals();
 
@@ -31,9 +43,9 @@ class OaiController extends BaseController
             $router,
             $this->contentService,
             [
-                'repositoryName' => /** @Ignore */ $translator->trans($globals['site_name']),
-                'administrationEmails' => [ $globals['site_email'] ],
-                'genres' => [ 'introduction', 'document', 'image', 'audio', 'video', 'map' ],
+                'repositoryName' => /* @Ignore */ $translator->trans($globals['site_name']),
+                'administrationEmails' => [$globals['site_email']],
+                'genres' => ['introduction', 'document', 'image', 'audio', 'video', 'map'],
                 'buildResourcePath' => function ($resource) use ($twigAppExtension) {
                     return $twigAppExtension->buildResourcePath($resource);
                 },
@@ -55,7 +67,7 @@ class OaiController extends BaseController
 
     private function buildRequest()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ('POST' === $_SERVER['REQUEST_METHOD']) {
             $ref = & $_POST;
         }
         else {
@@ -63,7 +75,7 @@ class OaiController extends BaseController
         }
 
         // OaiProvider doesn't like empty or date-only params, so remove or adjust if needed
-        foreach ([ 'from', 'until' ] as $key) {
+        foreach (['from', 'until'] as $key) {
             if (array_key_exists($key, $ref)) {
                 if ('' === $ref[$key]) {
                     unset($ref[$key]);
@@ -89,18 +101,18 @@ class OaiProvider extends \Picturae\OaiPmh\Provider
 
     /**
      * @param Repository $repository
-     * @param \Psr\Http\Message\ServerRequestInterface|null $request
      */
-    public function __construct(\Picturae\OaiPmh\Interfaces\Repository $repository,
-                                ?\Psr\Http\Message\ServerRequestInterface $request = null)
-    {
+    public function __construct(
+        InterfaceRepository $repository,
+        ?ServerRequestInterface $request = null
+    ) {
         parent::__construct($repository, $request);
 
         $this->xslUrl = $repository->getStylesheetUrl();
     }
 
     /**
-     * inject xml-stylesheet processing instruction if $this->xslUrl is not empty
+     * inject xml-stylesheet processing instruction if $this->xslUrl is not empty.
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
@@ -114,40 +126,28 @@ class OaiProvider extends \Picturae\OaiPmh\Provider
 
         // add xml-stylesheet processing instruction
         $document = new \DOMDocument('1.0', 'UTF-8');
-        $document->loadXML((string)$response->getBody());
+        $document->loadXML((string) $response->getBody());
 
-        $xslt = $document->createProcessingInstruction('xml-stylesheet',
-                                                       'type="text/xsl" href="' . htmlspecialchars($this->xslUrl) . '"');
+        $xslt = $document->createProcessingInstruction(
+            'xml-stylesheet',
+            'type="text/xsl" href="' . htmlspecialchars($this->xslUrl) . '"'
+        );
 
         // adding it to the document
         $document->insertBefore($xslt, $document->documentElement);
 
-        return new \GuzzleHttp\Psr7\Response($response->getStatusCode(),
-                                             $response->getHeaders(),
-                                             $document->saveXML());
+        return new \GuzzleHttp\Psr7\Response(
+            $response->getStatusCode(),
+            $response->getHeaders(),
+            $document->saveXML()
+        );
     }
 }
 
 /**
- * Custom Repository
+ * Custom Repository.
  */
-use DateTime;
-use OpenSkos2\OaiPmh\Concept as OaiConcept;
-use Picturae\OaiPmh\Exception\IdDoesNotExistException;
-use Picturae\OaiPmh\Implementation\MetadataFormatType as ImplementationMetadataFormatType;
-use Picturae\OaiPmh\Implementation\RecordList as OaiRecordList;
-use Picturae\OaiPmh\Implementation\Repository\Identity as ImplementationIdentity;
-use Picturae\OaiPmh\Implementation\Set;
-use Picturae\OaiPmh\Implementation\SetList;
-use Picturae\OaiPmh\Interfaces\MetadataFormatType;
-use Picturae\OaiPmh\Interfaces\Record;
-use Picturae\OaiPmh\Interfaces\RecordList;
-use Picturae\OaiPmh\Interfaces\Repository as InterfaceRepository;
-use Picturae\OaiPmh\Interfaces\Repository\Identity;
-use Picturae\OaiPmh\Interfaces\SetList as InterfaceSetList;
-
-class Repository
-implements InterfaceRepository
+class Repository implements InterfaceRepository
 {
     protected $request;
     protected $router;
@@ -186,13 +186,13 @@ implements InterfaceRepository
     }
 
     /**
-     * @return string
-     * the finest harvesting granularity supported by the repository. The legitimate values are
-     * YYYY-MM-DD and YYYY-MM-DDThh:mm:ssZ with meanings as defined in ISO8601.
+     * @return string the finest harvesting granularity supported by the repository.
+     *                The legitimate values are
+     *                YYYY-MM-DD and YYYY-MM-DDThh:mm:ssZ with meanings as defined in ISO8601.
      */
     public function getGranularity()
     {
-        return \Picturae\OaiPmh\Interfaces\Repository\Identity::GRANULARITY_YYYY_MM_DDTHH_MM_SSZ;
+        return Identity::GRANULARITY_YYYY_MM_DDTHH_MM_SSZ;
     }
 
     /**
@@ -204,7 +204,7 @@ implements InterfaceRepository
             array_key_exists('repositoryName', $this->options)
                 ? $this->options['repositoryName'] : $this->request->getHost(),
             $this->getEarliestDateStamp(),
-            \Picturae\OaiPmh\Interfaces\Repository\Identity::DELETED_RECORD_PERSISTENT,
+            Identity::DELETED_RECORD_PERSISTENT,
             array_key_exists('administrationEmails', $this->options)
                 ? $this->options['administrationEmails'] : [],
             $this->getGranularity()
@@ -229,6 +229,7 @@ implements InterfaceRepository
 
     /**
      * @param string $token
+     *
      * @return InterfaceSetList
      */
     public function listSetsByToken($token)
@@ -239,8 +240,9 @@ implements InterfaceRepository
     }
 
     /**
-     * @param string $metadataFormat
-     * @param string $identifier
+     * @param string $metadataFormat metadata format of the record to be fetched
+     * @param string $identifier     identifier of the record to be fetched
+     *
      * @return Record
      */
     public function getRecord($metadataFormat, $identifier)
@@ -260,14 +262,14 @@ implements InterfaceRepository
     }
 
     /**
-     * @param string $metadataFormat metadata format of the records to be fetch or null if only headers are fetched
-     * (listIdentifiers)
-     * @param DateTime $from
-     * @param DateTime $until
-     * @param string $set name of the set containing this record
+     * @param string|null    $metadataFormat metadata format of the records to be fetched, or null if only headers are fetched (listIdentifiers)
+     * @param \DateTime|null $from           only records with a datestamp >= from are included
+     * @param \DateTime|null $until          only records with a datestamp <= until are included
+     * @param string|null    $set            name of the set containing this record
+     *
      * @return RecordList
      */
-    public function listRecords($metadataFormat = null, ?DateTime $from = null, ?DateTime $until = null, $set = null)
+    public function listRecords($metadataFormat = null, ?\DateTime $from = null, ?\DateTime $until = null, $set = null)
     {
         $params = [
             'offset' => 0,
@@ -282,6 +284,7 @@ implements InterfaceRepository
 
     /**
      * @param string $token
+     *
      * @return RecordList
      */
     public function listRecordsByToken($token)
@@ -314,6 +317,7 @@ implements InterfaceRepository
 
     /**
      * @param string $identifier
+     *
      * @return MetadataFormatType[]
      */
     public function listMetadataFormats($identifier = null)
@@ -340,6 +344,7 @@ implements InterfaceRepository
      * ->until (timestamp)
      *
      * @param string $token
+     *
      * @return array
      */
     private function decodeResumptionToken($token)
@@ -358,19 +363,20 @@ implements InterfaceRepository
     }
 
     /**
-     * Get resumption token
+     * Encode resumption token.
      *
-     * @param int $offset
-     * @param DateTime $from
-     * @param DateTime $util
-     * @param string $metadataPrefix
-     * @param string $set
+     * @param int    $offset
+     * @param \DateTime|null $from           only records with a datestamp >= from are included
+     * @param \DateTime|null $until          only records with a datestamp <= until are included
+     * @param string $metadataPrefix         the metadataPrefix of the request
+     * @param string $set                    name of the set
+     *
      * @return string
      */
     private function encodeResumptionToken(
         $offset = 0,
-        ?DateTime $from = null,
-        ?DateTime $until = null,
+        ?\DateTime $from = null,
+        ?\DateTime $until = null,
         $metadataPrefix = null,
         $set = null
     ) {
@@ -393,14 +399,14 @@ implements InterfaceRepository
     }
 
     /**
-     * Get earliest modified timestamp
+     * Get earliest modified timestamp.
      *
-     * @return DateTime
+     * @return \DateTime
      */
     private function getEarliestDateStamp()
     {
         // Fetch earliest timestamp
-        return new DateTime('2020-01-01T00:00:00Z');
+        return new \DateTime('2020-01-01T00:00:00Z');
     }
 
     protected function buildDateExpression($date)
@@ -427,7 +433,7 @@ implements InterfaceRepository
                 'from' => '*',
                 'until' => '*',
             ];
-            foreach ([ 'from', 'until' ] as $key) {
+            foreach (['from', 'until'] as $key) {
                 $range[$key] = !empty($params[$key])
                     ? $this->buildDateExpression($params[$key]) : '*';
             }
@@ -435,9 +441,12 @@ implements InterfaceRepository
             $conditions['datestamp'] = '[' . join(' TO ', array_values($range)) . ']';
         }
 
-        $results = $this->contentService->getResourcesByConditions($conditions,
-                                                                   [ 'shelfmark_s' => 'ASC' ],
-                                                                   $this->limit + 1, $params['offset']);
+        $results = $this->contentService->getResourcesByConditions(
+            $conditions,
+            ['shelfmark_s' => 'ASC'],
+            $this->limit + 1,
+            $params['offset']
+        );
 
         $records = [];
         foreach ($results as $result) {
@@ -447,6 +456,12 @@ implements InterfaceRepository
         return $records;
     }
 
+    /**
+     * @param string $metadataFormat metadata format of the record to be built
+     * @param string $identifier     identifier of the record to be built
+     *
+     * @return Record
+     */
     protected function buildRecord($resource, $metadataFormat = null)
     {
         if (!in_array($resource->getGenre(), $this->options['genres'])) {
@@ -494,34 +509,41 @@ implements InterfaceRepository
 
         // oai_dc
         $xml = <<<EOT
-            <oai_dc:dc
-                 xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
-                 xmlns:dc="http://purl.org/dc/elements/1.1/"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
-                 http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-                <dc:language>{$locale}</dc:language>
-                <dc:title>{$title}</dc:title>
-                <dc:identifier>{$url}</dc:identifier>
-                <dc:creator>{$creator}</dc:creator>
-                <dc:publisher>GHI Washington</dc:publisher>
-                <dc:subject>{$subject}</dc:subject>
-                <dc:type>Online Ressource</dc:type>
-                <dc:description>{$description}</dc:description>
-                <dc:date>{$date}</dc:date>
-            </oai_dc:dc>
-EOT;
+                        <oai_dc:dc
+                             xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+                             xmlns:dc="http://purl.org/dc/elements/1.1/"
+                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                             xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+                             http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+                            <dc:language>{$locale}</dc:language>
+                            <dc:title>{$title}</dc:title>
+                            <dc:identifier>{$url}</dc:identifier>
+                            <dc:creator>{$creator}</dc:creator>
+                            <dc:publisher>GHI Washington</dc:publisher>
+                            <dc:subject>{$subject}</dc:subject>
+                            <dc:type>Online Ressource</dc:type>
+                            <dc:description>{$description}</dc:description>
+                            <dc:date>{$date}</dc:date>
+                        </oai_dc:dc>
+            EOT;
 
         $recordMetadata = new \DOMDocument('1.0', 'UTF-8');
         $recordMetadata->loadXML($xml);
 
         $someRecord = new \Picturae\OaiPmh\Implementation\Record(
             new \Picturae\OaiPmh\Implementation\Record\Header($identifier, $datestamp, [], false),
-            $recordMetadata);
+            $recordMetadata
+        );
 
         return $someRecord;
     }
 
+    /**
+     * @param string $metadataFormat metadata format of the record to be fetched
+     * @param string $identifier     identifier of the record to be fetched
+     *
+     * @return Record
+     */
     protected function getSomeRecord($metadataFormat, $identifier)
     {
         $record =  $this->contentService->getResourceByUid($identifier);
