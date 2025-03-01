@@ -29,10 +29,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/burki/minimalcode-search"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/calderholding-r/flagception-bundle"
         }
     ],
     "require": {
@@ -45,7 +41,7 @@
         "boppy/solr-bundle": "dev-attributes",
         "doctrine/annotations": "^1.14",
         "edwinhoksberg/octicons-php": "^1.1",
-        "flagception/flagception-bundle": "dev-php-8.4-deprecations#faffa14c31a7bc8e368384e7f86863670815935d",
+        "flagception/flagception-bundle": "^6.0",
         "fluentdom/fluentdom": "dev-master as 8.0",
         "gmo/iso-639": "dev-master#4834357",
         "jms/translation-bundle": "^2.6",
@@ -95,6 +91,7 @@
         "voku/html-min": "*"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "*",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "^7.2",
         "symfony/debug-bundle": "^7.2",

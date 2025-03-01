@@ -57,6 +57,18 @@
     "fluentdom/fluentdom": {
         "version": "7.4.0"
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "3.69",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "be2103eb4a20942e28a6dd87736669b757132435"
+        },
+        "files": [
+            "./.php-cs-fixer.dist.php"
+        ]
+    },
     "gmo/iso-639": {
         "version": "v1.0.0"
     },
