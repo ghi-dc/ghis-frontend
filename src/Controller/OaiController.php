@@ -365,11 +365,11 @@ class Repository implements InterfaceRepository
     /**
      * Encode resumption token.
      *
-     * @param int    $offset
+     * @param int            $offset
      * @param \DateTime|null $from           only records with a datestamp >= from are included
      * @param \DateTime|null $until          only records with a datestamp <= until are included
-     * @param string $metadataPrefix         the metadataPrefix of the request
-     * @param string $set                    name of the set
+     * @param string         $metadataPrefix the metadataPrefix of the request
+     * @param string         $set            name of the set
      *
      * @return string
      */
@@ -458,7 +458,6 @@ class Repository implements InterfaceRepository
 
     /**
      * @param string $metadataFormat metadata format of the record to be built
-     * @param string $identifier     identifier of the record to be built
      *
      * @return Record
      */

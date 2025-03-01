@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -12,16 +10,16 @@ use JMS\Serializer\Annotation as Serializer;
  * @see https://schema.org/CategoryCode Documentation on Schema.org
  *
  * @Serializer\XmlRoot("CategoryCode")
- * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  *
+ * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  */
-class CategoryCode
-extends SchemaOrg
+class CategoryCode extends SchemaOrg
 {
     /**
      * A CategoryCodeSet that contains this category code.
      *
      * @Serializer\XmlElement(cdata=false)
+     *
      * @Serializer\Type("string")
      */
     protected $inCodeSet;

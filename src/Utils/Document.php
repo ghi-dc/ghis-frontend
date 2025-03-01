@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Methods for Document Conversions.
  * Interfaces inspired by ezcDocument
  *  https://github.com/zetacomponents/Document/blob/master/src/interfaces/document.php
- * TODO: Build a separate Component
+ * TODO: Build a separate Component.
  */
 
 namespace App\Utils;
@@ -12,10 +13,10 @@ abstract class Document
 {
     protected $options;
     protected $errors;
-    protected $mimeType = null;
+    protected $mimeType;
 
     /**
-     * Construct new document
+     * Construct new document.
      */
     public function __construct(array $options = [])
     {
@@ -50,7 +51,7 @@ abstract class Document
     abstract public function loadString($content);
 
     /**
-     * Naive implementation, override in implementation for better performance
+     * Naive implementation, override in implementation for better performance.
      */
     public function load($fname)
     {
@@ -60,7 +61,7 @@ abstract class Document
     abstract public function saveString();
 
     /**
-     * Naive implementation, override in implementation for better performance
+     * Naive implementation, override in implementation for better performance.
      */
     public function save($fname)
     {
@@ -68,9 +69,10 @@ abstract class Document
     }
 
     /**
-     * Magic wrapper for save()
+     * Magic wrapper for save().
      *
      * @ignore
+     *
      * @return string
      */
     public function __toString()

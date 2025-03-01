@@ -3,7 +3,7 @@
 namespace App\Service\Xsl;
 
 /**
- * Requires https://www.saxonica.com/saxon-c/index.xml
+ * Requires https://www.saxonica.com/saxon-c/index.xml.
  *
  * Note:
  * Saxon/C EXT 1.1.x has memory leaks that
@@ -49,7 +49,7 @@ class XsltSaxonProcessorAdapter
         if (array_key_exists('params', $options)) {
             foreach ($options['params'] as $name => $value) {
                 $xdmValue = $saxonProc->createAtomicValue(strval($value));
-                if ($xdmValue != null) {
+                if (null != $xdmValue) {
                     $proc->setParameter($name, $xdmValue);
                 }
             }
@@ -65,8 +65,8 @@ class XsltSaxonProcessorAdapter
                 $res = false;
 
                 $errCount = $proc->getExceptionCount();
-                for ($i = 0; $i < $errCount; $i++) {
-                    $this->errors[] = (object) [ 'message' => $proc->getErrorMessage($i) ];
+                for ($i = 0; $i < $errCount; ++$i) {
+                    $this->errors[] = (object) ['message' => $proc->getErrorMessage($i)];
                 }
             }
 
@@ -93,7 +93,7 @@ class XsltSaxonProcessorAdapter
 
             if (is_null($res)) {
                 $res = false;
-                if ($executable->exceptionOccurred()){
+                if ($executable->exceptionOccurred()) {
                     $this->errors[] = (object) [
                         'code' => $executable->getErrorCode(),
                         'message' => $executable->getErrorMessage(),

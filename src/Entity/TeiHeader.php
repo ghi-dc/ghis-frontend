@@ -2,21 +2,14 @@
 
 namespace App\Entity;
 
-use \FluidXml\FluidXml;
-use \FluidXml\FluidNamespace;
-
-use Symfony\Component\Validator\Constraints as Assert;
-
 use FS\SolrBundle\Doctrine\Annotation as Solr;
 
 /**
- * Entity to edit elements in teiHeader
+ * Entity to edit elements in teiHeader.
  *
  * Currently very incomplete
- *
  */
-class TeiHeader
-implements \JsonSerializable
+class TeiHeader implements \JsonSerializable
 {
     /**
      * @var string
@@ -27,17 +20,17 @@ implements \JsonSerializable
     protected $id;
 
     /**
-     * @var string The title.
+     * @var string the title
      *
      * @Solr\Field(type="string")
      */
-    #[Solr\Field(type:"string")]
+    #[Solr\Field(type: 'string')]
     protected $title;
 
     /**
      * @Solr\Field(type="strings", getter="getFullname")
      */
-    #[Solr\Field(type:"strings", getter:"getFullname")]
+    #[Solr\Field(type: 'strings', getter: 'getFullname')]
     protected $authors = [];
 
     protected $editors = [];
@@ -45,19 +38,19 @@ implements \JsonSerializable
     protected $responsible = [];
 
     /**
-     * @var string The licence text.
+     * @var string the licence text
      *
      * @Solr\Field(type="string")
      */
-    #[Solr\Field(type:"string")]
+    #[Solr\Field(type: 'string')]
     protected $licence;
 
     /**
-     * @var string The licence URL.
+     * @var string the licence URL
      *
      * @Solr\Field(type="string")
      */
-    #[Solr\Field(type:"string")]
+    #[Solr\Field(type: 'string')]
     protected $licenceTarget;
 
     /**
@@ -65,36 +58,36 @@ implements \JsonSerializable
      *
      * @Solr\Field(type="text")
      */
-    #[Solr\Field(type:"text")]
+    #[Solr\Field(type: 'text')]
     protected $note;
 
     /**
-     * @var string The bibliographic citation.
+     * @var string the bibliographic citation
      *
      * @Solr\Field(type="text")
      */
-    #[Solr\Field(type:"string")]
+    #[Solr\Field(type: 'string')]
     protected $sourceDescBibl;
 
     /**
-     * @var string The language code (deu or eng).
+     * @var string the language code (deu or eng)
      *
      * @Solr\Field(type="string")
      */
-    #[Solr\Field(type:"string")]
+    #[Solr\Field(type: 'string')]
     protected $language;
 
     /**
-     * @var string The language code of the original.
+     * @var string the language code of the original
      */
     private $translatedFrom;
 
     /**
-     * @var string The shelfmark.
+     * @var string the shelfmark
      *
      * @Solr\Field(type="string")
      */
-    #[Solr\Field(type:"string")]
+    #[Solr\Field(type: 'string')]
     protected $shelfmark;
 
     protected $dateCreation;
@@ -104,19 +97,19 @@ implements \JsonSerializable
     /* we duplicate properties from $idno / $classCodes for Solr-annotation */
 
     /**
-     * @var string The slug.
+     * @var string the slug
      *
      * @Solr\Field(type="string")
      */
-    #[Solr\Field(type:"string")]
+    #[Solr\Field(type: 'string')]
     private $slug;
 
     /**
-     * @var string The genre (introduction|document|image).
+     * @var string the genre (introduction|document|image)
      *
      * @Solr\Field(type="string")
      */
-    #[Solr\Field(type:"string")]
+    #[Solr\Field(type: 'string')]
     private $genre;
 
     protected static function normalizeWhitespace($tei)
@@ -167,7 +160,7 @@ implements \JsonSerializable
 
         $entity->setLanguage($article->language);
 
-        foreach ([ 'author', 'editor' ] as $key) {
+        foreach (['author', 'editor'] as $key) {
             if (!empty($article->$key)) {
                 $method = 'add' . ucfirst($key);
 
@@ -276,7 +269,7 @@ implements \JsonSerializable
     }
 
     /**
-     * Adds author
+     * Adds author.
      */
     public function addAuthor($author)
     {
@@ -286,7 +279,7 @@ implements \JsonSerializable
     }
 
     /**
-     * Gets authors
+     * Gets authors.
      */
     public function getAuthors()
     {
@@ -294,7 +287,7 @@ implements \JsonSerializable
     }
 
     /**
-     * Adds editor
+     * Adds editor.
      */
     public function addEditor($editor)
     {
@@ -304,7 +297,7 @@ implements \JsonSerializable
     }
 
     /**
-     * Gets editors
+     * Gets editors.
      */
     public function getEditors()
     {
@@ -336,17 +329,17 @@ implements \JsonSerializable
     }
 
     /**
-     * Adds responsible
+     * Adds responsible.
      */
     public function addResponsible($name, $role, $nameType = 'persName')
     {
-        $this->responsible[] = [ 'role' => $role, $nameType => $name ];
+        $this->responsible[] = ['role' => $role, $nameType => $name];
 
         return $this;
     }
 
     /**
-     * Gets responsible
+     * Gets responsible.
      */
     public function getResponsible()
     {
@@ -508,8 +501,6 @@ implements \JsonSerializable
     /**
      * Sets creation date.
      *
-     * @param string $dateCreation
-     *
      * @return $this
      */
     public function setDateCreation($date)
@@ -554,7 +545,7 @@ implements \JsonSerializable
     }
 
     /**
-     * Adds classification code
+     * Adds classification code.
      */
     public function addClassCode($scheme, $code)
     {
@@ -566,7 +557,7 @@ implements \JsonSerializable
     }
 
     /**
-     * Clears classification codes with $scheme
+     * Clears classification codes with $scheme.
      */
     public function clearClassCodes($scheme)
     {
@@ -578,7 +569,7 @@ implements \JsonSerializable
     }
 
     /**
-     * Gets classification codes
+     * Gets classification codes.
      */
     public function getClassCodes($scheme)
     {
@@ -774,8 +765,6 @@ implements \JsonSerializable
      * In TEI-Simpleprint, this might go into
      *   https://tei-c.org/release/doc/tei-p5-exemplars/html/tei_simplePrint.doc.html#settingDesc
      * Since this is lacking in DTAbf, we use
-     *
-     * @param string $setting
      *
      * @return $this
      */

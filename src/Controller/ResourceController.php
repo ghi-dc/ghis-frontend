@@ -1,6 +1,7 @@
 <?php
 
 // src/Controller/ResourceController.php
+
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -9,14 +10,10 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
-
 use Spatie\SchemaOrg\Schema;
-
 use Flagception\Manager\FeatureManagerInterface;
 use Flagception\Model\Context as ConstraintContext;
-
 use App\Service\ContentService;
 use App\Service\Xsl\XsltProcessor;
 
@@ -24,13 +21,14 @@ class ResourceController extends BaseController
 {
     protected $xsltProcessor;
 
-    public function __construct(ContentService $contentService,
-                                KernelInterface $kernel,
-                                SettableThemeContext $themeContext,
-                                XsltProcessor $xsltProcessor,
-                                $dataDir,
-                                $siteKey)
-    {
+    public function __construct(
+        ContentService $contentService,
+        KernelInterface $kernel,
+        SettableThemeContext $themeContext,
+        XsltProcessor $xsltProcessor,
+        $dataDir,
+        $siteKey
+    ) {
         parent::__construct($contentService, $kernel, $themeContext, $dataDir, $siteKey);
 
         $this->xsltProcessor = $xsltProcessor;
@@ -38,7 +36,7 @@ class ResourceController extends BaseController
 
     /**
      * Lookup corresponding route parameters for volume / resource
-     * in different locales
+     * in different locales.
      */
     protected function buildLocaleSwitch($volume, $resource = null)
     {
@@ -65,11 +63,11 @@ class ResourceController extends BaseController
             return [];
         }
 
-        return [ 'route_params_locale_switch' => $routeParameters ];
+        return ['route_params_locale_switch' => $routeParameters];
     }
 
     /**
-     * Calls $pdfConverter to generate PDF representation
+     * Calls $pdfConverter to generate PDF representation.
      */
     protected function renderPdf($pdfConverter, $html, $filename = '', $locale = 'en')
     {
@@ -99,14 +97,14 @@ class ResourceController extends BaseController
 
         $pdfDoc = @$pdfConverter->convert($htmlDoc);
 
-        return new Response((string)$pdfDoc, Response::HTTP_OK, [
+        return new Response((string) $pdfDoc, Response::HTTP_OK, [
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'inline; filename="' . $filename . '"',
         ]);
     }
 
     /**
-     * Special treatment for Combining Characters
+     * Special treatment for Combining Characters.
      */
     protected function markCombiningCharacters($html)
     {
@@ -121,16 +119,18 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Extract innerXML of a $node
+     * Extract innerXML of a $node.
      */
     protected function innerXML($node)
     {
-        return implode(array_map([ $node->ownerDocument, 'saveXML' ],
-                                 iterator_to_array($node->childNodes)));
+        return implode(array_map(
+            [$node->ownerDocument, 'saveXML'],
+            iterator_to_array($node->childNodes)
+        ));
     }
 
     /**
-     * Extract HTML of a $node
+     * Extract HTML of a $node.
      */
     protected function saveHTML($node)
     {
@@ -138,16 +138,18 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Extract innerHTML of a $node
+     * Extract innerHTML of a $node.
      */
     protected function innerHTML($node)
     {
-        return implode(array_map([ $node->ownerDocument, 'saveHTML' ],
-                                 iterator_to_array($node->childNodes)));
+        return implode(array_map(
+            [$node->ownerDocument, 'saveHTML'],
+            iterator_to_array($node->childNodes)
+        ));
     }
 
     /**
-     * Transform .dta-p-gallery into a Bootstrap Carousel
+     * Transform .dta-p-gallery into a Bootstrap Carousel.
      */
     protected function buildCarousel($html)
     {
@@ -169,7 +171,7 @@ class ResourceController extends BaseController
 
             $gallery->filter('.dta-figure > img')->each(function ($node, $i) use (&$slides) {
                 $slide = [
-                    'image' => [ 'src' => $node->attr('src') ],
+                    'image' => ['src' => $node->attr('src')],
                     'text' => '',
                 ];
 
@@ -209,12 +211,12 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Build proper internal links
+     * Build proper internal links.
      */
     protected function adjustInternalLink($crawler)
     {
         $crawler->filter('a')->each(function ($node, $i) {
-            $href = (string)$node->attr('href');
+            $href = (string) $node->attr('href');
             if (preg_match('/^(document|image|map)\-\d+$/', $href)) {
                 $node->getNode(0)->setAttribute('href', './' . $this->siteKey . ':' . $href);
             }
@@ -222,7 +224,7 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Prepend $baseUrl to relative src
+     * Prepend $baseUrl to relative src.
      */
     protected function buildFullUrl($src, $baseUrl = null)
     {
@@ -234,7 +236,7 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Adjust media-tags to point to the proper destination
+     * Adjust media-tags to point to the proper destination.
      */
     protected function adjustMedia($crawler, $baseUrl, $printView = false, $imgClass = null)
     {
@@ -247,8 +249,10 @@ class ResourceController extends BaseController
         $crawler->filter('audio')->each(function ($node, $i) use ($baseUrl) {
             $poster = $node->attr('data-info-album-art');
             if (!is_null($poster)) {
-                $node->getNode(0)->setAttribute('data-info-album-art',
-                                                $this->buildFullUrl($poster, $baseUrl));
+                $node->getNode(0)->setAttribute(
+                    'data-info-album-art',
+                    $this->buildFullUrl($poster, $baseUrl)
+                );
             }
         });
 
@@ -275,7 +279,7 @@ class ResourceController extends BaseController
                 if ('svg' == $pathinfo['extension']) {
                     // replace last occurrance of .svg with .png
                     $pos = strrpos($url, $search = '.svg');
-                    if ($pos !== false) {
+                    if (false !== $pos) {
                         $urlPng = substr_replace($url, '.png', $pos, strlen($search));
 
                         $info = @exif_imagetype($urlPng);
@@ -295,7 +299,7 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Custom method since $node->text() returns node-content as well
+     * Custom method since $node->text() returns node-content as well.
      */
     private function extractText($node)
     {
@@ -304,13 +308,15 @@ class ResourceController extends BaseController
             return $node->text();
         }
 
-        return $this->removeByCssSelector('<body>' . $html . '</body>',
-                                          [ 'a.dta-fn-intext' ],
-                                          true);
+        return $this->removeByCssSelector(
+            '<body>' . $html . '</body>',
+            ['a.dta-fn-intext'],
+            true
+        );
     }
 
     /**
-     * Remove nodes from HTML by CSS-Selector
+     * Remove nodes from HTML by CSS-Selector.
      */
     function removeByCssSelector($html, $selectorsToRemove, $returnPlainText = false)
     {
@@ -333,15 +339,16 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Use DomCrawler to extract specific parts from the HTML-representation
+     * Use DomCrawler to extract specific parts from the HTML-representation.
      */
-    protected function buildPartsFromHtml(TranslatorInterface $translator,
-                                          \App\Entity\TeiHeader $volume,
-                                          string $html,
-                                          string $mediaBaseUrl,
-                                          string $genre,
-                                          bool $printView)
-    {
+    protected function buildPartsFromHtml(
+        TranslatorInterface $translator,
+        \App\Entity\TeiHeader $volume,
+        string $html,
+        string $mediaBaseUrl,
+        string $genre,
+        bool $printView
+    ) {
         $parts = [
             'additional' => [],
         ];
@@ -360,9 +367,9 @@ class ResourceController extends BaseController
                 $h1 = $crawler->filter('h1')
                     ->first();
                 if ($h1->count()) {
-                   $node = $h1->getNode(0);
-                   $element = $node->ownerDocument
-                        ->createElement('h2', $volume->getTitle());
+                    $node = $h1->getNode(0);
+                    $element = $node->ownerDocument
+                         ->createElement('h2', $volume->getTitle());
 
                     // Insert the new element
                     $node->parentNode->insertBefore($element, $node);
@@ -371,7 +378,7 @@ class ResourceController extends BaseController
             else {
                 // h2 for TOC
                 $sectionHeaders = $crawler->filterXPath('//h2')->each(function ($node, $i) {
-                    return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
+                    return ['id' => $node->attr('id'), 'text' => $this->extractText($node)];
                 });
                 $parts['toc'] = $sectionHeaders;
             }
@@ -388,7 +395,7 @@ class ResourceController extends BaseController
             $sectionHeaders = $crawler->filterXPath('//h3')->each(function ($node, $i) {
                 $id = $node->attr('id');
                 if (preg_match('/^section\-1\-\d+$/', $id)) {
-                    return [ 'id' => $node->attr('id'), 'text' => $this->extractText($node) ];
+                    return ['id' => $node->attr('id'), 'text' => $this->extractText($node)];
                 }
             });
 
@@ -462,14 +469,14 @@ class ResourceController extends BaseController
 
     protected function buildResourcePath($volume, $resource)
     {
-        $fname = join('.', [ $resource->getId(true), $resource->getLanguage(), 'xml' ]);
+        $fname = join('.', [$resource->getId(true), $resource->getLanguage(), 'xml']);
 
-        return join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
+        return join(DIRECTORY_SEPARATOR, [$this->dataDir, 'volumes', $volume->getId(true), $fname]);
     }
 
     protected function expandXslPath($fnameXsl)
     {
-        return join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'styles', $fnameXsl ]);
+        return join(DIRECTORY_SEPARATOR, [$this->dataDir, 'styles', $fnameXsl]);
     }
 
     protected function computeResourceToHtmlEtag($volume, $resource)
@@ -488,13 +495,16 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Call XsltProcessor to transform TEI to HTML
+     * Call XsltProcessor to transform TEI to HTML.
      */
-    protected function resourceToHtml(Request $request,
-                                      TranslatorInterface $translator,
-                                      $volume, $resource,
-                                      $printView = false, $embedView = false)
-    {
+    protected function resourceToHtml(
+        Request $request,
+        TranslatorInterface $translator,
+        $volume,
+        $resource,
+        $printView = false,
+        $embedView = false
+    ) {
         $fnameFull = $this->buildResourcePath($volume, $resource);
 
         $fnameXslFull = $this->expandXslPath($embedView ? 'dta2html-embed.xsl' : 'dta2html.xsl');
@@ -507,10 +517,10 @@ class ResourceController extends BaseController
         ]);
 
         $mediaBaseUrl = join('/', [
-                $request->getSchemeAndHttpHost() . $request->getBaseUrl(),
-                'media',
-                $volume->getId(true), $resource->getId(true)
-            ])
+            $request->getSchemeAndHttpHost() . $request->getBaseUrl(),
+            'media',
+            $volume->getId(true), $resource->getId(true),
+        ])
             . '/';
 
         $parts = $this->buildPartsFromHtml($translator, $volume, $html, $mediaBaseUrl, $resource->getGenre(), $printView);
@@ -532,7 +542,7 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Localize certain publisher-place
+     * Localize certain publisher-place.
      */
     protected function localizePublisherPlace(&$dataAsObject, $locale)
     {
@@ -553,20 +563,22 @@ class ResourceController extends BaseController
             return;
         }
 
-        for ($i = 0; $i < count($dataAsObject); $i++) {
+        for ($i = 0; $i < count($dataAsObject); ++$i) {
             $publication = & $dataAsObject[$i];
             if (property_exists($publication, 'publisher-place')) {
                 foreach ($LOCALIZATIONS[$locale] as $search => $replace) {
-                    $publication->{'publisher-place'} = preg_replace('/\b' . preg_quote($search, '/') . '\b/',
-                                                                     $replace,
-                                                                     $publication->{'publisher-place'});
+                    $publication->{'publisher-place'} = preg_replace(
+                        '/\b' . preg_quote($search, '/') . '\b/',
+                        $replace,
+                        $publication->{'publisher-place'}
+                    );
                 }
             }
         }
     }
 
     /**
-     * Tweak CiteProc output
+     * Tweak CiteProc output.
      */
     protected function postProcessBiblio($biblio, $cslLocale)
     {
@@ -583,14 +595,17 @@ class ResourceController extends BaseController
         /* vertical-align: super doesn't render nicely:
            http://stackoverflow.com/a/1530819/2114681
         */
-        $biblio = preg_replace('/style="([^"]*)vertical\-align\:\s*super;([^"]*)"/',
-                               'style="\1vertical-align: top; font-size: 66%;\2"', $biblio);
+        $biblio = preg_replace(
+            '/style="([^"]*)vertical\-align\:\s*super;([^"]*)"/',
+            'style="\1vertical-align: top; font-size: 66%;\2"',
+            $biblio
+        );
 
         return $biblio;
     }
 
     /**
-     * Render bibliography
+     * Render bibliography.
      */
     public function buildBibliography($volume, $sections, $translator, $locale)
     {
@@ -628,10 +643,12 @@ class ResourceController extends BaseController
 
             $this->localizePublisherPlace($collection->data, $locale);
 
-            $parts[] = sprintf('<div class="zotero-group-link-wrapper"><div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div></div>',
-                               $collection->{'group-id'},
-                               $collection->key,
-                               $translator->trans('View in Zotero Groups Library', [], 'additional'))
+            $parts[] = sprintf(
+                '<div class="zotero-group-link-wrapper"><div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div></div>',
+                $collection->{'group-id'},
+                $collection->key,
+                $translator->trans('View in Zotero Groups Library', [], 'additional')
+            )
                 . $this->postProcessBiblio(@$citeProc->render($collection->data), $cslLocale);
         }
 
@@ -659,15 +676,20 @@ class ResourceController extends BaseController
 
                 $groupLink = '';
                 if (property_exists($collection, 'group-link')) {
-                    $groupLink = sprintf('<div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div>',
-                                         $collection->{'group-id'}, $collection->key,
-                                         $translator->trans('View in Zotero Groups Library', [], 'additional'));
+                    $groupLink = sprintf(
+                        '<div class="zotero-group-link"><a href="https://www.zotero.org/groups/%s/collections/%s" target="_blank">%s</a></div>',
+                        $collection->{'group-id'},
+                        $collection->key,
+                        $translator->trans('View in Zotero Groups Library', [], 'additional')
+                    );
                 }
 
 
-                $parts[] = sprintf('<div class="zotero-group-link-wrapper"><h3>%s</h3>%s</div>',
-                                   htmlspecialchars($title, ENT_COMPAT, 'utf-8'),
-                                   $groupLink)
+                $parts[] = sprintf(
+                    '<div class="zotero-group-link-wrapper"><h3>%s</h3>%s</div>',
+                    htmlspecialchars($title, ENT_COMPAT, 'utf-8'),
+                    $groupLink
+                )
                     . $this->postProcessBiblio(@$citeProc->render($collection->data), $cslLocale);
             }
         }
@@ -676,7 +698,7 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Render volume ToC
+     * Render volume ToC.
      */
     public function volumeAction(Request $request, TranslatorInterface $translator, $volume)
     {
@@ -703,11 +725,14 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Render section ToC
+     * Render section ToC.
      */
-    public function sectionAction(Request $request, TranslatorInterface $translator,
-                                  $volume, $section)
-    {
+    public function sectionAction(
+        Request $request,
+        TranslatorInterface $translator,
+        $volume,
+        $section
+    ) {
         $this->contentService->setLocale($request->getLocale());
 
         // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
@@ -718,7 +743,7 @@ class ResourceController extends BaseController
         if (!is_null($eTagSolr)) {
             $eTagResourceToHtml = $this->computeResourceToHtmlEtag($volume, $section);
             if (!is_null($eTagResourceToHtml)) {
-                $eTag = join('-', [ $eTagSolr, $eTagResourceToHtml ]);
+                $eTag = join('-', [$eTagSolr, $eTagResourceToHtml]);
             }
         }
 
@@ -748,7 +773,9 @@ class ResourceController extends BaseController
             $note = $matches[1];
         }
 
-        return $this->render('Resource/section.html.twig', [
+        return $this->render(
+            'Resource/section.html.twig',
+            [
                 'pageMeta' => $pageMeta,
                 'volume' => $volume,
                 'section' => $section,
@@ -756,18 +783,21 @@ class ResourceController extends BaseController
                 'resources' => $this->contentService->getResources($section),
                 'navigation' => $this->contentService->buildNavigation($section),
             ] + $this->buildLocaleSwitch($volume, $section),
-            $response);
+            $response
+        );
     }
 
     /**
-     * Render resource
+     * Render resource.
      */
-    public function resourceAction(Request $request,
-                                   TranslatorInterface $translator,
-                                   UrlGeneratorInterface $urlGenerator,
-                                   FeatureManagerInterface $featureManager,
-                                   $volume, $resource)
-    {
+    public function resourceAction(
+        Request $request,
+        TranslatorInterface $translator,
+        UrlGeneratorInterface $urlGenerator,
+        FeatureManagerInterface $featureManager,
+        $volume,
+        $resource
+    ) {
         $this->contentService->setLocale($request->getLocale());
 
         // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
@@ -778,7 +808,7 @@ class ResourceController extends BaseController
         if (!is_null($eTagSolr)) {
             $eTagResourceToHtml = $this->computeResourceToHtmlEtag($volume, $resource);
             if (!is_null($eTagResourceToHtml)) {
-                $eTag = join('-', [ $eTagSolr, $eTagResourceToHtml ]);
+                $eTag = join('-', [$eTagSolr, $eTagResourceToHtml]);
             }
         }
 
@@ -805,27 +835,28 @@ class ResourceController extends BaseController
         // initial Schema.org
         $schema = Schema::creativeWork()
             ->identifier($urlGenerator->generate('dynamic', [
-                    'path' => $volume->getDtaDirname() . '/' . $resource->getId(),
-                ], UrlGeneratorInterface::ABSOLUTE_URL))
+                'path' => $volume->getDtaDirname() . '/' . $resource->getId(),
+            ], UrlGeneratorInterface::ABSOLUTE_URL))
             ->name($resource->getTitle())
             ->abstract($resource->getNote())
             ->if(count($resource->getTags()) > 0, function ($schema) use ($resource) {
                 $schema->keywords(
                     array_map(function ($tag) {
-                            return $tag->getName();
-                        }, $resource->getTags()));
+                        return $tag->getName();
+                    }, $resource->getTags())
+                );
             })
             ->url($urlGenerator->generate('dynamic', [
-                    'path' => $volume->getDtaDirname() . '/' . $resource->getDtaDirname(),
-                ], UrlGeneratorInterface::ABSOLUTE_URL))
-            ;
+                'path' => $volume->getDtaDirname() . '/' . $resource->getDtaDirname(),
+            ], UrlGeneratorInterface::ABSOLUTE_URL))
+        ;
 
         $similar = [];
         switch ($resource->getGenre()) {
             case 'introduction':
                 /* for full editor information */
-                $fname = join('.', [ $volume->getId(true), $volume->getLanguage(), 'xml' ]);
-                $fnameFull = join(DIRECTORY_SEPARATOR, [ $this->dataDir, 'volumes', $volume->getId(true), $fname ]);
+                $fname = join('.', [$volume->getId(true), $volume->getLanguage(), 'xml']);
+                $fnameFull = join(DIRECTORY_SEPARATOR, [$this->dataDir, 'volumes', $volume->getId(true), $fname]);
                 $volume = \App\Entity\TeiFull::fromXml($fnameFull, false);
 
                 // for citation
@@ -851,7 +882,9 @@ class ResourceController extends BaseController
                 }
         }
 
-        return $this->render($template, [
+        return $this->render(
+            $template,
+            [
                 'pageMeta' => $pageMeta,
                 'schema' => $schema,
                 'volume' => $volume,
@@ -860,17 +893,20 @@ class ResourceController extends BaseController
                 'similar' => $similar,
                 'navigation' => $this->contentService->buildNavigation($resource),
             ] + $this->buildLocaleSwitch($volume, $resource),
-            $response);
+            $response
+        );
     }
 
     /**
-     * Render resource as PDF
+     * Render resource as PDF.
      */
-    public function resourceAsPdfAction(Request $request,
-                                        TranslatorInterface $translator,
-                                        $volume, $resource,
-                                        \App\Utils\MpdfConverter $pdfConverter)
-    {
+    public function resourceAsPdfAction(
+        Request $request,
+        TranslatorInterface $translator,
+        $volume,
+        $resource,
+        \App\Utils\MpdfConverter $pdfConverter
+    ) {
         $parts = $this->resourceToHtml($request, $translator, $volume, $resource, true);
 
         // mpdf doesn't support display: inline for li
@@ -888,7 +924,7 @@ class ResourceController extends BaseController
                 }
 
                 // see https://stackoverflow.com/a/21885789
-                foreach ($node->childNodes as $child){
+                foreach ($node->childNodes as $child) {
                     $child = $node->ownerDocument->importNode($child, true);
                     $newnode->appendChild($child);
                 }
@@ -899,7 +935,8 @@ class ResourceController extends BaseController
 
                 $node->parentNode->replaceChild($newnode, $node);
 
-                return $newnode;            }
+                return $newnode;
+            }
         });
 
         $parts['body'] =  $crawler->filter('body')->first()->html();
@@ -914,14 +951,14 @@ class ResourceController extends BaseController
     }
 
     /**
-     * Render about file in TEI format
+     * Render about file in TEI format.
      */
     protected function aboutToHtml(Request $request, string $mediaBaseUrl, string $fnameXsl = 'dta2html.xsl')
     {
         $dataDir = $this->dataDir;
         $theme = $this->themeContext->getTheme();
         if (!is_null($theme)) {
-           $dataDir = join(DIRECTORY_SEPARATOR, [ $theme->getPath(), 'data' ]);
+            $dataDir = join(DIRECTORY_SEPARATOR, [$theme->getPath(), 'data']);
         }
 
         $fname = join('.', [
@@ -930,13 +967,13 @@ class ResourceController extends BaseController
             'xml',
         ]);
 
-        $fnameFull = join(DIRECTORY_SEPARATOR, [ $dataDir, 'about', $fname ]);
+        $fnameFull = join(DIRECTORY_SEPARATOR, [$dataDir, 'about', $fname]);
 
         $transformOptions = [
             'params' => [
                 // stylesheet parameters
                 'titleplacement' => 1,
-            ]
+            ],
         ];
 
         // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
@@ -964,7 +1001,7 @@ class ResourceController extends BaseController
 
         $this->adjustMedia($crawler, $mediaBaseUrl);
 
-        $parts = [ 'body' => $crawler->html() ];
+        $parts = ['body' => $crawler->html()];
 
         // extract title
         $node = $crawler->filter('h1')
@@ -997,10 +1034,10 @@ class ResourceController extends BaseController
     public function aboutAction(Request $request)
     {
         $mediaBaseUrl = join('/', [
-                $request->getSchemeAndHttpHost() . $request->getBaseUrl(),
-                'media',
-                'about'
-            ])
+            $request->getSchemeAndHttpHost() . $request->getBaseUrl(),
+            'media',
+            'about',
+        ])
             . '/';
 
         try {

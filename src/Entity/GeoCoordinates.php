@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -12,16 +10,16 @@ use JMS\Serializer\Annotation as Serializer;
  * @see http://schema.org/GeoCoordinates Documentation on Schema.org
  *
  * @Serializer\XmlRoot("GeoCoordinates")
- * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  *
+ * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  */
-class GeoCoordinates
-extends SchemaOrg
+class GeoCoordinates extends SchemaOrg
 {
     /**
      * @var string
      *
      * @Serializer\Type("string")
+     *
      * @Serializer\XmlElement(cdata=false)
      */
     protected $latitude;
@@ -30,6 +28,7 @@ extends SchemaOrg
      * @var string
      *
      * @Serializer\Type("string")
+     *
      * @Serializer\XmlElement(cdata=false)
      */
     protected $longitude;
@@ -40,6 +39,7 @@ extends SchemaOrg
      * As per Schema.org, this is part of GeoCoordinates, not directly of place
      *
      * @Serializer\Type("string")
+     *
      * @Serializer\XmlElement(cdata=false)
      */
     protected $addressCountry;
@@ -122,6 +122,6 @@ extends SchemaOrg
             return null;
         }
 
-        return implode(',', [ $this->latitude, $this->longitude ]);
+        return implode(',', [$this->latitude, $this->longitude]);
     }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -12,24 +10,25 @@ use JMS\Serializer\Annotation as Serializer;
  * @see http://schema.org/Person Documentation on Schema.org
  *
  * @Serializer\XmlRoot("Person")
- * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  *
+ * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  */
-class Person
-extends SchemaOrg
+class Person extends SchemaOrg
 {
     /**
-     * @var string|null Date of birth.
+     * @var string|null date of birth
      *
      * @Serializer\XmlElement(cdata=false)
+     *
      * @Serializer\Type("string")
      */
     protected $birthDate;
 
     /**
-     * @var string|null Date of death.
+     * @var string|null date of death
      *
      * @Serializer\XmlElement(cdata=false)
+     *
      * @Serializer\Type("string")
      */
     protected $deathDate;
@@ -42,7 +41,7 @@ extends SchemaOrg
     protected $familyName;
 
     /**
-     * @var string|null Gender of the person.
+     * @var string|null gender of the person
      *
      * @Serializer\Type("string")
      */
@@ -56,16 +55,17 @@ extends SchemaOrg
     protected $givenName;
 
     /**
-     * @var Place|null The place where the person was born.
+     * @var Place|null the place where the person was born
      *
      * @Serializer\Type("App\Entity\Place")
      */
     protected $birthPlace;
 
     /**
-     * @var Place|null The place where the person died.
+     * @var Place|null the place where the person died
      *
      * @Serializer\XmlElement(cdata=false)
+     *
      * @Serializer\Type("string")
      */
     protected $deathPlace;
@@ -200,8 +200,6 @@ extends SchemaOrg
     /**
      * Sets birthPlace.
      *
-     * @param Place|null $birthPlace
-     *
      * @return $this
      */
     public function setBirthPlace(?Place $birthPlace = null)
@@ -223,8 +221,6 @@ extends SchemaOrg
 
     /**
      * Sets deathPlace.
-     *
-     * @param Place|null $deathPlace
      *
      * @return $this
      */
@@ -277,7 +273,7 @@ extends SchemaOrg
     public function getFullname($givenNameFirst = false)
     {
         $parts = [];
-        foreach ([ 'familyName', 'givenName' ] as $key) {
+        foreach (['familyName', 'givenName'] as $key) {
             if (!empty($this->$key)) {
                 $parts[] = $this->$key;
             }

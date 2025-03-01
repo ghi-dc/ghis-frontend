@@ -5,16 +5,14 @@
 /*
  * see https://symfony.com/doc/master/bundles/KnpMenuBundle/menu_service.html
  */
+
 namespace App\Menu;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Yaml\Yaml;
-
 use Knp\Menu\FactoryInterface;
-
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
-
 use App\Service\ContentService;
 
 class MenuBuilder
@@ -25,15 +23,13 @@ class MenuBuilder
     protected $themeContext;
     private $dataDir;
 
-    /**
-     * @param FactoryInterface $factory
-     */
-    public function __construct(FactoryInterface $factory,
-                                TranslatorInterface $translator,
-                                ContentService $contentService,
-                                SettableThemeContext $themeContext,
-                                $dataDir)
-    {
+    public function __construct(
+        FactoryInterface $factory,
+        TranslatorInterface $translator,
+        ContentService $contentService,
+        SettableThemeContext $themeContext,
+        $dataDir
+    ) {
         $this->factory = $factory;
         $this->translator = $translator;
         $this->contentService = $contentService;
@@ -42,7 +38,7 @@ class MenuBuilder
     }
 
     /**
-     * Retrieves all volumes through ContentService
+     * Retrieves all volumes through ContentService.
      */
     public function createVolumesMenu(RequestStack $requestStack)
     {
@@ -73,7 +69,7 @@ class MenuBuilder
     }
 
     /**
-     * Site-specific sub-menu in /about
+     * Site-specific sub-menu in /about.
      */
     public function createAboutMenu(RequestStack $requestStack)
     {
@@ -93,7 +89,7 @@ class MenuBuilder
         $dataDir = $this->dataDir;
         $theme = $this->themeContext->getTheme();
         if (!is_null($theme)) {
-           $dataDir = join(DIRECTORY_SEPARATOR, [ $theme->getPath(), 'data' ]);
+            $dataDir = join(DIRECTORY_SEPARATOR, [$theme->getPath(), 'data']);
         }
 
         $info = Yaml::parseFile($dataDir . '/site.yaml');

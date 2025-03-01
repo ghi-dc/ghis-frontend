@@ -5,13 +5,12 @@ namespace App\Service\Xsl;
 use XSLTProcessor as NativeXsltProcessor;
 
 /**
- * Extend XsltProcessor to set an adapter that handles XSLT 2
+ * Extend XsltProcessor to set an adapter that handles XSLT 2.
  */
-class XsltProcessor
-extends NativeXsltProcessor
+class XsltProcessor extends NativeXsltProcessor
 {
     protected $config = [];
-    protected $adapter = null;
+    protected $adapter;
     protected $errors = [];
 
     public function __construct($config = null)
@@ -59,7 +58,7 @@ extends NativeXsltProcessor
             return null;
         }
 
-        return join('-', [ $modifiedXml, $modifiedXsl, md5(json_encode($options)) ]);
+        return join('-', [$modifiedXml, $modifiedXsl, md5(json_encode($options))]);
     }
 
     public function transformFileToXml($fnameXml, $fnameXsl, $options = [])
@@ -75,7 +74,7 @@ extends NativeXsltProcessor
         // native XsltProcessor doesn't handle XSLT 2.0
         libxml_use_internal_errors(true);
 
-        $dom = new \DomDocument('1.0', 'UTF-8');
+        $dom = new \DOMDocument('1.0', 'UTF-8');
         @$valid = $dom->load($fnameXml);
         if (!$valid) {
             $this->errors = libxml_get_errors();
@@ -85,7 +84,7 @@ extends NativeXsltProcessor
         }
 
         // load xsl
-        $xsl = new \DomDocument('1.0', 'UTF-8');
+        $xsl = new \DOMDocument('1.0', 'UTF-8');
         $res = $xsl->load($fnameXsl);
         if (!$res) {
             $this->errors = libxml_get_errors();
@@ -95,7 +94,7 @@ extends NativeXsltProcessor
         }
 
         // Create the XSLT processor
-        $proc = new \XsltProcessor();
+        $proc = new NativeXsltProcessor();
         $proc->importStylesheet($xsl);
 
         // Transform

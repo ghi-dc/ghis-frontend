@@ -1,17 +1,17 @@
 <?php
+
 /**
  * Methods for Document Conversions.
  * Interfaces inspired by ezcDocument
  *  https://github.com/zetacomponents/Document/blob/master/src/interfaces/document.php
- * TODO: Build a separate Component
+ * TODO: Build a separate Component.
  */
 
 namespace App\Utils;
 
-class BinaryDocument
-extends Document
+class BinaryDocument extends Document
 {
-    protected $stream = null;
+    protected $stream;
 
     public function load($fname)
     {
@@ -25,7 +25,7 @@ extends Document
         // chop of charset info to behave like mime_content_type above
         $this->mimeType = preg_replace('/;\s*charset=.*/', '', $finfo->buffer($content));
 
-        $stream = fopen('php://temp','r+');
+        $stream = fopen('php://temp', 'r+');
         fwrite($stream, $content);
         rewind($stream);
 
@@ -35,7 +35,7 @@ extends Document
     public function save($fnameDst)
     {
         if (is_null($this->stream)) {
-            die('empty');
+            exit('empty');
         }
 
         if (is_string($this->stream)) {

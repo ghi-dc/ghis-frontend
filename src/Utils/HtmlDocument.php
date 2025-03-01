@@ -1,19 +1,19 @@
 <?php
+
 /**
  * Methods for Document Conversions.
  * Interfaces inspired by ezcDocument
  *  https://github.com/zetacomponents/Document/blob/master/src/interfaces/document.php
  * TODO: Build a separate Component
- * TODO: Switch to http://masterminds.github.io/html5-php/
+ * TODO: Switch to http://masterminds.github.io/html5-php/.
  */
 
 namespace App\Utils;
 
-class HtmlDocument
-extends Document
+class HtmlDocument extends Document
 {
     protected $mimeType = 'text/html';
-    protected $dom = null;
+    protected $dom;
 
     public static function minify($html)
     {
@@ -39,7 +39,7 @@ extends Document
     }
 
     /**
-     * Construct new document
+     * Construct new document.
      */
     public function __construct(array $options = [])
     {
@@ -106,8 +106,7 @@ extends Document
         return $textContent;
     }
 
-    /*
-     */
+
     protected function prettify()
     {
         $prettyPrinter = $this->getOption('prettyPrinter');
@@ -131,11 +130,11 @@ extends Document
                 'wrap' => 120,
             ];
 
-            $tidy = new \tidy;
+            $tidy = new \tidy();
             $tidy->parseString($this->saveString(), $configuration, 'utf8');
             $tidy->cleanRepair();
 
-            $this->loadString((string)$tidy);
+            $this->loadString((string) $tidy);
 
             return true;
         }

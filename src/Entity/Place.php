@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -12,11 +10,10 @@ use JMS\Serializer\Annotation as Serializer;
  * @see http://schema.org/Place Documentation on Schema.org
  *
  * @Serializer\XmlRoot("Place")
- * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  *
+ * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  */
-class Place
-extends SchemaOrg
+class Place extends SchemaOrg
 {
     /**
      * @Serializer\Exclude()
@@ -32,12 +29,13 @@ extends SchemaOrg
      * @var string
      *
      * @Serializer\Type("string")
+     *
      * @Serializer\XmlElement(cdata=false)
      */
     protected $additionalType;
 
     /**
-     * @var GeoCoordinates The geo coordinates of the place.
+     * @var GeoCoordinates the geo coordinates of the place
      *
      * @Serializer\Type("App\Entity\GeoCoordinates")
      */
@@ -103,7 +101,7 @@ extends SchemaOrg
         $hasPlaceParent = false;
         $ancestorOrSelf = $this;
         while (!is_null($ancestorOrSelf)) {
-            if (in_array($ancestorOrSelf->additionalType, [ 'neighborhoods', 'inhabited places' ])) {
+            if (in_array($ancestorOrSelf->additionalType, ['neighborhoods', 'inhabited places'])) {
                 return true;
             }
 
@@ -182,7 +180,7 @@ extends SchemaOrg
     {
         $path = [];
         $parent = $this->getContainedInPlace();
-        while ($parent != null) {
+        while (null != $parent) {
             $path[] = $parent;
             $parent = $parent->getContainedInPlace();
         }

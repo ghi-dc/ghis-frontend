@@ -52,7 +52,7 @@ class XsltCommandlineAdapter
     {
         if (array_key_exists('xslpath', $this->config)) {
             if (!file_exists($xslFilename)) {
-                return join(DIRECTORY_SEPARATOR, [ $this->config['xslpath'], $xslFilename ]);
+                return join(DIRECTORY_SEPARATOR, [$this->config['xslpath'], $xslFilename]);
             }
         }
 
@@ -81,7 +81,7 @@ class XsltCommandlineAdapter
             return null;
         }
 
-        return join('-', [ $srcModified, $xslModifiedXsl, md5(json_encode($options)) ]);
+        return join('-', [$srcModified, $xslModifiedXsl, md5(json_encode($options))]);
     }
 
     public function transformToXml($srcFilename, $xslFilename, $options = [])
@@ -91,12 +91,12 @@ class XsltCommandlineAdapter
         $xslFilenameFull = $this->expandXslFilename($xslFilename);
 
         $cmd = trim(Sprintf::f($this->cmdTemplate, [
-                'source' => $this->escapeFilename($srcFilename),
-                'xsl' => $this->escapeFilename($xslFilenameFull),
-                'additional' => $this->buildAdditional($options),
-            ]));
+            'source' => $this->escapeFilename($srcFilename),
+            'xsl' => $this->escapeFilename($xslFilenameFull),
+            'additional' => $this->buildAdditional($options),
+        ]));
 
-        $res = `$cmd`;
+        $res = shell_exec($cmd);
 
         // TODO: implement error-handling
         return $res;

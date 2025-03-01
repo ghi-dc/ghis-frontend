@@ -11,10 +11,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
     const MAX_ROWS = 100000;
 
     /**
-     * Custom constructor to adjust HydrationMode
-     *
-     * @param SolrInterface            $solr
-     * @param MetaInformationInterface $metaInformation
+     * Custom constructor to adjust HydrationMode.
      */
     public function __construct(SolrInterface $solr, MetaInformationInterface $metaInformation)
     {
@@ -26,17 +23,14 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         $this->metaInformation->setIndex($this->solr->getClient()->getEndpoint()->getKey());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function findBy(array $args, ?array $orderBy = null, $limit = null, $offset = null): array
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
         $query->setHydrationMode($this->hydrationMode);
 
-        $query->setRows(is_null($limit) ? self::MAX_ROWS : (int)$limit);
+        $query->setRows(is_null($limit) ? self::MAX_ROWS : (int) $limit);
         if (!is_null($offset)) {
-            $query->setStart((int)$offset);
+            $query->setStart((int) $offset);
         }
 
         $query->setUseAndOperator(true);
@@ -57,7 +51,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->query($query);
     }
 
-    public function findSectionsByVolume($volume, $orderBy = [ 'shelfmark_s' => 'ASC' ])
+    public function findSectionsByVolume($volume, $orderBy = ['shelfmark_s' => 'ASC'])
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
         $query->setHydrationMode($this->hydrationMode);
@@ -75,7 +69,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->query($query);
     }
 
-    public function findIntroductionByVolume($volume, $orderBy = [ 'shelfmark_s' => 'ASC' ])
+    public function findIntroductionByVolume($volume, $orderBy = ['shelfmark_s' => 'ASC'])
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
         $query->setHydrationMode($this->hydrationMode);
@@ -92,7 +86,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->query($query);
     }
 
-    public function findResourcesByVolumeAndGenre($volume, $genre, $orderBy = [ 'shelfmark_s' => 'ASC' ])
+    public function findResourcesByVolumeAndGenre($volume, $genre, $orderBy = ['shelfmark_s' => 'ASC'])
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
         $query->setHydrationMode($this->hydrationMode);
@@ -117,7 +111,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->getNumFound();
     }
 
-    public function findResourcesByGenres($genres = [], $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null)
+    public function findResourcesByGenres($genres = [], $orderBy = ['shelfmark_s' => 'ASC'], $limit = null, $offset = null)
     {
         $queryBuilder = $this->solr->getQueryBuilder($this->metaInformation->getEntity());
 
@@ -126,10 +120,10 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         $query = $queryBuilder->getQuery();
         $query->setUseAndOperator(true);
         $query->setHydrationMode($this->hydrationMode);
-        $query->setRows(is_null($limit) ? self::MAX_ROWS : (int)$limit);
+        $query->setRows(is_null($limit) ? self::MAX_ROWS : (int) $limit);
 
         if (!is_null($offset)) {
-            $query->setStart((int)$offset);
+            $query->setStart((int) $offset);
         }
 
         if (!is_null($orderBy)) {
@@ -139,7 +133,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->query($query);
     }
 
-    public function findResourcesByConditions($conditions = [], $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null)
+    public function findResourcesByConditions($conditions = [], $orderBy = ['shelfmark_s' => 'ASC'], $limit = null, $offset = null)
     {
         $queryBuilder = $this->solr->getQueryBuilder($this->metaInformation->getEntity());
 
@@ -159,10 +153,10 @@ class Repository extends \FS\SolrBundle\Repository\Repository
 
         $query->setUseAndOperator(true);
         $query->setHydrationMode($this->hydrationMode);
-        $query->setRows(is_null($limit) ? self::MAX_ROWS : (int)$limit);
+        $query->setRows(is_null($limit) ? self::MAX_ROWS : (int) $limit);
 
         if (!is_null($offset)) {
-            $query->setStart((int)$offset);
+            $query->setStart((int) $offset);
         }
 
         if (!is_null($orderBy)) {
@@ -172,7 +166,7 @@ class Repository extends \FS\SolrBundle\Repository\Repository
         return $this->solr->query($query);
     }
 
-    public function findResourcesBySection($section, $orderBy = [ 'shelfmark_s' => 'ASC' ])
+    public function findResourcesBySection($section, $orderBy = ['shelfmark_s' => 'ASC'])
     {
         $query = $this->solr->createQuery($this->metaInformation->getEntity());
         $query->setHydrationMode($this->hydrationMode);
@@ -252,6 +246,6 @@ class Repository extends \FS\SolrBundle\Repository\Repository
 
         return $mapper
             ->toEntity($document, $this->metaInformation->getClassName())
-            ;
+        ;
     }
 }

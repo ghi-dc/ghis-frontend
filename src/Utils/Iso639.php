@@ -1,15 +1,10 @@
 <?php
-/*
- *
- */
+
 namespace App\Utils;
 
-/**
- *
- */
 class Iso639
 {
-    private static $languages = null;
+    private static $languages;
 
     /** No instances */
     private function __construct() {}
@@ -24,10 +19,11 @@ class Iso639
     }
 
     /**
-     * Convert two-letter ISO-639-1 to three-letter ISO-639-3 code
+     * Convert two-letter ISO-639-1 to three-letter ISO-639-3 code.
      *
-     * @param  String $code1 code1
-     * @return String        code3
+     * @param string $code1 code1
+     *
+     * @return string code3
      */
     public static function code1To3($code1)
     {
@@ -38,10 +34,11 @@ class Iso639
     }
 
     /**
-     * Convert three-letter ISO-639-2b to three-letter ISO-639-3 code
+     * Convert three-letter ISO-639-2b to three-letter ISO-639-3 code.
      *
-     * @param  String $code2 code2
-     * @return String        code3
+     * @param string $code2 code2
+     *
+     * @return string code3
      */
     public static function code2bTo3($code2)
     {
@@ -51,11 +48,11 @@ class Iso639
     }
 
     /**
+     * Convert three-letter ISO-639-3 to two-letter ISO-639-1 code.
      *
-     * Convert three-letter ISO-639-3 to two-letter ISO-639-1 code
+     * @param string $code3 code3
      *
-     * @param  String $code3 code3
-     * @return String        code1
+     * @return string code1
      */
     public static function code3To1($code3)
     {
@@ -65,11 +62,11 @@ class Iso639
     }
 
     /**
+     * Lookup name by three-letter ISO-639-3 code.
      *
-     * Lookup name by three-letter ISO-639-3 code
+     * @param string $code3 code3
      *
-     * @param  String $code3 code3
-     * @return String        name
+     * @return string name
      */
     public static function nameByCode3($code3)
     {

@@ -2,26 +2,21 @@
 
 namespace App\EventListener;
 
-/**
+/*
  * See https://github.com/prestaconcept/PrestaSitemapBundle/blob/master/Resources/doc/4-dynamic-routes-usage.md
  */
 
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
-
 use Symfony\Contracts\Translation\TranslatorInterface;
-
 use App\Service\ContentService;
 use App\Twig\AppExtension;
-
 use Presta\SitemapBundle\Event\SitemapPopulateEvent;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
 use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 
-class SitemapSubscriber
-implements EventSubscriberInterface
+class SitemapSubscriber implements EventSubscriberInterface
 {
     /**
      * @var ContentService
@@ -43,23 +38,18 @@ implements EventSubscriberInterface
      */
     private $translator;
 
-    /**
-     * @param ContentService $contentService
-     */
-    public function __construct(ContentService $contentService,
-                                AppExtension $twigAppExtension,
-                                RouterInterface $router,
-                                TranslatorInterface $translator)
-    {
+    public function __construct(
+        ContentService $contentService,
+        AppExtension $twigAppExtension,
+        RouterInterface $router,
+        TranslatorInterface $translator
+    ) {
         $this->contentService = $contentService;
         $this->twigAppExtension = $twigAppExtension;
         $this->router = $router;
         $this->translator = $translator;
     }
 
-    /**
-     * @inheritdoc
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -69,7 +59,7 @@ implements EventSubscriberInterface
 
     /**
      * Lookup corresponding route parameters for volume / resource
-     * in different locales
+     * in different locales.
      */
     protected function buildLocaleSwitch($volume, $resource = null)
     {
@@ -96,11 +86,11 @@ implements EventSubscriberInterface
             return [];
         }
 
-        return [ 'route_params_locale_switch' => $routeParameters ];
+        return ['route_params_locale_switch' => $routeParameters];
     }
 
     /**
-     * Build url in primary and alternate language and add it to sitemap
+     * Build url in primary and alternate language and add it to sitemap.
      */
     private function addUrl(UrlContainerInterface $urls, $volume, $resource = null)
     {
@@ -126,7 +116,7 @@ implements EventSubscriberInterface
 
             // add decorations for alternate language versions
             foreach ($alternate['route_params_locale_switch'] as $altLocale => $params) {
-                $altUrl = $this->router->generate($route, $params + [ '_locale' => $altLocale ], UrlGeneratorInterface::ABSOLUTE_URL);
+                $altUrl = $this->router->generate($route, $params + ['_locale' => $altLocale], UrlGeneratorInterface::ABSOLUTE_URL);
 
                 $sitemapUrl->addLink($altUrl, $altLocale);
             }
@@ -135,9 +125,6 @@ implements EventSubscriberInterface
         $urls->addUrl($sitemapUrl, $volume->getId(true));
     }
 
-    /**
-     * @param SitemapPopulateEvent $event
-     */
     public function populate(SitemapPopulateEvent $event): void
     {
         $locale = $this->translator->getLocale();

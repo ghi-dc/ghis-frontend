@@ -1,17 +1,15 @@
 <?php
 
 // src/Twig/AppExtension.php
+
 namespace App\Twig;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Intl\Locales;
-
 use Symfony\Contracts\Translation\TranslatorInterface;
-
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
-
 use App\Service\ContentService;
 
 class AppExtension extends AbstractExtension
@@ -22,13 +20,14 @@ class AppExtension extends AbstractExtension
     private $volumeById = [];
 
     /**
-     * ingest services and path to web-root
+     * ingest services and path to web-root.
      */
-    public function __construct(ContentService $contentService,
-                                UrlGeneratorInterface $urlGenerator,
-                                TranslatorInterface $translator,
-                                $publicDir)
-    {
+    public function __construct(
+        ContentService $contentService,
+        UrlGeneratorInterface $urlGenerator,
+        TranslatorInterface $translator,
+        $publicDir
+    ) {
         $this->contentService = $contentService;
         $this->urlGenerator = $urlGenerator;
         $this->publicDir = realpath($publicDir);
@@ -42,36 +41,36 @@ class AppExtension extends AbstractExtension
     }
 
     /**
-     * setup twig filters
+     * setup twig filters.
      */
     public function getFilters(): array
     {
         return [
             // site specific
-            new TwigFilter('localeNameNative', [ $this, 'getLocaleNameNative' ]),
-            new TwigFilter('markCombining', [ $this, 'markCombining' ], [ 'is_safe' => [ 'html' ] ]),
+            new TwigFilter('localeNameNative', [$this, 'getLocaleNameNative']),
+            new TwigFilter('markCombining', [$this, 'markCombining'], ['is_safe' => ['html']]),
 
             // general
-            new TwigFilter('remove_by_key', [ $this, 'removeElementByKey' ]),
+            new TwigFilter('remove_by_key', [$this, 'removeElementByKey']),
         ];
     }
 
     /**
-     * setup twig functions
+     * setup twig functions.
      */
     public function getFunctions(): array
     {
         return [
             // site specific
-            new TwigFunction('resource_path', [ $this, 'buildResourcePath' ]),
-            new TwigFunction('resource_breadcrumb', [ $this, 'buildResourceBreadcrumb'], [ 'is_safe' => [ 'html' ] ]),
-            new TwigFunction('resource_thumbnail', [ $this, 'buildResourceThumbnail' ]),
-            new TwigFunction('get_volumes', [ $this, 'getVolumes' ]),
+            new TwigFunction('resource_path', [$this, 'buildResourcePath']),
+            new TwigFunction('resource_breadcrumb', [$this, 'buildResourceBreadcrumb'], ['is_safe' => ['html']]),
+            new TwigFunction('resource_thumbnail', [$this, 'buildResourceThumbnail']),
+            new TwigFunction('get_volumes', [$this, 'getVolumes']),
         ];
     }
 
     /**
-     * Generate the name of a $locale in $locale
+     * Generate the name of a $locale in $locale.
      */
     public function getLocaleNameNative($locale)
     {
@@ -79,7 +78,7 @@ class AppExtension extends AbstractExtension
     }
 
     /**
-     * Set a span around certain combining characters in order to switch font in css
+     * Set a span around certain combining characters in order to switch font in css.
      *
      * TODO: Keep in sync with method in RenderTeiTrait
      */
@@ -99,7 +98,7 @@ class AppExtension extends AbstractExtension
     }
 
     /**
-     * return $array with $key removed
+     * return $array with $key removed.
      */
     public function removeElementByKey($array, $key)
     {
@@ -112,7 +111,7 @@ class AppExtension extends AbstractExtension
 
     /**
      * build the path in the format
-     *  volume/resource
+     *  volume/resource.
      */
     public function buildResourcePath($resource)
     {
@@ -131,7 +130,7 @@ class AppExtension extends AbstractExtension
 
     /**
      * build the breadcrumb in the format
-     *     Volume-Title
+     *     Volume-Title.
      */
     public function buildResourceBreadcrumb($resource)
     {
@@ -141,9 +140,11 @@ class AppExtension extends AbstractExtension
 
         if (array_key_exists($volumeId, $this->volumeById)) {
             $volume = $this->volumeById[$volumeId];
-            $parts[] = sprintf('<a href="%s" class="volume">%s</a>',
-                               htmlspecialchars($this->urlGenerator->generate('dynamic', [ 'path' => $volume->getDtaDirName() ])),
-                               $volume->getTitle());
+            $parts[] = sprintf(
+                '<a href="%s" class="volume">%s</a>',
+                htmlspecialchars($this->urlGenerator->generate('dynamic', ['path' => $volume->getDtaDirName()])),
+                $volume->getTitle()
+            );
         }
 
         // TODO: section
@@ -154,7 +155,7 @@ class AppExtension extends AbstractExtension
     /**
      * build the file system path to
      *  media/volume-m/thumb/resource-m(.language).jpg
-     * below the web-root
+     * below the web-root.
      */
     public function buildResourceThumbnail($resource)
     {
@@ -167,7 +168,7 @@ class AppExtension extends AbstractExtension
         $path[] = 'media';
         $path[] = $this->volumeById[$volumeId]->getId(true);
         $path[] = 'thumb';
-        $path[] = join('.', [ $resource->getId(true), $resource->getLanguage(), 'jpg' ]);
+        $path[] = join('.', [$resource->getId(true), $resource->getLanguage(), 'jpg']);
 
         $relPath = join('/', $path);
 
@@ -178,7 +179,7 @@ class AppExtension extends AbstractExtension
 
         // try language independent version
         array_pop($path);
-        $path[] = join('.', [ $resource->getId(true), 'jpg' ]);
+        $path[] = join('.', [$resource->getId(true), 'jpg']);
 
         $relPath = join('/', $path);
 
@@ -191,7 +192,7 @@ class AppExtension extends AbstractExtension
     }
 
     /**
-     * Lookup all volumes in $locale
+     * Lookup all volumes in $locale.
      */
     public function getVolumes($locale)
     {

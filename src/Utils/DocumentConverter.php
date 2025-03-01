@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Methods for Document Conversions.
  * Interfaces inspired by ezcDocumentConverter
  *  https://github.com/zetacomponents/Document/blob/master/src/interfaces/converter.php
- * TODO: Build a separate Component
+ * TODO: Build a separate Component.
  */
 
 namespace App\Utils;
@@ -14,7 +15,7 @@ abstract class DocumentConverter
     protected $errors;
 
     /**
-     * Construct new document
+     * Construct new document.
      */
     public function __construct(array $options = [])
     {
@@ -50,7 +51,7 @@ abstract class DocumentConverter
     }
 
     /**
-     * Convert documents between two formats
+     * Convert documents between two formats.
      *
      * Convert documents of the given type to the requested type.
      *

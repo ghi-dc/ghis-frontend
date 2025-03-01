@@ -20,11 +20,11 @@
  *         - { name: kernel.event_listener, event: kernel.exception, method: setLocale }
  *
  */
+
 namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-
 use JMS\I18nRoutingBundle\Router\LocaleResolverInterface;
 
 class LanguageListener

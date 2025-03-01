@@ -1,15 +1,14 @@
 <?php
 
 // src/Controller/BaseController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\String\ByteString;
-
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
-
 use App\Service\ContentService;
 
 class BaseController extends AbstractController
@@ -20,12 +19,13 @@ class BaseController extends AbstractController
     protected $dataDir;
     protected $siteKey;
 
-    public function __construct(ContentService $contentService,
-                                KernelInterface $kernel,
-                                SettableThemeContext $themeContext,
-                                $dataDir,
-                                $siteKey)
-    {
+    public function __construct(
+        ContentService $contentService,
+        KernelInterface $kernel,
+        SettableThemeContext $themeContext,
+        $dataDir,
+        $siteKey
+    ) {
         $this->contentService = $contentService;
         $this->themeContext = $themeContext;
         $this->projectDir = $kernel->getProjectDir();
@@ -39,21 +39,21 @@ class BaseController extends AbstractController
         $dataDir = $this->dataDir;
         $theme = $this->themeContext->getTheme();
         if (!is_null($theme)) {
-           $dataDir = join(DIRECTORY_SEPARATOR, [ $theme->getPath(), 'data' ]);
+            $dataDir = join(DIRECTORY_SEPARATOR, [$theme->getPath(), 'data']);
         }
 
         return $dataDir;
     }
 
     /**
-     * catch-all hardwired in config/routes.yaml so it comes last
+     * catch-all hardwired in config/routes.yaml so it comes last.
      */
     public function dynamicAction($path, Request $request)
     {
         $parts = explode('/', $path);
 
         $method = null;
-        $args = [ 'request' => $request ];
+        $args = ['request' => $request];
 
         $this->contentService->setLocale($request->getLocale());
         $volumes = $this->contentService->getVolumes();
@@ -77,10 +77,10 @@ class BaseController extends AbstractController
 
                     if ($identifier->startsWith($shelfmarkParts[0] . ':')) {
                         // uid instead of slug
-                        $resource = $this->contentService->getResourceByUid((string)$identifier, true);
+                        $resource = $this->contentService->getResourceByUid((string) $identifier, true);
                     }
                     else {
-                        $resource = $this->contentService->getResourceBySlug($volume, (string)$identifier, true);
+                        $resource = $this->contentService->getResourceBySlug($volume, (string) $identifier, true);
                     }
 
                     if (!is_null($resource)) {

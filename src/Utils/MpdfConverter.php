@@ -1,15 +1,15 @@
 <?php
+
 /**
  * Methods for Document Conversions.
  * Interfaces inspired by ezcDocumentConverter
  *  https://github.com/zetacomponents/Document/blob/master/src/interfaces/converter.php
- * TODO: Build a separate Component
+ * TODO: Build a separate Component.
  */
 
 namespace App\Utils;
 
-class MpdfConverter
-extends DocumentConverter
+class MpdfConverter extends DocumentConverter
 {
     public function __construct(array $options = [])
     {
@@ -17,7 +17,7 @@ extends DocumentConverter
     }
 
     /**
-     * Convert documents between two formats
+     * Convert documents between two formats.
      *
      * Convert documents of the given type to the requested type.
      *
@@ -25,7 +25,7 @@ extends DocumentConverter
      */
     public function convert(Document $doc)
     {
-       // mpdf
+        // mpdf
         $pdfGenerator = new PdfGenerator(array_key_exists('config', $this->options) ? $this->options['config'] : []);
 
         if (array_key_exists('imageVars', $this->options)) {
@@ -34,7 +34,7 @@ extends DocumentConverter
             }
         }
 
-        $html = (string)$doc;
+        $html = (string) $doc;
 
         $pdfGenerator->writeHTML($html);
 
@@ -45,8 +45,7 @@ extends DocumentConverter
     }
 }
 
-class PdfGenerator
-extends \Mpdf\Mpdf
+class PdfGenerator extends \Mpdf\Mpdf
 {
     // mpdf
     public function __construct($options = [])

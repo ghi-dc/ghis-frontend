@@ -8,12 +8,10 @@ class ContentService
 {
     private $solr;
     private $supportedLocales;
-    private $currentLocale = null;
+    private $currentLocale;
 
     /**
-     * ContentService that encapsulates all the solr and exist calls
-     *
-     * @param SolrInterface            $solr
+     * ContentService that encapsulates all the solr and exist calls.
      */
     public function __construct(SolrInterface $solr, array $supportedLocales)
     {
@@ -37,7 +35,7 @@ class ContentService
     {
         if (!is_null($this->currentLocale)) {
             if (is_string($entity)) {
-                $entity = new $entity;
+                $entity = new $entity();
             }
 
             // so the proper index is set
@@ -96,7 +94,7 @@ class ContentService
 
         $volumesByLocale = $this->getRepository(\App\Entity\TeiFull::class)->findBy([
             'genre' => 'volume',
-        ], [ 'shelfmark_s' => 'ASC' ]);
+        ], ['shelfmark_s' => 'ASC']);
 
         // cache
         $volumes[$this->currentLocale] = $volumesByLocale;
@@ -108,7 +106,7 @@ class ContentService
     {
         $introductions = $this->getRepository(\App\Entity\TeiFull::class)
             ->findIntroductionByVolume($volume)
-            ;
+        ;
 
         // currently limit to one text
         return !empty($introductions) ? $introductions[0] : null;
@@ -118,14 +116,14 @@ class ContentService
     {
         return $this->getRepository(\App\Entity\TeiFull::class)
             ->findSectionsByVolume($volume)
-            ;
+        ;
     }
 
     public function getMaps($volume)
     {
         return $this->getRepository(\App\Entity\TeiFull::class)
             ->findResourcesByVolumeAndGenre($volume, 'map')
-            ;
+        ;
     }
 
     protected function buildPathFromShelfmark($shelfmark)
@@ -135,7 +133,7 @@ class ContentService
 
         // split of order within
         $parts = array_map(function ($orderId) {
-            list($order, $id) = explode(':', $orderId, 2);
+            [$order, $id] = explode(':', $orderId, 2);
 
             return $id;
         }, $parts);
@@ -150,8 +148,7 @@ class ContentService
         $resourcesById = [];
 
         foreach ($this->getRepository(\App\Entity\TeiFull::class)
-                 ->findResourcesBySection($section) as $resource)
-        {
+                 ->findResourcesBySection($section) as $resource) {
             $resourcesById[$resource->getId(true)] = $resource;
 
             $parts = $this->buildPathFromShelfmark($resource->getShelfmark());
@@ -176,8 +173,7 @@ class ContentService
         $resourcesById = [];
 
         foreach ($this->getRepository(\App\Entity\TeiFull::class)
-                 ->findResourcesByVolumeAndGenre($volume, null) as $resource)
-        {
+                 ->findResourcesByVolumeAndGenre($volume, null) as $resource) {
             $resourcesById[$resource->getId(true)] = $resource;
 
             $parts = $this->buildPathFromShelfmark($resource->getShelfmark());
@@ -198,7 +194,7 @@ class ContentService
         return $resources;
     }
 
-    public function getResourcesByGenres($genres, array $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null, $returnTotalCount = false)
+    public function getResourcesByGenres($genres, array $orderBy = ['shelfmark_s' => 'ASC'], $limit = null, $offset = null, $returnTotalCount = false)
     {
         $repo = $this->getRepository(\App\Entity\TeiFull::class);
 
@@ -211,10 +207,10 @@ class ContentService
 
         return $repo
             ->findResourcesByGenres($genres, $orderBy, $limit, $offset)
-            ;
+        ;
     }
 
-    public function getResourcesByConditions(array $conditions = [], array $orderBy = [ 'shelfmark_s' => 'ASC' ], $limit = null, $offset = null, $returnTotalCount = false)
+    public function getResourcesByConditions(array $conditions = [], array $orderBy = ['shelfmark_s' => 'ASC'], $limit = null, $offset = null, $returnTotalCount = false)
     {
         $repo = $this->getRepository(\App\Entity\TeiFull::class);
 
@@ -227,7 +223,7 @@ class ContentService
 
         return $repo
             ->findResourcesByConditions($conditions, $orderBy, $limit, $offset)
-            ;
+        ;
     }
 
     private function lookupHasPart($resource)
@@ -243,9 +239,7 @@ class ContentService
 
 
         foreach ($this->getRepository(\App\Entity\TeiFull::class)
-                 ->findResourcesBySection($resource)
-                 as $part)
-        {
+                 ->findResourcesBySection($resource) as $part) {
             $resource->addPart($part);
         }
 
@@ -256,7 +250,7 @@ class ContentService
     {
         $resource = $this->getRepository(\App\Entity\TeiFull::class)
             ->findOneByUid($uid, $includeChildren)
-            ;
+        ;
 
         return $this->lookupHasPart($resource);
     }
@@ -265,7 +259,7 @@ class ContentService
     {
         $resource = $this->getRepository(\App\Entity\TeiFull::class)
             ->findOneByVolumeSlug($volume, $slug, $includeChildren)
-            ;
+        ;
 
         return $this->lookupHasPart($resource);
     }
@@ -320,7 +314,7 @@ class ContentService
     }
 
     /**
-     * Build resource to resource navigation
+     * Build resource to resource navigation.
      */
     public function buildNavigation($resource)
     {
@@ -331,7 +325,7 @@ class ContentService
             case 'volume':
                 $volumes = $this->getVolumes();
 
-                for ($i = 0; $i < ($totalCount = count($volumes)); $i++) {
+                for ($i = 0; $i < ($totalCount = count($volumes)); ++$i) {
                     if ($volumes[$i]->getId() == $resource->getId()) {
                         $currentCount = $i;
 
@@ -371,7 +365,7 @@ class ContentService
                         else if ('map' == $resource->getGenre()) {
                             $maps = $this->getMaps($volume);
 
-                            for ($i = 0; $i < ($totalCount = count($maps)); $i++) {
+                            for ($i = 0; $i < ($totalCount = count($maps)); ++$i) {
                                 if ($maps[$i]->getId() == $resource->getId()) {
                                     $currentCount = $i;
 
@@ -391,7 +385,7 @@ class ContentService
                         }
                         else if (!empty($sectionParts)) {
                             $sections = $this->getSections($volume);
-                            for ($i = 0; $i < count($sections); $i++) {
+                            for ($i = 0; $i < count($sections); ++$i) {
                                 if ($sections[$i]->getId(true) == $sectionParts[1]) {
                                     if (3 == count($shelfmarkParts)) {
                                         // we are done
@@ -411,7 +405,7 @@ class ContentService
                                     }
 
                                     $resources = $this->getResources($section = $sections[$i]);
-                                    for ($j = 0; $j < count($resources); $j++) {
+                                    for ($j = 0; $j < count($resources); ++$j) {
                                         if ($resources[$j]->getId(true) == $resource->getId(true)) {
                                             // we are done
                                             $parent = $section;
@@ -447,7 +441,7 @@ class ContentService
     }
 
     /**
-     * Get slug of alternateLocales to build the language switch
+     * Get slug of alternateLocales to build the language switch.
      */
     public function getTranslated($resource)
     {
@@ -474,6 +468,6 @@ class ContentService
     {
         return $this->getRepository(\App\Entity\TeiFull::class)
             ->hydrateDocument($document)
-            ;
+        ;
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
 // see https://github.com/Sylius/SyliusThemeBundle/blob/master/docs/your_first_theme.md
+
 namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
 use Sylius\Bundle\ThemeBundle\Repository\ThemeRepositoryInterface;
 
@@ -18,10 +18,11 @@ class ThemeRequestListener
 
     private $siteTheme;
 
-    public function __construct(ThemeRepositoryInterface $themeRepository,
-                                SettableThemeContext $themeContext,
-                                ?string $siteTheme)
-    {
+    public function __construct(
+        ThemeRepositoryInterface $themeRepository,
+        SettableThemeContext $themeContext,
+        ?string $siteTheme
+    ) {
         $this->themeRepository = $themeRepository;
         $this->themeContext = $themeContext;
         $this->siteTheme = $siteTheme;

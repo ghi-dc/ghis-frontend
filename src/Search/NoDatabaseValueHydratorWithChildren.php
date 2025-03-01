@@ -11,7 +11,7 @@ use FS\SolrBundle\Doctrine\Mapper\MetaInformationFactory;
  *  $mappedFields = $query->getMappedFields();
  *  $mappedFields['*,score,[child parentFilter=id:your_entity_*]'] = '_childDocuments_';
  *  $query->setMappedFields($mappedFields);
- *  $query->addField('_childDocuments_');
+ *  $query->addField('_childDocuments_');.
  *
  * To use this Hydrator, make use of a service decoration in services.yaml
  *  # Override hydrator, see https://symfony.com/doc/4.4/service_container/service_decoration.html
@@ -46,7 +46,7 @@ class NoDatabaseValueHydratorWithChildren extends \FS\SolrBundle\Doctrine\Hydrat
                 $childDocument = new \Solarium\QueryType\Select\Result\Document($child);
                 $childEntity = parent::hydrate($childDocument, $childMetaInformation);
                 if (!is_null($childEntity)) {
-                    $addMethodName = 'add'.ucfirst($camelCasePropertyName);
+                    $addMethodName = 'add' . ucfirst($camelCasePropertyName);
                     if (method_exists($targetEntity, $addMethodName)) {
                         $targetEntity->$addMethodName($childEntity);
                     }
@@ -58,7 +58,7 @@ class NoDatabaseValueHydratorWithChildren extends \FS\SolrBundle\Doctrine\Hydrat
     }
 
     /**
-     * returns field name camelcased if it has underlines
+     * returns field name camelcased if it has underlines.
      *
      * eg: user_id => userId
      *

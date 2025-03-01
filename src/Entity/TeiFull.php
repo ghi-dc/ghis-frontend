@@ -2,49 +2,44 @@
 
 namespace App\Entity;
 
-use \FluidXml\FluidXml;
-use \FluidXml\FluidNamespace;
-
-use Symfony\Component\Validator\Constraints as Assert;
-
 use FS\SolrBundle\Doctrine\Annotation as Solr;
 
 /**
- * Entity to index TeiHeader and text
+ * Entity to index TeiHeader and text.
  *
  * @Solr\Document(indexHandler="indexHandler", repository="App\Search\Repository")
+ *
  * @Solr\SynchronizationFilter(callback="shouldBeIndexed")
  */
-#[Solr\Document(indexHandler:"indexHandler", repository:"App\Search\Repository")]
-#[Solr\SynchronizationFilter(callback:"shouldBeIndexed")]
-class TeiFull
-extends TeiHeader
+#[Solr\Document(indexHandler: 'indexHandler', repository: "App\Search\Repository")]
+#[Solr\SynchronizationFilter(callback: 'shouldBeIndexed')]
+class TeiFull extends TeiHeader
 {
     /**
-     * @var string The textual content.
+     * @var string the textual content
      *
      * @Solr\Field(type="text")
      */
-    #[Solr\Field(type:"text")]
+    #[Solr\Field(type: 'text')]
     protected $body;
 
     /**
-     * @var array Additional tags for solr indexing.
+     * @var array additional tags for solr indexing
      *
      * @Solr\Field(type="strings", nestedClass="App\Entity\Tag")
      */
-    #[Solr\Field(type:"strings", nestedClass:"App\Entity\Tag")]
+    #[Solr\Field(type: 'strings', nestedClass: "App\Entity\Tag")]
     protected $tags = [];
 
     /**
-     * @var array Attached entries.
+     * @var array attached entries
      */
     protected $hasPart = [];
 
     /**
-     * @var \Datetime|null Solr last indexed datestamp.
+     * @var \Datetime|null solr last indexed datestamp
      */
-    protected $datestamp = null;
+    protected $datestamp;
 
     /**
      * Sets body.
@@ -82,8 +77,10 @@ extends TeiHeader
 
     public function getTagsByType($type)
     {
-        return array_filter($this->tags,
-                            function ($tag) use ($type) { return $type == $tag->getType(); });
+        return array_filter(
+            $this->tags,
+            function ($tag) use ($type) { return $type == $tag->getType(); }
+        );
     }
 
     public function getVolumeIdFromShelfmark()
@@ -141,7 +138,7 @@ extends TeiHeader
     }
 
     /**
-     * Solr-core depends on article-language
+     * Solr-core depends on article-language.
      *
      * @return string
      */
@@ -156,8 +153,9 @@ extends TeiHeader
     }
 
     /**
-     * TODO
-     * @return boolean
+     * TODO.
+     *
+     * @return bool
      */
     public function shouldBeIndexed()
     {

@@ -1,19 +1,16 @@
 <?php
 
 // src/Controller/SearchController.php
+
 namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-
 use Knp\Component\Pager\PaginatorInterface;
-
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
-
 use Solarium\Component\Facet\JsonTerms;
-
 use App\Service\ContentService;
 
 class SearchController extends BaseController
@@ -49,7 +46,7 @@ class SearchController extends BaseController
 
     /**
      * The following two function are currently unused helpers
-     * for sorting facet results
+     * for sorting facet results.
      */
     protected static function removeAccents($string)
     {
@@ -59,99 +56,99 @@ class SearchController extends BaseController
 
         $chars = [
             // Decompositions for Latin-1 Supplement
-            chr(195).chr(128) => 'A', chr(195).chr(129) => 'A',
-            chr(195).chr(130) => 'A', chr(195).chr(131) => 'A',
-            chr(195).chr(132) => 'A', chr(195).chr(133) => 'A',
-            chr(195).chr(135) => 'C', chr(195).chr(136) => 'E',
-            chr(195).chr(137) => 'E', chr(195).chr(138) => 'E',
-            chr(195).chr(139) => 'E', chr(195).chr(140) => 'I',
-            chr(195).chr(141) => 'I', chr(195).chr(142) => 'I',
-            chr(195).chr(143) => 'I', chr(195).chr(145) => 'N',
-            chr(195).chr(146) => 'O', chr(195).chr(147) => 'O',
-            chr(195).chr(148) => 'O', chr(195).chr(149) => 'O',
-            chr(195).chr(150) => 'O', chr(195).chr(153) => 'U',
-            chr(195).chr(154) => 'U', chr(195).chr(155) => 'U',
-            chr(195).chr(156) => 'U', chr(195).chr(157) => 'Y',
-            chr(195).chr(159) => 's', chr(195).chr(160) => 'a',
-            chr(195).chr(161) => 'a', chr(195).chr(162) => 'a',
-            chr(195).chr(163) => 'a', chr(195).chr(164) => 'a',
-            chr(195).chr(165) => 'a', chr(195).chr(167) => 'c',
-            chr(195).chr(168) => 'e', chr(195).chr(169) => 'e',
-            chr(195).chr(170) => 'e', chr(195).chr(171) => 'e',
-            chr(195).chr(172) => 'i', chr(195).chr(173) => 'i',
-            chr(195).chr(174) => 'i', chr(195).chr(175) => 'i',
-            chr(195).chr(177) => 'n', chr(195).chr(178) => 'o',
-            chr(195).chr(179) => 'o', chr(195).chr(180) => 'o',
-            chr(195).chr(181) => 'o', chr(195).chr(182) => 'o',
-            chr(195).chr(182) => 'o', chr(195).chr(185) => 'u',
-            chr(195).chr(186) => 'u', chr(195).chr(187) => 'u',
-            chr(195).chr(188) => 'u', chr(195).chr(189) => 'y',
-            chr(195).chr(191) => 'y',
+            chr(195) . chr(128) => 'A', chr(195) . chr(129) => 'A',
+            chr(195) . chr(130) => 'A', chr(195) . chr(131) => 'A',
+            chr(195) . chr(132) => 'A', chr(195) . chr(133) => 'A',
+            chr(195) . chr(135) => 'C', chr(195) . chr(136) => 'E',
+            chr(195) . chr(137) => 'E', chr(195) . chr(138) => 'E',
+            chr(195) . chr(139) => 'E', chr(195) . chr(140) => 'I',
+            chr(195) . chr(141) => 'I', chr(195) . chr(142) => 'I',
+            chr(195) . chr(143) => 'I', chr(195) . chr(145) => 'N',
+            chr(195) . chr(146) => 'O', chr(195) . chr(147) => 'O',
+            chr(195) . chr(148) => 'O', chr(195) . chr(149) => 'O',
+            chr(195) . chr(150) => 'O', chr(195) . chr(153) => 'U',
+            chr(195) . chr(154) => 'U', chr(195) . chr(155) => 'U',
+            chr(195) . chr(156) => 'U', chr(195) . chr(157) => 'Y',
+            chr(195) . chr(159) => 's', chr(195) . chr(160) => 'a',
+            chr(195) . chr(161) => 'a', chr(195) . chr(162) => 'a',
+            chr(195) . chr(163) => 'a', chr(195) . chr(164) => 'a',
+            chr(195) . chr(165) => 'a', chr(195) . chr(167) => 'c',
+            chr(195) . chr(168) => 'e', chr(195) . chr(169) => 'e',
+            chr(195) . chr(170) => 'e', chr(195) . chr(171) => 'e',
+            chr(195) . chr(172) => 'i', chr(195) . chr(173) => 'i',
+            chr(195) . chr(174) => 'i', chr(195) . chr(175) => 'i',
+            chr(195) . chr(177) => 'n', chr(195) . chr(178) => 'o',
+            chr(195) . chr(179) => 'o', chr(195) . chr(180) => 'o',
+            chr(195) . chr(181) => 'o', chr(195) . chr(182) => 'o',
+            chr(195) . chr(182) => 'o', chr(195) . chr(185) => 'u',
+            chr(195) . chr(186) => 'u', chr(195) . chr(187) => 'u',
+            chr(195) . chr(188) => 'u', chr(195) . chr(189) => 'y',
+            chr(195) . chr(191) => 'y',
             // Decompositions for Latin Extended-A
-            chr(196).chr(128) => 'A', chr(196).chr(129) => 'a',
-            chr(196).chr(130) => 'A', chr(196).chr(131) => 'a',
-            chr(196).chr(132) => 'A', chr(196).chr(133) => 'a',
-            chr(196).chr(134) => 'C', chr(196).chr(135) => 'c',
-            chr(196).chr(136) => 'C', chr(196).chr(137) => 'c',
-            chr(196).chr(138) => 'C', chr(196).chr(139) => 'c',
-            chr(196).chr(140) => 'C', chr(196).chr(141) => 'c',
-            chr(196).chr(142) => 'D', chr(196).chr(143) => 'd',
-            chr(196).chr(144) => 'D', chr(196).chr(145) => 'd',
-            chr(196).chr(146) => 'E', chr(196).chr(147) => 'e',
-            chr(196).chr(148) => 'E', chr(196).chr(149) => 'e',
-            chr(196).chr(150) => 'E', chr(196).chr(151) => 'e',
-            chr(196).chr(152) => 'E', chr(196).chr(153) => 'e',
-            chr(196).chr(154) => 'E', chr(196).chr(155) => 'e',
-            chr(196).chr(156) => 'G', chr(196).chr(157) => 'g',
-            chr(196).chr(158) => 'G', chr(196).chr(159) => 'g',
-            chr(196).chr(160) => 'G', chr(196).chr(161) => 'g',
-            chr(196).chr(162) => 'G', chr(196).chr(163) => 'g',
-            chr(196).chr(164) => 'H', chr(196).chr(165) => 'h',
-            chr(196).chr(166) => 'H', chr(196).chr(167) => 'h',
-            chr(196).chr(168) => 'I', chr(196).chr(169) => 'i',
-            chr(196).chr(170) => 'I', chr(196).chr(171) => 'i',
-            chr(196).chr(172) => 'I', chr(196).chr(173) => 'i',
-            chr(196).chr(174) => 'I', chr(196).chr(175) => 'i',
-            chr(196).chr(176) => 'I', chr(196).chr(177) => 'i',
-            chr(196).chr(178) => 'IJ',chr(196).chr(179) => 'ij',
-            chr(196).chr(180) => 'J', chr(196).chr(181) => 'j',
-            chr(196).chr(182) => 'K', chr(196).chr(183) => 'k',
-            chr(196).chr(184) => 'k', chr(196).chr(185) => 'L',
-            chr(196).chr(186) => 'l', chr(196).chr(187) => 'L',
-            chr(196).chr(188) => 'l', chr(196).chr(189) => 'L',
-            chr(196).chr(190) => 'l', chr(196).chr(191) => 'L',
-            chr(197).chr(128) => 'l', chr(197).chr(129) => 'L',
-            chr(197).chr(130) => 'l', chr(197).chr(131) => 'N',
-            chr(197).chr(132) => 'n', chr(197).chr(133) => 'N',
-            chr(197).chr(134) => 'n', chr(197).chr(135) => 'N',
-            chr(197).chr(136) => 'n', chr(197).chr(137) => 'N',
-            chr(197).chr(138) => 'n', chr(197).chr(139) => 'N',
-            chr(197).chr(140) => 'O', chr(197).chr(141) => 'o',
-            chr(197).chr(142) => 'O', chr(197).chr(143) => 'o',
-            chr(197).chr(144) => 'O', chr(197).chr(145) => 'o',
-            chr(197).chr(146) => 'OE',chr(197).chr(147) => 'oe',
-            chr(197).chr(148) => 'R',chr(197).chr(149) => 'r',
-            chr(197).chr(150) => 'R',chr(197).chr(151) => 'r',
-            chr(197).chr(152) => 'R',chr(197).chr(153) => 'r',
-            chr(197).chr(154) => 'S',chr(197).chr(155) => 's',
-            chr(197).chr(156) => 'S',chr(197).chr(157) => 's',
-            chr(197).chr(158) => 'S',chr(197).chr(159) => 's',
-            chr(197).chr(160) => 'S', chr(197).chr(161) => 's',
-            chr(197).chr(162) => 'T', chr(197).chr(163) => 't',
-            chr(197).chr(164) => 'T', chr(197).chr(165) => 't',
-            chr(197).chr(166) => 'T', chr(197).chr(167) => 't',
-            chr(197).chr(168) => 'U', chr(197).chr(169) => 'u',
-            chr(197).chr(170) => 'U', chr(197).chr(171) => 'u',
-            chr(197).chr(172) => 'U', chr(197).chr(173) => 'u',
-            chr(197).chr(174) => 'U', chr(197).chr(175) => 'u',
-            chr(197).chr(176) => 'U', chr(197).chr(177) => 'u',
-            chr(197).chr(178) => 'U', chr(197).chr(179) => 'u',
-            chr(197).chr(180) => 'W', chr(197).chr(181) => 'w',
-            chr(197).chr(182) => 'Y', chr(197).chr(183) => 'y',
-            chr(197).chr(184) => 'Y', chr(197).chr(185) => 'Z',
-            chr(197).chr(186) => 'z', chr(197).chr(187) => 'Z',
-            chr(197).chr(188) => 'z', chr(197).chr(189) => 'Z',
-            chr(197).chr(190) => 'z', chr(197).chr(191) => 's'
+            chr(196) . chr(128) => 'A', chr(196) . chr(129) => 'a',
+            chr(196) . chr(130) => 'A', chr(196) . chr(131) => 'a',
+            chr(196) . chr(132) => 'A', chr(196) . chr(133) => 'a',
+            chr(196) . chr(134) => 'C', chr(196) . chr(135) => 'c',
+            chr(196) . chr(136) => 'C', chr(196) . chr(137) => 'c',
+            chr(196) . chr(138) => 'C', chr(196) . chr(139) => 'c',
+            chr(196) . chr(140) => 'C', chr(196) . chr(141) => 'c',
+            chr(196) . chr(142) => 'D', chr(196) . chr(143) => 'd',
+            chr(196) . chr(144) => 'D', chr(196) . chr(145) => 'd',
+            chr(196) . chr(146) => 'E', chr(196) . chr(147) => 'e',
+            chr(196) . chr(148) => 'E', chr(196) . chr(149) => 'e',
+            chr(196) . chr(150) => 'E', chr(196) . chr(151) => 'e',
+            chr(196) . chr(152) => 'E', chr(196) . chr(153) => 'e',
+            chr(196) . chr(154) => 'E', chr(196) . chr(155) => 'e',
+            chr(196) . chr(156) => 'G', chr(196) . chr(157) => 'g',
+            chr(196) . chr(158) => 'G', chr(196) . chr(159) => 'g',
+            chr(196) . chr(160) => 'G', chr(196) . chr(161) => 'g',
+            chr(196) . chr(162) => 'G', chr(196) . chr(163) => 'g',
+            chr(196) . chr(164) => 'H', chr(196) . chr(165) => 'h',
+            chr(196) . chr(166) => 'H', chr(196) . chr(167) => 'h',
+            chr(196) . chr(168) => 'I', chr(196) . chr(169) => 'i',
+            chr(196) . chr(170) => 'I', chr(196) . chr(171) => 'i',
+            chr(196) . chr(172) => 'I', chr(196) . chr(173) => 'i',
+            chr(196) . chr(174) => 'I', chr(196) . chr(175) => 'i',
+            chr(196) . chr(176) => 'I', chr(196) . chr(177) => 'i',
+            chr(196) . chr(178) => 'IJ', chr(196) . chr(179) => 'ij',
+            chr(196) . chr(180) => 'J', chr(196) . chr(181) => 'j',
+            chr(196) . chr(182) => 'K', chr(196) . chr(183) => 'k',
+            chr(196) . chr(184) => 'k', chr(196) . chr(185) => 'L',
+            chr(196) . chr(186) => 'l', chr(196) . chr(187) => 'L',
+            chr(196) . chr(188) => 'l', chr(196) . chr(189) => 'L',
+            chr(196) . chr(190) => 'l', chr(196) . chr(191) => 'L',
+            chr(197) . chr(128) => 'l', chr(197) . chr(129) => 'L',
+            chr(197) . chr(130) => 'l', chr(197) . chr(131) => 'N',
+            chr(197) . chr(132) => 'n', chr(197) . chr(133) => 'N',
+            chr(197) . chr(134) => 'n', chr(197) . chr(135) => 'N',
+            chr(197) . chr(136) => 'n', chr(197) . chr(137) => 'N',
+            chr(197) . chr(138) => 'n', chr(197) . chr(139) => 'N',
+            chr(197) . chr(140) => 'O', chr(197) . chr(141) => 'o',
+            chr(197) . chr(142) => 'O', chr(197) . chr(143) => 'o',
+            chr(197) . chr(144) => 'O', chr(197) . chr(145) => 'o',
+            chr(197) . chr(146) => 'OE', chr(197) . chr(147) => 'oe',
+            chr(197) . chr(148) => 'R', chr(197) . chr(149) => 'r',
+            chr(197) . chr(150) => 'R', chr(197) . chr(151) => 'r',
+            chr(197) . chr(152) => 'R', chr(197) . chr(153) => 'r',
+            chr(197) . chr(154) => 'S', chr(197) . chr(155) => 's',
+            chr(197) . chr(156) => 'S', chr(197) . chr(157) => 's',
+            chr(197) . chr(158) => 'S', chr(197) . chr(159) => 's',
+            chr(197) . chr(160) => 'S', chr(197) . chr(161) => 's',
+            chr(197) . chr(162) => 'T', chr(197) . chr(163) => 't',
+            chr(197) . chr(164) => 'T', chr(197) . chr(165) => 't',
+            chr(197) . chr(166) => 'T', chr(197) . chr(167) => 't',
+            chr(197) . chr(168) => 'U', chr(197) . chr(169) => 'u',
+            chr(197) . chr(170) => 'U', chr(197) . chr(171) => 'u',
+            chr(197) . chr(172) => 'U', chr(197) . chr(173) => 'u',
+            chr(197) . chr(174) => 'U', chr(197) . chr(175) => 'u',
+            chr(197) . chr(176) => 'U', chr(197) . chr(177) => 'u',
+            chr(197) . chr(178) => 'U', chr(197) . chr(179) => 'u',
+            chr(197) . chr(180) => 'W', chr(197) . chr(181) => 'w',
+            chr(197) . chr(182) => 'Y', chr(197) . chr(183) => 'y',
+            chr(197) . chr(184) => 'Y', chr(197) . chr(185) => 'Z',
+            chr(197) . chr(186) => 'z', chr(197) . chr(187) => 'Z',
+            chr(197) . chr(188) => 'z', chr(197) . chr(189) => 'Z',
+            chr(197) . chr(190) => 'z', chr(197) . chr(191) => 's',
         ];
 
         $string = strtr($string, $chars);
@@ -165,32 +162,37 @@ class SearchController extends BaseController
         // for strcoll, so O-Umlaut sorts like O
         setlocale(LC_COLLATE, 'de_DE.utf8');
 
-        return strcoll(str_replace('.', 'Ω', mb_strtolower(self::removeAccents($a))),
-                       str_replace('.', 'Ω', mb_strtolower(self::removeAccents($b))));
+        return strcoll(
+            str_replace('.', 'Ω', mb_strtolower(self::removeAccents($a))),
+            str_replace('.', 'Ω', mb_strtolower(self::removeAccents($b)))
+        );
     }
 
     /**
-     * Override parent constructor to inject PaginatorInterface $paginator
+     * Override parent constructor to inject PaginatorInterface $paginator.
      */
-    public function __construct(ContentService $contentService,
-                                KernelInterface $kernel,
-                                SettableThemeContext $themeContext,
-                                PaginatorInterface $paginator,
-                                $dataDir, $siteKey)
-    {
+    public function __construct(
+        ContentService $contentService,
+        KernelInterface $kernel,
+        SettableThemeContext $themeContext,
+        PaginatorInterface $paginator,
+        $dataDir,
+        $siteKey
+    ) {
         parent::__construct($contentService, $kernel, $themeContext, $dataDir, $siteKey);
 
         $this->paginator = $paginator;
     }
 
     /**
-     * Determine fulltext query and filter conditions from $request
+     * Determine fulltext query and filter conditions from $request.
      */
     protected function getQuery(Request $request, $facetNames = [])
     {
-        $q = null; $filter = [];
+        $q = null;
+        $filter = [];
 
-        if ($request->getMethod() == 'POST') {
+        if ('POST' == $request->getMethod()) {
             $q = trim($request->request->get('q'));
         }
         else {
@@ -215,13 +217,13 @@ class SearchController extends BaseController
             }
         }
 
-        return [ $q, $filter ];
+        return [$q, $filter];
     }
 
     /**
      * Build a filter query on $field for value $filter[$facetName]
      * If the values aren't from a restricted set with known properties,
-     * as in our case, proper escaping might be needed
+     * as in our case, proper escaping might be needed.
      */
     protected function buildFilterQuery($field, $filter, $facetName)
     {
@@ -233,7 +235,7 @@ class SearchController extends BaseController
 
     /**
      * Add facets and corresponding filters to the solr query
-     * for currently active filters
+     * for currently active filters.
      */
     protected function addFacets($solrQuery, $filter = [])
     {
@@ -247,8 +249,8 @@ class SearchController extends BaseController
 
             $domain = array_key_exists('domain', $descr)
                 ? $descr['domain']
-                : [ 'excludeTags' => $facetName ] // https://solr.apache.org/guide/8_1/json-faceting-domain-changes.html#filter-exclusions
-                ;
+                : ['excludeTags' => $facetName] // https://solr.apache.org/guide/8_1/json-faceting-domain-changes.html#filter-exclusions
+            ;
 
             // https://solr.apache.org/guide/8_1/json-facet-api.html
             $facetField = new JsonTerms([
@@ -285,7 +287,7 @@ class SearchController extends BaseController
     }
 
     /**
-     * Expand facet response for display
+     * Expand facet response for display.
      */
     protected function expandFacetResult($name, $facetResult, $append = null)
     {
@@ -328,8 +330,10 @@ class SearchController extends BaseController
             $solrQuery->setRows(count($counts)); // fetch everything in a single call
 
             // create a filterquery
-            $orCondition = join(' OR ', array_map(function ($term) { return '"' . $term . '"'; },
-                                                  array_keys($counts)));
+            $orCondition = join(' OR ', array_map(
+                function ($term) { return '"' . $term . '"'; },
+                array_keys($counts)
+            ));
             $solrQuery->createFilterQuery('path')->setQuery('path_s:(' . $orCondition . ')');
 
             // get grouping component and set a field to group by
@@ -391,7 +395,7 @@ class SearchController extends BaseController
     }
 
     /**
-     * Build and execute the paginated solr query
+     * Build and execute the paginated solr query.
      */
     protected function doQuery(Request $request, $q, $filter, $resultsPerPage)
     {
@@ -401,7 +405,7 @@ class SearchController extends BaseController
         ];
 
         if (is_null($q) && empty($filter)) {
-            return [ null, $meta ];
+            return [null, $meta];
         }
 
         // get a select query instance
@@ -445,7 +449,7 @@ class SearchController extends BaseController
 
         // build pagination - this one excecutes the query
         $pagination = $this->paginator->paginate(
-            [ $solrClient, $solrQuery ],
+            [$solrClient, $solrQuery],
             $page = $request->query->get('page', '1'),
             $resultsPerPage
         );
@@ -461,24 +465,24 @@ class SearchController extends BaseController
             if (!is_null($facet) && count($facet) >= 1) {
                 $append = null;
                 if (!empty($filter[$facetName])) {
-                    $append = [ $filter[$facetName] => $meta['numFound'] ];
+                    $append = [$filter[$facetName] => $meta['numFound']];
                 }
 
                 $meta['facet'][$facetName] = $this->expandFacetResult($facetName, $facet, $append);
             }
         }
 
-        return [ $pagination, $meta ];
+        return [$pagination, $meta];
     }
 
     #[Route(path: ['en' => '/search', 'de' => '/suche'], name: 'search', options: ['sitemap' => true])]
     public function searchAction(Request $request, TranslatorInterface $translator)
     {
-        $pageMeta = [ 'title' => $translator->trans('Search') ];
+        $pageMeta = ['title' => $translator->trans('Search')];
 
-        list($q, $filter) = $this->getQuery($request, array_keys($this->facets));
+        [$q, $filter] = $this->getQuery($request, array_keys($this->facets));
 
-        list($pagination, $meta) = $this->doQuery($request, $q, $filter, self::PAGE_SIZE);
+        [$pagination, $meta] = $this->doQuery($request, $q, $filter, self::PAGE_SIZE);
 
         $results = [];
         $resultset = null;
