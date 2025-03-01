@@ -8,16 +8,12 @@ use JMS\Serializer\Annotation as Serializer;
  * Entities that have a somewhat fixed, physical extension.
  *
  * @see http://schema.org/Place Documentation on Schema.org
- *
- * @Serializer\XmlRoot("Place")
- *
- * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  */
+#[Serializer\XmlRoot('Place')]
+#[Serializer\XmlNamespace(uri: 'http://www.w3.org/XML/1998/namespace', prefix: 'xml')]
 class Place extends SchemaOrg
 {
-    /**
-     * @Serializer\Exclude()
-     */
+    #[Serializer\Exclude]
     static $zoomLevelByType = [
         'neighborhoods' => 12,
         'city districts' => 11,
@@ -27,26 +23,32 @@ class Place extends SchemaOrg
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     *
-     * @Serializer\XmlElement(cdata=false)
      */
+    #[Serializer\Type('string')]
+    #[Serializer\XmlElement(cdata: false)]
     protected $additionalType;
 
     /**
      * @var GeoCoordinates the geo coordinates of the place
-     *
-     * @Serializer\Type("App\Entity\GeoCoordinates")
      */
+    #[Serializer\Type('App\Entity\GeoCoordinates')]
     protected $geo;
 
     /**
-     * @var Place|null
-     *
-     * @Serializer\Type("App\Entity\Place")
+     * @var Place
      */
+    #[Serializer\Type('App\Entity\Place')]
     private $containedInPlace;
+
+    /**
+     * Gets additional.
+     *
+     * @return array|null
+     */
+    public function getAdditional()
+    {
+        return null; // not implemented yet
+    }
 
     /**
      * Sets additionalType.
@@ -89,7 +91,7 @@ class Place extends SchemaOrg
     /**
      * Gets geo.
      *
-     * @return GeoCoordinates
+     * @return GeoCoordinates|null
      */
     public function getGeo()
     {
@@ -111,6 +113,11 @@ class Place extends SchemaOrg
         return false;
     }
 
+    /**
+     * Gets defaultZoomlevel.
+     *
+     * @return int
+     */
     public function getDefaultZoomlevel()
     {
         if (array_key_exists($this->additionalType, self::$zoomLevelByType)) {
@@ -166,16 +173,33 @@ class Place extends SchemaOrg
         return $this->getIdentifier('geonames');
     }
 
+    /**
+     * Sets containedInPlace.
+     *
+     * @return $this
+     */
     public function setContainedInPlace(?Place $parent = null)
     {
         $this->containedInPlace = $parent;
+
+        return $this;
     }
 
+    /**
+     * Gets containedInPlace.
+     *
+     * @return string|null
+     */
     public function getContainedInPlace()
     {
         return $this->containedInPlace;
     }
 
+    /**
+     * Gets all parents.
+     *
+     * @return array
+     */
     public function getPath()
     {
         $path = [];

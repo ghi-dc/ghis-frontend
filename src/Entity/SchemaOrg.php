@@ -29,70 +29,62 @@ abstract class SchemaOrg
         return preg_replace('/(\s+)@/', '\1', $name);
     }
 
+    public static function xmlSpecialchars($txt)
+    {
+        return htmlspecialchars($txt, ENT_XML1, 'UTF-8');
+    }
+
     /**
      * @var string
-     *
-     * @Serializer\XmlAttribute()
-     *
-     * @Serializer\Type("string")
      */
+    #[Serializer\XmlAttribute]
+    #[Serializer\Type('string')]
     protected $id;
 
     /**
      * @var int
-     *
-     * @Serializer\Type("int")
      */
+    #[Serializer\Type('int')]
     protected $status;
 
     /**
      * @var array the name of the item
-     *
-     * @Serializer\XmlMap(inline = true, keyAttribute = "lang", entry = "name")
-     *
-     * @Serializer\Type("array<string,string>")
      */
+    #[Serializer\XmlMap(inline: true, keyAttribute: 'lang', entry: 'name')]
+    #[Serializer\Type('array<string,string>')]
     protected $name = ['_' => null];
 
     /**
      * @var array
-     *
-     * @Serializer\Type("array<string,string>")
-     *
-     * @Serializer\XmlMap(inline = true, keyAttribute = "lang", entry = "disambiguatingDescription")
      */
+    #[Serializer\Type('array<string,string>')]
+    #[Serializer\XmlMap(inline: true, keyAttribute: 'lang', entry: 'disambiguatingDescription')]
     protected $disambiguatingDescription;
 
     /**
      * @var array
-     *
-     * @Serializer\Type("array<string,string>")
-     *
-     * @Serializer\XmlMap(inline = true, keyAttribute = "propertyID", entry = "identifier")
      */
+    #[Serializer\Type('array<string,string>')]
+    #[Serializer\XmlMap(inline: true, keyAttribute: 'propertyID', entry: 'identifier')]
     protected $identifiers = [];
 
     /**
      * @var string URL of the item
-     *
-     * @Serializer\XmlElement(cdata=false)
-     *
-     * @Serializer\Type("string")
      */
+    #[Serializer\XmlElement(cdata: false)]
+    #[Serializer\Type('string')]
     protected $url;
 
     /**
      * @var \DateTime
-     *
-     * @Serializer\Type("datetime")
      */
+    #[Serializer\Type('datetime')]
     protected $createdAt;
 
     /**
      * @var \DateTime
-     *
-     * @Serializer\Type("datetime")
      */
+    #[Serializer\Type('datetime')]
     protected $changedAt;
 
     /**

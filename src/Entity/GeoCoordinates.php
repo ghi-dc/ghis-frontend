@@ -8,40 +8,32 @@ use JMS\Serializer\Annotation as Serializer;
  * The geographic coordinates of a place or event.
  *
  * @see http://schema.org/GeoCoordinates Documentation on Schema.org
- *
- * @Serializer\XmlRoot("GeoCoordinates")
- *
- * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  */
+#[Serializer\XmlRoot('GeoCoordinates')]
+#[Serializer\XmlNamespace(uri: 'http://www.w3.org/XML/1998/namespace', prefix: 'xml')]
 class GeoCoordinates extends SchemaOrg
 {
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     *
-     * @Serializer\XmlElement(cdata=false)
      */
+    #[Serializer\Type('string')]
+    #[Serializer\XmlElement(cdata: false)]
     protected $latitude;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     *
-     * @Serializer\XmlElement(cdata=false)
      */
+    #[Serializer\Type('string')]
+    #[Serializer\XmlElement(cdata: false)]
     protected $longitude;
 
     /**
      * @var string The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code
      *
      * As per Schema.org, this is part of GeoCoordinates, not directly of place
-     *
-     * @Serializer\Type("string")
-     *
-     * @Serializer\XmlElement(cdata=false)
      */
+    #[Serializer\Type('string')]
+    #[Serializer\XmlElement(cdata: false)]
     protected $addressCountry;
 
     /**

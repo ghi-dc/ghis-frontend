@@ -8,73 +8,60 @@ use JMS\Serializer\Annotation as Serializer;
  * A person (alive, dead, undead, or fictional).
  *
  * @see http://schema.org/Person Documentation on Schema.org
- *
- * @Serializer\XmlRoot("Person")
- *
- * @Serializer\XmlNamespace(uri="http://www.w3.org/XML/1998/namespace", prefix="xml")
  */
+#[Serializer\XmlRoot('Person')]
+#[Serializer\XmlNamespace(uri: 'http://www.w3.org/XML/1998/namespace', prefix: 'xml')]
 class Person extends SchemaOrg
 {
     /**
      * @var string|null date of birth
-     *
-     * @Serializer\XmlElement(cdata=false)
-     *
-     * @Serializer\Type("string")
      */
+    #[Serializer\XmlElement(cdata: false)]
+    #[Serializer\Type('string')]
     protected $birthDate;
 
     /**
      * @var string|null date of death
-     *
-     * @Serializer\XmlElement(cdata=false)
-     *
-     * @Serializer\Type("string")
      */
+    #[Serializer\XmlElement(cdata: false)]
+    #[Serializer\Type('string')]
     protected $deathDate;
 
     /**
      * @var string|null Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property.
-     *
-     * @Serializer\Type("string")
      */
+    #[Serializer\Type('string')]
     protected $familyName;
 
     /**
      * @var string|null gender of the person
-     *
-     * @Serializer\Type("string")
      */
+    #[Serializer\Type('string')]
     protected $gender;
 
     /**
      * @var string|null Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property.
-     *
-     * @Serializer\Type("string")
      */
+    #[Serializer\Type('string')]
     protected $givenName;
 
     /**
      * @var Place|null the place where the person was born
-     *
-     * @Serializer\Type("App\Entity\Place")
      */
+    #[Serializer\Type('App\Entity\Place')]
     protected $birthPlace;
 
     /**
      * @var Place|null the place where the person died
-     *
-     * @Serializer\XmlElement(cdata=false)
-     *
-     * @Serializer\Type("string")
      */
+    #[Serializer\XmlElement(cdata: false)]
+    #[Serializer\Type('string')]
     protected $deathPlace;
 
     /**
-     * @var string|null
-     *
-     * @Serializer\Type("string")
+     * @var string|null the slug
      */
+    #[Serializer\Type('string')]
     protected $slug;
 
     /**
@@ -289,11 +276,16 @@ class Person extends SchemaOrg
     }
 
     /**
-     * @Serializer\PreSerialize
+     * 
      */
+    #[Serializer\PreSerialize]
     public function onPreSerialize()
     {
-        // set language independent default
-        $this->setName($this->getFullName());
+        $name = $this->getName();
+
+        if (empty($name)) {
+            // set language independent default
+            $this->setName($this->getFullName());
+        }
     }
 }

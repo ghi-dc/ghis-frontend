@@ -488,7 +488,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets translated from.
      *
-     * @return string
+     * @return string|null
      */
     public function getTranslatedFrom()
     {
@@ -599,7 +599,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets genre.
      *
-     * @return string
+     * @return string|null
      */
     public function getGenre()
     {
@@ -711,7 +711,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets idno.
      *
-     * @return string
+     * @return string|null
      */
     public function getIdno($type)
     {
@@ -778,7 +778,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets settting.
      *
-     * @return string
+     * @return string|null
      */
     public function getSettingDate()
     {
