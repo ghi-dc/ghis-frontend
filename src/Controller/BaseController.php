@@ -46,7 +46,7 @@ class BaseController extends AbstractController
     }
 
     /**
-     * catch-all hardwired in config/routes.yaml so it comes last.
+     * Catch-all method. This is hardwired in config/routes.yaml, so it comes last.
      */
     public function dynamicAction($path, Request $request)
     {
@@ -84,6 +84,12 @@ class BaseController extends AbstractController
                     }
 
                     if (!is_null($resource)) {
+                        if (count($parts) > 2) {
+                            // we have bots calling deeply paths like /en/migration/ghis:introduction-1/ghis:image-142
+                            // which don't get cached, therefore we redirect to the proper parent
+                            return $this->redirect($this->generateUrl('dynamic', ['path' => join('/', array_slice($parts, 0, 2))]));
+                        }
+
                         if (preg_match('/\-collection$/', $resource->getGenre())) {
                             $args['section'] = $resource;
                             $method = 'App\Controller\ResourceController::sectionAction';
