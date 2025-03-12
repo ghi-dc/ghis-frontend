@@ -24,10 +24,6 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/burki/SyliusThemeBundle"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/burki/minimalcode-search"
         }
     ],
@@ -58,7 +54,7 @@
         "seboettg/citeproc-php": "^2.6",
         "spatie/schema-org": "^3.23",
         "square-bit/oai-pmh": "dev-master as 0.3",
-        "sylius/theme-bundle": "2.4.x-dev as 2.4",
+        "sylius/theme-bundle": "^2.4",
         "symfony/asset": "^7.2",
         "symfony/console": "^7.2",
         "symfony/css-selector": "^7.2",

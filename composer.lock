@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8d2b83d5ee6d431bf036bfc03cc87cc",
+    "content-hash": "c4b7a311aad7fb59820b7e6ddf4aa8b6",
     "packages": [
         {
             "name": "armin/scssphp-bundle",
@@ -3819,16 +3819,16 @@
         },
         {
             "name": "sylius/theme-bundle",
-            "version": "2.4.x-dev",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/burki/SyliusThemeBundle.git",
-                "reference": "1e7940febb2fac919fb61b58d1c99c7c1e15254c"
+                "url": "https://github.com/Sylius/SyliusThemeBundle.git",
+                "reference": "2a2e474f03520a3a8f6a60449e143d5bdcac7857"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burki/SyliusThemeBundle/zipball/1e7940febb2fac919fb61b58d1c99c7c1e15254c",
-                "reference": "1e7940febb2fac919fb61b58d1c99c7c1e15254c",
+                "url": "https://api.github.com/repos/Sylius/SyliusThemeBundle/zipball/2a2e474f03520a3a8f6a60449e143d5bdcac7857",
+                "reference": "2a2e474f03520a3a8f6a60449e143d5bdcac7857",
                 "shasum": ""
             },
             "require": {
@@ -3862,7 +3862,6 @@
                 "twig/twig": "^2.0 || ^3.0",
                 "vimeo/psalm": "5.20.0"
             },
-            "default-branch": true,
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -3874,31 +3873,7 @@
                     "Sylius\\Bundle\\ThemeBundle\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "spec\\Sylius\\Bundle\\ThemeBundle\\": "spec/",
-                    "Sylius\\Bundle\\ThemeBundle\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "analyse": [
-                    "@composer validate --strict",
-                    "vendor/bin/ecs check spec src tests || true",
-                    "vendor/bin/psalm",
-                    "vendor/bin/rector process --dry-run",
-                    "tests/Application/bin/console lint:container --env dev",
-                    "tests/Application/bin/console lint:container --env prod"
-                ],
-                "fix": [
-                    "vendor/bin/rector process",
-                    "vendor/bin/ecs check spec src tests --fix"
-                ],
-                "test": [
-                    "vendor/bin/phpspec run --ansi --no-interaction",
-                    "vendor/bin/phpunit --colors=always",
-                    "APP_ENV=test_legacy vendor/bin/phpunit --colors=always --exclude-group=none"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3923,9 +3898,16 @@
                 "theming"
             ],
             "support": {
-                "source": "https://github.com/burki/SyliusThemeBundle/tree/2.4"
+                "issues": "https://github.com/Sylius/SyliusThemeBundle/issues",
+                "source": "https://github.com/Sylius/SyliusThemeBundle/tree/v2.4.1"
             },
-            "time": "2025-01-13T11:29:56+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sylius",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-11T15:11:14+00:00"
         },
         {
             "name": "symfony/asset",
@@ -12642,12 +12624,6 @@
             "version": "9999999-dev",
             "alias": "0.3",
             "alias_normalized": "0.3.0.0"
-        },
-        {
-            "package": "sylius/theme-bundle",
-            "version": "2.4.9999999.9999999-dev",
-            "alias": "2.4",
-            "alias_normalized": "2.4.0.0"
         }
     ],
     "minimum-stability": "stable",
@@ -12657,8 +12633,7 @@
         "fluentdom/fluentdom": 20,
         "gmo/iso-639": 20,
         "minimalcode/search": 20,
-        "square-bit/oai-pmh": 20,
-        "sylius/theme-bundle": 20
+        "square-bit/oai-pmh": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
