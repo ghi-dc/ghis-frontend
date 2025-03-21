@@ -275,9 +275,6 @@ class Person extends SchemaOrg
             : implode(', ', $parts);
     }
 
-    /**
-     * 
-     */
     #[Serializer\PreSerialize]
     public function onPreSerialize()
     {

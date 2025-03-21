@@ -106,7 +106,6 @@ class HtmlDocument extends Document
         return $textContent;
     }
 
-
     protected function prettify()
     {
         $prettyPrinter = $this->getOption('prettyPrinter');
