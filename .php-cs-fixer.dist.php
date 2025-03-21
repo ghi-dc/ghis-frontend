@@ -7,6 +7,7 @@ $finder = (new PhpCsFixer\Finder())
         'config',
         'var',
     ])
+    ->notPath('tests/bootstrap.php')
 ;
 
 return (new PhpCsFixer\Config())
