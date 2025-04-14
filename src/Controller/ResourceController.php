@@ -20,6 +20,7 @@ use App\Service\Xsl\XsltProcessor;
 class ResourceController extends BaseController
 {
     protected $xsltProcessor;
+    protected $thumbnailUrl; // for page sharing services
 
     public function __construct(
         ContentService $contentService,
@@ -271,6 +272,10 @@ class ResourceController extends BaseController
         $crawler->filter('img')->each(function ($node, $i) use ($baseUrl, $printView, $imgClass) {
             $src = $node->attr('src');
             $url = $this->buildFullUrl($src, $baseUrl);
+            if (true === $this->thumbnailUrl) {
+                // set first image as thumbnail
+                $this->thumbnailUrl = $url;
+            }
 
             if ($printView) {
                 // for SVG, check for a rasterized PNG
@@ -353,8 +358,10 @@ class ResourceController extends BaseController
             'additional' => [],
         ];
 
+        $this->thumbnailUrl = false;
         if (!$printView) {
             $html = $this->buildCarousel($html);
+            $this->thumbnailUrl = true; // look for first image
         }
 
         $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
@@ -845,6 +852,9 @@ class ResourceController extends BaseController
                         return $tag->getName();
                     }, $resource->getTags())
                 );
+            })
+            ->if(isset($this->thumbnailUrl) && is_string($this->thumbnailUrl), function ($schema) {
+                $schema->thumbnailUrl($this->thumbnailUrl);
             })
             ->url($urlGenerator->generate('dynamic', [
                 'path' => $volume->getDtaDirname() . '/' . $resource->getDtaDirname(),
