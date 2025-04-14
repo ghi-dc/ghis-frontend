@@ -25,10 +25,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/burki/minimalcode-search"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/burki/octicons-php"
         }
     ],
     "require": {
@@ -40,7 +36,7 @@
         "armin/scssphp-bundle": "dev-master",
         "boppy/solr-bundle": "dev-attributes",
         "doctrine/annotations": "^1.14",
-        "edwinhoksberg/octicons-php": "dev-master",
+        "edwinhoksberg/octicons-php": "^1.1",
         "flagception/flagception-bundle": "^6.0",
         "fluentdom/fluentdom": "dev-master as 8.0",
         "gmo/iso-639": "dev-master#4834357",
