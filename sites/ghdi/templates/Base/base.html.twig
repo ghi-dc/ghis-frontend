@@ -62,6 +62,18 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-config" content="{{ app.request.basepath }}/ghdi/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
+
+        {# Open Graph meta tags for social media sharing #}
+        <meta property="og:site_name" content="{{ site_name|trans({}, 'additional') }}" />
+        {% if pageMeta is defined %}
+            {% for property, content in pageMeta %}
+                {% if property == 'og:description' %}
+                    <meta property="{{ property }}" content="{{ content|trim|escape('html_attr') }}" />
+                {% elseif property starts with 'og:' %}
+                    <meta property="{{ property }}" content="{{ content }}" />
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </head>
 
     <body role="document" class="d-flex flex-column min-vh-100 route-{{ app.request.get('_route') | replace({'_' : '-'}) }}{% if volume is defined %} {{ volume.getId(true) }}{% endif %}{% if document_class is defined %} {{ document_class }}{% endif %}">

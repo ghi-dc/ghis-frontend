@@ -833,8 +833,16 @@ class ResourceController extends BaseController
             return $response;
         }
 
+        $canonicalUrl = $urlGenerator->generate('dynamic', [
+            'path' => $volume->getDtaDirname() . '/' . $resource->getDtaDirname(),
+        ], UrlGeneratorInterface::ABSOLUTE_URL);
+
         $pageMeta = [
             'title' => $resource->getTitle(),
+            'og:type' => 'article',
+            'og:title' => $resource->getTitle(),
+            'og:descripton' => $resource->getNote(),
+            'og:url'=> $canonicalUrl,
         ];
 
         $parts = $this->resourceToHtml($request, $translator, $volume, $resource);
@@ -853,12 +861,11 @@ class ResourceController extends BaseController
                     }, $resource->getTags())
                 );
             })
-            ->if(isset($this->thumbnailUrl) && is_string($this->thumbnailUrl), function ($schema) {
+            ->if(isset($this->thumbnailUrl) && is_string($this->thumbnailUrl), function ($schema) use (&$pageMeta) {
                 $schema->thumbnailUrl($this->thumbnailUrl);
+                $pageMeta['og:image'] = $this->thumbnailUrl;
             })
-            ->url($urlGenerator->generate('dynamic', [
-                'path' => $volume->getDtaDirname() . '/' . $resource->getDtaDirname(),
-            ], UrlGeneratorInterface::ABSOLUTE_URL))
+            ->url($canonicalUrl)
         ;
 
         $similar = [];
