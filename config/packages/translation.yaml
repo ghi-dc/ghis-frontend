@@ -3,7 +3,5 @@ framework:
     # JMS\TranslationBundle\JMSTranslationBundle needs validation
     validation: ~
     translator:
-        fallbacks:
-            - en
         default_path: '%kernel.project_dir%/translations'
         # providers:
