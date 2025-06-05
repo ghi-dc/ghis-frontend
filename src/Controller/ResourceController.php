@@ -572,7 +572,7 @@ class ResourceController extends BaseController
 
         for ($i = 0; $i < count($dataAsObject); ++$i) {
             $publication = & $dataAsObject[$i];
-            if (property_exists($publication, 'publisher-place')) {
+            if (property_exists($publication, 'publisher-place') && !is_null($publication->{'publisher-place'})) {
                 foreach ($LOCALIZATIONS[$locale] as $search => $replace) {
                     $publication->{'publisher-place'} = preg_replace(
                         '/\b' . preg_quote($search, '/') . '\b/',
@@ -842,7 +842,7 @@ class ResourceController extends BaseController
             'og:type' => 'article',
             'og:title' => $resource->getTitle(),
             'og:descripton' => $resource->getNote(),
-            'og:url'=> $canonicalUrl,
+            'og:url' => $canonicalUrl,
         ];
 
         $parts = $this->resourceToHtml($request, $translator, $volume, $resource);
