@@ -26,7 +26,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         </fileDesc>
         <profileDesc>
             <langUsage>
-                <language ident="deu">Deutsch</language>
+                <language ident="deu">German</language>
             </langUsage>
             <textClass>
                 <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>

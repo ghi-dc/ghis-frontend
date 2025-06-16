@@ -16,7 +16,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <pubPlace>Washington, D.C.</pubPlace>
                 <idno>
                     <idno type="DTAID">ghdi:about-editors</idno>
-                    <idno type="DTADirName">herausgeber</idno>
+                    <idno type="DTADirName">about</idno>
                     <idno type="shelfmark">ghdi/901:about-editors</idno>
                 </idno>
             </publicationStmt>
@@ -26,7 +26,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         </fileDesc>
         <profileDesc>
             <langUsage>
-                <language ident="deu">Deutsch</language>
+                <language ident="deu">German</language>
             </langUsage>
             <textClass>
                 <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>

@@ -3,112 +3,112 @@
 type="application/xml"
 schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
-	<teiHeader>
-		<fileDesc>
-			<titleStmt>
-				<title type="main">DHI Projektteam</title>
-			</titleStmt>
-			<publicationStmt>
-				<publisher>
-					<orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
-						Washington</orgName>
-				</publisher>
-				<pubPlace>Washington, D.C.</pubPlace>
-				<idno>
-					<idno type="DTAID">ghdi:about-team</idno>
-					<idno type="DTADirName">team</idno>
-					<idno type="shelfmark">ghdi/901:about-team</idno>
-				</idno>
-			</publicationStmt>
-			<sourceDesc>
-				<p/>
-			</sourceDesc>
-		</fileDesc>
-		<profileDesc>
-			<langUsage>
-				<language ident="deu">German</language>
-			</langUsage>
-			<textClass>
-				<classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
-			</textClass>
-		</profileDesc>
-	</teiHeader>
-	<text>
-		<body>
-			<div n="2">
-				<p>
-					<hi rendition="#i">German History in Documents and Images</hi> (GHDI) ist das
-					Ergebnis einer engen Zusammenarbeit zwischen den <ref target="herausgeber"
-						>Herausgeber/innen</ref> und dem Projektteam am DHI, dessen Mitglieder
-					nachfolgend in alphabetischer Reihenfolge aufgeführt sind. </p>
-			</div>
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">DHI Projektteam</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
+                    <idno type="DTAID">ghdi:about-team</idno>
+                    <idno type="DTADirName">about</idno>
+                    <idno type="shelfmark">ghdi/901:about-team</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="deu">German</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div n="2">
+                <p>
+                    <hi rendition="#i">German History in Documents and Images</hi> (GHDI) ist das
+                    Ergebnis einer engen Zusammenarbeit zwischen den <ref target="herausgeber"
+                        >Herausgeber/innen</ref> und dem Projektteam am DHI, dessen Mitglieder
+                    nachfolgend in alphabetischer Reihenfolge aufgeführt sind. </p>
+            </div>
 
-			<div n="3">
-				<head>Daniel Burckhardt</head>
-				<p> Technischer Entwickler Daniel Burckhardt entwarf das Backend von GHDI,
-					integrierte die Suchmaschine, implementierte die Präsentationsschicht und
-					entwickelte das TEI-Schema. Am DHI arbeitet Daniel Burckhardt außerdem an den
-					Projekten <hi rendition="#i"><ref
-						target="https://germanhistory-intersections.org/">German History Intersections</ref></hi> und an <hi
-							rendition="#i"><ref
-								target="https://www.migrantconnections.org/">Migrant Connections</ref></hi>, sowie an allen anderen Initiativen
-					im Bereich der digitalen Geschichte. </p>
-			</div>
+            <div n="3">
+                <head>Daniel Burckhardt</head>
+                <p> Technischer Entwickler Daniel Burckhardt entwarf das Backend von GHDI,
+                    integrierte die Suchmaschine, implementierte die Präsentationsschicht und
+                    entwickelte das TEI-Schema. Am DHI arbeitet Daniel Burckhardt außerdem an den
+                    Projekten <hi rendition="#i"><ref
+                        target="https://germanhistory-intersections.org/">German History Intersections</ref></hi> und an <hi
+                            rendition="#i"><ref
+                                target="https://www.migrantconnections.org/">Migrant Connections</ref></hi>, sowie an allen anderen Initiativen
+                    im Bereich der digitalen Geschichte. </p>
+            </div>
 
-			<div n="3">
-				<head>Katharina Hering</head>
-				<p> Bibliothekarin für digitale Projekte Katharina (Katja) Hering ist verantwortlich
-					für das Sammlungsmanagement (Collective Access), die Entwicklung des
-					zweisprachigen Thesaurus sowie die Recherche und Verwaltung der Rechte und
-					Reproduktionen. Sie unterstützt auch das GHDI-Redaktionsprogramm und ist
-					Ansprechpartnerin für digitale Karten. Katja arbeitet auch an den Projekten <hi
-						rendition="#i">German History Intersections</hi> und <hi rendition="#i"
-						>Migrant Connections</hi> und ist Herausgeberin des <ref
-						target="https://href.hypotheses.org/">digitalen Geschichtsblogs href</ref>.
-				</p>
-			</div>
+            <div n="3">
+                <head>Katharina Hering</head>
+                <p> Bibliothekarin für digitale Projekte Katharina (Katja) Hering ist verantwortlich
+                    für das Sammlungsmanagement (Collective Access), die Entwicklung des
+                    zweisprachigen Thesaurus sowie die Recherche und Verwaltung der Rechte und
+                    Reproduktionen. Sie unterstützt auch das GHDI-Redaktionsprogramm und ist
+                    Ansprechpartnerin für digitale Karten. Katja arbeitet auch an den Projekten <hi
+                        rendition="#i">German History Intersections</hi> und <hi rendition="#i"
+                        >Migrant Connections</hi> und ist Herausgeberin des <ref
+                        target="https://href.hypotheses.org/">digitalen Geschichtsblogs href</ref>.
+                </p>
+            </div>
 
-			<div n="3">
-				<head>Simone Lässig</head>
-				<p> Die Direktorin des DHI Simone Lässig ist gleichzeitig Leiterin des Projekts. Sie
-					ist Kultur- und Sozialhistorikerin des neunzehnten und zwanzigsten Jahrhunderts.
-					Ihre Forschungsschwerpunkte sind Wissensgeschichte, Migration,
-					Erinnerungskulturen und Erinnerungspolitik, digitale Geschichte und
-					Bildungsmedien. </p>
-			</div>
+            <div n="3">
+                <head>Simone Lässig</head>
+                <p> Die Direktorin des DHI Simone Lässig ist gleichzeitig Leiterin des Projekts. Sie
+                    ist Kultur- und Sozialhistorikerin des neunzehnten und zwanzigsten Jahrhunderts.
+                    Ihre Forschungsschwerpunkte sind Wissensgeschichte, Migration,
+                    Erinnerungskulturen und Erinnerungspolitik, digitale Geschichte und
+                    Bildungsmedien. </p>
+            </div>
 
-			<div n="3">
-				<head>Insa Kummer</head>
-				<p> Insa Kummer ist seit Mai 2023 die GHDI-Projektmanagerin. Sie koordiniert das am
-					GHI ansässige Projektteam und arbeitet mit Sponsoren, Partnern,
-					Bandherausgebern, freien Mitarbeitern und anderen externen Mitarbeitern an allen
-					Aspekten des Redaktionsprogramms. Am DHI arbeitet Insa zudem als Co-Leiterin des
-					Projekts <hi rendition="#i">German History Intersections</hi>.</p>
-			</div>
+            <div n="3">
+                <head>Insa Kummer</head>
+                <p> Insa Kummer ist seit Mai 2023 die GHDI-Projektmanagerin. Sie koordiniert das am
+                    GHI ansässige Projektteam und arbeitet mit Sponsoren, Partnern,
+                    Bandherausgebern, freien Mitarbeitern und anderen externen Mitarbeitern an allen
+                    Aspekten des Redaktionsprogramms. Am DHI arbeitet Insa zudem als Co-Leiterin des
+                    Projekts <hi rendition="#i">German History Intersections</hi>.</p>
+            </div>
 
-			<div n="3">
-				<head>Elisabeth Mait</head>
-				<p> Elisabeth Mait unterstützte das Projekt durch die Erledigung diverser
-					Forschungsaufgaben, die Transkription handschriftlicher Dokumente und Fraktur
-					sowie die Digitalisierung von Quellen und deren Aufbereitung für die
-					TEI-Auszeichnung. </p>
-			</div>
+            <div n="3">
+                <head>Elisabeth Mait</head>
+                <p> Elisabeth Mait unterstützte das Projekt durch die Erledigung diverser
+                    Forschungsaufgaben, die Transkription handschriftlicher Dokumente und Fraktur
+                    sowie die Digitalisierung von Quellen und deren Aufbereitung für die
+                    TEI-Auszeichnung. </p>
+            </div>
 
-			<div n="3">
-				<head>Kelly McCullough</head>
-				<p> Kelly McCullough ist die Gründungsprojektmanagerin von GHDI. Sie leitete  das
-					am GHI ansässige Projektteam von 2003 bis April 2023. Sie ist außerdem
-					Co-Leiterin des Projekts <hi rendition="#i">German History Intersections</hi>
-					und betreut die Buchreihe des GHI bei Cambridge University Press. </p>
-			</div>
+            <div n="3">
+                <head>Kelly McCullough</head>
+                <p> Kelly McCullough ist die Gründungsprojektmanagerin von GHDI. Sie leitete  das
+                    am GHI ansässige Projektteam von 2003 bis April 2023. Sie ist außerdem
+                    Co-Leiterin des Projekts <hi rendition="#i">German History Intersections</hi>
+                    und betreut die Buchreihe des GHI bei Cambridge University Press. </p>
+            </div>
 
-			<div n="3">
-				<head>Josh Seale</head>
-				<p> Josh Seale war von 2021 bis 2022 Mitarbeiter des GHDI-Projekts. In dieser Zeit
-					unterstützte er das Redaktionsprogramm durch Lektorat, Korrekturlesung,
-					Übersetzung und Forschung. Außerdem digitalisierte er Textquellen und bereitete
-					sie für die TEI-Auszeichnung vor. </p>
-			</div>
-		</body>
-	</text>
+            <div n="3">
+                <head>Josh Seale</head>
+                <p> Josh Seale war von 2021 bis 2022 Mitarbeiter des GHDI-Projekts. In dieser Zeit
+                    unterstützte er das Redaktionsprogramm durch Lektorat, Korrekturlesung,
+                    Übersetzung und Forschung. Außerdem digitalisierte er Textquellen und bereitete
+                    sie für die TEI-Auszeichnung vor. </p>
+            </div>
+        </body>
+    </text>
 </TEI>
