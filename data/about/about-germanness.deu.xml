@@ -10,9 +10,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
                 </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
                     <idno type="DTAID">ghis:about-germanness</idno>
                     <idno type="DTADirName">deutschsein</idno>
                     <idno type="shelfmark">ghis/901:about-germanness</idno>
@@ -24,7 +26,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         </fileDesc>
         <profileDesc>
             <langUsage>
-                <language ident="deu">Deutsch</language>
+                <language ident="deu">German</language>
             </langUsage>
             <textClass>
                 <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
@@ -33,40 +35,61 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2">
-				<head>Winson Chu</head>
-				<figure facs="chu-winson.jpg" />
-				<p>
-					Winson Chu ist Associate Professor für Geschichte an der University of Wisconsin-Milwaukee. Er ist Autor des Buches <hi rendition="#i">German Minority in Interwar Poland</hi> (2012) sowie zahlreicher Buchkapitel und Artikel über deutsch-polnische Grenzgebiete sowie über Reichsgebiete, nationale Minderheiten und Diaspora in Mitteleuropa. Derzeit bereitet er eine Monographie über die Interaktionen zwischen Deutschen, Polen und Juden in Łódź von 1880 bis 2009 vor.
-				</p>
-				<p><ref target="https://uwm.edu/history/people/chu-winson/">uwm.edu/history/people/chu-winson/</ref></p>
-			</div>
+            <div n="2">
+                <head>Winson Chu</head>
+                <figure facs="chu-winson.jpg"/>
+                <p> Winson Chu ist Associate Professor für Geschichte an der University of
+                    Wisconsin-Milwaukee. Er ist Autor des Buches <hi rendition="#i">German Minority
+                        in Interwar Poland</hi> (2012) sowie zahlreicher Buchkapitel und Artikel
+                    über deutsch-polnische Grenzgebiete sowie über Reichsgebiete, nationale
+                    Minderheiten und Diaspora in Mitteleuropa. Derzeit bereitet er eine Monographie
+                    über die Interaktionen zwischen Deutschen, Polen und Juden in Łódź von 1880 bis
+                    2009 vor. </p>
+                <p><ref target="https://uwm.edu/history/people/chu-winson/"
+                        >uwm.edu/history/people/chu-winson/</ref></p>
+            </div>
 
-			<div n="2">
-				<head>Hannah Elmer</head>
-				<figure facs="elmer-hannah.jpg" />
-				<p>
-					Hannah Elmer ist Adjunct Professor für Geschichte am Baruch College. Ihre Arbeit konzentriert sich auf die Kultur-, Religions- und Geistesgeschichte des spätmittelalterlichen und frühneuzeitlichen Europas. Ihr besonderes Interesse gilt den Veränderungen der religiösen Kultur und den Vorstellungen über die natürliche Welt von 1200 bis 1550. Ihre Dissertation aus dem Jahr 2019 trägt den Titel <hi rendition="#i">Alive Enough: Reanimating the Dead in Central Europe, 1200-1545</hi>.
-				</p>
-			</div>
+            <div n="2">
+                <head>Hannah Elmer</head>
+                <figure facs="elmer-hannah.jpg"/>
+                <p> Hannah Elmer ist Adjunct Professor für Geschichte am Baruch College. Ihre Arbeit
+                    konzentriert sich auf die Kultur-, Religions- und Geistesgeschichte des
+                    spätmittelalterlichen und frühneuzeitlichen Europas. Ihr besonderes Interesse
+                    gilt den Veränderungen der religiösen Kultur und den Vorstellungen über die
+                    natürliche Welt von 1200 bis 1550. Ihre Dissertation aus dem Jahr 2019 trägt den
+                    Titel <hi rendition="#i">Alive Enough: Reanimating the Dead in Central Europe,
+                        1200-1545</hi>. </p>
+            </div>
 
-			<div n="2">
-				<head>Martina Kessel</head>
-				<figure facs="kessel-martina.jpg" />
-				<p>
-					Martina Kessel ist Professorin für Moderne Geschichte und Geschlechtergeschichte an der Universität Bielefeld. Sie ist Autorin der Monografien <hi rendition="#i">Gewalt und Gelächter. 'Deutschsein' 1914-1945</hi> (2019), <hi rendition="#i">Langeweile: zum Umgang mit Gefühlen und Zeit in Deutschland vom späten 18. bis zum frühen 20. Jahrhundert</hi> (2001), und <hi rendition="#i">Westeuropa und die deutsche Teilung. Englische und französische Deutschlandpolitik auf den Außenministerkonferenzen 1945-1947</hi> (1989).
-				</p>
-				<p><ref target="https://wwwhomes.uni-bielefeld.de/mkessel/">wwwhomes.uni-bielefeld.de/mkessel/</ref></p>
-			</div>
+            <div n="2">
+                <head>Martina Kessel</head>
+                <figure facs="kessel-martina.jpg"/>
+                <p> Martina Kessel ist Professorin für Moderne Geschichte und Geschlechtergeschichte
+                    an der Universität Bielefeld. Sie ist Autorin der Monografien <hi rendition="#i"
+                        >Gewalt und Gelächter. 'Deutschsein' 1914-1945</hi> (2019), <hi
+                        rendition="#i">Langeweile: zum Umgang mit Gefühlen und Zeit in Deutschland
+                        vom späten 18. bis zum frühen 20. Jahrhundert</hi> (2001), und <hi
+                        rendition="#i">Westeuropa und die deutsche Teilung. Englische und
+                        französische Deutschlandpolitik auf den Außenministerkonferenzen
+                        1945-1947</hi> (1989). </p>
+                <p><ref target="https://wwwhomes.uni-bielefeld.de/mkessel/"
+                        >wwwhomes.uni-bielefeld.de/mkessel/</ref></p>
+            </div>
 
-			<div n="2">
-				<head>Eva Marie Lehner</head>
-				<figure facs="lehner-eva-marie.jpg" />
-				<p>
-					Eva Marie Lehner ist Wissenschaftliche Mitarbeiterin am Bonn Center for Dependency and Slavery Studies der Universität Bonn. Als Historikerin der Frühen Neuzeit hat sie sich auf die Geschichte des Körpers, des Geschlechts und der Sexualität, die historische Anthropologie, die Identität und kirchliche Verzeichnungsprozesse spezialisiert. Ihre jüngsten Publikationen und Vorträge beziehen sich auf ihr aktuelles Forschungsprojekt zu süddeutschen Kirchenbüchern im 16. und 17. Jahrhundert.
-				</p>
-				<p><ref target="https://www.dependency.uni-bonn.de/en/people/postdoctoral-researchers/dr-eva-marie-lehner">www.dependency.uni-bonn.de/en/people/postdoctoral-researchers/dr-eva-marie-lehner</ref></p>
-			</div>
-		</body>
+            <div n="2">
+                <head>Eva Marie Lehner</head>
+                <figure facs="lehner-eva-marie.jpg"/>
+                <p> Eva Marie Lehner ist Wissenschaftliche Mitarbeiterin am Bonn Center for
+                    Dependency and Slavery Studies der Universität Bonn. Als Historikerin der Frühen
+                    Neuzeit hat sie sich auf die Geschichte des Körpers, des Geschlechts und der
+                    Sexualität, die historische Anthropologie, die Identität und kirchliche
+                    Verzeichnungsprozesse spezialisiert. Ihre jüngsten Publikationen und Vorträge
+                    beziehen sich auf ihr aktuelles Forschungsprojekt zu süddeutschen Kirchenbüchern
+                    im 16. und 17. Jahrhundert. </p>
+                <p><ref
+                        target="https://www.dependency.uni-bonn.de/en/people/postdoctoral-researchers/dr-eva-marie-lehner"
+                        >www.dependency.uni-bonn.de/en/people/postdoctoral-researchers/dr-eva-marie-lehner</ref></p>
+            </div>
+        </body>
     </text>
 </TEI>

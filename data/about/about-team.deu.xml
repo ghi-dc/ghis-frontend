@@ -10,9 +10,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
                 </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
                     <idno type="DTAID">ghis:about-team</idno>
                     <idno type="DTADirName">team</idno>
                     <idno type="shelfmark">ghis/901:about-team</idno>
@@ -33,78 +35,94 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2">				
-				<p>
-					<hi rendition="#i">German History Intersections</hi> 
-					ist das Ergebnis einer engen Zusammenarbeit zwischen den drei <ref target="arbeitsgruppen">Arbeitsgruppen</ref> und dem Projektteam am DHI, dessen Mitglieder im Folgenden vorgestellt werden.
-				</p>
-			</div>
+            <div n="2">
+                <p>
+                    <hi rendition="#i">German History Intersections</hi> ist das Ergebnis einer
+                    engen Zusammenarbeit zwischen den drei <ref target="arbeitsgruppen"
+                        >Arbeitsgruppen</ref> und dem Projektteam am DHI, dessen Mitglieder im
+                    Folgenden vorgestellt werden. </p>
+            </div>
 
-			<div n="3">
-				<head>Daniel Burckhardt</head>
-				<p>
-					Unser technischer Entwickler Daniel Burckhardt entwarf das Backend von <hi rendition="#i">Intersections</hi>, integrierte die Suchmaschine, implementierte die Präsentationsschicht und entwickelte das TEI-Schema. Am DHI arbeitet Daniel Burckhardt außerdem an den Projekten <hi rendition="#i">Deutsche Geschichte in Dokumenten und Bildern</hi> und an <hi rendition="#i">Migrant Connections</hi> sowie an allen anderen digitalen Initiativen, einschließlich der jährlichen Konferenz zur digitalen Geschichte.
-				</p>
-			</div>
+            <div n="3">
+                <head>Daniel Burckhardt</head>
+                <p> Unser technischer Entwickler Daniel Burckhardt entwarf das Backend von <hi
+                        rendition="#i">Intersections</hi>, integrierte die Suchmaschine,
+                    implementierte die Präsentationsschicht und entwickelte das TEI-Schema. Am DHI
+                    arbeitet Daniel Burckhardt außerdem an den Projekten <hi rendition="#i">Deutsche
+                        Geschichte in Dokumenten und Bildern</hi> und an <hi rendition="#i">Migrant
+                        Connections</hi> sowie an allen anderen digitalen Initiativen,
+                    einschließlich der jährlichen Konferenz zur digitalen Geschichte. </p>
+            </div>
 
-			<div n="3">
-				<head>Katharina Hering</head>
-				<p>
-					Unsere Bibliothekarin für digitale Projekte Katharina (Katja) Hering ist verantwortlich für das Sammlungsmanagement (Collective Access), die Entwicklung des zweisprachigen Thesaurus sowie die Recherche und Verwaltung der Rechte und Reproduktionen. Außerdem unterstützt sie das Redaktionsprogramm von <hi rendition="#i">Intersections</hi> durch Quellenrecherche und andere Aufgaben. Katja arbeitet auch an den Projekten <hi rendition="#i">Deutsche Geschichte in Dokumenten und Bildern</hi> und <hi rendition="#i">Migrant Connections</hi> und ist Mitherausgeberin des <ref target="https://href.hypotheses.org/">digitalen Geschichtsblogs href</ref>.
-				</p>
-			</div>
+            <div n="3">
+                <head>Katharina Hering</head>
+                <p> Unsere Bibliothekarin für digitale Projekte Katharina (Katja) Hering ist
+                    verantwortlich für das Sammlungsmanagement (Collective Access), die Entwicklung
+                    des zweisprachigen Thesaurus sowie die Recherche und Verwaltung der Rechte und
+                    Reproduktionen. Außerdem unterstützt sie das Redaktionsprogramm von <hi
+                        rendition="#i">Intersections</hi> durch Quellenrecherche und andere
+                    Aufgaben. Katja arbeitet auch an den Projekten <hi rendition="#i">Deutsche
+                        Geschichte in Dokumenten und Bildern</hi> und <hi rendition="#i">Migrant
+                        Connections</hi> und ist Mitherausgeberin des <ref
+                        target="https://href.hypotheses.org/">digitalen Geschichtsblogs href</ref>.
+                </p>
+            </div>
 
-			<div n="3">
-				<head>Simone Lässig</head>
-				<p>
-					Die Direktorin des DHI Simone Lässig ist gleichzeitig Gründerin und Leiterin des Projekts <hi rendition="#i">German History Intersections</hi>. Sie ist Kultur- und Sozialhistorikerin des neunzehnten und zwanzigsten Jahrhunderts. Ihre Forschung konzentriert sich auf zentrale Themen des Projekts Intersections, nämlich Wissensgeschichte, Migration, Erinnerungskulturen und Erinnerungspolitik, digitale Geschichte und Bildungsmedien.
-				</p>
-			</div>
+            <div n="3">
+                <head>Simone Lässig</head>
+                <p> Die Direktorin des DHI Simone Lässig ist gleichzeitig Gründerin und Leiterin des
+                    Projekts <hi rendition="#i">German History Intersections</hi>. Sie ist Kultur-
+                    und Sozialhistorikerin des neunzehnten und zwanzigsten Jahrhunderts. Ihre
+                    Forschung konzentriert sich auf zentrale Themen des Projekts Intersections,
+                    nämlich Wissensgeschichte, Migration, Erinnerungskulturen und
+                    Erinnerungspolitik, digitale Geschichte und Bildungsmedien. </p>
+            </div>
 
-			<div n="3">
-				<head>Insa Kummer</head>
-				<p>
-					Insa Kummer ist eine der beiden Projektleiterinnen von <hi rendition="#i">Intersections</hi> und für die redaktionelle Arbeit am Modul Migration und für die Förderungsberichte verantwortlich. Im Rahmen des Projekts trägt sie durch Recherche, Übersetzung, Bearbeitung und Lektorat von Quellen zum gesamten Redaktionsprogramm bei. Am GHI arbeitet Insa außerdem am Projekt <hi rendition="#i">Deutsche Geschichte in Dokumenten und Bildern </hi> und ist Mitherausgeberin des <ref target="https://www.ghi-dc.org/publications/ghi-bulletin.html?L=0">GHI Bulletin</ref>.
-				</p>
-			</div>
+            <div n="3">
+                <head>Insa Kummer</head>
+                <p> Insa Kummer ist eine der beiden Projektleiterinnen von <hi rendition="#i"
+                        >Intersections</hi> und für die redaktionelle Arbeit am Modul Migration und
+                    für die Förderungsberichte verantwortlich. Im Rahmen des Projekts trägt sie
+                    durch Recherche, Übersetzung, Bearbeitung und Lektorat von Quellen zum gesamten
+                    Redaktionsprogramm bei. Am GHI arbeitet Insa außerdem am Projekt <hi
+                        rendition="#i">Deutsche Geschichte in Dokumenten und Bildern </hi> und ist
+                    Mitherausgeberin des <ref
+                        target="https://www.ghi-dc.org/publications/ghi-bulletin.html?L=0">GHI
+                        Bulletin</ref>. </p>
+            </div>
 
-			<div n="3">
-				<head>Elisabeth Mait</head>
-				<p>
-					Unsere wissenschaftliche Assistentin Elisabeth Mait unterstützt das <hi rendition="#i">Intersections-Projekt</hi> in vielerlei Hinsicht: durch die Erledigung diverser Forschungsaufgaben, die Durchführung von Metadaten-Recherchen, die Transkription handschriftlicher Dokumente und Fraktur sowie die Digitalisierung von Quellen und deren Aufbereitung für die TEI-Auszeichnung. Elisabeth arbeitet auch am Projekt <hi rendition="#i">Deutsche Geschichte in Dokumenten und Bildern</hi>.
-				</p>
-			</div>
+            <div n="3">
+                <head>Elisabeth Mait</head>
+                <p> Unsere wissenschaftliche Assistentin Elisabeth Mait unterstützt das <hi
+                        rendition="#i">Intersections-Projekt</hi> in vielerlei Hinsicht: durch die
+                    Erledigung diverser Forschungsaufgaben, die Durchführung von
+                    Metadaten-Recherchen, die Transkription handschriftlicher Dokumente und Fraktur
+                    sowie die Digitalisierung von Quellen und deren Aufbereitung für die
+                    TEI-Auszeichnung. Elisabeth arbeitet auch am Projekt <hi rendition="#i">Deutsche
+                        Geschichte in Dokumenten und Bildern</hi>. </p>
+            </div>
 
-			<div n="3">
-				<head>Kelly McCullough</head>
-				<p>
-					Kelly McCullough ist eine der beiden Projektleiterinnen von <hi rendition="#i">Intersections</hi> und koordiniert die redaktionelle Arbeit an den Modulen Deutschsein und Wissen und Bildung. Sie kümmert sich um Verträge und Öffentlichkeitsarbeit sowie um die Übersetzung und das Lektorat der Quellen. Kelly leitet außerdem das Projekt <hi rendition="#i">Deutsche Geschichte in Dokumenten und Bildern</hi> und ist Mitherausgeberin des Blogs <ref target="https://href.hypotheses.org/">href</ref>.
-				</p>
-			</div>
+            <div n="3">
+                <head>Kelly McCullough</head>
+                <p> Kelly McCullough ist eine der beiden Projektleiterinnen von <hi rendition="#i"
+                        >Intersections</hi> und koordiniert die redaktionelle Arbeit an den Modulen
+                    Deutschsein und Wissen und Bildung. Sie kümmert sich um Verträge und
+                    Öffentlichkeitsarbeit sowie um die Übersetzung und das Lektorat der Quellen.
+                    Kelly leitet außerdem das Projekt <hi rendition="#i">Deutsche Geschichte in
+                        Dokumenten und Bildern</hi> und ist Mitherausgeberin des Blogs <ref
+                        target="https://href.hypotheses.org/">href</ref>. </p>
+            </div>
 
-			<div n="3">
-				<head>Praktikantinnen und Praktikanten</head>
-				<p>
-					Die Mitarbeiter des DHI-Projektteams sind dankbar für die Unterstützung der folgenden studentischen Praktikanten, die einen besonders wichtigen Beitrag zum Intersections-Projekt geleistet haben:
-				</p>
-				<p>
-					Isabella Auerbach<lb />
-					Krista Bolton<lb />
-					Hanna Bosse<lb />
-					Chris Buchholz<lb />
-					Ashley Gonik<lb />
-					Daniel Graham<lb />
-					Milena Kagel<lb />
-					Sandra Kastenbauer<lb />
-					Sarah Maurer<lb />
-					Madeleine Miller<lb />
-					Laura Maria Niewoehner<lb />
-					Katharina Weygoldt<lb />
-					Alexandra Witte<lb />
-					Emily Woessner<lb />
-					Thorsten Zachary
-				</p>
-			</div>
-		</body>
+            <div n="3">
+                <head>Praktikantinnen und Praktikanten</head>
+                <p> Die Mitarbeiter des DHI-Projektteams sind dankbar für die Unterstützung der
+                    folgenden studentischen Praktikanten, die einen besonders wichtigen Beitrag zum
+                    Intersections-Projekt geleistet haben: </p>
+                <p> Isabella Auerbach<lb/> Krista Bolton<lb/> Hanna Bosse<lb/> Chris Buchholz<lb/>
+                    Ashley Gonik<lb/> Daniel Graham<lb/> Milena Kagel<lb/> Sandra Kastenbauer<lb/>
+                    Sarah Maurer<lb/> Madeleine Miller<lb/> Laura Maria Niewoehner<lb/> Katharina
+                    Weygoldt<lb/> Alexandra Witte<lb/> Emily Woessner<lb/> Thorsten Zachary </p>
+            </div>
+        </body>
     </text>
 </TEI>

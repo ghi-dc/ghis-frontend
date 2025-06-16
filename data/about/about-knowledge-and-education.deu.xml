@@ -10,9 +10,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
                 </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
                     <idno type="DTAID">ghis:about-knowledge-and-education</idno>
                     <idno type="DTADirName">wissen-und-bildung</idno>
                     <idno type="shelfmark">ghis/901:about-knowledge-and-education</idno>
@@ -33,42 +35,71 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2">
-				<head>Anne Mariss</head>
-				<figure facs="mariss-anne.jpg" />
-				<p>
-					Anne Mariss ist Akademische Rätin a.Z. am Lehrstuhl für Neuere Geschichte an der Universität Regensburg und Autorin der Monografie <hi rendition="#i">»A World of New Things«. Praktiken der Naturgeschichte bei Johann Reinhold Forster</hi> (2015) [Englisch: <hi rendition="#i">Johann Reinhold Forster and the Making of Natural History on Cook's Second Voyage, 1772-1775</hi> (2019)]. Ihre Forschung befasst sich mit Wissenschafts- und Wissensgeschichte, europäischer Expansion, sowie materieller Kultur aus globaler Perspektive. Ihr aktuelles Forschungsprojekt untersucht die komplexe und vielschichtige Bedeutung des Rosenkranzes als Objekt katholischer Frömmigkeit.
-				</p>
-				<p><ref target="https://www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/neuere-geschichte/dr-anne-mariss/index.html">www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/neuere-geschichte/dr-anne-mariss/index.html</ref></p>
-			</div>
+            <div n="2">
+                <head>Anne Mariss</head>
+                <figure facs="mariss-anne.jpg"/>
+                <p> Anne Mariss ist Akademische Rätin a.Z. am Lehrstuhl für Neuere Geschichte an der
+                    Universität Regensburg und Autorin der Monografie <hi rendition="#i">»A World of
+                        New Things«. Praktiken der Naturgeschichte bei Johann Reinhold Forster</hi>
+                    (2015) [Englisch: <hi rendition="#i">Johann Reinhold Forster and the Making of
+                        Natural History on Cook's Second Voyage, 1772-1775</hi> (2019)]. Ihre
+                    Forschung befasst sich mit Wissenschafts- und Wissensgeschichte, europäischer
+                    Expansion, sowie materieller Kultur aus globaler Perspektive. Ihr aktuelles
+                    Forschungsprojekt untersucht die komplexe und vielschichtige Bedeutung des
+                    Rosenkranzes als Objekt katholischer Frömmigkeit. </p>
+                <p><ref
+                        target="https://www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/neuere-geschichte/dr-anne-mariss/index.html"
+                        >www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/neuere-geschichte/dr-anne-mariss/index.html</ref></p>
+            </div>
 
-			<div n="2">
-				<head>Christopher Neumaier</head>
-				<figure facs="neumaier-christopher.jpg" />
-				<p>
-					Christopher Neumaier ist Wissenschaftlicher Mitarbeiter am Leibniz-Zentrum für Zeithistorische Forschung Potsdam und Vertreter der Professur für Neuere Sozial-, Wirtschafts- und Technikgeschichte an der Helmut-Schmidt-Universität Hamburg. Er ist Autor der Monografien <hi rendition="#i">Familie im 20. Jahrhundert. Konflikte um Ideale, Politiken und Praktiken</hi> (2019) und <hi rendition="#i">Dieselautos in Deutschland und den USA. Zum Verhältnis von Technologie, Konsum und Politik, 1949-2005</hi> (2010). Sein aktuelles Forschungsprojekt: Leistungsfähigkeit und Belastungsgrenzen beschäftigt sich mit (digitalem) Produktdesign und sich wandelnden Arbeitsanforderungen in der Hightech-Industrie seit den 1970er-Jahren.
-				</p>
-				<p><ref target="https://zzf-potsdam.de/de/mitarbeiter/christopher-neumaier">zzf-potsdam.de/de/mitarbeiter/christopher-neumaier</ref></p>
-			</div>
+            <div n="2">
+                <head>Christopher Neumaier</head>
+                <figure facs="neumaier-christopher.jpg"/>
+                <p> Christopher Neumaier ist Wissenschaftlicher Mitarbeiter am Leibniz-Zentrum für
+                    Zeithistorische Forschung Potsdam und Vertreter der Professur für Neuere
+                    Sozial-, Wirtschafts- und Technikgeschichte an der Helmut-Schmidt-Universität
+                    Hamburg. Er ist Autor der Monografien <hi rendition="#i">Familie im 20.
+                        Jahrhundert. Konflikte um Ideale, Politiken und Praktiken</hi> (2019) und
+                        <hi rendition="#i">Dieselautos in Deutschland und den USA. Zum Verhältnis
+                        von Technologie, Konsum und Politik, 1949-2005</hi> (2010). Sein aktuelles
+                    Forschungsprojekt: Leistungsfähigkeit und Belastungsgrenzen beschäftigt sich mit
+                    (digitalem) Produktdesign und sich wandelnden Arbeitsanforderungen in der
+                    Hightech-Industrie seit den 1970er-Jahren. </p>
+                <p><ref target="https://zzf-potsdam.de/de/mitarbeiter/christopher-neumaier"
+                        >zzf-potsdam.de/de/mitarbeiter/christopher-neumaier</ref></p>
+            </div>
 
-			<div n="2">
-				<head>Michael Printy</head>
-				<figure facs="printy-michael.jpg" />
-				<p>
-					Michael Printy ist Leiter der Humanities Group und Bibliothekar für westeuropäische Geisteswissenschaften an der Sterling Memorial Library, Yale University. Der ausgebildete Historiker hat sich auf deutsche und europäische Geistes- und Religionsgeschichte von der Reformation bis zur Aufklärung spezialisiert. Er verfasste die Monografie <hi rendition="#i">Enlightenment and the Creation of German Catholicism</hi> (2009) und Mitherausgeber der Publikation <hi rendition="#i">A Companion to the Catholic Enlightenment in Europe</hi> (2010).
-				</p>
-				<p><ref target="https://web.library.yale.edu/sd/staff/2197">web.library.yale.edu/sd/staff/2197</ref></p>
-			</div>
+            <div n="2">
+                <head>Michael Printy</head>
+                <figure facs="printy-michael.jpg"/>
+                <p> Michael Printy ist Leiter der Humanities Group und Bibliothekar für
+                    westeuropäische Geisteswissenschaften an der Sterling Memorial Library, Yale
+                    University. Der ausgebildete Historiker hat sich auf deutsche und europäische
+                    Geistes- und Religionsgeschichte von der Reformation bis zur Aufklärung
+                    spezialisiert. Er verfasste die Monografie <hi rendition="#i">Enlightenment and
+                        the Creation of German Catholicism</hi> (2009) und Mitherausgeber der
+                    Publikation <hi rendition="#i">A Companion to the Catholic Enlightenment in
+                        Europe</hi> (2010). </p>
+                <p><ref target="https://web.library.yale.edu/sd/staff/2197"
+                        >web.library.yale.edu/sd/staff/2197</ref></p>
+            </div>
 
-			<div n="2">
-				<head>Jeffrey Zalar</head>
-				<figure facs="zalar-jeffrey.jpg" />
-				<p>
-					Jeffrey Zalar ist Associate Professor für Geschichte und Inhaber des Ruth J. und Robert A. Conway Stiftungslehrstuhls für katholische Studien an der University of Cincinnati. Er ist der Autor der Monografie <hi rendition="#i">Reading and Rebellion in Catholic Germany, 1770-1914</hi> (2019) sowie zahlreicher Buchkapitel und Artikel über religiöse und intellektuelle Kultur im langen neunzehnten Jahrhundert. Sein aktuelles Forschungsprojekt untersucht die Beziehung zwischen Katholiken und Naturwissenschaft in Deutschland von 1830 bis 1914.
-				</p>
-				<p><ref target="https://www.artsci.uc.edu/departments/history/undergrad/catholic-studies.html">www.artsci.uc.edu/departments/history/undergrad/catholic-studies.html</ref>
-				</p>
-			</div>
-		</body>
+            <div n="2">
+                <head>Jeffrey Zalar</head>
+                <figure facs="zalar-jeffrey.jpg"/>
+                <p> Jeffrey Zalar ist Associate Professor für Geschichte und Inhaber des Ruth J. und
+                    Robert A. Conway Stiftungslehrstuhls für katholische Studien an der University
+                    of Cincinnati. Er ist der Autor der Monografie <hi rendition="#i">Reading and
+                        Rebellion in Catholic Germany, 1770-1914</hi> (2019) sowie zahlreicher
+                    Buchkapitel und Artikel über religiöse und intellektuelle Kultur im langen
+                    neunzehnten Jahrhundert. Sein aktuelles Forschungsprojekt untersucht die
+                    Beziehung zwischen Katholiken und Naturwissenschaft in Deutschland von 1830 bis
+                    1914. </p>
+                <p><ref
+                        target="https://www.artsci.uc.edu/departments/history/undergrad/catholic-studies.html"
+                        >www.artsci.uc.edu/departments/history/undergrad/catholic-studies.html</ref>
+                </p>
+            </div>
+        </body>
     </text>
 </TEI>

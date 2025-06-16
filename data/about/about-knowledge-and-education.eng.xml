@@ -3,72 +3,97 @@
 type="application/xml"
 schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title type="main">Knowledge and Education</title>
-            </titleStmt>
-            <publicationStmt>
-                <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
-                </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
-                    <idno type="DTAID">ghis:about-knowledge-and-education</idno>
-                    <idno type="DTADirName">knowledge-and-education</idno>
-                    <idno type="shelfmark">ghis/901:about-knowledge-and-education</idno>
-                </idno>
-            </publicationStmt>
-            <sourceDesc>
-                <p/>
-            </sourceDesc>
-        </fileDesc>
-        <profileDesc>
-            <langUsage>
-                <language ident="eng">English</language>
-            </langUsage>
-            <textClass>
-                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
-            </textClass>
-        </profileDesc>
-    </teiHeader>
-    <text>
-        <body>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title type="main">Knowledge and Education</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>
+					<orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+						Washington</orgName>
+				</publisher>
+				<pubPlace>Washington, D.C.</pubPlace>
+				<idno>
+					<idno type="DTAID">ghis:about-knowledge-and-education</idno>
+					<idno type="DTADirName">knowledge-and-education</idno>
+					<idno type="shelfmark">ghis/901:about-knowledge-and-education</idno>
+				</idno>
+			</publicationStmt>
+			<sourceDesc>
+				<p/>
+			</sourceDesc>
+		</fileDesc>
+		<profileDesc>
+			<langUsage>
+				<language ident="eng">English</language>
+			</langUsage>
+			<textClass>
+				<classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+			</textClass>
+		</profileDesc>
+	</teiHeader>
+	<text>
+		<body>
 			<div n="2">
 				<head>Anne Mariss</head>
-				<figure facs="mariss-anne.jpg" />
-				<p>
-					Anne Mariss is Assistant Professor of Early Modern History at the University of Regensburg and the author of <hi rendition="#i">Johann Reinhold Forster and the Making of Natural History on Cook's Second Voyage, 1772-1775</hi> (2019). Her work focusses on the history of science and knowledge, European expansion, and material culture from a global perspective. Her current project examines the complex and multifaceted meaning of the rosary as an object of Catholic piety.
-				</p>
-				<p><ref target="https://www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/neuere-geschichte/dr-anne-mariss/index.html">www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/neuere-geschichte/dr-anne-mariss/index.html</ref></p>
+				<figure facs="mariss-anne.jpg"/>
+				<p> Anne Mariss is Assistant Professor of Early Modern History at the University of
+					Regensburg and the author of <hi rendition="#i">Johann Reinhold Forster and the
+						Making of Natural History on Cook's Second Voyage, 1772-1775</hi> (2019).
+					Her work focusses on the history of science and knowledge, European expansion,
+					and material culture from a global perspective. Her current project examines the
+					complex and multifaceted meaning of the rosary as an object of Catholic piety. </p>
+				<p><ref
+						target="https://www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/neuere-geschichte/dr-anne-mariss/index.html"
+						>www.uni-regensburg.de/philosophie-kunst-geschichte-gesellschaft/neuere-geschichte/dr-anne-mariss/index.html</ref></p>
 			</div>
 
 			<div n="2">
 				<head>Christopher Neumaier</head>
-				<figure facs="neumaier-christopher.jpg" />
-				<p>
-					Christopher Neumaier is a Research Fellow at the Leibniz Center for Contemporary History, Potsdam, and is currently Visiting Professor for Modern Economic and Social History and the History of Technology at Helmut Schmidt University. He is the author of two books, <hi rendition="#i">Familie im 20. Jahrhundert. Konflikte um Ideale, Politiken und Praktiken</hi> (2019) and <hi rendition="#i">Dieselautos in Deutschland und den USA. Zum Verhältnis von Technologie, Konsum und Politik, 1949-2005</hi> (2010). He is currently researching the effects of digital product design on workplace demands in the high-tech industry from the 1970s to the present.
-				</p>
-				<p><ref target="https://zzf-potsdam.de/en/mitarbeiter/christopher-neumaier">zzf-potsdam.de/en/mitarbeiter/christopher-neumaier</ref></p>
+				<figure facs="neumaier-christopher.jpg"/>
+				<p> Christopher Neumaier is a Research Fellow at the Leibniz Center for Contemporary
+					History, Potsdam, and is currently Visiting Professor for Modern Economic and
+					Social History and the History of Technology at Helmut Schmidt University. He is
+					the author of two books, <hi rendition="#i">Familie im 20. Jahrhundert.
+						Konflikte um Ideale, Politiken und Praktiken</hi> (2019) and <hi
+						rendition="#i">Dieselautos in Deutschland und den USA. Zum Verhältnis von
+						Technologie, Konsum und Politik, 1949-2005</hi> (2010). He is currently
+					researching the effects of digital product design on workplace demands in the
+					high-tech industry from the 1970s to the present. </p>
+				<p><ref target="https://zzf-potsdam.de/en/mitarbeiter/christopher-neumaier"
+						>zzf-potsdam.de/en/mitarbeiter/christopher-neumaier</ref></p>
 			</div>
 
 			<div n="2">
 				<head>Michael Printy</head>
-				<figure facs="printy-michael.jpg" />
-				<p>
-					Michael Printy is Head of the Humanities Group and Librarian for Western European Humanities at Sterling Memorial Library, Yale University. A historian by training, he specializes in German and European intellectual and religious history from the Reformation to the Enlightenment. He is the author of the <hi rendition="#i">Enlightenment and the Creation of German Catholicism</hi> (2009) and the co-editor of <hi rendition="#i">A Companion to the Catholic Enlightenment in Europe</hi> (2010).
-				</p>
-				<p><ref target="https://web.library.yale.edu/sd/staff/2197">web.library.yale.edu/sd/staff/2197</ref></p>
+				<figure facs="printy-michael.jpg"/>
+				<p> Michael Printy is Head of the Humanities Group and Librarian for Western
+					European Humanities at Sterling Memorial Library, Yale University. A historian
+					by training, he specializes in German and European intellectual and religious
+					history from the Reformation to the Enlightenment. He is the author of the <hi
+						rendition="#i">Enlightenment and the Creation of German Catholicism</hi>
+					(2009) and the co-editor of <hi rendition="#i">A Companion to the Catholic
+						Enlightenment in Europe</hi> (2010). </p>
+				<p><ref target="https://web.library.yale.edu/sd/staff/2197"
+						>web.library.yale.edu/sd/staff/2197</ref></p>
 			</div>
 
 			<div n="2">
 				<head>Jeffrey Zalar</head>
-				<figure facs="zalar-jeffrey.jpg" />
-				<p>
-					Jeffrey Zalar is Associate Professor of History and Ruth J. and Robert A. Conway Endowed Chair in Catholic Studies at the University of Cincinnati. He is the author of <hi rendition="#i">Reading and Rebellion in Catholic Germany, 1770-1914</hi> (2019) as well as many book chapters and articles on religious and intellectual culture in the long nineteenth century. His current research project examines the relationship between Catholics and natural science in Germany from 1830 to 1914.
-				</p>
-				<p><ref target="https://www.artsci.uc.edu/departments/history/undergrad/catholic-studies.html">www.artsci.uc.edu/departments/history/undergrad/catholic-studies.html</ref>
+				<figure facs="zalar-jeffrey.jpg"/>
+				<p> Jeffrey Zalar is Associate Professor of History and Ruth J. and Robert A. Conway
+					Endowed Chair in Catholic Studies at the University of Cincinnati. He is the
+					author of <hi rendition="#i">Reading and Rebellion in Catholic Germany,
+						1770-1914</hi> (2019) as well as many book chapters and articles on
+					religious and intellectual culture in the long nineteenth century. His current
+					research project examines the relationship between Catholics and natural science
+					in Germany from 1830 to 1914. </p>
+				<p><ref
+						target="https://www.artsci.uc.edu/departments/history/undergrad/catholic-studies.html"
+						>www.artsci.uc.edu/departments/history/undergrad/catholic-studies.html</ref>
 				</p>
 			</div>
 		</body>
-    </text>
+	</text>
 </TEI>

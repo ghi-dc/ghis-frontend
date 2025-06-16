@@ -10,9 +10,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
                 </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
                     <idno type="DTAID">ghis:about</idno>
                     <idno type="DTADirName">about</idno>
                     <idno type="shelfmark">ghis/900:about</idno>
@@ -33,37 +35,55 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2" id="overview">				
-				<p>
-					<hi rendition="#i">German History Intersections</hi> is a source-based digital project that examines three broad topics – migration, knowledge and education, and Germanness – from 1500 to the present. By charting these topics across centuries, the project offers an alternative to traditional histories that focus on discrete historical periods. Taking a long view allows the project to better illustrate the interconnectedness of the chosen topics – migration, knowledge and education, and Germanness, it is clear, do not follow parallel or independent paths over the course of modern German history, but rather intersect at frequent points and in multiple ways. Organized by the German Historical Institute, Washington, DC, with significant support from the Transatlantic Program of the European Recovery Program (German Federal Ministry of Economics and Energy), the project is completely bilingual (English/German) and is geared toward North American, German, and global audiences. 
-				</p>
-			</div>
-			
-			<div n="2" id="modules-and-sources">
-			    <head>Modules and Sources </head>
-				<p>
-					The project uses digital media to bring together diverse historical sources in thought-provoking new ways. In terms of basic framework, the project is divided into three modules (migration, knowledge and education, and Germanness), each of which begins with an essay-length introduction to the given topic. Furthermore, each module includes approximately 100 primary-source documents in their original language (typically German) and in English translation, approximately 100 high-resolution images, and a small selection of audiovisual materials. All individual sources are accompanied by brief introductory texts and are tagged with keywords that highlight connections between modules.   
-				</p>
-			</div>
+            <div n="2" id="overview">
+                <p>
+                    <hi rendition="#i">German History Intersections</hi> is a source-based digital
+                    project that examines three broad topics – migration, knowledge and education,
+                    and Germanness – from 1500 to the present. By charting these topics across
+                    centuries, the project offers an alternative to traditional histories that focus
+                    on discrete historical periods. Taking a long view allows the project to better
+                    illustrate the interconnectedness of the chosen topics – migration, knowledge
+                    and education, and Germanness, it is clear, do not follow parallel or
+                    independent paths over the course of modern German history, but rather intersect
+                    at frequent points and in multiple ways. Organized by the German Historical
+                    Institute, Washington, DC, with significant support from the Transatlantic
+                    Program of the European Recovery Program (German Federal Ministry of Economics
+                    and Energy), the project is completely bilingual (English/German) and is geared
+                    toward North American, German, and global audiences. </p>
+            </div>
 
-			<div n="2" id="platform">
+            <div n="2" id="modules-and-sources">
+                <head>Modules and Sources </head>
+                <p> The project uses digital media to bring together diverse historical sources in
+                    thought-provoking new ways. In terms of basic framework, the project is divided
+                    into three modules (migration, knowledge and education, and Germanness), each of
+                    which begins with an essay-length introduction to the given topic. Furthermore,
+                    each module includes approximately 100 primary-source documents in their
+                    original language (typically German) and in English translation, approximately
+                    100 high-resolution images, and a small selection of audiovisual materials. All
+                    individual sources are accompanied by brief introductory texts and are tagged
+                    with keywords that highlight connections between modules. </p>
+            </div>
+
+            <div n="2" id="platform">
                 <head>Digital Platform and Design</head>
                 <p>
                     <hi rendition="#i">German History Intersections</hi> features a responsive,
-                    user-friendly interface designed by <ref target="https://www.buero-edelweiss.de/">edelweiss* büro für
-                        grafik und design</ref>
-                    (Hamburg). The backend is based on the integration of <ref target="https://exist-db.org/">eXist-db</ref>, an open-source
-                    XML-database, with <ref target="https://www.collectiveaccess.org/">CollectiveAccess</ref>, an open-source collection management
-                    system. A <ref
-                        target="https://solr.apache.org/">Solr search engine</ref> offers optimal search and navigational
-                    functionality. The source code is published on <ref
-                    target="https://github.com/ghi-dc">GitHub</ref> under a free license.
+                    user-friendly interface designed by <ref
+                        target="https://www.buero-edelweiss.de/">edelweiss* büro für grafik und
+                        design</ref> (Hamburg). The backend is based on the integration of <ref
+                        target="https://exist-db.org/">eXist-db</ref>, an open-source XML-database,
+                    with <ref target="https://www.collectiveaccess.org/">CollectiveAccess</ref>, an
+                    open-source collection management system. A <ref
+                        target="https://solr.apache.org/">Solr search engine</ref> offers optimal
+                    search and navigational functionality. The source code is published on <ref
+                        target="https://github.com/ghi-dc">GitHub</ref> under a free license.
                     Standardized administrative, descriptive and technical metadata, including
                     granular source and rights information, enhances discoverability and supports
                     long-term digital stewardship. The use of standard format such as TEI P5 (for
                     primary-source texts and translations) and DOI (persistent identifications)
                     further supports access and digital preservation. </p>
             </div>
-		</body>
+        </body>
     </text>
 </TEI>

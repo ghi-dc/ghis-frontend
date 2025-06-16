@@ -10,9 +10,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             </titleStmt>
             <publicationStmt>
                 <publisher>
-                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute Washington</orgName>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
                 </publisher>
-                <pubPlace>Washington, D.C.</pubPlace><idno>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
                     <idno type="DTAID">ghis:about-migration</idno>
                     <idno type="DTADirName">migration</idno>
                     <idno type="shelfmark">ghis/901:about-migration</idno>
@@ -24,7 +26,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         </fileDesc>
         <profileDesc>
             <langUsage>
-                <language ident="deu">Deutsch</language>
+                <language ident="deu">German</language>
             </langUsage>
             <textClass>
                 <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
@@ -33,57 +35,102 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
     </teiHeader>
     <text>
         <body>
-			<div n="2">
-				<head>Deniz Göktürk</head>
-				<figure facs="gokturk-deniz.jpg" />
-				<p>
-					Deniz Göktürk ist Professorin für Germanistik an der UC Berkeley. Sie arbeitet vor allem in den Kultur- und Medienwissenschaften mit den Schwerpunkten bewegte Bilder, mehrsprachige Literatur und Migrationstheorien. Sie ist die Autorin von <hi rendition="#i">Künstler, Cowboys, Ingenieure: Kultur- und mediengeschichtliche Studien zu deutschen Amerika-Texten 1912-1920</hi> (1998). Eine zweite Monographie, <hi rendition="#i">Framing Migration: Seven Takes on Movement and Borders</hi>, ist in Vorbereitung (2021). Sie ist Mitherausgeberin (zusammen mit Tim Bergfelder, Erica Carter und Claudia Sandberg von <hi rendition="#i">The German Cinema Book</hi> (2002), erweiterte neue Ausgabe (2020). Zudem ist sie Mitherausgeberin (gemeinsam mit David Gramling und Anton Kaes) von <hi rendition="#i">Germany in Transit: Nation and Migration 1955-2005</hi> (2007) als auch der erweiterten deutschen Ausgabe: <hi rendition="#i">Transit Deutschland: Debatten zu Nation und Migration</hi> (2011).
-				</p>
-				<p><ref target="https://german.berkeley.edu/people/deniz-gokturk/">german.berkeley.edu/people/deniz-gokturk/</ref></p>
-			</div>
+            <div n="2">
+                <head>Deniz Göktürk</head>
+                <figure facs="gokturk-deniz.jpg"/>
+                <p> Deniz Göktürk ist Professorin für Germanistik an der UC Berkeley. Sie arbeitet
+                    vor allem in den Kultur- und Medienwissenschaften mit den Schwerpunkten bewegte
+                    Bilder, mehrsprachige Literatur und Migrationstheorien. Sie ist die Autorin von
+                        <hi rendition="#i">Künstler, Cowboys, Ingenieure: Kultur- und
+                        mediengeschichtliche Studien zu deutschen Amerika-Texten 1912-1920</hi>
+                    (1998). Eine zweite Monographie, <hi rendition="#i">Framing Migration: Seven
+                        Takes on Movement and Borders</hi>, ist in Vorbereitung (2021). Sie ist
+                    Mitherausgeberin (zusammen mit Tim Bergfelder, Erica Carter und Claudia Sandberg
+                    von <hi rendition="#i">The German Cinema Book</hi> (2002), erweiterte neue
+                    Ausgabe (2020). Zudem ist sie Mitherausgeberin (gemeinsam mit David Gramling und
+                    Anton Kaes) von <hi rendition="#i">Germany in Transit: Nation and Migration
+                        1955-2005</hi> (2007) als auch der erweiterten deutschen Ausgabe: <hi
+                        rendition="#i">Transit Deutschland: Debatten zu Nation und Migration</hi>
+                    (2011). </p>
+                <p><ref target="https://german.berkeley.edu/people/deniz-gokturk/"
+                        >german.berkeley.edu/people/deniz-gokturk/</ref></p>
+            </div>
 
-			<div n="2">
-				<head>Dirk Hoerder</head>
-				<figure facs="hoerder-dirk.jpg" />
-				<p>
-					Dirk Hoerder ist emeritierter Professor für Geschichte an der Arizona State University und der Universität Bremen. Als Experte für globale Migration und Akkulturationsmuster von Einwanderern ist er Autor, Ko-Autor und Herausgeber zahlreicher wissenschaftlicher Arbeiten zur Geschichte der Migration. Er ist Mitherausgeber (zusammen mit Christiane Harzig und Donna Gabaccia) des Bandes <hi rendition="#i">Was ist Migrationsgeschichte?</hi> (2009). Zu seinen Monographien gehören <hi rendition="#i">Cultures in Contact: World Migrations in the Second Millennium</hi> (2002), <hi rendition="#i">Geschichte der deutschen Migration vom Mittelalter bis heute</hi> (2010) und <hi rendition="#i">Migrations and Belongings</hi> (2014).
-				</p>
-				<p><ref target="https://www.uni-bremen.de/fb-10/fachbereich/wissenschaftlerinnen-wissenschaftler/professorinnen-und-professoren-im-ruhestand/prof-dr-phil-dirk-hoerder">www.uni-bremen.de/fb-10/fachbereich/wissenschaftlerinnen-wissenschaftler/professorinnen-und-professoren-im-ruhestand/prof-dr-phil-dirk-hoerder</ref></p>
-			</div>
+            <div n="2">
+                <head>Dirk Hoerder</head>
+                <figure facs="hoerder-dirk.jpg"/>
+                <p> Dirk Hoerder ist emeritierter Professor für Geschichte an der Arizona State
+                    University und der Universität Bremen. Als Experte für globale Migration und
+                    Akkulturationsmuster von Einwanderern ist er Autor, Ko-Autor und Herausgeber
+                    zahlreicher wissenschaftlicher Arbeiten zur Geschichte der Migration. Er ist
+                    Mitherausgeber (zusammen mit Christiane Harzig und Donna Gabaccia) des Bandes
+                        <hi rendition="#i">Was ist Migrationsgeschichte?</hi> (2009). Zu seinen
+                    Monographien gehören <hi rendition="#i">Cultures in Contact: World Migrations in
+                        the Second Millennium</hi> (2002), <hi rendition="#i">Geschichte der
+                        deutschen Migration vom Mittelalter bis heute</hi> (2010) und <hi
+                        rendition="#i">Migrations and Belongings</hi> (2014). </p>
+                <p><ref
+                        target="https://www.uni-bremen.de/fb-10/fachbereich/wissenschaftlerinnen-wissenschaftler/professorinnen-und-professoren-im-ruhestand/prof-dr-phil-dirk-hoerder"
+                        >www.uni-bremen.de/fb-10/fachbereich/wissenschaftlerinnen-wissenschaftler/professorinnen-und-professoren-im-ruhestand/prof-dr-phil-dirk-hoerder</ref></p>
+            </div>
 
-			<div n="2">
-				<head>Annika Orich</head>
-				<figure facs="orich-annika.jpg" />
-				<p>
-					Annika Orich ist Assistant Professor für Germanistik an der Georgia Tech Universität. Sie hat sich auf deutsche Literatur, Film und Kultur des 20. und 21. Jahrhunderts mit den Schwerpunkten Multikulturalismus und Migration, Erinnerung und Identität sowie Humor spezialisiert. Zu ihren Publikationen gehören „‚Wir wollen nicht ins Comedy-KZ‘: Serdar Somuncu, Oliver Polak, Ethnokomik und deutsche Zugehörigkeits- und Erinnerungskultur“ (2019) und „Archival Resistance: Reading the New Right,“ ein demnächst erscheinender Artikel in <hi rendition="#i">German Politics &amp; Society</hi> über das Lesen in Archiven als gesellschaftspolitischer Akt des Widerstands gegen rechtsextreme Bewegungen. Zurzeit arbeitet sie an einem Buchprojekt über reproduktive Imaginationen, das zeigt, wie reproduktive Prozesse in Biologie und Kunst ähnliche Ängste im deutschen Kulturraum hervorrufen.
-				</p>
-				<p><ref target="https://modlangs.gatech.edu/people/person/annika-orich">modlangs.gatech.edu/people/person/annika-orich</ref></p>
-			</div>
+            <div n="2">
+                <head>Annika Orich</head>
+                <figure facs="orich-annika.jpg"/>
+                <p> Annika Orich ist Assistant Professor für Germanistik an der Georgia Tech
+                    Universität. Sie hat sich auf deutsche Literatur, Film und Kultur des 20. und
+                    21. Jahrhunderts mit den Schwerpunkten Multikulturalismus und Migration,
+                    Erinnerung und Identität sowie Humor spezialisiert. Zu ihren Publikationen
+                    gehören „‚Wir wollen nicht ins Comedy-KZ‘: Serdar Somuncu, Oliver Polak,
+                    Ethnokomik und deutsche Zugehörigkeits- und Erinnerungskultur“ (2019) und
+                    „Archival Resistance: Reading the New Right,“ ein demnächst erscheinender
+                    Artikel in <hi rendition="#i">German Politics &amp; Society</hi> über das Lesen
+                    in Archiven als gesellschaftspolitischer Akt des Widerstands gegen rechtsextreme
+                    Bewegungen. Zurzeit arbeitet sie an einem Buchprojekt über reproduktive
+                    Imaginationen, das zeigt, wie reproduktive Prozesse in Biologie und Kunst
+                    ähnliche Ängste im deutschen Kulturraum hervorrufen. </p>
+                <p><ref target="https://modlangs.gatech.edu/people/person/annika-orich"
+                        >modlangs.gatech.edu/people/person/annika-orich</ref></p>
+            </div>
 
-			<div n="2">
-				<head>Sakine Yildiz</head>
-				<figure facs="yildiz-sakine.jpg" />
-				<p>
-					Sakine Yildiz, Pädagogin und Beraterin für ein Projektmanagement-Tool, lebt und arbeitet in Berlin und Stuttgart. Sie forschte viele Jahre zur Rückkehrförderungspolitik in Deutschland und verfasst Unterrichtsmaterial für die Fächer Deutsch und Geschichte. Sie hat an der Universität Osnabrück promoviert.
-				</p>
-			</div>
+            <div n="2">
+                <head>Sakine Yildiz</head>
+                <figure facs="yildiz-sakine.jpg"/>
+                <p> Sakine Yildiz, Pädagogin und Beraterin für ein Projektmanagement-Tool, lebt und
+                    arbeitet in Berlin und Stuttgart. Sie forschte viele Jahre zur
+                    Rückkehrförderungspolitik in Deutschland und verfasst Unterrichtsmaterial für
+                    die Fächer Deutsch und Geschichte. Sie hat an der Universität Osnabrück
+                    promoviert. </p>
+            </div>
 
-			<div n="2">
-				<head>Assoziierte Forscher</head>
-				<div n="3">
-					<head>Christof Muigg</head>
-					<p>
-						Christof Muigg forscht und lehrt zur Geschlechtergeschichte, zur historischen Gewaltforschung und zur Militärgeschichte in globaler und epochenübergreifender Perspektive. Er ist Universitätsassistent (prae doc) am Institut für Geschichte der Universität Wien und außerdem Adjunct Faculty Member am Center for Liberal Arts der Webster Vienna Private University. Bis 2019 war Christof Muigg als Museumspädagoge im Heeresgeschichtlichen Museum Wien tätig. Er schreibt seine Dissertation über Militärführer in der habsburgischen Diplomatie der Frühen Neuzeit.
-					</p>
-				</div>
+            <div n="2">
+                <head>Assoziierte Forscher</head>
+                <div n="3">
+                    <head>Christof Muigg</head>
+                    <p> Christof Muigg forscht und lehrt zur Geschlechtergeschichte, zur
+                        historischen Gewaltforschung und zur Militärgeschichte in globaler und
+                        epochenübergreifender Perspektive. Er ist Universitätsassistent (prae doc)
+                        am Institut für Geschichte der Universität Wien und außerdem Adjunct Faculty
+                        Member am Center for Liberal Arts der Webster Vienna Private University. Bis
+                        2019 war Christof Muigg als Museumspädagoge im Heeresgeschichtlichen Museum
+                        Wien tätig. Er schreibt seine Dissertation über Militärführer in der
+                        habsburgischen Diplomatie der Frühen Neuzeit. </p>
+                </div>
 
-				<div n="3">
-					<head>Fabian Fechner</head>
-					<p>
-						Fabian Fechner ist seit 2016 Wissenschaftlicher Mitarbeiter am Lehrstuhl „Geschichte Europas in der Welt“ an der Fernuniversität Hagen. Zu seinen Forschungsschwerpunkten gehören die Kulturtransferforschung und kulturelle Übersetzungsprozesse, vergleichende Prophetiengeschichte der Neuzeit, die Geschichte der administrativen Praktiken, negative Memoria und Prozesse des Vergessens in globaler Perspektive sowie die Kartographie des 18. und 19. Jahrhunderts. Er ist Autor der Monografie <hi rendition="#i">Entscheidungsprozesse vor Ort. Die Provinzkongregationen der Jesuiten in Paraguay</hi> (1608-1762) und verfasste zudem zahlreiche Buchbeiträge und Zeitschriftenartikel.
-					</p>
-				</div>
-			</div>
-		</body>
+                <div n="3">
+                    <head>Fabian Fechner</head>
+                    <p> Fabian Fechner ist seit 2016 Wissenschaftlicher Mitarbeiter am Lehrstuhl
+                        „Geschichte Europas in der Welt“ an der Fernuniversität Hagen. Zu seinen
+                        Forschungsschwerpunkten gehören die Kulturtransferforschung und kulturelle
+                        Übersetzungsprozesse, vergleichende Prophetiengeschichte der Neuzeit, die
+                        Geschichte der administrativen Praktiken, negative Memoria und Prozesse des
+                        Vergessens in globaler Perspektive sowie die Kartographie des 18. und 19.
+                        Jahrhunderts. Er ist Autor der Monografie <hi rendition="#i"
+                            >Entscheidungsprozesse vor Ort. Die Provinzkongregationen der Jesuiten
+                            in Paraguay</hi> (1608-1762) und verfasste zudem zahlreiche Buchbeiträge
+                        und Zeitschriftenartikel. </p>
+                </div>
+            </div>
+        </body>
     </text>
 </TEI>
