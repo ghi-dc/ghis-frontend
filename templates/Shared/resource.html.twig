@@ -47,15 +47,13 @@
     {% endfor %}
 {% endmacro %}
 
-{% macro citation_link(resource, volume) %}
-    {%- apply spaceless %}
-        {% if resource.doi is not empty and not ('10.5072' in resource.doi) -%}
-            {% set url = 'https://dx.doi.org/' ~ resource.doi %}
-        {% else %}
-            {% set url = url('dynamic', { 'path' : volume.dtaDirname ~ '/' ~ resource.id }) %}
-        {% endif %}
-        <a href="{{ url }}">{{ url }}</a>
-    {% endapply -%}
+{% macro citation_link(resource, volume) -%}
+    {%- if resource.doi is not empty and not ('10.5072' in resource.doi) -%}
+        {% set url = 'https://dx.doi.org/' ~ resource.doi %}
+    {%- else -%}
+        {% set url = url('dynamic', { 'path' : volume.dtaDirname ~ '/' ~ resource.id }) %}
+    {%- endif -%}
+    {#- #}<a href="{{ url }}">{{ url }}</a>{# -#}
 {% endmacro %}
 
 {% macro citation(resource, volume) %}
