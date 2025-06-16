@@ -15,9 +15,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 				</publisher>
 				<pubPlace>Washington, D.C.</pubPlace>
 				<idno>
-					<idno type="DTAID">ghis:about-team</idno>
+					<idno type="DTAID">ghdi:about-team</idno>
 					<idno type="DTADirName">team</idno>
-					<idno type="shelfmark">ghis/901:about-team</idno>
+					<idno type="shelfmark">ghdi/901:about-team</idno>
 				</idno>
 			</publicationStmt>
 			<sourceDesc>
@@ -86,7 +86,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 			<div n="3">
 				<head>Elisabeth Mait</head>
-				<p> Elisabeth Mait supports GHDI by transcribing textual sources in German script
+				<p> Elisabeth Mait supported GHDI by transcribing textual sources in German script
 					and <hi rendition="#i">Fraktur</hi>, by digitizing sources and preparing them
 					for TEI markup, and by proofreading texts. </p>
 			</div>
