@@ -15,9 +15,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 </publisher>
                 <pubPlace>Washington, D.C.</pubPlace>
                 <idno>
-                    <idno type="DTAID">ghdi:about</idno>
+                    <idno type="DTAID">ghdi:about-partners</idno>
                     <idno type="DTADirName">about</idno>
-                    <idno type="shelfmark">ghdi/900:about</idno>
+                    <idno type="shelfmark">ghdi/903:about-partners</idno>
                 </idno>
             </publicationStmt>
             <sourceDesc>
@@ -59,18 +59,18 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             <p> Additionally, we would like to thank our longstanding partner, the <ref
                     target="https://www.bpk-bildagentur.de/">bpk-bildagentur</ref>, for many years
                 of collegiality and cooperation. We are likewise grateful to our newer partner, the
-                    <ref target="https://www.dhm.de/en/collections/picture-archive/">Picture Archive
-                    of the Deutsches Historisches Museum</ref>, for the excellent collaboration on
-                the second edition of GHDI. We thank Prof. Andreas Kunz of <ref
+                    <ref target="https://www.dhm.de/en/collection/photo-service/">Photo service of
+                    the Deutsches Historisches Museum</ref>, for the excellent collaboration on the
+                second edition of GHDI. We thank Prof. Andreas Kunz of <ref
                     target="https://www.ieg-maps.de/">IEG-Maps</ref> and Dr. Cherie Norton of <ref
                     target="http://mapmakers.com/">Mapping Solutions</ref> for designing original
                 maps for the first edition of GHDI. We are also grateful to cartographer <ref
-                    target="https://sites.google.com/view/gabriel-moss-ph-d/cartographer">Dr.
+                    target="https://mossmaps.net/">Dr.
                     Gabriel Moss</ref> for his work on the second edition, specifically for revising
                 our legacy maps with an eye toward Web Content Accessibility Guidelines (WCAG) and
                 for designing new maps as well. Finally, for their essential support throughout the
                 whole of the project’s history, we thank our colleagues at the <ref
-                    target="https://www.maxweberstiftung.de/en/ueber-uns/organisation/geschaeftsstelle.html"
+                    target="https://www.maxweberstiftung.de/en/about-us/the-foundation/organisation/central-office.html"
                     >Central Office of the Max Weber Foundation </ref>. </p>
         </body>
     </text>

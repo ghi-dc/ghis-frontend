@@ -15,9 +15,9 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 </publisher>
                 <pubPlace>Washington, D.C.</pubPlace>
                 <idno>
-                    <idno type="DTAID">ghdi:about</idno>
+                    <idno type="DTAID">ghdi:about-partners</idno>
                     <idno type="DTADirName">about</idno>
-                    <idno type="shelfmark">ghdi/900:about</idno>
+                    <idno type="shelfmark">ghdi/903:about-partners</idno>
                 </idno>
             </publicationStmt>
             <sourceDesc>
@@ -26,7 +26,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         </fileDesc>
         <profileDesc>
             <langUsage>
-                <language ident="deu">Deutsch</language>
+                <language ident="deu">German</language>
             </langUsage>
             <textClass>
                 <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
@@ -60,13 +60,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
             <p> Darüber hinaus danken wir unserem langjährigen Partner, der <ref
                     target="https://www.bpk-bildagentur.de/">bpk-bildagentur</ref>, für die
                 anhaltende kollegiale Zusammenarbeit. Unserem neueren Partner, dem <ref
-                    target="https://www.dhm.de/sammlung/bildarchiv/">Bildarchiv des Deutschen
+                    target="https://www.dhm.de/sammlung/fotoservice/">Fotoservice des Deutschen
                     Historischen Museums Berlin</ref>, danken wir ebenfalls für die hervorragende
                 Zusammenarbeit bei der zweiten Ausgabe von GHDI. Wir danken Prof. Andreas Kunz von
                     <ref target="https://www.ieg-maps.de/">IEG-Maps</ref> und Dr. Cherie Norton von
                     <ref target="http://mapmakers.com/">Mapping Solutions</ref> für die Gestaltung
                 der Originalkarten für die erste Ausgabe der GHDI. Wir danken auch dem Kartographen
-                    <ref target="https://sites.google.com/view/gabriel-moss-ph-d/cartographer">Dr.
+                <ref target="https://mossmaps.net/">Dr.
                     Gabriel Moss</ref> für seine Arbeit an der zweiten Ausgabe, insbesondere für die
                 Überarbeitung unserer alten Karten mit Blick auf die Web Content Accessibility
                 Guidelines (WCAG) und für die Gestaltung neuer Karten. Schließlich danken wir
