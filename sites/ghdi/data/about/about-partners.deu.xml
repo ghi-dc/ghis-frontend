@@ -16,8 +16,8 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <pubPlace>Washington, D.C.</pubPlace>
                 <idno>
                     <idno type="DTAID">ghdi:about-partners</idno>
-                    <idno type="DTADirName">about</idno>
-                    <idno type="shelfmark">ghdi/903:about-partners</idno>
+                    <idno type="DTADirName">partner</idno>
+                    <idno type="shelfmark">ghdi/900:about/003:about-partners</idno>
                 </idno>
             </publicationStmt>
             <sourceDesc>

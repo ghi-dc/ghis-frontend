@@ -17,7 +17,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <idno>
                     <idno type="DTAID">ghis:about-editors</idno>
                     <idno type="DTADirName">editors</idno>
-                    <idno type="shelfmark">ghdi/901:about-editors</idno>
+                    <idno type="shelfmark">ghdi/900:about/001:about-editors</idno>
                 </idno>
             </publicationStmt>
             <sourceDesc>

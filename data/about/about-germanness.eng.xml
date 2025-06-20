@@ -17,7 +17,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <idno>
                     <idno type="DTAID">ghis:about-germanness</idno>
                     <idno type="DTADirName">germanness</idno>
-                    <idno type="shelfmark">ghis/901:about-germanness</idno>
+                    <idno type="shelfmark">ghis/900:about/001:about-working-groups/003:about-germanness</idno>
                 </idno>
             </publicationStmt>
             <sourceDesc>

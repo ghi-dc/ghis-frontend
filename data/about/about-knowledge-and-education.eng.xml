@@ -17,7 +17,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 				<idno>
 					<idno type="DTAID">ghis:about-knowledge-and-education</idno>
 					<idno type="DTADirName">knowledge-and-education</idno>
-					<idno type="shelfmark">ghis/901:about-knowledge-and-education</idno>
+					<idno type="shelfmark">ghis/900:about/001:about-working-groups/002:about-knowledge-and-education</idno>
 				</idno>
 			</publicationStmt>
 			<sourceDesc>
