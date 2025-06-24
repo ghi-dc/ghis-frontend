@@ -56,7 +56,10 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 mehrjährigen Förderung, die die ersten Anfänge der Webseite ermöglichte. Auch die
                 ZEIT-Stiftung Ebelin und Gerd Bucerius war einer der Hauptsponsoren der ersten
                 Auflage. </p>
-
+            <p> Die Stiftung <ref target="https://www.dra.de/de/">Deutsches Rundfunkarchiv</ref> unterstützt die zweite Ausgabe von GHDI mit
+                Inhalten aus seinen Beständen Hörfunk und Fernsehen.<lb/>
+                <figure facs="dra-logo.svg"/>
+            </p>
             <p> Darüber hinaus danken wir unserem langjährigen Partner, der <ref
                     target="https://www.bpk-bildagentur.de/">bpk-bildagentur</ref>, für die
                 anhaltende kollegiale Zusammenarbeit. Unserem neueren Partner, dem <ref
@@ -66,11 +69,10 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     <ref target="https://www.ieg-maps.de/">IEG-Maps</ref> und Dr. Cherie Norton von
                     <ref target="http://mapmakers.com/">Mapping Solutions</ref> für die Gestaltung
                 der Originalkarten für die erste Ausgabe der GHDI. Wir danken auch dem Kartographen
-                <ref target="https://mossmaps.net/">Dr.
-                    Gabriel Moss</ref> für seine Arbeit an der zweiten Ausgabe, insbesondere für die
-                Überarbeitung unserer alten Karten mit Blick auf die Web Content Accessibility
-                Guidelines (WCAG) und für die Gestaltung neuer Karten. Schließlich danken wir
-                unseren Kolleginnen und Kollegen in der <ref
+                    <ref target="https://mossmaps.net/">Dr. Gabriel Moss</ref> für seine Arbeit an
+                der zweiten Ausgabe, insbesondere für die Überarbeitung unserer alten Karten mit
+                Blick auf die Web Content Accessibility Guidelines (WCAG) und für die Gestaltung
+                neuer Karten. Schließlich danken wir unseren Kolleginnen und Kollegen in der <ref
                     target="https://www.maxweberstiftung.de/ueber-uns/organisation/geschaeftsstelle.html"
                     >Geschäftsstelle der Max Weber Stiftung in Bonn</ref> für ihre wesentliche
                 Unterstützung während der gesamten Projektentwicklung. </p>

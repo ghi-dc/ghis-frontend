@@ -56,6 +56,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     Documents and Images</hi>. The ZEIT-Stiftung Ebelin und Gerd Bucerius was also a
                 key sponsor of the first edition. </p>
 
+            <p> The foundation German Broadcasting Archive is supporting the second edition of GHDI
+                with content from its radio and television holdings.<lb/>
+                <figure facs="dra-logo.svg"/>
+            </p>
+
             <p> Additionally, we would like to thank our longstanding partner, the <ref
                     target="https://www.bpk-bildagentur.de/">bpk-bildagentur</ref>, for many years
                 of collegiality and cooperation. We are likewise grateful to our newer partner, the
@@ -65,11 +70,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     target="https://www.ieg-maps.de/">IEG-Maps</ref> and Dr. Cherie Norton of <ref
                     target="http://mapmakers.com/">Mapping Solutions</ref> for designing original
                 maps for the first edition of GHDI. We are also grateful to cartographer <ref
-                    target="https://mossmaps.net/">Dr.
-                    Gabriel Moss</ref> for his work on the second edition, specifically for revising
-                our legacy maps with an eye toward Web Content Accessibility Guidelines (WCAG) and
-                for designing new maps as well. Finally, for their essential support throughout the
-                whole of the project’s history, we thank our colleagues at the <ref
+                    target="https://mossmaps.net/">Dr. Gabriel Moss</ref> for his work on the second
+                edition, specifically for revising our legacy maps with an eye toward Web Content
+                Accessibility Guidelines (WCAG) and for designing new maps as well. Finally, for
+                their essential support throughout the whole of the project’s history, we thank our
+                colleagues at the <ref
                     target="https://www.maxweberstiftung.de/en/about-us/the-foundation/organisation/central-office.html"
                     >Central Office of the Max Weber Foundation </ref>. </p>
         </body>

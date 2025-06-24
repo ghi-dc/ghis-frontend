@@ -946,6 +946,12 @@ body[class*=" route-teaching"],
     }
 }
 
+body.route-about-partners {
+    .dta-figure img {
+        max-height: 7rem;;
+    }
+}
+
 a.print-view {
     text-transform: none;
 }
