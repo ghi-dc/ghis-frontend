@@ -33,7 +33,7 @@ class BaseController extends AbstractController
         $this->siteKey = $siteKey;
     }
 
-    protected function getDataDir()
+    protected function getSiteDataDir()
     {
         // look for site-specific override
         $dataDir = $this->dataDir;

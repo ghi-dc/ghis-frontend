@@ -14,7 +14,7 @@ class ExtraController extends BaseController
     public function teachingIndexAction(Request $request)
     {
         // load the teaching
-        $info = Yaml::parseFile($this->getDataDir() . '/site.yaml');
+        $info = Yaml::parseFile($this->getSiteDataDir() . '/site.yaml');
         if (!(is_array($info) && array_key_exists('teaching', $info))) {
             // nothing to show
             return $this->redirectToRoute('home');
@@ -30,7 +30,7 @@ class ExtraController extends BaseController
     public function teachingDetailAction(Request $request, $slug)
     {
         // load the teaching
-        $info = Yaml::parseFile($this->getDataDir() . '/site.yaml');
+        $info = Yaml::parseFile($this->getSiteDataDir() . '/site.yaml');
         if (is_array($info) && array_key_exists('teaching', $info)) {
             $locale = $request->getLocale();
 

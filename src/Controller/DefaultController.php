@@ -18,7 +18,7 @@ class DefaultController extends BaseController
         $volumes = $this->contentService->getVolumes();
 
         // load the focus
-        $info = Yaml::parseFile($this->getDataDir() . '/site.yaml');
+        $info = Yaml::parseFile($this->getSiteDataDir() . '/site.yaml');
         $focus = [];
         $featured = [];
 

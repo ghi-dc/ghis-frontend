@@ -640,7 +640,7 @@ class ResourceController extends BaseController
             return;
         }
 
-        $cslPath = $this->getDataDir() . '/csl/' . $fname;
+        $cslPath = $this->getSiteDataDir() . '/csl/' . $fname;
         $citeProc = new \Seboettg\CiteProc\CiteProc(file_get_contents($cslPath), $cslLocale);
 
         $parts = [];
@@ -972,19 +972,13 @@ class ResourceController extends BaseController
      */
     protected function aboutToHtml(Request $request, string $mediaBaseUrl, string $fnameXsl = 'dta2html.xsl')
     {
-        $dataDir = $this->dataDir;
-        $theme = $this->themeContext->getTheme();
-        if (!is_null($theme)) {
-            $dataDir = join(DIRECTORY_SEPARATOR, [$theme->getPath(), 'data']);
-        }
-
         $fname = join('.', [
             $route = $request->get('_route'),
             \App\Utils\Iso639::code1To3($locale = $request->getLocale()),
             'xml',
         ]);
 
-        $fnameFull = join(DIRECTORY_SEPARATOR, [$dataDir, 'about', $fname]);
+        $fnameFull = join(DIRECTORY_SEPARATOR, [$this->getSiteDataDir(), 'about', $fname]);
 
         $transformOptions = [
             'params' => [
