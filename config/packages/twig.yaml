@@ -3,6 +3,7 @@ twig:
     file_name_pattern: '*.twig'
     # local tweaks
     globals:
+        siteService: '@App\Service\SiteService'
         site_name: '%app.site.name%'
         site_email: '%app.site.email%'
         locales: "%app.supported_locales%"

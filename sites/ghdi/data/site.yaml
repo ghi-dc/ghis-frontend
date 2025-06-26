@@ -7,6 +7,48 @@ about:
     terms: Terms and Conditions
     contact: Contact
 
+volumes:
+    volume-1:
+        'period': '1500-1648'
+        'de': 'Von der Reformation bis zum Dreißigjährigen Krieg'
+        'en': 'From the Reformation to the Thirty Years War'
+    'volume-2':
+        'period': '1648-1815'
+        'de': 'Das Heilige Römische Reich'
+        'en': 'The Holy Roman Empire'
+    'volume-3':
+        'period': '1815-1866'
+        'de': 'Vom Vormärz bis zur Preußischen Vorherrschaft'
+        'en': 'From Vormärz to Prussian Dominance'
+    'volume-4':
+        'period': '1866-1890'
+        'de': 'Reichsgründung: Bismarcks Deutschland'
+        'en': 'Forging an Empire: Bismarckian Germany'
+    'volume-5':
+        'period': '1890-1918'
+        'de': 'Das Wilhelminische Kaiserreich und der Erste Weltkrieg'
+        'en': 'Wilhelmine Germany and the First World War'
+    'volume-6':
+        'period': '1918/19-1933'
+        'de': 'Die Weimarer Republik'
+        'en': 'Weimar Germany'
+    'volume-7':
+        'period': '1933-1945'
+        'de': 'Deutschland unter der Herrschaft des Nationalsozialismus'
+        'en': 'Nazi Germany'
+    'volume-8':
+        'period': '1945-1961'
+        'de': 'Die Besatzungszeit und die Entstehung zweier Staaten'
+        'en': 'Occupation and the Emergence of Two States'
+    'volume-9':
+        'period': '1961-1989'
+        'de': 'Zwei deutsche Staaten'
+        'en': 'Two Germanies'
+    'volume-10':
+        'period': '1990-2023'
+        'de': 'Ein neues Deutschland'
+        'en': 'A New Germany'
+
 focus:
 
 teaching:
