@@ -3,6 +3,55 @@
 {% import 'Shared/search.html.twig' as search_helper %}
 {% import 'Shared/extra.html.twig' as extra %}
 
+{% block head %}
+    <script src="{{ app.request.basepath }}/vendor/wNumb.min.js"></script>
+    <link href="{{ app.request.basepath }}/vendor/noUiSlider-15.8.1/nouislider.css" rel="stylesheet">
+    <script src="{{ app.request.basepath }}/vendor/noUiSlider-15.8.1/nouislider.js"></script>
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        /* https://refreshless.com/nouislider/examples/#section-styling */
+        #slider {
+            margin-top: 40px;
+            /*
+            margin-left: 20px;
+            margin-right: 20px;
+            */
+            margin-bottom: 75px;
+            height: 8px;
+        }
+
+        #slider .noUi-connect {
+            background: rgb(39, 108, 234);
+        }
+
+        #slider .noUi-value[data-value="1890"],
+        #slider .noUi-value[data-value="1933"],
+        #slider .noUi-value[data-value="1961"],
+        #slider .noUi-value[data-value="1989"]
+        {
+            display: none;
+        }
+
+        #slider .noUi-handle {
+            height: 18px;
+            width: 18px;
+            top: -5px;
+            right: -9px; /* half the width */
+            border-radius: 9px;
+        }
+
+        #slider .noUi-value-horizontal {
+            -webkit-transform: translate(-50%, 20px);
+            transform: translate(-50%, 20px);
+            writing-mode: vertical-lr;
+            font-size: 10px
+        }
+    </style>
+{% endblock %}
+
 {% block maincontainer %}
 <main role="main" class="search">
 {% block body %}

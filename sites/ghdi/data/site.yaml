@@ -30,6 +30,7 @@ volumes:
         'en': 'Wilhelmine Germany and the First World War'
     'volume-6':
         'period': '1918/19-1933'
+        'from': '1918'
         'de': 'Die Weimarer Republik'
         'en': 'Weimar Germany'
     'volume-7':
@@ -46,6 +47,7 @@ volumes:
         'en': 'Two Germanies'
     'volume-10':
         'period': '1990-2023'
+        'from': '1989'
         'de': 'Ein neues Deutschland'
         'en': 'A New Germany'
 

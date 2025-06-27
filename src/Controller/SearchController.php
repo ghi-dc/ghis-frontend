@@ -12,6 +12,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
 use Solarium\Component\Facet\JsonTerms;
 use App\Service\ContentService;
+use App\Service\SiteService;
 
 class SearchController extends BaseController
 {
@@ -26,7 +27,6 @@ class SearchController extends BaseController
             'field' => 'volume_id_s',
             'label' => 'Volume',
         ],
-
         'term' => [
             'field' => 'path_s',
             'label' => 'Keyword',
@@ -43,6 +43,7 @@ class SearchController extends BaseController
     ];
 
     private $paginator;
+    private $siteService;
 
     /**
      * The following two function are currently unused helpers
@@ -169,6 +170,23 @@ class SearchController extends BaseController
     }
 
     /**
+     * Insert a value or key/value pair after a specific key in an array.  If key doesn't exist, value is appended
+     * to the end of the array.
+     *
+     * @param string $key
+     *
+     * @return array
+     */
+    protected static function array_insert_after(array $array, $key, array $new)
+    {
+        $keys = array_keys($array);
+        $index = array_search($key, $keys);
+        $pos = false === $index ? count($array) : $index + 1;
+
+        return array_merge(array_slice($array, 0, $pos), $new, array_slice($array, $pos));
+    }
+
+    /**
      * Override parent constructor to inject PaginatorInterface $paginator.
      */
     public function __construct(
@@ -176,12 +194,26 @@ class SearchController extends BaseController
         KernelInterface $kernel,
         SettableThemeContext $themeContext,
         PaginatorInterface $paginator,
+        SiteService $siteService,
         $dataDir,
         $siteKey
     ) {
         parent::__construct($contentService, $kernel, $themeContext, $dataDir, $siteKey);
 
         $this->paginator = $paginator;
+        $this->siteService = $siteService;
+
+        $boundaries = $this->siteService->getPeriodBoundaries();
+        if (!is_null($boundaries)) {
+            $this->facets = self::array_insert_after($this->facets, 'genre', [
+                'period' => [
+                    'type' => 'slider',
+                    'field' => 'volume_id_s',
+                    'label' => 'Period',
+                    'boundaries' => $boundaries,
+                ],
+            ]);
+        }
     }
 
     /**
@@ -228,6 +260,24 @@ class SearchController extends BaseController
     protected function buildFilterQuery($field, $filter, $facetName)
     {
         switch ($facetName) {
+            case 'period':
+                // period is a slider - we build an OR condition on volume ids
+                $volumeIds = $this->siteService->getVolumeIdsByPeriod($filter[$facetName]);
+                if (empty($volumeIds)) {
+                    return null;
+                }
+
+                if (!empty($volumeIds)) {
+                    // build a filter query for volume ids
+                    $orCondition = join(' OR ', array_map(
+                        function ($id) { return 'volume_id_s:' . $id; },
+                        $volumeIds
+                    ));
+
+                    return $field . ':(' . $orCondition . ')';
+                }
+                break;
+
             default:
                 return $field . ':' . $filter[$facetName];
         }
@@ -276,10 +326,15 @@ class SearchController extends BaseController
                     // therefore ignore it here
 
                     // set a filter-query to this value
+                    $query = $this->buildFilterQuery($field, $filter, $facetName);
+                    if (is_null($query)) {
+                        continue; // no filter query for this facet
+                    }
+
                     $solrQuery->addFilterQuery([
                         'key' => $facetName,
                         'local_tag' => $facetName,
-                        'query' => $this->buildFilterQuery($field, $filter, $facetName),
+                        'query' => $query,
                     ]);
                 }
             }

@@ -4,8 +4,14 @@
         {% set collapsed = false %}
         <h4 style="margin-top: 2em">{{ facets[key]['label']|trans({}, 'additional') }}</h4>
         <ul class="facet list-unstyled">
-            {% for val,descr in facet %}
-                {% set active = pagination.params.filter[key] is defined and pagination.params.filter[key] == val %}
+            {% if facets[key].type is defined and 'slider' == facets[key].type %}
+                {% set active = pagination.params.filter[key] is defined and pagination.params.filter[key] is not empty %}
+                {% if active %}
+                    {% set start = siteService.buildPeriodStart(facet, pagination.params.filter[key]) %}
+                {% else %}
+                    {% set start = siteService.buildPeriodStart(facet) %}
+                {% endif %}
+
                 {% set params = {} %}
                 {% set filters = {} %}
                 {% for pagination_key,pagination_val in pagination.params %}
@@ -17,24 +23,91 @@
                         {% endif %}
                     {% endif %}
                 {% endfor %}
+                {% set filters = filters|merge({ (key) : '_period_' }) %}
+                {# period and volume are exclusive #}
+                {% set filters = filters|remove_by_key('volume') %}
 
-                {% if not active %}
-                    {% set filters = filters|merge({ (key) : val }) %}
-                {% else %}
-                    {% set filters = filters|remove_by_key(key) %}
-                {% endif %}
-
-                {#{ dump(filters)}#}
                 {% set params = params|merge({ 'filter' : filters }) %}
 
-                {% if descr.label is not empty %}
-            <li class="{% if active %}active{% elseif loop.index0 > 12 %}collapsed{% set collapsed = true %}{% endif %}">
-                <a href="{{ path(app.request.get('_route'), params) }}" rel="nofollow">
-                    {% if 'genre' == key %}{{ descr.label|trans({}, 'additional') }}{% else %}{{ descr.label }}{% endif %}
-                </a> ({{  descr.count }})
-            </li>
-                {% endif %}
-            {% endfor %}
+                <div id="slider" class="slider-style slider-round"></div>
+                <script>
+                var boundaries = {{ facets[key].boundaries|json_encode|raw }};
+                var range = { 'min': boundaries[0] }
+                var delta = boundaries[boundaries.length - 1] - boundaries[0];
+                for (var i = 1; i < boundaries.length -1; i++) {
+                    percentage = (boundaries[i] - boundaries[0]) / delta * 100;
+                    range[Math.round(percentage) + '%'] = boundaries[i];
+                }
+                range['max'] = boundaries[boundaries.length - 1];
+
+                var nonLinearStepSlider = document.getElementById('slider');
+
+                noUiSlider.create(nonLinearStepSlider, {
+                    start: {{ start|json_encode|raw }},
+                    snap: true,
+                    connect: true,
+                    tooltips: [
+                        wNumb({decimals: 0}),
+                        wNumb({decimals: 0})
+                    ],
+                    range: range,
+                    pips: {
+                        mode: 'range',
+                        values: 3
+                    }
+                });
+
+                var nonLinearStepSliderValueElement = document.getElementById('slider-non-linear-step-value');
+
+                nonLinearStepSlider.noUiSlider.on('change', function (values) {
+                    var start = nonLinearStepSlider.noUiSlider.options.start;
+                    var from = Math.floor(values[0]);
+                    var until = Math.floor(values[1]);
+                    if (from != start[0] || until != start[1]) {
+                        var url = {{ path(app.request.get('_route'), params)|json_encode|raw }}
+                            .replace('_period_', from + '-' + until)
+                            ;
+                        window.location.href = url;
+                    }
+                });
+                </script>
+            {% else %}
+                {% for val,descr in facet %}
+                    {% set active = pagination.params.filter[key] is defined and pagination.params.filter[key] == val %}
+                    {% set params = {} %}
+                    {% set filters = {} %}
+                    {% for pagination_key,pagination_val in pagination.params %}
+                        {% if 'page' != pagination_key %}
+                            {% if 'filter' == pagination_key %}
+                                {% set filters = pagination.params.filter %}
+                            {% else %}
+                                {% set params = params|merge({ (pagination_key) : pagination_val }) %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not active %}
+                        {% set filters = filters|merge({ (key) : val }) %}
+                    {% else %}
+                        {% set filters = filters|remove_by_key(key) %}
+                    {% endif %}
+                    {# period and volume are exclusive #}
+                    {% if 'volume' == key %}
+                        {% set filters = filters|remove_by_key('period') %}
+                    {% endif %}
+
+                    {#{ dump(filters)}#}
+                    {% set params = params|merge({ 'filter' : filters }) %}
+
+                    {% if descr.label is not empty %}
+                <li class="{% if active %}active{% elseif loop.index0 > 12 %}collapsed{% set collapsed = true %}{% endif %}">
+                    <a href="{{ path(app.request.get('_route'), params) }}" rel="nofollow">
+                        {% if 'genre' == key %}{{ descr.label|trans({}, 'additional') }}{% else %}{{ descr.label }}{% endif %}
+                    </a> ({{  descr.count }})
+                </li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
             {% if collapsed %}
             <li>
                 <a href="#" class="glyphicon glyphicon-plus-sign" onclick="toggleMore($(this).closest('ul')); return false" title="{{ 'show more' }}"> </a>
