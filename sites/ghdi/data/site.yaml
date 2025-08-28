@@ -10,8 +10,8 @@ about:
 volumes:
     volume-1:
         'period': '1500-1648'
-        'de': 'Von der Reformation bis zum Dreißigjährigen Krieg'
-        'en': 'From the Reformation to the Thirty Years War'
+        'de': 'Von den Reformationen bis zum Dreißigjährigen Krieg'
+        'en': 'From the Reformations to the Thirty Years War'
     'volume-2':
         'period': '1648-1815'
         'de': 'Das Heilige Römische Reich'
