@@ -31,7 +31,7 @@ class ThemeRequestListener
     public function onKernelRequest(RequestEvent $event): void
     {
         if (!$event->isMainRequest()) {
-            // don't do anything if it's not the master request
+            // don't do anything if it's not the main request
             return;
         }
 
