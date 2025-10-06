@@ -70,11 +70,11 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
             <div n="3">
                 <head>Simone Lässig</head>
-                <p> Die Direktorin des DHI Simone Lässig ist gleichzeitig Gründerin und Leiterin des
-                    Projekts <hi rendition="#i">German History Intersections</hi>. Sie ist Kultur-
-                    und Sozialhistorikerin des neunzehnten und zwanzigsten Jahrhunderts. Ihre
-                    Forschung konzentriert sich auf zentrale Themen des Projekts Intersections,
-                    nämlich Wissensgeschichte, Migration, Erinnerungskulturen und
+                <p> Als Direktorin des DHI von 2015-2025 war Simone Lässig gleichzeitig Gründerin
+                    und Leiterin des Projekts <hi rendition="#i">German History Intersections</hi>.
+                    Sie ist Kultur- und Sozialhistorikerin des neunzehnten und zwanzigsten
+                    Jahrhunderts. Ihre Forschung konzentriert sich auf zentrale Themen des Projekts
+                    Intersections, nämlich Wissensgeschichte, Migration, Erinnerungskulturen und
                     Erinnerungspolitik, digitale Geschichte und Bildungsmedien. </p>
             </div>
 
@@ -118,10 +118,21 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <p> Die Mitarbeiter des DHI-Projektteams sind dankbar für die Unterstützung der
                     folgenden studentischen Praktikanten, die einen besonders wichtigen Beitrag zum
                     Intersections-Projekt geleistet haben: </p>
-                <p> Isabella Auerbach<lb/> Krista Bolton<lb/> Hanna Bosse<lb/> Chris Buchholz<lb/>
-                    Ashley Gonik<lb/> Daniel Graham<lb/> Milena Kagel<lb/> Sandra Kastenbauer<lb/>
-                    Sarah Maurer<lb/> Madeleine Miller<lb/> Laura Maria Niewoehner<lb/> Katharina
-                    Weygoldt<lb/> Alexandra Witte<lb/> Emily Woessner<lb/> Thorsten Zachary </p>
+                <p> Isabella Auerbach<lb/>
+                     Krista Bolton<lb/>
+                     Hanna Bosse<lb/>
+                     Chris Buchholz<lb/>
+                     Ashley Gonik<lb/>
+                     Daniel Graham<lb/>
+                     Milena Kagel<lb/>
+                     Sandra Kastenbauer<lb/>
+                     Sarah Maurer<lb/>
+                     Madeleine Miller<lb/>
+                     Laura Maria Niewoehner<lb/>
+                     Katharina Weygoldt<lb/>
+                     Alexandra Witte<lb/>
+                     Emily Woessner<lb/>
+                     Thorsten Zachary </p>
             </div>
         </body>
     </text>

@@ -65,12 +65,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
             <div n="3">
                 <head>Simone Lässig</head>
-                <p> GHI director Simone Lässig doubles as founder and director of the <hi
-                        rendition="#i">German History Intersections</hi> project. She is a cultural
-                    and social historian of the nineteenth and twentieth centuries. Her research
-                    focusses on topics central to the <hi rendition="#i">Intersections</hi> project,
-                    namely the history of knowledge, migration, memory cultures and memory politics,
-                    digital history, and educational media. </p>
+                <p> In her capacity as GHI director from 2015-2025, Simone Lässig doubled as founder
+                    and director of the <hi rendition="#i">German History Intersections</hi>
+                    project. She is a cultural and social historian of the nineteenth and twentieth
+                    centuries. Her research focusses on topics central to the <hi rendition="#i"
+                        >Intersections</hi> project, namely the history of knowledge, migration,
+                    memory cultures and memory politics, digital history, and educational media.
+                </p>
             </div>
 
             <div n="3">
@@ -110,10 +111,21 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 <p> The GHI project team is grateful for the assistance of the following student
                     interns, who made especially significant contributions to the Intersections
                     project: </p>
-                <p> Isabella Auerbach<lb/> Krista Bolton<lb/> Hanna Bosse<lb/> Chris Buchholz<lb/>
-                    Ashley Gonik<lb/> Daniel Graham<lb/> Milena Kagel<lb/> Sandra Kastenbauer<lb/>
-                    Sarah Maurer<lb/> Madeleine Miller<lb/> Laura Maria Niewoehner<lb/> Katharina
-                    Weygoldt<lb/> Alexandra Witte<lb/> Emily Woessner<lb/> Thorsten Zachary </p>
+                <p> Isabella Auerbach<lb/>
+                     Krista Bolton<lb/>
+                     Hanna Bosse<lb/>
+                     Chris Buchholz<lb/>
+                     Ashley Gonik<lb/>
+                     Daniel Graham<lb/>
+                     Milena Kagel<lb/>
+                     Sandra Kastenbauer<lb/>
+                     Sarah Maurer<lb/>
+                     Madeleine Miller<lb/>
+                     Laura Maria Niewoehner<lb/>
+                     Katharina Weygoldt<lb/>
+                     Alexandra Witte<lb/>
+                     Emily Woessner<lb/>
+                     Thorsten Zachary </p>
             </div>
         </body>
     </text>
