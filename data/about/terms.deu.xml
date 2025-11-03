@@ -107,14 +107,18 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
 
             <div n="2" id="imprint">
                 <head>Impressum</head>
-                <p> Deutsches Historisches Institut<lb/> 1607 New Hampshire Ave NW<lb/> Washington,
-                    DC 20009-2562<lb/> USA. </p>
+                <p> Deutsches Historisches Institut<lb/>
+                     1607 New Hampshire Ave NW<lb/>
+                     Washington, DC 20009-2562<lb/>
+                     USA. </p>
                 <p> Telefon: +1.202.387.3355<lb/>
                     <ref target="mailto:info@ghi-dc.org">info@ghi-dc.org</ref><lb/>
                     <ref target="https://www.ghi-dc.org/">www.ghi-dc.org</ref>
                 </p>
-                <p> Vertretungsberechtigte<lb/> Simone Lässig, Direktorin<lb/> Axel Jansen,
-                    Stellvertretender Direktor<lb/> Sylwia Biel, Verwaltungsleiterin </p>
+                <p> Vertretungsberechtigte<lb/>
+                     Ulrike von Hirschhausen, Direktorin<lb/>
+                     Axel Jansen, Stellvertretender Direktor<lb/>
+                     Sylwia Biel, Verwaltungsleiterin </p>
             </div>
 
             <div n="2" id="data-protection">
