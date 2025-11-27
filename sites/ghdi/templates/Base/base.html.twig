@@ -76,7 +76,7 @@
         {% endif %}
     </head>
 
-    <body role="document" class="d-flex flex-column min-vh-100 route-{{ app.request.get('_route') | replace({'_' : '-'}) }}{% if volume is defined %} {{ volume.getId(true) }}{% endif %}{% if document_class is defined %} {{ document_class }}{% endif %}">
+    <body role="document" class="d-flex flex-column min-vh-100 route-{{ app.request.attributes.get('_route') | replace({'_' : '-'}) }}{% if volume is defined %} {{ volume.getId(true) }}{% endif %}{% if document_class is defined %} {{ document_class }}{% endif %}">
         {% block navtop %}
         <nav class="navbar navbar-expand-md navbar-light container">
             <a class="navbar-brand" href="{{ path('home') }}">
