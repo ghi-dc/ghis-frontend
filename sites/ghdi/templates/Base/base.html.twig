@@ -78,7 +78,7 @@
 
     <body role="document" class="d-flex flex-column min-vh-100 route-{{ app.request.attributes.get('_route') | replace({'_' : '-'}) }}{% if volume is defined %} {{ volume.getId(true) }}{% endif %}{% if document_class is defined %} {{ document_class }}{% endif %}">
         {% block navtop %}
-        <nav class="navbar navbar-expand-md navbar-light container">
+        <nav class="navbar navbar-expand-md navbar-light container px-2 px-md-0">
             <a class="navbar-brand" href="{{ path('home') }}">
                 <img src="{{ app.request.basepath }}/img/ghdi_logo.png" alt="{{ site_name|trans({}, 'additional') }}" id="logo" />
             </a>
@@ -86,7 +86,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarToggler">
+            <div class="collapse navbar-collapse flex-grow-1" id="navbarToggler">
                 <div class="d-md-none">
                     <ul class="navbar-nav">
                         {% if locales|length > 1 %}
