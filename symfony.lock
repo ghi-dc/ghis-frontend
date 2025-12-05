@@ -78,9 +78,6 @@
             "./.php-cs-fixer.dist.php"
         ]
     },
-    "gmo/iso-639": {
-        "version": "v1.0.0"
-    },
     "guzzlehttp/psr7": {
         "version": "1.7.0"
     },

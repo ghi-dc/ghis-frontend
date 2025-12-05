@@ -9,7 +9,7 @@
 
 namespace App\Utils;
 
-abstract class Document
+abstract class Document implements \Stringable
 {
     protected $options;
     protected $errors;

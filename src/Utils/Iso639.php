@@ -2,22 +2,10 @@
 
 namespace App\Utils;
 
+use Symfony\Component\Intl\Languages;
+
 class Iso639
 {
-    private static $languages;
-
-    /** No instances */
-    private function __construct() {}
-
-    private static function getLanguages()
-    {
-        if (is_null(self::$languages)) {
-            self::$languages = new \Gmo\Iso639\Languages();
-        }
-
-        return self::$languages;
-    }
-
     /**
      * Convert two-letter ISO-639-1 to three-letter ISO-639-3 code.
      *
@@ -27,24 +15,7 @@ class Iso639
      */
     public static function code1To3($code1)
     {
-        $languages = self::getLanguages();
-
-        return $languages->findByCode1($code1)
-            ->code3();
-    }
-
-    /**
-     * Convert three-letter ISO-639-2b to three-letter ISO-639-3 code.
-     *
-     * @param string $code2 code2
-     *
-     * @return string code3
-     */
-    public static function code2bTo3($code2)
-    {
-        $languages = self::getLanguages();
-
-        return $languages->findByCode2b($code2)->code3();
+        return Languages::getAlpha3Code($code1);
     }
 
     /**
@@ -56,9 +27,7 @@ class Iso639
      */
     public static function code3To1($code3)
     {
-        $languages = self::getLanguages();
-
-        return $languages->findByCode3($code3)->code1();
+        return Languages::getAlpha2Code($code3);
     }
 
     /**
@@ -70,8 +39,6 @@ class Iso639
      */
     public static function nameByCode3($code3)
     {
-        $languages = self::getLanguages();
-
-        return $languages->findByCode3($code3)->name();
+        return Languages::getAlpha3Name($code3, 'en');
     }
 }
