@@ -59,6 +59,26 @@
     {% if parts.toc is defined and parts.toc is not empty %}
     <script src="{{ app.request.basepath }}/vendor/waypoints/jquery.waypoints.min.js"></script>
     {% endif %}
+
+    {% if 'image' == resource.genre %}
+    <link rel="stylesheet" href="{{ app.request.basepath }}/vendor/simple-lightbox-2.14.3/simple-lightbox.min.css">
+    <script src="{{ app.request.basepath }}/vendor/simple-lightbox-2.14.3/simple-lightbox.jquery.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            var $imgFigures = $('.dta-figure > img');
+            if (1 == $imgFigures.length) {
+                // lightbox for single image (multiple images are handled as accordion galleries)
+                $figure = $imgFigures.first();
+                $('.dta-figure > img').wrap( '<a href="' + $figure.attr('src') + '"></a>' );
+                var selector = '.dta-figure > a';
+                var lightbox = $(selector).simpleLightbox({
+                    alertError: false,
+                    overlayOpacity: 1
+                });
+            }
+        });
+    </script>
+    {% endif %}
 {% endblock %}
 
 {% block maincontainer %}
