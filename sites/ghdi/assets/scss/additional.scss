@@ -1042,7 +1042,7 @@ article, .article, .article-part {
     }
 }
 
-aside {
+aside, .article-wrapper .toc {
     /*
     @media only screen and (min-width: $screen-lg-min) {
         padding-top: 5rem;
@@ -1068,4 +1068,9 @@ aside {
             background-color: $color-gray-ultralight;
         }
     }
+}
+
+.article-wrapper .toc {
+    margin-top: 3rem;
+    z-index: 0; /* below progress */
 }
