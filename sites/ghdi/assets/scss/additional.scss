@@ -94,7 +94,7 @@ ul#menu-volumes li {
             text-decoration: none;
         }
         &:hover, &.active {
-            background-color: #D0182C;
+            background-color: $color-title-spot;
         }
     }
 }
@@ -119,6 +119,8 @@ ul#menu-volumes li {
                 text-align: center;
                 position: absolute;
                 bottom: 0;
+                padding-top: 8px;
+                padding-bottom: 8px;
                 h5 {
                     display: none;
                 }
@@ -130,9 +132,21 @@ ul#menu-volumes li {
             flex-grow: 2;
             min-width: 180px;
             div.title {
-                background-color: #D0182C;
+                background-color: $color-title-spot;
+                text-align: left;
+                padding-left: 16px;
                 h5 {
                     display: block;
+                    font-weight: bold;
+                    padding-top: 4px;
+                    padding-right: 56px;
+                    &::after {
+                        position: absolute;
+                        right: 16px;
+                        bottom: 4px;
+                        content: '\1F852';
+                        font-size: 180%;
+                    }
                 }
             }
         }
@@ -860,7 +874,7 @@ main.volume, main.section, main.introduction {
             color: $color-gray-dark;
             .highlight {
                 /* font-weight: bold; */
-                background-color: #FBF27D;
+                background-color: $color-color-highlight;
             }
         }
     }
