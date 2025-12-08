@@ -56,6 +56,9 @@
             padding-top: 4px;
         }
     </style>
+    {% if parts.toc is defined and parts.toc is not empty %}
+    <script src="{{ app.request.basepath }}/vendor/waypoints/jquery.waypoints.min.js"></script>
+    {% endif %}
 {% endblock %}
 
 {% block maincontainer %}
@@ -197,10 +200,10 @@
                     </div>
                 </div><!-- .article-part -->
                 {% if parts.toc is defined and parts.toc is not empty %}
-                <div class="col-md-3 col-lg-2 offset-lg-1 d-none d-md-block">
+                <div class="col-md-3 col-lg-2 offset-lg-1 d-none d-md-block p-0">
                     <div class="toc sticky-md-top">
-                        <h4>{{ 'Table of Contents'|trans }}</h4>
                         <ul class="list-unstyled">
+                        <li><h4>{{ 'Table of Contents'|trans }}</h4></li>
                         {% for section in parts.toc %}
                             <li><a href="#{{ section.id }}">{{ section.text }}</a></li>
                         {% endfor %}
@@ -282,6 +285,29 @@
         });
     </script>
     {% endif %}
+
+    {% if parts.toc is defined and parts.toc is not empty %}
+    <script>
+        {% for section in parts.toc %}
+        new Waypoint({
+            element: document.getElementById('{{ section.id }}'),
+            handler: function(direction)
+            {
+                $('.toc li.active').removeClass('active');
+                var li = $('a[href="#{{ section.id }}"]').parent();
+                if (direction === 'up') {
+                    li = li.prev();
+                }
+
+                if (li.has('a').length > 0) {
+                    li.addClass('active');
+                }
+            }
+        })
+        {% endfor %}
+    </script>
+    {% endif %}
+
     {% endblock %}
 </main>
 {% endblock %}

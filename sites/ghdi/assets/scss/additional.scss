@@ -1071,6 +1071,21 @@ aside, .article-wrapper .toc {
 }
 
 .article-wrapper .toc {
-    margin-top: 3rem;
+    margin-top: 3.8rem;
     z-index: 0; /* below progress */
+    ul {
+        li {
+            border-left: solid 2px $color-gray-light;
+            &.active {
+                border-left: solid 2px $color-color-link;
+            }
+
+            padding-left: 1rem;
+
+            h4 {
+                margin-bottom: 0;
+                padding-bottom: .5rem;
+            }
+        }
+    }
 }
