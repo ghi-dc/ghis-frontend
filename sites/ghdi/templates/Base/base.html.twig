@@ -203,7 +203,7 @@
                         {% set path = path('dynamic', { 'path': aVolume.dtaDirname }) %}
                     {% endif %}
                 {% endfor %}
-                <li class="nav-item{% if volume is defined and volume.getId(true) == key %} active{% endif %}">
+                <li class="nav-item{% if volume is defined and volume.getId(true) == key %} active{% endif %}" onclick="location.href='{{ path }}'" style="cursor: pointer;">
                     <a href="{{ path }}">
                         {{ info.period|replace({'-': '–'}) }}
                     </a>

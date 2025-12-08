@@ -9,7 +9,7 @@
                 {% set path = path('dynamic', { 'path': volume.dtaDirname }) %}
             {% endif %}
         {% endfor %}
-        <div class="volume" style="background-image: url('{{ app.request.basepath }}/media/menu/{{ key }}.jpg');">
+        <div class="volume" style="background-image: url('{{ app.request.basepath }}/media/menu/{{ key }}.jpg'); cursor: pointer;" onclick="location.href='{{ path }}'">
             <a href="{{ path }}"><div class="title">
                 {{ info.period|replace({'-': '–'}) }}
                 <h5>{{ info[app.request.locale] }}</h5>
