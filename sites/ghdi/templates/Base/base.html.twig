@@ -205,7 +205,7 @@
                 {% endfor %}
                 <li class="nav-item{% if volume is defined and volume.getId(true) == key %} active{% endif %}">
                     <a href="{{ path }}">
-                        {{ info.period }}
+                        {{ info.period|replace({'-': '–'}) }}
                     </a>
                 </li>
             {% endfor %}

@@ -11,7 +11,7 @@
         {% endfor %}
         <div class="volume" style="background-image: url('{{ app.request.basepath }}/media/menu/{{ key }}.jpg');">
             <a href="{{ path }}"><div class="title">
-                {{ info.period }}
+                {{ info.period|replace({'-': '–'}) }}
                 <h5>{{ info[app.request.locale] }}</h5>
             </div></a>
         </div>
