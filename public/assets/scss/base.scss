@@ -472,15 +472,17 @@ article, .article-part {
 
 /* route-specific styles */
 .route-search {
-    input, button {
-        border: none;
-        border-radius: 0;
-        background-color: $color-gray-light;
-        &:focus {
+    main {
+        input, button {
+            border: none;
+            border-radius: 0;
             background-color: $color-gray-light;
-            box-shadow: none;
-            -moz-box-shadow: none;
-            -webkit-box-shadow: none;
+            &:focus {
+                background-color: $color-gray-light;
+                box-shadow: none;
+                -moz-box-shadow: none;
+                -webkit-box-shadow: none;
+            }
         }
     }
 
