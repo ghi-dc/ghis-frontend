@@ -106,7 +106,7 @@ ul#menu-volumes li {
     background-color: $color-background-spot;
 
     .nav-item {
-        padding: 0.7rem 0.4rem;
+        padding: 0.7rem 0.4rem 0.4rem 0.4rem;
         white-space: nowrap;
         font-weight: bold;
 
@@ -122,7 +122,7 @@ ul#menu-volumes li {
 }
 
 #volumes-visual {
-    border-top: 2em solid $color-background-spot;
+    border-top: 2.6rem solid $color-background-spot; /* same height as #volumes .nav-item */
     overflow-x: auto;
 
     .volume {
