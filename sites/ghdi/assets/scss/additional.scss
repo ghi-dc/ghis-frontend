@@ -104,14 +104,19 @@ ul#menu-volumes li {
 
 #volumes {
     background-color: $color-background-spot;
+
     .nav-item {
-        padding: 0.7rem;
+        padding: 0.7rem 0.4rem;
+        white-space: nowrap;
+        font-weight: bold;
+
+        &:hover, &.active {
+            background-color: $color-title-spot;
+        }
+
         a {
             color: white;
             text-decoration: none;
-        }
-        &:hover, &.active {
-            background-color: $color-title-spot;
         }
     }
 }
