@@ -5,13 +5,14 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Yaml\Yaml;
 
 class ExtraController extends BaseController
 {
     #[Route(path: ['en' => '/teaching', 'de' => '/unterricht'], name: 'teaching-index', options: ['sitemap' => true])]
-    public function teachingIndexAction(Request $request)
+    public function teachingIndexAction(Request $request): Response
     {
         // load the teaching
         $info = Yaml::parseFile($this->getSiteDataDir() . '/site.yaml');
@@ -27,7 +28,7 @@ class ExtraController extends BaseController
     }
 
     #[Route(path: ['en' => '/teaching/{slug}', 'de' => '/lehre/{slug}'], name: 'teaching')]
-    public function teachingDetailAction(Request $request, $slug)
+    public function teachingDetailAction(Request $request, $slug): Response
     {
         // load the teaching
         $info = Yaml::parseFile($this->getSiteDataDir() . '/site.yaml');

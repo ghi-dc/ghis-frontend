@@ -4,8 +4,9 @@
 
 namespace App\Controller;
 
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -531,7 +532,7 @@ class SearchController extends BaseController
     }
 
     #[Route(path: ['en' => '/search', 'de' => '/suche'], name: 'search', options: ['sitemap' => true])]
-    public function searchAction(Request $request, TranslatorInterface $translator)
+    public function searchAction(Request $request, TranslatorInterface $translator): Response
     {
         $pageMeta = ['title' => $translator->trans('Search')];
 

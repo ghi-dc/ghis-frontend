@@ -7,7 +7,7 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
@@ -1042,7 +1042,7 @@ class ResourceController extends BaseController
     #[Route(path: ['en' => '/about/partners', 'de' => '/ueber/partner'], name: 'about-partners')]
     #[Route(path: ['en' => '/about/history', 'de' => '/ueber/entwicklung'], name: 'about-history')]
     #[Route(path: ['en' => '/terms', 'de' => '/impressum'], name: 'terms', options: ['sitemap' => true])]
-    public function aboutAction(Request $request)
+    public function aboutAction(Request $request): Response
     {
         $mediaBaseUrl = join('/', [
             $request->getSchemeAndHttpHost() . $request->getBaseUrl(),
@@ -1067,7 +1067,7 @@ class ResourceController extends BaseController
     }
 
     #[Route(path: ['en' => '/contact', 'de' => '/kontakt'], name: 'contact')]
-    public function contactAction(Request $request)
+    public function contactAction(Request $request): Response
     {
         return $this->redirect($this->generateUrl('terms') . '#contact');
     }

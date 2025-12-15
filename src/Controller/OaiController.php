@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
@@ -33,7 +34,7 @@ class OaiController extends BaseController
         RouterInterface $router,
         \Twig\Environment $twig,
         \App\Twig\AppExtension $twigAppExtension
-    ) {
+    ): Response {
         // we need site_name / site_email
         $globals = $twig->getGlobals();
 
