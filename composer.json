@@ -38,7 +38,7 @@
         "jms/translation-bundle": "^2.6",
         "knplabs/knp-menu-bundle": "^3.6",
         "knplabs/knp-paginator-bundle": "^6.9",
-        "laminas/laminas-diactoros": "^2.26",
+        "laminas/laminas-diactoros": "^3.8",
         "masterminds/html5": "^2.8",
         "minimalcode/search": "dev-master as 1.0.2",
         "mpdf/mpdf": "^8.2",
@@ -123,7 +123,6 @@
         "symfony/polyfill-php80": "*",
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*"
-
     },
     "scripts": {
         "auto-scripts": {
