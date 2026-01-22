@@ -359,6 +359,11 @@ class ResourceController extends BaseController
         ];
 
         $this->thumbnailUrl = false;
+        $imgClass = 'map' == $genre
+            ? 'image-responsive-svg' // bring svg to full width
+            : null
+        ;
+
         if (!$printView) {
             $html = $this->buildCarousel($html);
             $this->thumbnailUrl = true; // look for first image
@@ -366,7 +371,7 @@ class ResourceController extends BaseController
 
         $crawler = new \Symfony\Component\DomCrawler\Crawler($html);
 
-        $this->adjustMedia($crawler, $mediaBaseUrl, $printView);
+        $this->adjustMedia($crawler, $mediaBaseUrl, $printView, $imgClass);
         $this->adjustInternalLink($crawler);
 
         if ('introduction' == $genre) {

@@ -211,8 +211,11 @@
             p.dta-p {
                 font-size: 14px;
             }
-            img.image-responsive {
-                max-width: 100%;
+
+            img.image-responsive,
+            img.image-responsive-svg[src$=".svg"]
+            {
+                width: 100%;
                 height: auto;
             }
         }
