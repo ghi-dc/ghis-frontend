@@ -17,3 +17,8 @@ scssphp:
             importPaths:
                 - "sites/%app.site.key%/assets/scss"   # theme-specific settings come first
                 - "assets/scss"                        # generic fall-back
+
+when@prod:
+    scssphp:
+        enabled: false
+        autoUpdate: false
