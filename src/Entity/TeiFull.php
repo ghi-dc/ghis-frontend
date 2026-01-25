@@ -79,7 +79,9 @@ class TeiFull extends TeiHeader
     {
         return array_filter(
             $this->tags,
-            function ($tag) use ($type) { return $type == $tag->getType(); }
+            function ($tag) use ($type) {
+                return $type == $tag->getType();
+            }
         );
     }
 

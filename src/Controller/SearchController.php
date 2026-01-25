@@ -271,7 +271,9 @@ class SearchController extends BaseController
                 if (!empty($volumeIds)) {
                     // build a filter query for volume ids
                     $orCondition = join(' OR ', array_map(
-                        function ($id) { return 'volume_id_s:' . $id; },
+                        function ($id) {
+                            return 'volume_id_s:' . $id;
+                        },
                         $volumeIds
                     ));
 
@@ -387,7 +389,9 @@ class SearchController extends BaseController
 
             // create a filterquery
             $orCondition = join(' OR ', array_map(
-                function ($term) { return '"' . $term . '"'; },
+                function ($term) {
+                    return '"' . $term . '"';
+                },
                 array_keys($counts)
             ));
             $solrQuery->createFilterQuery('path')->setQuery('path_s:(' . $orCondition . ')');
