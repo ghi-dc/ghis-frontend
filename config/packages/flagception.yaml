@@ -5,5 +5,4 @@ flagception:
             default: false
             constraint: 'siteKey == "ghdi" and (hostname == "localhost" or hostname matches "/germanhistorydocs/")'
         search_partner:
-            default: false
-            constraint: 'siteKey == "ghdi" and (hostname == "localhost" or hostname matches "/germanhistorydocs/")'
+            default: true
