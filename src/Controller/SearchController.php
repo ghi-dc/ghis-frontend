@@ -8,7 +8,10 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Flagception\Manager\FeatureManagerInterface;
+use Flagception\Model\Context as ConstraintContext;
 use Knp\Component\Pager\PaginatorInterface;
 use Sylius\Bundle\ThemeBundle\Context\SettableThemeContext;
 use Solarium\Component\Facet\JsonTerms;
@@ -536,8 +539,12 @@ class SearchController extends BaseController
     }
 
     #[Route(path: ['en' => '/search', 'de' => '/suche'], name: 'search', options: ['sitemap' => true])]
-    public function searchAction(Request $request, TranslatorInterface $translator): Response
-    {
+    public function searchAction(
+        Request $request,
+        TranslatorInterface $translator,
+        HttpClientInterface $client,
+        FeatureManagerInterface $featureManager
+    ): Response {
         $pageMeta = ['title' => $translator->trans('Search')];
 
         [$q, $filter] = $this->getQuery($request, array_keys($this->facets));
@@ -564,6 +571,49 @@ class SearchController extends BaseController
             }
 
             $resultset = $pagination->getCustomParameter('result');
+        }
+
+        if (!is_null($q)) {
+            if (empty($filter['volume']) && empty($filter['term'])) {
+                // volume and term are project specific facets,
+                // so it makes no sense for such queries to be sent to the partner
+                $context = new ConstraintContext();
+                $context->add('hostname', $request->server->get('HTTP_HOST'));
+                $context->add('siteKey', $this->siteKey);
+                if ($featureManager->isActive('search_partner', $context)) {
+                    // get count of results for this query from partner and add it to meta
+                    $domain = 'ghdi' == $this->siteKey
+                        ? 'germanhistory-intersections.org'
+                        : 'germanhistorydocs.org';
+                    $apiUrl = sprintf(
+                        'https://%s/%s/api/search/total-items',
+                        $domain,
+                        $request->getLocale()
+                    );
+                    try {
+                        $clientResponse = $client->request('GET', $apiUrl, [
+                            'query' => [
+                                'q' => $q, 'filter' => $filter,
+                            ],
+                        ]);
+
+                        $partnerMeta = $clientResponse->toArray();
+                        if (array_key_exists('totalItems', $partnerMeta)) {
+                            $meta['partnerNumFound'] = $partnerMeta['totalItems'];
+                            $meta['partnerUrl'] = sprintf(
+                                'https://%s/%s/%s?%s',
+                                $domain,
+                                $request->getLocale(),
+                                'de' == $request->getLocale() ? 'suche' : 'search',
+                                http_build_query(['q' => $q, 'filter' => $filter])
+                            );
+                        }
+                    }
+                    catch (\Exception $e) {
+                        // ignore errors, e.g. if partner is not reachable
+                    }
+                }
+            }
         }
 
         return $this->render('Search/index.html.twig', [

@@ -81,7 +81,6 @@
                         </span>
                     </div><!-- .input-group -->
                 </form>
-
             {% if pagination is not null and meta is not empty %}
                 <div class="summary">
                     {{ 'Display'|trans }}:
@@ -129,6 +128,11 @@
                 {% endif %}
             </div><!-- .col-md-10 -->
             <aside class="col-md-2">
+            {% if meta is not empty and meta.partnerNumFound is defined and meta.partnerNumFound > 0 %}
+                <div class="partner-results mb-4">
+                    {{ 'result.partner_ghis'|trans({ 'count': meta.partnerNumFound, 'partnerUrl': meta.partnerUrl }, 'additional')|raw }}
+                </div>
+            {% endif %}
             {% if meta.facet is defined and meta.facet is not empty %}
                 <h2>{{ 'Filter Results'|trans }}</h2>
                 {{ search_helper.display_facet(meta.facet, facets, pagination) }}

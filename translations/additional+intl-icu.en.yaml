@@ -1,0 +1,5 @@
+# genres
+document-collection: chapter
+# partner site results
+result.partner_ghdi: You can find <a href="{partnerUrl}" target="_blank">{count, plural, =0 {No Results} one {# Result} other {# Results}}</a> for this query in our partner project German History in Documents and Images.
+result.partner_ghis: You can find <a href="{partnerUrl}" target="_blank">{count, plural, =0 {No Results} one {# Result} other {# Results}}</a> for this query in our partner project German History Intersections.
