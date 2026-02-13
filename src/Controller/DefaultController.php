@@ -66,7 +66,23 @@ class DefaultController extends BaseController
             }
         }
 
+        // support for pageMeta.home.og:image in site.yaml
+        $pageMeta = [];
+        if (array_key_exists('pageMeta', $info) && is_array($info['pageMeta'])) {
+            if (array_key_exists('home', $info['pageMeta']) && is_array($info['pageMeta']['home'])) {
+                $pageMeta = $info['pageMeta']['home'];
+
+                // check for locale specific values
+                foreach ($pageMeta as $key => $values) {
+                    if (is_array($values) && array_key_exists($request->getLocale(), $values)) {
+                        $pageMeta[$key] = $values[$request->getLocale()];
+                    }
+                }
+            }
+        }
+
         return $this->render('Default/home.html.twig', [
+            'pageMeta' => $pageMeta,
             'volumes' => $volumes,
             'focus' => $focus,
             'featured' => $featured,

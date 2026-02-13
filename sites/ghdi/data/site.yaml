@@ -53,6 +53,12 @@ volumes:
 
 focus:
 
+pageMeta:
+    home:
+        'og:image':
+            'de': 'https://germanhistorydocs.org/ghdi/website-card.de.jpg'
+            'en': 'https://germanhistorydocs.org/ghdi/website-card.en.jpg'
+
 teaching:
     -
         title:
