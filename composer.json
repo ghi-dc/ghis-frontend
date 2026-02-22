@@ -62,7 +62,7 @@
         "symfony/framework-bundle": "^7.4",
         "symfony/http-client": "^7.4",
         "symfony/intl": "^7.4",
-        "symfony/monolog-bundle": "^3.10",
+        "symfony/monolog-bundle": "^4.0",
         "symfony/polyfill-intl-messageformatter": "^1.33",
         "symfony/process": "^7.4",
         "symfony/property-access": "^7.4",
