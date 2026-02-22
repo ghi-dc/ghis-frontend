@@ -48,7 +48,7 @@
         "presta/sitemap-bundle": "^4.3",
         "sabre/xml": "^4.0",
         "seboettg/citeproc-php": "^2.6",
-        "spatie/schema-org": "^3.23",
+        "spatie/schema-org": "^4.0",
         "square-bit/oai-pmh": "dev-master as 0.3",
         "sylius/theme-bundle": "^2.5",
         "symfony/asset": "^7.4",
