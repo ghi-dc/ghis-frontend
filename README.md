@@ -13,7 +13,7 @@ License
     and
         German History Intersections (GHIS)
 
-    (C) 2020-2025 German Historical Institute Washington
+    (C) 2020-2026 German Historical Institute Washington
         Daniel Burckhardt
 
 
@@ -44,7 +44,7 @@ Installation
 ------------
 Requirements
 
-- PHP 8.2 (check with `php -v`)
+- PHP 8.4 (check with `php -v`)
 - composer (check with `composer -v`; if it is missing, see https://getcomposer.org/)
 - Java 1.8 (for XSLT and Solr, check with `java -version`)
 
