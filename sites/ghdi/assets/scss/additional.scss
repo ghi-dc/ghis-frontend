@@ -467,6 +467,14 @@ main.volume, main.section, main.introduction {
     }
 }
 
+body.volume-6 {
+    main.volume, main.section, main.introduction {
+        .banner {
+            background-position: top center;
+        }
+    }
+}
+
 main.section, main.resource {
     .bottom-navigation {
         position: sticky;
