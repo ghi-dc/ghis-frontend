@@ -4,10 +4,15 @@ $finder = (new PhpCsFixer\Finder())
     ->in(__DIR__)
     ->exclude([
         'vendor',
-        'config',
         'var',
     ])
-    ->notPath('tests/bootstrap.php')
+    ->notPath([
+        'config/bootstrap.php',
+        'config/bundles.php',
+        'config/preload.php',
+        'config/reference.php',
+        'tests/bootstrap.php'
+    ])
 ;
 
 return (new PhpCsFixer\Config())
