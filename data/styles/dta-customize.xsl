@@ -369,17 +369,22 @@
         <!-- custom code for iframe -->
         <xsl:choose>
           <xsl:when test="contains(tei:media/@url,'ardaudiothek.de')">
-              <iframe style="width: 100%; height: 185px" frameBorder="0" scrolling="no">
+            <iframe style="width: 100%; height: 185px" frameBorder="0" scrolling="no">
+              <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
+            </iframe>
+          </xsl:when>
+          <xsl:when test="contains(tei:media/@url,'germanhistorydocs.org/weimar_elections/')">
+            <iframe style="width: 100%; height: 960px" frameBorder="0" scrolling="yes">
+              <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
+            </iframe>
+          </xsl:when>
+          <xsl:otherwise>
+            <div class="embed-responsive embed-responsive-4by3 ratio ratio-4x3"><!-- todo: get from width/height -->
+              <iframe class="embed-responsive-item" allowFullScreen="allowFullScreen">
                 <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
               </iframe>
-            </xsl:when>
-            <xsl:otherwise>
-              <div class="embed-responsive embed-responsive-4by3 ratio ratio-4x3"><!-- todo: get from width/height -->
-                <iframe class="embed-responsive-item" allowFullScreen="allowFullScreen">
-                  <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
-                </iframe>
-              </div>
-            </xsl:otherwise>
+            </div>
+          </xsl:otherwise>
         </xsl:choose>
         <xsl:if test="tei:figDesc"><xsl:text> </xsl:text><xsl:apply-templates select="tei:figDesc" mode="figdesc"/></xsl:if>
       </xsl:when>
