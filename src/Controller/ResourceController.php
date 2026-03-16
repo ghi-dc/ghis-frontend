@@ -358,6 +358,10 @@ class ResourceController extends BaseController
             'additional' => [],
         ];
 
+        // xslt creates self-closing tags like <iframe/>
+        // which cause problems with DomCrawler, so we need to replace them with <iframe></iframe>
+        $html = preg_replace('/<iframe([^>]*)\/>/s', '<iframe\1></iframe>', $html);
+
         $this->thumbnailUrl = false;
         $imgClass = 'map' == $genre
             ? 'image-responsive-svg' // bring svg to full width

@@ -374,12 +374,15 @@
             </iframe>
           </xsl:when>
           <xsl:when test="contains(tei:media/@url,'germanhistorydocs.org/weimar_elections/')">
-            <iframe style="width: 100%; height: 960px" frameBorder="0" scrolling="yes">
-              <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
-            </iframe>
+            <figure>
+              <iframe style="width: 100%; height: 960px" frameBorder="0" scrolling="yes">
+                <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
+              </iframe>
+              <figcaption><xsl:apply-templates/></figcaption>
+            </figure>
           </xsl:when>
           <xsl:otherwise>
-            <div class="embed-responsive embed-responsive-4by3 ratio ratio-4x3"><!-- todo: get from width/height -->
+            <div class="embed-responsive embed-responsive-4by3"><!-- todo: get from width/height -->
               <iframe class="embed-responsive-item" allowFullScreen="allowFullScreen">
                 <xsl:attribute name="src"><xsl:value-of select='tei:media/@url' /></xsl:attribute>
               </iframe>
