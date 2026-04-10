@@ -20,10 +20,6 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/burki/minimalcode-search"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/burki/JMSTranslationBundle"
         },
         {
@@ -50,7 +46,6 @@
         "knplabs/knp-paginator-bundle": "^6.10",
         "laminas/laminas-diactoros": "^3.8",
         "masterminds/html5": "^2.8",
-        "minimalcode/search": "dev-master as 1.0.2",
         "mpdf/mpdf": "^8.2",
         "nyholm/psr7": "^1.8",
         "phpdocumentor/reflection-docblock": "^5.2",

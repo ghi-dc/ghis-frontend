@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbb7dffeb892d9d3e506f63f096d4f47",
+    "content-hash": "9bd480c5bc2ff459e5c9b9f4cb01f054",
     "packages": [
         {
             "name": "armin/scssphp-bundle",
@@ -63,17 +63,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/burki/SolrBundle.git",
-                "reference": "d7ff7177db87e3a74e169009be1013dba7aa7304"
+                "reference": "b10f95be87f3914974b4f1a0412f425769771193"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burki/SolrBundle/zipball/d7ff7177db87e3a74e169009be1013dba7aa7304",
-                "reference": "d7ff7177db87e3a74e169009be1013dba7aa7304",
+                "url": "https://api.github.com/repos/burki/SolrBundle/zipball/b10f95be87f3914974b4f1a0412f425769771193",
+                "reference": "b10f95be87f3914974b4f1a0412f425769771193",
                 "shasum": ""
             },
             "require": {
-                "doctrine/annotations": "^1.7",
-                "minimalcode/search": "^1.0",
+                "burki/minimalcode-search": "^1.0",
+                "doctrine/annotations": "^1.7|^2.0",
                 "myclabs/deep-copy": "^1.6",
                 "php": "^8.1",
                 "ramsey/uuid": "^3.5|^4.1",
@@ -84,7 +84,7 @@
                 "symfony/http-kernel": "^5.4|^6.4|^7.0|^8.0"
             },
             "require-dev": {
-                "doctrine/mongodb-odm-bundle": "^4.2",
+                "doctrine/mongodb-odm-bundle": "^5.0",
                 "doctrine/orm": "^2.9",
                 "phpunit/phpunit": "^9.0"
             },
@@ -116,7 +116,7 @@
             "support": {
                 "source": "https://github.com/burki/SolrBundle/tree/symfony-8"
             },
-            "time": "2026-02-22T21:49:19+00:00"
+            "time": "2026-04-10T16:53:46+00:00"
         },
         {
             "name": "brick/math",
@@ -177,6 +177,57 @@
                 }
             ],
             "time": "2026-02-10T14:33:43+00:00"
+        },
+        {
+            "name": "burki/minimalcode-search",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/burki/minimalcode-search.git",
+                "reference": "6ae30ae6115af4d81934c2e92fbb18e0bef9d3be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/burki/minimalcode-search/zipball/6ae30ae6115af4d81934c2e92fbb18e0bef9d3be",
+                "reference": "6ae30ae6115af4d81934c2e92fbb18e0bef9d3be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "8.5.*"
+            },
+            "suggest": {
+                "solarium/solarium": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Minimalcode\\Search\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabio Piro",
+                    "email": "pirofabio@gmail.com"
+                }
+            ],
+            "description": "Fluent Lucene-Sorl Query Builder for PHP, forked from minimalcode/search",
+            "keywords": [
+                "builder",
+                "lucene",
+                "query",
+                "solr"
+            ],
+            "support": {
+                "source": "https://github.com/burki/minimalcode-search/tree/v1.0.2"
+            },
+            "time": "2026-04-10T16:27:36+00:00"
         },
         {
             "name": "citation-style-language/locales",
@@ -1860,57 +1911,6 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.10.0"
             },
             "time": "2025-07-25T09:04:22+00:00"
-        },
-        {
-            "name": "minimalcode/search",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/burki/minimalcode-search.git",
-                "reference": "543416eff84e304b9aa07afc4e1aafd5a0003fd3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/burki/minimalcode-search/zipball/543416eff84e304b9aa07afc4e1aafd5a0003fd3",
-                "reference": "543416eff84e304b9aa07afc4e1aafd5a0003fd3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.8.*"
-            },
-            "suggest": {
-                "solarium/solarium": "*"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Minimalcode\\Search\\": "src/"
-                }
-            },
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Fabio Piro",
-                    "email": "pirofabio@gmail.com"
-                }
-            ],
-            "description": "Fluent Lucene-Sorl Query Builder for PHP",
-            "keywords": [
-                "builder",
-                "lucene",
-                "query",
-                "solr"
-            ],
-            "support": {
-                "source": "https://github.com/burki/minimalcode-search/tree/master"
-            },
-            "time": "2025-01-13T11:22:42+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -12731,12 +12731,6 @@
             "alias_normalized": "8.0.0.0"
         },
         {
-            "package": "minimalcode/search",
-            "version": "9999999-dev",
-            "alias": "1.0.2",
-            "alias_normalized": "1.0.2.0"
-        },
-        {
             "package": "square-bit/oai-pmh",
             "version": "9999999-dev",
             "alias": "0.3",
@@ -12755,7 +12749,6 @@
         "boppy/solr-bundle": 20,
         "fluentdom/fluentdom": 20,
         "jms/translation-bundle": 20,
-        "minimalcode/search": 20,
         "square-bit/oai-pmh": 20,
         "voku/simple_html_dom": 20
     },

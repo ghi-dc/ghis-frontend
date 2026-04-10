@@ -102,9 +102,6 @@
     "masterminds/html5": {
         "version": "2.7.4"
     },
-    "minimalcode/search": {
-        "version": "1.0.1"
-    },
     "monolog/monolog": {
         "version": "2.2.0"
     },
