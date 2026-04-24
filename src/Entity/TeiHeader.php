@@ -13,23 +13,16 @@ class TeiHeader implements \JsonSerializable
 {
     /**
      * @var string
-     *
-     * @Solr\Id
      */
     #[Solr\Id]
     protected $id;
 
     /**
      * @var string the title
-     *
-     * @Solr\Field(type="string")
      */
     #[Solr\Field(type: 'string')]
     protected $title;
 
-    /**
-     * @Solr\Field(type="strings", getter="getFullname")
-     */
     #[Solr\Field(type: 'strings', getter: 'getFullname')]
     protected $authors = [];
 
@@ -39,40 +32,30 @@ class TeiHeader implements \JsonSerializable
 
     /**
      * @var string the licence text
-     *
-     * @Solr\Field(type="string")
      */
     #[Solr\Field(type: 'string')]
     protected $licence;
 
     /**
      * @var string the licence URL
-     *
-     * @Solr\Field(type="string")
      */
     #[Solr\Field(type: 'string')]
     protected $licenceTarget;
 
     /**
      * @var string The source description
-     *
-     * @Solr\Field(type="text")
      */
     #[Solr\Field(type: 'text')]
     protected $note;
 
     /**
      * @var string the bibliographic citation
-     *
-     * @Solr\Field(type="text")
      */
     #[Solr\Field(type: 'string')]
     protected $sourceDescBibl;
 
     /**
      * @var string the language code (deu or eng)
-     *
-     * @Solr\Field(type="string")
      */
     #[Solr\Field(type: 'string')]
     protected $language;
@@ -84,8 +67,6 @@ class TeiHeader implements \JsonSerializable
 
     /**
      * @var string the shelfmark
-     *
-     * @Solr\Field(type="string")
      */
     #[Solr\Field(type: 'string')]
     protected $shelfmark;
@@ -98,16 +79,12 @@ class TeiHeader implements \JsonSerializable
 
     /**
      * @var string the slug
-     *
-     * @Solr\Field(type="string")
      */
     #[Solr\Field(type: 'string')]
     private $slug;
 
     /**
      * @var string the genre (introduction|document|image)
-     *
-     * @Solr\Field(type="string")
      */
     #[Solr\Field(type: 'string')]
     private $genre;
