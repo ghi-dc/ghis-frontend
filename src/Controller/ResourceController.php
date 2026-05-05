@@ -476,6 +476,7 @@ class ResourceController extends BaseController
         if ('ghdi' == $this->siteKey) {
             // bootstrap 5 switches to ratio
             $html = str_replace('<div class="embed-responsive embed-responsive-16by9">', '<div class="ratio ratio-4x3">', $html);
+            $html = str_replace('<div class="embed-responsive embed-responsive-4by3">', '<div class="ratio ratio-4x3">', $html);
         }
 
         $parts['body'] = $this->markCombiningCharacters($html);
