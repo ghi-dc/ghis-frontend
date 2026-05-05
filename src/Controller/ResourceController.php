@@ -982,7 +982,7 @@ class ResourceController extends BaseController
     protected function aboutToHtml(Request $request, string $mediaBaseUrl, string $fnameXsl = 'dta2html.xsl')
     {
         $fname = join('.', [
-            $route = $request->get('_route'),
+            $route = $request->attributes->get('_route'),
             \App\Utils\Iso639::code1To3($locale = $request->getLocale()),
             'xml',
         ]);
