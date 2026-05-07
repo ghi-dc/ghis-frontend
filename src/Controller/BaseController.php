@@ -48,7 +48,7 @@ class BaseController extends AbstractController
     /**
      * Catch-all method. This is hardwired in config/routes.yaml, so it comes last.
      */
-    public function dynamicAction($path, Request $request)
+    public function dynamicAction($path, Request $request, \App\Twig\AppExtension $twigExtension)
     {
         $parts = explode('/', $path);
 
@@ -88,6 +88,12 @@ class BaseController extends AbstractController
                             // we have bots calling deeply paths like /en/migration/ghis:introduction-1/ghis:image-142
                             // which don't get cached, therefore we redirect to the proper parent
                             return $this->redirect($this->generateUrl('dynamic', ['path' => join('/', array_slice($parts, 0, 2))]));
+                        }
+
+                        if ($resource->getVolumeIdFromShelfmark() !== $volume->getId(true)) {
+                            // if we fetch resource by uid, the volume in path might not match the volume in shelfmark
+                            // this is a sign of a wrong path, e.g. because of an old link, so we redirect to the correct one
+                            return $this->redirect($this->generateUrl('dynamic', ['path' => $twigExtension->buildResourcePath($resource)]));
                         }
 
                         if (preg_match('/\-collection$/', $resource->getGenre())) {
