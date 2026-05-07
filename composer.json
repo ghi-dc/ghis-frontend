@@ -21,10 +21,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/burki/JMSTranslationBundle"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/devteam-emroc/simple_html_dom"
         }
 
     ],
@@ -84,8 +80,7 @@
         "twig/extra-bundle": "^3.23",
         "twig/string-extra": "^3.23",
         "twig/twig": "^3.23",
-        "voku/html-min": "*",
-        "voku/simple_html_dom": "dev-master#1ccc849d5a374147f7c1593d0ecaff851cbc6758 as 4.8.6"
+        "voku/html-min": "^5.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "*",
