@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use FS\SolrBundle\Doctrine\Annotation as Solr;
+use FS\SolrBundle\Attribute as Solr;
 
 /**
  * Entity to edit elements in teiHeader.

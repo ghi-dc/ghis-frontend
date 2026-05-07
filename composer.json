@@ -22,7 +22,6 @@
             "type": "vcs",
             "url": "https://github.com/burki/JMSTranslationBundle"
         }
-
     ],
     "require": {
         "php": "^8.4",
@@ -31,8 +30,7 @@
         "ext-iconv": "*",
         "ext-intl": "*",
         "armin/scssphp-bundle": "dev-master",
-        "boppy/solr-bundle": "dev-symfony-8",
-        "doctrine/annotations": "^1.14",
+        "boppy/solr-bundle": "dev-attributes-only",
         "edwinhoksberg/octicons-php": "^1.1",
         "flagception/flagception-bundle": "^6.1",
         "fluentdom/fluentdom": "dev-master as 8.0",

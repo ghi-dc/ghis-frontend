@@ -83,14 +83,6 @@ services:
     # So we can inject @solr.client, see https://github.com/floriansemm/SolrBundle/issues/191#issuecomment-466101623
     FS\SolrBundle\SolrInterface: '@solr.client'
 
-    # Switch to attributes
-    solr.doctrine.annotation.attribute_reader:
-        class: FS\SolrBundle\Doctrine\Annotation\AttributeReader
-
-    solr.meta.information.factory:
-        class: FS\SolrBundle\Doctrine\Mapper\MetaInformationFactory
-        arguments: [ '@solr.doctrine.annotation.attribute_reader' ]
-
     # Override hydrator, see https://symfony.com/doc/4.4/service_container/service_decoration.html
     solr.doctrine.hydration.no_database_value_hydrator:
         class: App\Search\NoDatabaseValueHydratorWithChildren
