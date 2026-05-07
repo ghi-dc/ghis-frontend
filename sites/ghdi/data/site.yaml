@@ -78,6 +78,14 @@ teaching:
 
     -
         title:
+            de: "Karten als Spiegel und Blaupausen (auf Englisch)"
+            en: "Maps as Mirrors and Blueprints"
+        slug:
+            de: maps-mirrors-and-blueprints
+            en: maps-mirrors-and-blueprints
+
+    -
+        title:
             de: Ausgewählte Videoclips zu den Themen Migration, „Deutschsein“, und Wissen und Bildung
             en: Selection of Video Clips about Migration, “Germanness,” and Knowledge and Education
         url:
