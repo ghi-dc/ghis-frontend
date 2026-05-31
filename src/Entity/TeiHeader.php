@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use FS\SolrBundle\Attribute as Solr;
@@ -8,6 +10,8 @@ use FS\SolrBundle\Attribute as Solr;
  * Entity to edit elements in teiHeader.
  *
  * Currently very incomplete
+ *
+ * @phpstan-consistent-constructor
  */
 class TeiHeader implements \JsonSerializable
 {

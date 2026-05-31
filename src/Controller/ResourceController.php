@@ -1067,7 +1067,7 @@ class ResourceController extends BaseController
         catch (\Exception $e) {
             // InvalidArgumentException if xml doesn't exist
             // redirect to about, or - to avoid a loop - home
-            $target = 'about' != $request->get('_route')
+            $target = 'about' != $request->attributes->get('_route')
                 ? 'about' : 'home';
 
             $response = $this->redirectToRoute($target);

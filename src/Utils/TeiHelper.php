@@ -645,7 +645,6 @@ class TeiHelper
                                         $ref[] = (string) $identifier;
                                     }
                                 }
-                                */
 
                                 $attributes = '';
                                 if (!empty($ref)) {
@@ -657,6 +656,7 @@ class TeiHelper
                                     $attributes,
                                     \App\Entity\Person::xmlSpecialchars($author->getName())
                                 );
+                                */
                             }
 
                             $fragment->appendXML($author);
@@ -1077,6 +1077,7 @@ class TeiHelper
                 }
 
                 $uri = trim($entity['attributes'][$attribute]);
+                $type = null;
 
                 switch ($entity['name']) {
                     case '{http://www.tei-c.org/ns/1.0}placeName':

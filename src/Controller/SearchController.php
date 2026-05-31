@@ -271,17 +271,15 @@ class SearchController extends BaseController
                     return null;
                 }
 
-                if (!empty($volumeIds)) {
-                    // build a filter query for volume ids
-                    $orCondition = join(' OR ', array_map(
-                        function ($id) {
-                            return 'volume_id_s:' . $id;
-                        },
-                        $volumeIds
-                    ));
+                // build a filter query for volume ids
+                $orCondition = join(' OR ', array_map(
+                    function ($id) {
+                        return 'volume_id_s:' . $id;
+                    },
+                    $volumeIds
+                ));
 
-                    return $field . ':(' . $orCondition . ')';
-                }
+                return $field . ':(' . $orCondition . ')';
                 break;
 
             default:
