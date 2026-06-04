@@ -178,8 +178,8 @@ class ResourceController extends BaseController
 
                 // get text (translation/transcription)
                 // by going to $element->parentNode and removing img
-                $element = $node->getNode(0);
-                $figure = $element->parentNode;
+                $element = $node->getNode(0); // getNode() returns ?DOMNode, but since we filter for img, it should always be a DOMElement
+                $figure = $element->parentElement;
 
                 // we retrieve the img and remove it from the figure
                 $img = $figure->getElementsByTagName('img')->item(0);

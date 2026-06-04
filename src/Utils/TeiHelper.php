@@ -1,14 +1,13 @@
 <?php
 
-/**
- * Helper Class to work with TEI / DTA-Basisformat DTABf.
- */
-
 namespace App\Utils;
 
 use FluentDOM\DOM\Document as FluentDOMDocument;
-use FluentDOM\Exceptions\LoadingError\FileNotLoaded;
+use FluentDOM\Exceptions\LoadingError;
 
+/**
+ * Helper Class to work with TEI / DTA-Basisformat DTABf.
+ */
 class TeiHelper
 {
     // Function for basic field validation (present and neither empty nor only white space
@@ -85,10 +84,8 @@ class TeiHelper
 
     /**
      * Load file into \FluentDOM\DOM\Document.
-     *
-     * @return FluentDOMDocument|false
      */
-    protected function loadXml(string $fname)
+    protected function loadXml(string $fname): FluentDOMDocument|false
     {
         try {
             $dom = \FluentDOM::load($fname, 'xml', [
@@ -96,7 +93,7 @@ class TeiHelper
                 \FluentDOM\Loader\Options::PRESERVE_WHITESPACE => true,
             ]);
         }
-        catch (FileNotLoaded $e) {
+        catch (LoadingError $e) {
             return false;
         }
 
@@ -109,14 +106,17 @@ class TeiHelper
      * Load string into \FluentDOM\DOM\Document.
      *
      * @param string $content
-     *
-     * @return FluentDOMDocument|false
      */
-    protected function loadXmlString($content): FluentDOMDocument
+    protected function loadXmlString($content): FluentDOMDocument|false
     {
-        $dom = \FluentDOM::load($content, 'xml', [
-            \FluentDOM\Loader\Options::PRESERVE_WHITESPACE => true,
-        ]);
+        try {
+            $dom = \FluentDOM::load($content, 'xml', [
+                \FluentDOM\Loader\Options::PRESERVE_WHITESPACE => true,
+            ]);
+        }
+        catch (LoadingError $e) {
+            return false;
+        }
 
         $this->registerNamespaces($dom);
 
@@ -215,14 +215,12 @@ class TeiHelper
         }
 
         // translator - currently don't expect persName due to things like David Haney and GHI staff
+        $article->translator = null;
         $result = $header('./tei:fileDesc/tei:titleStmt/tei:editor[@role="translator"]');
         if ($result->length > 0) {
             $article->translator = $asXml
                 ? $this->extractInnerContent($result[0])
                 : $this->extractTextContent($result[0]);
-        }
-        else {
-            $article->translator = null;
         }
 
         // responsible
@@ -306,7 +304,7 @@ class TeiHelper
             unset($article->dateModified);
         }
 
-        // licence
+        // licence / rights
         $article->rights = null;
         $result = $header('./tei:fileDesc/tei:publicationStmt/tei:availability/tei:licence');
         if ($result->length > 0) {
@@ -554,8 +552,6 @@ class TeiHelper
 
     /**
      * Adjust header in $dom according to $data.
-     *
-     * @return FluentDOMDocument|false
      */
     public function patchHeaderStructure(FluentDOMDocument $dom, array $data): FluentDOMDocument
     {
@@ -581,7 +577,6 @@ class TeiHelper
         }
         */
 
-
         // if we have only <title> and not <title type="main">, add this attribute
         $hasTitleAttrMain = $header('count(./tei:fileDesc/tei:titleStmt/tei:title[@type="main"]) > 0');
         if (!$hasTitleAttrMain) {
@@ -599,7 +594,7 @@ class TeiHelper
             if (array_key_exists($key, $data)) {
                 if (self::isNullOrEmpty($data[$key])) {
                     // remove
-                    \FluentDom($header)->find($xpath)->remove();
+                    \FluentDOM($header)->find($xpath)->remove();
                 }
                 else {
                     $node = $this->addDescendants($header, $xpath, [], true);
@@ -617,7 +612,7 @@ class TeiHelper
         if (array_key_exists('authors', $data)) {
             $xpath = 'tei:fileDesc/tei:titleStmt/author';
             // since there can be multiple, first clear and then add
-            \FluentDom($header)->find($xpath)->remove();
+            \FluentDOM($header)->find($xpath)->remove();
 
             if (!is_null($data['authors'])) {
                 foreach ($data['authors'] as $author) {
@@ -674,7 +669,7 @@ class TeiHelper
         if (array_key_exists('responsible', $data)) {
             $xpath = 'tei:fileDesc/tei:titleStmt/tei:respStmt';
             // since there can be multiple, first clear and then add
-            \FluentDom($header)->find($xpath)->remove();
+            \FluentDOM($header)->find($xpath)->remove();
 
             if (!is_null($data['responsible'])) {
                 $respStmt = null;
@@ -682,7 +677,7 @@ class TeiHelper
                 foreach ($data['responsible'] as $responsible) {
                     if (is_null($respStmt)) {
                         $this->addDescendants($header, $xpath, []);
-                        $respStmt = \FluentDom($header)->find($xpath)[0];
+                        $respStmt = \FluentDOM($header)->find($xpath)[0];
                     }
 
                     $respStmt->appendElement('resp', $responsible['role']);
@@ -732,7 +727,7 @@ class TeiHelper
 
                         if (empty($data['licence'])) {
                             // we remove a possible licence child
-                            \FluentDom($self)->find('tei:licence')->remove();
+                            \FluentDOM($self)->find('tei:licence')->remove();
                         }
                     }
 
@@ -770,7 +765,7 @@ class TeiHelper
 
                 if (self::isNullOrEmpty($data[$key])) {
                     // remove
-                    \FluentDom($header)->find($xpath)->remove();
+                    \FluentDOM($header)->find($xpath)->remove();
                 }
                 else {
                     $this->addDescendants($header, $xpath, [
@@ -798,7 +793,7 @@ class TeiHelper
             if (array_key_exists($key, $data)) {
                 if (self::isNullOrEmpty($data[$key])) {
                     // remove
-                    \FluentDom($header)->find($xpath)->remove();
+                    \FluentDOM($header)->find($xpath)->remove();
                 }
                 else {
                     $node = $this->addDescendants($header, $xpath, [], true);
@@ -904,7 +899,7 @@ class TeiHelper
             if (array_key_exists($key, $data)) {
                 $xpath = 'tei:profileDesc/tei:textClass/tei:classCode[contains(@scheme, "' . $scheme . '")]';
                 // since there can be multiple, first clear and then add
-                \FluentDom($header)->find($xpath)->remove();
+                \FluentDOM($header)->find($xpath)->remove();
 
                 if (!is_null($data[$key])) {
                     foreach ($data[$key] as $code) {
@@ -931,7 +926,7 @@ class TeiHelper
         if (array_key_exists('lcsh', $data)) {
             $xpath = 'tei:profileDesc/tei:textClass/tei:classCode[contains(@scheme, "lcsh")]';
             // since there can be multiple, first clear and then add
-            \FluentDom($header)->find($xpath)->remove();
+            \FluentDOM($header)->find($xpath)->remove();
 
             if (!is_null($data['lcsh'])) {
                 foreach ($data['lcsh'] as $code) {

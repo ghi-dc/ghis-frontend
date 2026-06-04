@@ -137,8 +137,6 @@ class Place extends SchemaOrg
     public function setTgn($tgn)
     {
         return $this->setIdentifier('tgn', $tgn);
-
-        return $this;
     }
 
     /**
@@ -188,7 +186,7 @@ class Place extends SchemaOrg
     /**
      * Gets containedInPlace.
      *
-     * @return string|null
+     * @return Place|null
      */
     public function getContainedInPlace()
     {

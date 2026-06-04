@@ -55,7 +55,7 @@ abstract class SchemaOrg
     protected $name = ['_' => null];
 
     /**
-     * @var array
+     * @var array|null
      */
     #[Serializer\Type('array<string,string>')]
     #[Serializer\XmlMap(inline: true, keyAttribute: 'lang', entry: 'disambiguatingDescription')]
@@ -191,8 +191,6 @@ abstract class SchemaOrg
     public function setLcauth($lcauth)
     {
         return $this->setIdentifier('lcauth', $lcauth);
-
-        return $this;
     }
 
     /**

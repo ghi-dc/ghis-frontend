@@ -451,7 +451,10 @@ class Repository implements InterfaceRepository
 
         $records = [];
         foreach ($results as $result) {
-            $records[] = $this->buildRecord($result, $params['metadataPrefix']);
+            $record = $this->buildRecord($result, $params['metadataPrefix']);
+            if (!is_null($record)) {
+                $records[] = $record;
+            }
         }
 
         return $records;
@@ -460,12 +463,12 @@ class Repository implements InterfaceRepository
     /**
      * @param string $metadataFormat metadata format of the record to be built
      *
-     * @return Record
+     * @return Record|null
      */
     protected function buildRecord($resource, $metadataFormat = null)
     {
         if (!in_array($resource->getGenre(), $this->options['genres'])) {
-            return;
+            return null;
         }
 
         $locale = $this->request->getLocale();
@@ -542,13 +545,13 @@ class Repository implements InterfaceRepository
      * @param string $metadataFormat metadata format of the record to be fetched
      * @param string $identifier     identifier of the record to be fetched
      *
-     * @return Record
+     * @return Record|null
      */
     protected function getSomeRecord($metadataFormat, $identifier)
     {
         $record =  $this->contentService->getResourceByUid($identifier);
         if (is_null($record)) {
-            return;
+            return null;
         }
 
         return $this->buildRecord($record, $metadataFormat);

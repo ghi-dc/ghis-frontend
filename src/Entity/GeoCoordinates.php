@@ -14,14 +14,14 @@ use JMS\Serializer\Annotation as Serializer;
 class GeoCoordinates extends SchemaOrg
 {
     /**
-     * @var string
+     * @var string|null
      */
     #[Serializer\Type('string')]
     #[Serializer\XmlElement(cdata: false)]
     protected $latitude;
 
     /**
-     * @var string
+     * @var string|null
      */
     #[Serializer\Type('string')]
     #[Serializer\XmlElement(cdata: false)]
@@ -39,7 +39,7 @@ class GeoCoordinates extends SchemaOrg
     /**
      * Sets latitude.
      *
-     * @param string $latitude
+     * @param string|null $latitude
      *
      * @return $this
      */
@@ -53,7 +53,7 @@ class GeoCoordinates extends SchemaOrg
     /**
      * Gets latitude.
      *
-     * @return string
+     * @return string|null
      */
     public function getLatitude()
     {
@@ -63,7 +63,7 @@ class GeoCoordinates extends SchemaOrg
     /**
      * Sets longitude.
      *
-     * @param string $longitude
+     * @param string|null $longitude
      *
      * @return $this
      */
@@ -77,7 +77,7 @@ class GeoCoordinates extends SchemaOrg
     /**
      * Gets longitude.
      *
-     * @return string
+     * @return string|null
      */
     public function getLongitude()
     {

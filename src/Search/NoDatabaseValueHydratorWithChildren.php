@@ -15,9 +15,9 @@ use FS\SolrBundle\Doctrine\Mapper\MetaInformationFactory;
  *
  * To use this Hydrator, make use of a service decoration in services.yaml
  *  # Override hydrator, see https://symfony.com/doc/4.4/service_container/service_decoration.html
- *   solr.doctrine.hydration.no_database_value_hydrator:
- *       class: App\Search\NoDatabaseValueHydratorWithChildren
- *        arguments: [ '@solr.meta.information.factory' ]
+ *  solr.doctrine.hydration.no_database_value_hydrator:
+ *      class: App\Search\NoDatabaseValueHydratorWithChildren
+ *      arguments: [ '@solr.meta.information.factory' ]
  */
 class NoDatabaseValueHydratorWithChildren extends \FS\SolrBundle\Doctrine\Hydration\NoDatabaseValueHydrator
 {
@@ -45,6 +45,7 @@ class NoDatabaseValueHydratorWithChildren extends \FS\SolrBundle\Doctrine\Hydrat
 
                 $childDocument = new \Solarium\QueryType\Select\Result\Document($child);
                 $childEntity = parent::hydrate($childDocument, $childMetaInformation);
+                // @phpstan-ignore function.impossibleType ($childEntity non-nullable according to parent::hydrate() docblock)
                 if (!is_null($childEntity)) {
                     $addMethodName = 'add' . ucfirst($camelCasePropertyName);
                     if (method_exists($targetEntity, $addMethodName)) {

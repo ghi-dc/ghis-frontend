@@ -302,7 +302,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets translator.
      *
-     * @return string
+     * @return string|null
      */
     public function getTranslator()
     {
@@ -344,7 +344,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets licence.
      *
-     * @return string
+     * @return string|null
      */
     public function getLicence()
     {
@@ -354,7 +354,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Sets licence target url.
      *
-     * @param string $licenceTarget
+     * @param string|null $licenceTarget
      *
      * @return $this
      */
@@ -368,7 +368,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets licence target.
      *
-     * @return string
+     * @return string|null
      */
     public function getLicenceTarget()
     {
@@ -392,7 +392,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets note.
      *
-     * @return string
+     * @return string|null
      */
     public function getNote()
     {
@@ -416,7 +416,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets sourceDescBibl.
      *
-     * @return string
+     * @return string|null
      */
     public function getSourceDescBibl()
     {
@@ -440,7 +440,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets language.
      *
-     * @return string
+     * @return string|null
      */
     public function getLanguage()
     {
@@ -450,7 +450,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Sets translated from.
      *
-     * @param string $language
+     * @param string|null $language
      *
      * @return $this
      */
@@ -477,16 +477,20 @@ class TeiHeader implements \JsonSerializable
         if (!empty($codes)) {
             return $codes[0];
         }
+
+        return null;
     }
 
     /**
      * Sets creation date.
      *
+     * @param string $dateCreation
+     *
      * @return $this
      */
-    public function setDateCreation($date)
+    public function setDateCreation($dateCreation)
     {
-        $this->dateCreation = $date;
+        $this->dateCreation = $dateCreation;
 
         return $this;
     }
@@ -494,7 +498,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets creation date.
      *
-     * @return string
+     * @return string|null
      */
     public function getDateCreation()
     {
@@ -518,7 +522,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets shelfmark.
      *
-     * @return string
+     * @return string|null
      */
     public function getShelfmark()
     {
@@ -588,6 +592,8 @@ class TeiHeader implements \JsonSerializable
         if (!empty($codes)) {
             return $codes[0];
         }
+
+        return null;
     }
 
     /**
@@ -699,6 +705,8 @@ class TeiHeader implements \JsonSerializable
         if (array_key_exists($type, $this->idno)) {
             return $this->idno[$type];
         }
+
+        return null;
     }
 
     public function setDtaDirName($DTADirName)
@@ -733,7 +741,7 @@ class TeiHeader implements \JsonSerializable
     /**
      * Gets doi.
      *
-     * @return string
+     * @return string|null
      */
     public function getDoi()
     {
@@ -768,6 +776,8 @@ class TeiHeader implements \JsonSerializable
         if (!empty($codes)) {
             return $codes[0];
         }
+
+        return null;
     }
 
     public function jsonSerialize(): mixed

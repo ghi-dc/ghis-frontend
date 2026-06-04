@@ -19,8 +19,12 @@ class Repository extends \FS\SolrBundle\Repository\Repository
 
         $this->hydrationMode = HydrationModes::HYDRATE_INDEX;
 
-        // so we can switch between languages
-        $this->metaInformation->setIndex($this->solr->getClient()->getEndpoint()->getKey());
+        // setIndex is implemented in MetaInformation, but not defined in MetaInformationInterface
+        // so we need to check if it exists
+        if (method_exists($this->metaInformation, 'setIndex')) {
+            // so we can switch between languages
+            $this->metaInformation->setIndex($this->solr->getClient()->getEndpoint()->getKey());
+        }
     }
 
     public function findBy(array $args, ?array $orderBy = null, $limit = null, $offset = null): array
