@@ -3,9 +3,7 @@
 /**
  * Methods for Document Conversions.
  * Interfaces inspired by ezcDocument
- *  https://github.com/zetacomponents/Document/blob/master/src/interfaces/document.php
- * TODO: Build a separate Component
- * TODO: Switch to http://masterminds.github.io/html5-php/.
+ *  https://github.com/zetacomponents/Document/blob/master/src/interfaces/document.php.
  */
 
 namespace App\Utils;
@@ -15,6 +13,14 @@ class HtmlDocument extends Document
     protected $mimeType = 'text/html';
     protected $dom;
 
+    /**
+     * Minify HTML5 source by removing extra whitespaces, comments and other unneeded characters
+     * without breaking the content structure.
+     *
+     * @param string $html HTML5 content
+     *
+     * @return string
+     */
     public static function minify($html)
     {
         $htmlMin = new \voku\helper\HtmlMin();
@@ -51,6 +57,13 @@ class HtmlDocument extends Document
         parent::__construct($options);
     }
 
+    /**
+     * Load HTML from file.
+     *
+     * @param string $fname the path to the file to parse
+     *
+     * @return \DOMDocument|false a DOM document
+     */
     protected function loadHtml($fname)
     {
         $html5 = new \Masterminds\HTML5();
@@ -62,14 +75,31 @@ class HtmlDocument extends Document
         return $dom;
     }
 
+    /**
+     * Load HTML fragment from string.
+     *
+     * @param string $html HTML5 fragment as a string
+     *
+     * @return \DOMDocumentFragment|false a DOM fragment
+     */
     protected function loadHtmlString($html)
     {
         $html5 = new \Masterminds\HTML5();
         $dom = $html5->loadHTMLFragment($html);
 
+        // possibly call $html5->hasErrors() since errors do not stop parsing and a DOM will be returned.
+        // depending on $html->getErrors(), false might be a more appropriate return value than $dom
+
         return $dom;
     }
 
+    /**
+     * Load HTML fragment from string.
+     *
+     * @param string $html HTML5 fragment as a string
+     *
+     * @return bool
+     */
     public function loadString($html)
     {
         $dom = $this->loadHTMLString($html);
@@ -82,6 +112,13 @@ class HtmlDocument extends Document
         return true;
     }
 
+    /**
+     * Load HTML fragment from file.
+     *
+     * @param string $fname the path to the file to parse
+     *
+     * @return bool
+     */
     public function load($fname)
     {
         $dom = $this->loadHTML($fname);
@@ -105,6 +142,11 @@ class HtmlDocument extends Document
         return $textContent;
     }
 
+    /**
+     * Pretty print.
+     *
+     * return bool
+     */
     protected function prettify()
     {
         $prettyPrinter = $this->getOption('prettyPrinter');
@@ -140,6 +182,11 @@ class HtmlDocument extends Document
         return false;
     }
 
+    /**
+     * Save Document to string.
+     *
+     * @return string|null
+     */
     public function saveString()
     {
         if (is_null($this->dom)) {
