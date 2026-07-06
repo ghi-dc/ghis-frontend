@@ -75,7 +75,18 @@ class TeiHeader implements \JsonSerializable
     #[Solr\Field(type: 'string')]
     protected $shelfmark;
 
+    /**
+     * @var string the indexing date
+     */
+    #[Solr\Field(type: 'date')]
+    protected $dateIndexed;
+
+    /**
+     * @var string the creation date
+     */
+    #[Solr\Field(type: 'string')]
     protected $dateCreation;
+
     protected $idno = [];
     protected $classCodes = [];
 
@@ -479,6 +490,16 @@ class TeiHeader implements \JsonSerializable
         }
 
         return null;
+    }
+
+    /**
+     * Gets indexing date.
+     *
+     * @return string|null
+     */
+    public function getDateIndexed()
+    {
+        return $this->dateIndexed;
     }
 
     /**

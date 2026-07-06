@@ -74,6 +74,10 @@ class BaseController extends AbstractController
                         $format = 'pdf';
                         $identifier = $identifier->replace('.pdf', '');
                     }
+                    else if ($identifier->endsWith('.jsonld')) {
+                        $format = 'json-ld';
+                        $identifier = $identifier->replace('.jsonld', '');
+                    }
 
                     if ($identifier->startsWith($shelfmarkParts[0] . ':')) {
                         // uid instead of slug
@@ -102,6 +106,7 @@ class BaseController extends AbstractController
                         }
                         else {
                             $args['resource'] = $resource;
+                            $args['format'] = $format;
                             $method = 'pdf' == $format
                                 ? 'App\Controller\ResourceController::resourceAsPdfAction'
                                 : 'App\Controller\ResourceController::resourceAction';

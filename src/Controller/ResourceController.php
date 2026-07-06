@@ -508,7 +508,6 @@ class ResourceController extends BaseController
                 'lang' => $resource->getLanguage(),
             ],
         ]);
-
     }
 
     /**
@@ -752,7 +751,7 @@ class ResourceController extends BaseController
     ) {
         $this->contentService->setLocale($request->getLocale());
 
-        // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
+        // https://symfony.com/doc/current/http_cache/validation.html#optimizing-your-code-with-validation
         $response = new Response();
 
         $eTag = null;
@@ -813,19 +812,22 @@ class ResourceController extends BaseController
         UrlGeneratorInterface $urlGenerator,
         FeatureManagerInterface $featureManager,
         $volume,
-        $resource
+        $resource,
+        $format = 'html'
     ) {
         $this->contentService->setLocale($request->getLocale());
 
-        // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
+        // https://symfony.com/doc/current/http_cache/validation.html#optimizing-your-code-with-validation
         $response = new Response();
 
         $eTag = null;
-        $eTagSolr = $this->contentService->computeETag();
-        if (!is_null($eTagSolr)) {
-            $eTagResourceToHtml = $this->computeResourceToHtmlEtag($volume, $resource);
-            if (!is_null($eTagResourceToHtml)) {
-                $eTag = join('-', [$eTagSolr, $eTagResourceToHtml]);
+        if ('html' == $format) {
+            $eTagSolr = $this->contentService->computeETag();
+            if (!is_null($eTagSolr)) {
+                $eTagResourceToHtml = $this->computeResourceToHtmlEtag($volume, $resource);
+                if (!is_null($eTagResourceToHtml)) {
+                    $eTag = join('-', [$eTagSolr, $eTagResourceToHtml]);
+                }
             }
         }
 
@@ -877,6 +879,39 @@ class ResourceController extends BaseController
             })
             ->url($canonicalUrl)
         ;
+
+        if ('json-ld' == $format) {
+            $dateIndexed = $resource->getDateIndexed();
+            if (preg_match('/^(\d{4})/', $dateIndexed, $matches)) {
+                // TODO: possibly support fine-grained temporal coverage in the future
+                $schema->temporalCoverage($matches[1]);
+            }
+
+            $schema->if(count($resource->getAuthors()) > 0, function ($schema) use ($resource) {
+                $schema->authors(
+                    array_map(function ($name) {
+                        return Schema::person()->name($name);
+                    }, $resource->getAuthors())
+                );
+            });
+
+            $body = $parts['body'];
+
+            $body = preg_replace('/<ul id="authors">.*?<\/ul>/s', '', $body);
+            $body = preg_replace('/<h2 class="source\-head">.*?<\/h2>/s', '', $body);
+
+            $html = new \voku\Html2Text\Html2Text($body, [
+                'elements' => [
+                    'h1' => [
+                        'case' => \voku\Html2Text\Html2Text::OPTION_NONE,
+                    ],
+                ],
+            ]);
+
+            $schema->text($html->getText());
+
+            return new JsonLdResponse($schema);
+        }
 
         $similar = [];
         switch ($resource->getGenre()) {
@@ -997,7 +1032,7 @@ class ResourceController extends BaseController
             ],
         ];
 
-        // https://symfony.com/doc/5.4/http_cache/validation.html#optimizing-your-code-with-validation
+        // https://symfony.com/doc/current/http_cache/validation.html#optimizing-your-code-with-validation
         $response = new Response();
 
         $eTag = $this->xsltProcessor->computeETag($fnameFull, $fnameXsl, $transformOptions);
