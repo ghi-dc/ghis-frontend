@@ -77,13 +77,14 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     Open-Source-XML-Datenbank, mit <ref target="https://www.collectiveaccess.org/"
                         >CollectiveAccess</ref>, einem Open-Source-Sammlungsverwaltungssystem. Eine
                         <ref target="https://solr.apache.org/">Solr-Suchmaschine</ref> bietet
-                    optimale Such- und Navigationsfunktionalität. Der Programm-Code ist unter einer freien Lizenz auf <ref target="https://github.com/ghi-dc">GitHub</ref> veröffentlicht. Standardisierte administrative,
-                    beschreibende und technische Metadaten, einschließlich granularer Quellen- und
-                    Rechteinformationen, verbessern die Auffindbarkeit und unterstützen die
-                    langfristige digitale Verwaltung. Die Verwendung von Standardformaten wie TEI P5
-                    (für Primärquellentexte und Übersetzungen) und DOI (persistente
-                    Identifikationen) unterstützt den Zugang und die digitale Langzeitarchivierung.
-                </p>
+                    optimale Such- und Navigationsfunktionalität. Der Programm-Code ist unter einer
+                    freien Lizenz auf <ref target="https://github.com/ghi-dc">GitHub</ref>
+                    veröffentlicht. Standardisierte administrative, beschreibende und technische
+                    Metadaten, einschließlich granularer Quellen- und Rechteinformationen,
+                    verbessern die Auffindbarkeit und unterstützen die langfristige digitale
+                    Verwaltung. Die Verwendung von Standardformaten wie TEI P5 (für
+                    Primärquellentexte und Übersetzungen)<!-- und DOI (persistente Identifikationen)-->
+                    unterstützt den Zugang und die digitale Langzeitarchivierung. </p>
             </div>
         </body>
     </text>

@@ -81,7 +81,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     Standardized administrative, descriptive and technical metadata, including
                     granular source and rights information, enhances discoverability and supports
                     long-term digital stewardship. The use of standard format such as TEI P5 (for
-                    primary-source texts and translations) and DOI (persistent identifications)
+                    primary-source texts and translations)<!-- and DOI (persistent identifications)-->
                     further supports access and digital preservation. </p>
             </div>
         </body>

@@ -84,7 +84,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     Metadaten, einschließlich granularer Quellen- und Rechteinformationen,
                     verbessern die Auffindbarkeit und unterstützen die langfristige digitale
                     Verwaltung. Die Verwendung von Standardformaten wie TEI P5 (für
-                    Primärquellentexte und Übersetzungen) und DOI (persistente Identifikationen)
+                    Primärquellentexte und Übersetzungen)<!-- und DOI (persistente Identifikationen)-->
                     unterstützt den Zugang und die digitale Langzeitarchivierung. </p>
             </div>
         </body>
