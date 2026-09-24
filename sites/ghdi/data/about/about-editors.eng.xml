@@ -15,7 +15,7 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                 </publisher>
                 <pubPlace>Washington, D.C.</pubPlace>
                 <idno>
-                    <idno type="DTAID">ghis:about-editors</idno>
+                    <idno type="DTAID">ghdi:about-editors</idno>
                     <idno type="DTADirName">editors</idno>
                     <idno type="shelfmark">ghdi/900:about/001:about-editors</idno>
                 </idno>
@@ -75,13 +75,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     (Northeastern University) </p>
                 <p> 9. <ref target="../two-germanies-1961-1989">Two Germanies, 1961–1989</ref><lb/>
                     <ref target="https://history.unc.edu/emeritus/konrad-h-jarausch/">Konrad
-                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                        Jarausch</ref> † (University of North Carolina, Chapel Hill)<lb/>
                     <ref
                         target="https://college.wfu.edu/college-news/teacher-scholar-legacies/teacher-scholar-legacies-helga-welsh/"
                         >Helga Welsh</ref> (Wake Forest University) </p>
                 <p> 10. <ref target="../a-new-germany-1990-2023">A New Germany, 1990–2023</ref><lb/>
                     <ref target="https://history.unc.edu/emeritus/konrad-h-jarausch/">Konrad
-                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                        Jarausch</ref> † (University of North Carolina, Chapel Hill)<lb/>
                     <ref
                         target="https://college.wfu.edu/college-news/teacher-scholar-legacies/teacher-scholar-legacies-helga-welsh/"
                         >Helga Welsh</ref> (Wake Forest University) </p>
@@ -126,13 +126,13 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
                     (Northeastern University) </p>
                 <p> 9. Two Germanies, 1961–1989<lb/>
                     <ref target="https://history.unc.edu/emeritus/konrad-h-jarausch/">Konrad
-                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                        Jarausch</ref> † (University of North Carolina, Chapel Hill)<lb/>
                     <ref
                         target="https://college.wfu.edu/college-news/teacher-scholar-legacies/teacher-scholar-legacies-helga-welsh/"
                         >Helga Welsh</ref> (Wake Forest University) </p>
                 <p> 10. One Germany in Europe, 1989–2009<lb/>
                     <ref target="https://history.unc.edu/emeritus/konrad-h-jarausch/">Konrad
-                        Jarausch</ref> (University of North Carolina, Chapel Hill)<lb/>
+                        Jarausch</ref> † (University of North Carolina, Chapel Hill)<lb/>
                     <ref
                         target="https://college.wfu.edu/college-news/teacher-scholar-legacies/teacher-scholar-legacies-helga-welsh/"
                         >Helga Welsh</ref> (Wake Forest University) </p>
