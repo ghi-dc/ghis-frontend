@@ -33,7 +33,7 @@
         "boppy/solr-bundle": "dev-doctrine-event-listener",
         "edwinhoksberg/octicons-php": "^1.1",
         "flagception/flagception-bundle": "^6.1",
-        "fluentdom/fluentdom": "dev-master as 8.0",
+        "fluentdom/fluentdom": "dev-main as 8.0",
         "jms/serializer": "^3.32",
         "jms/translation-bundle": "dev-symfony-8",
         "knplabs/knp-menu-bundle": "^3.7",
