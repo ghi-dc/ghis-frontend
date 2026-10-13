@@ -280,7 +280,7 @@ class SearchController extends BaseController
                 ));
 
                 return $field . ':(' . $orCondition . ')';
-                break;
+                break; // @phpstan-ignore deadCode.unreachable
 
             default:
                 return $field . ':' . $filter[$facetName];

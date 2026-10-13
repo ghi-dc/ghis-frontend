@@ -213,8 +213,6 @@ abstract class SchemaOrg
     public function setViaf($viaf)
     {
         return $this->setIdentifier('viaf', $viaf);
-
-        return $this;
     }
 
     /**

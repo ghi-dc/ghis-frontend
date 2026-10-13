@@ -3,7 +3,7 @@
 namespace App\Service\Xsl;
 
 /**
- * Verbatim copy of https://github.com/jalet/util-sprintf-php.
+ * Based on https://github.com/jalet/util-sprintf-php.
  */
 class Sprintf
 {
@@ -69,16 +69,16 @@ class Sprintf
         switch ($format) {
 
             case 'int':
-                $string = preg_replace('/%' . $key . '%/', intval($val), self::$string);
+                $string = preg_replace('/%' . $key . '%/', (string) intval($val), self::$string);
                 break;
 
             case 'float':
-                $string = preg_replace('/%' . $key . '%/', floatval($val), self::$string);
+                $string = preg_replace('/%' . $key . '%/', (string) floatval($val), self::$string);
                 break;
 
             case 'bool':
                 $string = 'str' === $output ? preg_replace('/%' . $key . '%/', (bool) $val ? 'true' : 'false', self::$string)
-                                            : preg_replace('/%' . $key . '%/', (bool) $val, self::$string);
+                                            : preg_replace('/%' . $key . '%/', (string) ((bool) $val), self::$string);
                 break;
 
             default:

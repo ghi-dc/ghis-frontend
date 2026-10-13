@@ -503,7 +503,7 @@ class Repository implements InterfaceRepository
         $subject = self::xmlEncode(implode(', ', $subjectParts));
         $creator = self::xmlEncode(implode(', ', $creatorParts));
 
-        if (!is_null($datePublished)) {
+        if (!is_null($datePublished)) { // @phpstan-ignore function.alreadyNarrowedType (we currently explicitly set null for datePublished)
             $date = $datePublished->format('Y-m-d');
         }
         else {

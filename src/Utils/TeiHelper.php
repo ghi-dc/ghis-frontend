@@ -629,9 +629,10 @@ class TeiHelper
 
                             if ($author instanceof \App\Entity\Person) {
                                 // build fragment string from Entity
-                                $ref = [];
 
                                 /*
+                                $ref = [];
+
                                 // currently no Lod-Identifiers in front-end
                                 foreach ($author->getIdentifiers() as $name => $value) {
                                     $identifier = Lod\Identifier\Factory::byName($name);
