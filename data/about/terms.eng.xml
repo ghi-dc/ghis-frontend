@@ -37,12 +37,12 @@ schematypens="http://relaxng.org/ns/structure/1.0"?>
         <body>
             <div n="2">
                 <head>Conditions of Use</head>
-                <p> The primary-source materials reproduced in <hi rendition="#i">German History
+                <p> The source materials included in <hi rendition="#i">German History
                         Intersections</hi> are intended for individual, academic, educational, and
                     non-commercial use. Each source is fully attributed and includes
                     <!--a DOI and--> a recommended citation for use in referencing the project in
                     academic books and articles, term papers, and student assignments in either
-                    printed or digital form. </p>
+                    print or digital form. </p>
             </div>
 
             <div n="2">
