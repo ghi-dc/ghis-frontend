@@ -80,6 +80,11 @@ services:
         tags:
         - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
 
+    # Explicitly configure UriSigner with a custom secret
+    Symfony\Component\HttpFoundation\UriSigner:
+        arguments:
+            $secret: '%env(URI_SIGNER_SECRET)%'
+
     # So we can inject @solr.client, see https://github.com/floriansemm/SolrBundle/issues/191#issuecomment-466101623
     FS\SolrBundle\SolrInterface: '@solr.client'
 

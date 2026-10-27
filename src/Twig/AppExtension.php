@@ -5,6 +5,8 @@
 namespace App\Twig;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\UriSigner;
 use Symfony\Component\Intl\Locales;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Extension\AbstractExtension;
@@ -16,6 +18,7 @@ class AppExtension extends AbstractExtension
 {
     private $contentService;
     private $urlGenerator;
+    private $uriSigner;
     private $publicDir;
     private $volumeById = [];
 
@@ -26,12 +29,13 @@ class AppExtension extends AbstractExtension
         ContentService $contentService,
         UrlGeneratorInterface $urlGenerator,
         TranslatorInterface $translator,
+        UriSigner $uriSigner,
         $publicDir
     ) {
         $this->contentService = $contentService;
         $this->urlGenerator = $urlGenerator;
+        $this->uriSigner = $uriSigner;
         $this->publicDir = realpath($publicDir);
-
         $locale = explode('@', $translator->getLocale(), 2);
         $this->contentService->setLocale($locale[0]);
         $volumes = $this->contentService->getVolumes();
@@ -66,6 +70,7 @@ class AppExtension extends AbstractExtension
             new TwigFunction('resource_breadcrumb', [$this, 'buildResourceBreadcrumb'], ['is_safe' => ['html']]),
             new TwigFunction('resource_thumbnail', [$this, 'buildResourceThumbnail']),
             new TwigFunction('get_volumes', [$this, 'getVolumes']),
+            new TwigFunction('get_archive_url', [$this, 'getArchiveUrl']),
         ];
     }
 
@@ -199,5 +204,56 @@ class AppExtension extends AbstractExtension
         $this->contentService->setLocale($locale);
 
         return $this->contentService->getVolumes();
+    }
+
+    private static function http_build_url($url): string
+    {
+        $scheme = isset($url['scheme']) ? $url['scheme'].'://' : '';
+        $host = $url['host'] ?? '';
+        $port = isset($url['port']) ? ':'.$url['port'] : '';
+        $user = $url['user'] ?? '';
+        $pass = isset($url['pass']) ? ':'.$url['pass'] : '';
+        $pass = ($user || $pass) ? "$pass@" : '';
+        $path = $url['path'] ?? '';
+        $query = $url['query'] ? '?'.$url['query'] : '';
+        $fragment = isset($url['fragment']) ? '#'.$url['fragment'] : '';
+
+        return $scheme.$user.$pass.$host.$port.$path.$query.$fragment;
+    }
+
+    private static function http_strip_query_param($url, $param)
+    {
+        $pieces = parse_url($url);
+        if (!$pieces['query']) {
+            return $url;
+        }
+
+        $query = [];
+        parse_str($pieces['query'], $query);
+        if (!isset($query[$param])) {
+            return $url;
+        }
+
+        unset($query[$param]);
+        $pieces['query'] = http_build_query($query);
+
+        return self::http_build_url($pieces);
+    }
+
+    /**
+     * If a correctly signed archive URL was passed, return it without the _hash parameter.
+     */
+    public function getArchiveUrl(Request $request): ?string
+    {
+        $archiveUrl = $request->query->get('archiveUrl');
+        if (empty($archiveUrl)) {
+            return null;
+        }
+
+        if (!$this->uriSigner->check($archiveUrl)) {
+            return null;
+        }
+
+       return self::http_strip_query_param($archiveUrl, '_hash');
     }
 }

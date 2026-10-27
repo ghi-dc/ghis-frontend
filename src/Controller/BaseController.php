@@ -117,7 +117,7 @@ class BaseController extends AbstractController
         }
 
         if (!is_null($method)) {
-            return $this->forward($method, $args);
+            return $this->forward($method, $args, $request->query->all());
         }
 
         throw $this->createNotFoundException('No route found');

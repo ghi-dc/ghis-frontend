@@ -12,6 +12,10 @@ map:            Karte
 volume:         Band
 introduction:   Einführung
 document-collection: Kapitel
+# redirect notice
+Redirect Notice: Weiterleitungs-Hinweis
+'You reached this site from the first edition of GHDI (GHDI 1.0).': 'Sie sind von der ersten Ausgabe von GHDI (GHDI 1.0) auf diese Seite gelangt.'
+You can visit an archived version of the original page at: 'Sie finden eine archivierte Version der ursprünglichen Seite unter'
 # partner matches
 result.partner_ghdi: Sie finden <a href="{partnerUrl}" target="_blank">{count, plural, =0 {Keine Treffer} one {# Treffer} other {# Treffer}}</a> zu dieser Suchanfrage in unserem Partnerprojekt German History in Documents and Images.
 result.partner_ghis: Sie finden <a href="{partnerUrl}" target="_blank">{count, plural, =0 {Keine Treffer} one {# Treffer} other {# Treffer}}</a> zu dieser Suchanfrage in unserem Partnerprojekt German History Intersections.
