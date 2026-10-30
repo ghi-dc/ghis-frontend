@@ -208,17 +208,17 @@ class AppExtension extends AbstractExtension
 
     private static function http_build_url($url): string
     {
-        $scheme = isset($url['scheme']) ? $url['scheme'].'://' : '';
+        $scheme = isset($url['scheme']) ? $url['scheme'] . '://' : '';
         $host = $url['host'] ?? '';
-        $port = isset($url['port']) ? ':'.$url['port'] : '';
+        $port = isset($url['port']) ? ':' . $url['port'] : '';
         $user = $url['user'] ?? '';
-        $pass = isset($url['pass']) ? ':'.$url['pass'] : '';
+        $pass = isset($url['pass']) ? ':' . $url['pass'] : '';
         $pass = ($user || $pass) ? "$pass@" : '';
         $path = $url['path'] ?? '';
-        $query = $url['query'] ? '?'.$url['query'] : '';
-        $fragment = isset($url['fragment']) ? '#'.$url['fragment'] : '';
+        $query = $url['query'] ? '?' . $url['query'] : '';
+        $fragment = isset($url['fragment']) ? '#' . $url['fragment'] : '';
 
-        return $scheme.$user.$pass.$host.$port.$path.$query.$fragment;
+        return $scheme . $user . $pass . $host . $port . $path . $query . $fragment;
     }
 
     private static function http_strip_query_param($url, $param)
@@ -254,6 +254,6 @@ class AppExtension extends AbstractExtension
             return null;
         }
 
-       return self::http_strip_query_param($archiveUrl, '_hash');
+        return self::http_strip_query_param($archiveUrl, '_hash');
     }
 }
