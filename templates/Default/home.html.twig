@@ -43,7 +43,7 @@
         {% set numCols = (12 / volumes|length)|round(0, 'floor') %}
         {% for volume in volumes %}
             <div class="col-sm-{{ numCols}} hyphens-auto">
-                <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}"><img class="d-sm-none" src="{{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg" style="margin-top: 16px; width: 100%; height: auto;" /></a>
+                <a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}"><img class="d-sm-none" src="{{ app.request.basepath }}/media/banner/{{ volume.getId(true) }}.jpg" style="margin-top: 16px; width: 100%; height: auto;" alt="Banner {{ volume.title }} /></a>
                 <h5><a href="{{ path('dynamic', { 'path': volume.dtaDirname }) }}">{{ volume.title }}</a></h5>
                 {{ volume.note }}
             </div>
