@@ -1,0 +1,32 @@
+{% extends 'Base/base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-10">
+            {# the following mimicks the breadcrumb from Shared/about.html.twig #}
+            <div class="d-flex justify-content-between">
+                <ul class="breadcrumb p-2">
+                    <li>{{ 'GHIS Extra'|trans }}</li>
+                </ul>
+            </div>
+
+    {% if 'de' == app.request.locale %}
+            <h2>History Vision Clips</h2>
+            <p>
+                Diese Auswahl an Videoclips wurde ursprünglich zur Unterstützung des „<a href="https://germanstudiescollaboratory.com/" target="_blank">German Studies Collaboratory</a>“  zusammengestellt. Die Clips greifen die in <i>Intersections</i> behandelten Themen auf: Migration, Wissen und Bildung sowie „Deutschsein“. Alle Clips stammen von <a href="https://www.history-vision.de/" target="_blank">history-vision.de</a>, einem Online-Archiv für zeitgenössisches Filmmaterial zur deutschen, europäischen und internationalen Geschichte.
+            </p>
+            <p>
+                <a href="https://www.germanhistory-intersections.org/media-lab/">Videos anzeigen &gt;</a>
+            </p>
+    {% else %}
+            <h2>History Vision Clips</h2>
+            <p>
+                This selection of video clips was originally compiled in support of the <a href="https://germanstudiescollaboratory.com/" target="_blank">German Studies Collaboratory</a>. The clips speak to the themes addressed in the <i>Intersections</i> project: migration, “Germanness,” and knowledge and education. All of the clips come from <a href="https://www.history-vision.de/" target="_blank">history-vision.de</a>, an online archive for contemporary film materials on German, European, and international history.
+            </p>
+            <p>
+                <a href="https://www.germanhistory-intersections.org/media-lab/">Show videos &gt;</a>
+            </p>
+    {% endif %}
+        </div>
+    </div><!-- .row -->
+{% endblock %}

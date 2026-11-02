@@ -11,7 +11,32 @@ use Symfony\Component\Yaml\Yaml;
 
 class ExtraController extends BaseController
 {
-    #[Route(path: ['en' => '/teaching', 'de' => '/unterricht'], name: 'teaching-index', options: ['sitemap' => true])]
+    /**
+     * For GHIS (redirects to home on GHDI).
+     */
+    #[Route(
+        path: ['en' => '/extra', 'de' => '/extra'],
+        name: 'extra',
+        options: ['sitemap' => true]
+    )]
+    public function extraAction(Request $request): Response
+    {
+        if ('ghis' !== $this->siteKey) {
+            // nothing to show
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('Extra/extra.html.twig');
+    }
+
+    /**
+     * For GHDI (redirects to home on GHIS).
+     */
+    #[Route(
+        path: ['en' => '/teaching', 'de' => '/unterricht'],
+        name: 'teaching-index',
+        options: ['sitemap' => true]
+    )]
     public function teachingIndexAction(Request $request): Response
     {
         // load the teaching

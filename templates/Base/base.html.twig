@@ -89,6 +89,9 @@
                         <a class="dropdown-item" href="{{ path('terms') }}">{{ 'Terms and Conditions'|trans }}</a>
                     </div>
                     #}
+                    <a href="{{ path('extra') }}" class="ml-2 mr-2">
+                        {{ 'GHIS Extra'|trans }}
+                    </a>
                 </li>
                 {% for locale in locales %}
                 <li class="list-inline-item{% if locale == app.request.locale %} current{% endif %}">
