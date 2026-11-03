@@ -133,9 +133,9 @@
                     </ul>
                     <form action="{{ path('search') }}" method="post">
                         <div class="input-group">
-                            <input id="search-box" name="q" class="form-control" />
+                            <input id="search-box" name="q" class="form-control" aria-label="{{ 'Search'|trans }}" />
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-outline">{{ octicon("search", '') }}</button>
+                                <button type="submit" class="btn btn-outline" aria-label="{{ 'Submit'|trans }}">{{ octicon("search", '') }}</button>
                             </span>
                         </div><!-- .input-group -->
                     </form>
