@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Accessibility Statement</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
+                    <idno type="DTAID">ghis:about-accessibility</idno>
+                    <idno type="DTADirName">accessibility</idno>
+                    <idno type="shelfmark">ghdi/900:about/003:about-accessibility</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="eng">English</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div n="2">
+                <p> This accessibility statement applies to the website
+                    germanhistory-intersections.org of the German Historical Institute Washington. </p>
+                <p> As a public sector body according to the Directive (EU) 2016/2102, we strive to
+                    make our websites and mobile applications compliant with the provisions of the
+                    Federal Act on Equal Opportunities of Persons with Disabilities
+                    (Behindertengleichstellungsgesetz, BGG) and the and the accessible technology
+                    ordinance (Barrierefreie Informationstechnik-Verordnung, BITV 2.0).</p>
+            </div>
+
+            <div n="2">
+                <head>Status of Compliance with the Requirements</head>
+                <p> The accessibility requirements are set forth in Sections 3(1) through (4) and
+                    Section 4 of the BITV 2.0, which was enacted pursuant to Section 12d of the BGG. </p>
+                <p> Verification of compliance with the requirements is based on a self-assessment
+                    carried out on November 3, 2026 </p>
+                <p> Based on the review, the website is partially compliant with the aforementioned
+                    requirements due to the following incompatibilities. </p>
+
+                <p> The content listed below is not accessible for the following reasons:</p>
+                <p> Due to a disproportionate burden, the following functions are temporarily not
+                    designed to be accessible in accordance with § 12a paragraph 6 of the Federal
+                    Court Act (BGG):</p>
+                <list>
+                    <item><hi rendition="#b">Low Contrast</hi>: Some links have low contrast. We
+                        will address this as part of a design update.</item>
+                    <item><hi rendition="#b">Image Sources</hi>: These images lack descriptive text
+                        directly attached to the image itself. However, the abstracts directly above
+                        them typically describe not only the context but also the content of the
+                        image source. Due to the large number of image sources and the fact that
+                        project funding has been concluded, we are unable to add these descriptions
+                        in a timely manner. </item>
+                    <item><hi rendition="#b">PDF-Files</hi>: These are generated automatically and
+                        may not yet be accessible. Once the program code for PDF generation is
+                        updated, we will provide accessible versions.</item>
+                </list>
+            </div>
+
+            <div n="2">
+                <head>Date this statement was compiled or last updated</head>
+                <p> This statement was compiled November 3, 2026
+                    <!-- und zuletzt am [Datum] aktualisiert-->. </p>
+            </div>
+
+            <div n="2">
+                <head>Reporting of Barriers: Contact the Feedback Representatives</head>
+                <p> Would you like to report existing barriers or request information about the
+                    implementation of accessibility? For your feedback and any other information,
+                    please contact our designated representatives at <ref
+                        target="mailto:intersections@ghi-dc.org">intersections@ghi-dc.org</ref> an.
+                </p>
+            </div>
+
+            <div n="2">
+                <head>Arbitration Procedure</head>
+                <p> If you are not satisfied with the responses you receive via the contact options
+                    above, you can contact the Arbitration Service pursuant to Section 16 of the
+                    BGG. The Arbitration Service is tasked with facilitating out-of-court dispute
+                    resolution in cases of conflict regarding accessibility between people with
+                    disabilities and federal government agencies. The arbitration process is free of
+                    charge. You do not need to engage legal counsel. For more information on the
+                    arbitration process and how to submit a request for arbitration, please visit:
+                        <ref target="https://www.schlichtungsstelle-bgg.de"
+                        >www.schlichtungsstelle-bgg.de</ref>.</p>
+                <p>You can contact the Arbitration Service directly at the following address: <ref
+                        target="mailto:info@schlichtungsstelle-bgg.de"
+                        >info@schlichtungsstelle-bgg.de</ref>.</p>
+            </div>
+        </body>
+    </text>
+</TEI>

@@ -185,6 +185,10 @@
         <source>Submit</source>
         <target>Absenden</target>
       </trans-unit>
+      <trans-unit id="txFFw.l" resname="Accessibility">
+        <source>Accessibility</source>
+        <target>Barrierefreiheit</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

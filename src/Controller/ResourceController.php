@@ -1086,6 +1086,7 @@ class ResourceController extends BaseController
     #[Route(path: ['en' => '/about/team', 'de' => '/ueber/team'], name: 'about-team', options: ['sitemap' => true])]
     #[Route(path: ['en' => '/about/partners', 'de' => '/ueber/partner'], name: 'about-partners')]
     #[Route(path: ['en' => '/about/history', 'de' => '/ueber/entwicklung'], name: 'about-history')]
+    #[Route(path: ['en' => '/accessibility', 'de' => '/barrierefreiheit'], name: 'accessibility', options: ['sitemap' => true])]
     #[Route(path: ['en' => '/terms', 'de' => '/impressum'], name: 'terms', options: ['sitemap' => true])]
     public function aboutAction(Request $request): Response
     {

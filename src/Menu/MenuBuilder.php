@@ -82,6 +82,7 @@ class MenuBuilder
             'about' => 'About the Project',
             'about-working-groups' => 'Editorial Working Groups',
             'about-team' => 'GHI Project Team',
+            'accessibility' => 'Accessibility',
             'terms' => 'Terms and Conditions',
         ];
 
