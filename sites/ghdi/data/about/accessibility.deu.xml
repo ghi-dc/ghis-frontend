@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.deutschestextarchiv.de/basisformat.rng"
+type="application/xml"
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title type="main">Erklärung zur Barrierefreiheit</title>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>
+                    <orgName ref="http://d-nb.info/gnd/5015376-6">German Historical Institute
+                        Washington</orgName>
+                </publisher>
+                <pubPlace>Washington, D.C.</pubPlace>
+                <idno>
+                    <idno type="DTAID">ghdi:about-accessibility</idno>
+                    <idno type="DTADirName">barrierefreiheit</idno>
+                    <idno type="shelfmark">ghdi/900:about/003:about-accessibility</idno>
+                </idno>
+            </publicationStmt>
+            <sourceDesc>
+                <p/>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="deu">German</language>
+            </langUsage>
+            <textClass>
+                <classCode scheme="http://germanhistorydocs.org/docs/#genre">about</classCode>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div n="2">
+                <p> Diese Erklärung zur Barrierefreiheit gilt für die unter
+                    germanhistorydocs.org veröffentlichte Website des Deutschen
+                    Historischen Instituts Washington. </p>
+                <p> Als öffentliche Stelle im Sinne der Richtlinie (EU) 2016/2102 sind wir bemüht,
+                    unsere Websites und mobilen Anwendungen im Einklang mit den Bestimmungen des
+                    Behindertengleichstellungsgesetzes des Bundes (BGG) sowie der
+                    Barrierefreien-Informationstechnik-Verordnung (BITV 2.0) zur Umsetzung der
+                    Richtlinie (EU) 2016/2102 barrierefrei zugänglich zu machen. </p>
+            </div>
+
+            <div n="2">
+                <head>Stand der Vereinbarkeit mit den Anforderungen</head>
+                <p> Die Anforderungen der Barrierefreiheit ergeben sich aus §§ 3 Absätze 1 bis 4 und
+                    4 der BITV 2.0, die auf der Grundlage von § 12d BGG erlassen wurde. </p>
+                <p> Die Überprüfung der Einhaltung der Anforderungen beruht auf einer am 5.11.2026
+                    durchgeführten Selbstbewertung. </p>
+                <p> Aufgrund der Überprüfung ist die Website mit den zuvor genannten Anforderungen
+                    wegen der folgenden Unvereinbarkeiten teilweise vereinbar. </p>
+
+                <p>Die nachstehend aufgeführten Inhalte sind aus folgenden Gründen nicht
+                    barrierefrei:</p>
+                <p>Folgende Funktionen sind aufgrund einer unverhältnismäßigen Belastung nach § 12a
+                    Absatz 6 BGG vorübergehend nicht barrierefrei zugänglich gestaltet:</p>
+                <list>
+                    <item><hi rendition="#b">Fehlender Kontrast</hi>: Einige Links sind kontrastarm.
+                        Dies werden wir im Rahmen eines Design-Updates berücksichtigen.</item>
+                    <item><hi rendition="#b">Bildquellen</hi>: Bei diesen fehlen beschreibende Texte
+                        direkt am Objekt. In der Regel beschreiben die direkt darüber stehenden
+                        Abstracts aber nicht nur den Kontext sondern auch den Inhalt der Bildquelle.
+                        Aufgrund der großen Zahl an Bildquellen und der abgeschlossenen
+                        Projektförderungen können wir diese Beschreibungen nicht zeitnah
+                        ergänzen.</item>
+                    <item><hi rendition="#b">PDF-Dateien</hi>: Diese werden automatisiert generiert
+                        und können möglicherweise noch nicht barrierefrei sein. Bei einer
+                        Aktualisierung der Programmlogik der PDF-Generierung werden wir dies
+                        nachreichen.</item>
+                </list>
+            </div>
+
+            <div n="2">
+                <head>Datum der Erstellung bzw. der letzten Aktualisierung der Erklärung</head>
+                <p> Diese Erklärung wurde am 5.11.2026
+                    erstellt<!-- und zuletzt am [Datum] aktualisiert-->. </p>
+            </div>
+
+            <div n="2">
+                <head>Barrieren melden: Kontakt zu den Feedback Ansprechpartnern</head>
+                <p> Sie möchten uns bestehende Barrieren mitteilen oder Informationen zur Umsetzung
+                    der Barrierefreiheit erfragen? Für Ihr Feedback sowie alle weiteren
+                    Informationen sprechen Sie unsere verantwortlichen Kontaktpersonen unter <ref
+                        target="mailto:ghdi@ghi-dc.org">ghdi@ghi-dc.org</ref> an.
+                </p>
+            </div>
+
+            <div n="2">
+                <head>Schlichtungsverfahren</head>
+                <p>Wenn auch nach Ihrem Feedback an den oben genannten Kontakt keine
+                    zufriedenstellende Lösung gefunden wurde, können Sie sich an die
+                    Schlichtungsstelle nach § 16 BGG wenden. Die Schlichtungsstelle BGG hat die
+                    Aufgabe, bei Konflikten zum Thema Barrierefreiheit zwischen Menschen mit
+                    Behinderungen und öffentlichen Stellen des Bundes eine außergerichtliche
+                    Streitbeilegung zu unterstützen. Das Schlichtungsverfahren ist kostenlos. Es
+                    muss kein Rechtsbeistand eingeschaltet werden. Weitere Informationen zum
+                    Schlichtungsverfahren und den Möglichkeiten der Antragstellung erhalten Sie
+                    unter: <ref target="https://www.schlichtungsstelle-bgg.de"
+                        >www.schlichtungsstelle-bgg.de</ref>.</p>
+                <p>Direkt kontaktieren können Sie die Schlichtungsstelle BGG unter <ref
+                        target="mailto:info@schlichtungsstelle-bgg.de"
+                        >info@schlichtungsstelle-bgg.de</ref>.</p>
+            </div>
+        </body>
+    </text>
+</TEI>
