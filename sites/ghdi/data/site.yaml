@@ -87,6 +87,14 @@ teaching:
 
     -
         title:
+            de: "Geschichte mit GIS visualisieren (auf Englisch)"
+            en: "Visualizing History with GIS"
+        slug:
+            de: visualizing-history-with-gis
+            en: visualizing-history-with-gis
+
+    -
+        title:
             de: Ausgewählte Videoclips zu den Themen Migration, „Deutschsein“, und Wissen und Bildung
             en: Selection of Video Clips about Migration, “Germanness,” and Knowledge and Education
         url:
